@@ -1,6 +1,6 @@
 {
   "name": "graphdb-workbench-plugins",
-  "version": "0.0.1-TR2",
+  "version": "0.0.1-TR11",
   "description": "Plugins for GraphDB workbench",
   "license": "Apache-2.0",
   "author": "Ontotext AD",
