@@ -7,7 +7,6 @@ const ajv = new Ajv();
 const validate = ajv.compile(schema);
 
 const manifestPath = './plugins/plugins-manifest.json';
-const pluginsDir = path.dirname(manifestPath);
 
 const data = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
 
