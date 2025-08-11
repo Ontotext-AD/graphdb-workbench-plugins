@@ -7,11 +7,11 @@ const glob = require('glob');
 // Map them to an object entry in order to keep the file structure.
 // This way files can be imported directly using their path.
 const entry = glob.sync('./plugins/**/*.js')
-    .reduce((acc, file) => {
-      const entryName = file.replace('./plugins', '').replace('.js', '');
-      acc[entryName] = file;
-      return acc;
-    }, {});
+  .reduce((acc, file) => {
+    const entryName = file.replace('./plugins', '').replace('.js', '');
+    acc[entryName] = file;
+    return acc;
+  }, {});
 
 module.exports = {
   mode: 'production',
@@ -29,7 +29,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
-        { 
+        {
           from: './plugins/plugins-manifest.json',
           to: 'plugins-manifest.json'
         }

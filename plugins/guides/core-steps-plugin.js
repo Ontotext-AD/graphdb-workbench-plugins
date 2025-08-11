@@ -79,9 +79,9 @@ const definitions = [
         type: 'readonly'
       };
       const stepDescription = angular.extend({}, BASIC_STEP, {
-          initPreviousStep: services.GuideUtils.defaultInitPreviousStep
-        },
-        options, notOverridable);
+        initPreviousStep: services.GuideUtils.defaultInitPreviousStep
+      },
+      options, notOverridable);
       if (!stepDescription.beforeShowPromise) {
         stepDescription.beforeShowPromise = beforeShowPromise(services, stepDescription.elementSelector, stepDescription.maxWaitTime);
       }
@@ -147,11 +147,11 @@ const definitions = [
         initPreviousStep: services.GuideUtils.defaultInitPreviousStep,
         beforeShowPromise: (guide) => services.GuideUtils.waitUntilHidden(options.elementSelectorToHide, options.timeToWait || 2)
           .catch(() => {
-            services.ShepherdService._abortGuide(guide)
+            services.ShepherdService._abortGuide(guide);
           }),
         show: (guide) => () => {
           // Using a timeout because the library executes async logic
-          setTimeout(() => guide.next())
+          setTimeout(() => guide.next());
         }
       }, options);
     }
@@ -163,11 +163,11 @@ const definitions = [
         initPreviousStep: services.GuideUtils.defaultInitPreviousStep,
         beforeShowPromise: (guide) => services.GuideUtils.getOrWaitFor(options.elementSelectorToShow, options.timeToWait || 2)
           .catch(() => {
-            services.ShepherdService._abortGuide(guide)
+            services.ShepherdService._abortGuide(guide);
           }),
         show: (guide) => () => {
           // Using a timeout because the library executes async logic
-          setTimeout(() => guide.next())
+          setTimeout(() => guide.next());
         }
       }, options);
     }
@@ -186,7 +186,7 @@ const definitions = [
       }, options, notOverridable);
     }
   }
-]
+];
 
 export function register(registry) {
   console.log('%cRegister core guide steps', 'background: yellow');
