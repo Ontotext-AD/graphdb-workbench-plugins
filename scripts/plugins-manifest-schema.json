@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "entry": {
+            "type": "string",
+            "pattern": "^.*\\.js$",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name",
+          "entry"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "plugins"
+  ],
+  "additionalProperties": false
+}

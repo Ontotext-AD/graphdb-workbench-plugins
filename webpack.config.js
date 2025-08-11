@@ -30,7 +30,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { 
-          from: './plugins-manifest.json',
+          from: './plugins/plugins-manifest.json',
           to: 'plugins-manifest.json'
         }
       ]
