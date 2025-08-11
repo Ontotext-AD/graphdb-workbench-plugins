@@ -1,7 +1,11 @@
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const glob = require('glob');
+import path from 'path';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import glob from 'glob';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Find all JS files in the plugins directory.
 // Map them to an object entry in order to keep the file structure.
@@ -13,7 +17,7 @@ const entry = glob.sync('./plugins/**/*.js')
     return acc;
   }, {});
 
-module.exports = {
+export default {
   mode: 'production',
   entry,
   output: {
