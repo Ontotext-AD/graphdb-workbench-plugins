@@ -1,6 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const Ajv = require('ajv');
+import fs from 'fs';
+import path from 'path';
+import Ajv from 'ajv';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 const schema = require('./plugins-manifest-schema.json');
 
 const ajv = new Ajv();
@@ -24,7 +27,7 @@ if (duplicates.length > 0) {
 }
 
 // Check that each entry points to an existing .js file in plugins folder
-let missingFiles = [];
+const missingFiles = [];
 data.plugins.forEach(plugin => {
   const entryPath = path.resolve(process.cwd(), plugin.entry);
   if (!fs.existsSync(entryPath) || path.extname(entryPath) !== '.js') {
