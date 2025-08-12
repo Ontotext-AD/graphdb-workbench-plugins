@@ -1,6 +1,6 @@
 {
   "name": "graphdb-workbench-plugins",
-  "version": "0.0.1-TR11",
+  "version": "0.0.1-TR14",
   "description": "Plugins for GraphDB workbench",
   "type": "module",
   "license": "Apache-2.0",
