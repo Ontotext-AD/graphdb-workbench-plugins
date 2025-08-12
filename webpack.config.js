@@ -23,8 +23,7 @@ export default {
   output: {
     path: path.resolve(__dirname, 'dist/'),
     filename: '[name].js',
-    libraryTarget: 'module',
-    globalObject: 'window'
+    libraryTarget: 'module'
   },
   experiments: {
     outputModule: true
