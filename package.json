@@ -10,6 +10,7 @@
     "./plugins-manifest.json"
   ],
   "scripts": {
+    "dev": "nodemon --watch plugins --ext js,json --exec \"npm run build\"",
     "pre:document": "rimraf docs",
     "post:document": "node scripts/post-jsdoc.js",
     "document": "npm run pre:document && jsdoc -c jsdoc.config.json && npm run post:document",
@@ -29,8 +30,11 @@
     "better-docs": "^2.7.3",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^13.0.0",
+    "eslint": "^9.34.0",
+    "eslint-config-google": "^0.14.0",
     "husky": "^9.1.7",
     "jsdoc": "^4.0.4",
+    "nodemon": "^3.1.10",
     "webpack": "^5.101.0",
     "webpack-cli": "^6.0.1"
   }

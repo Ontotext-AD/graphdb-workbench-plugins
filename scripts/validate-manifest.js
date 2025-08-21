@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import Ajv from 'ajv';
-import { createRequire } from 'module';
+import {createRequire} from 'module';
 
 const require = createRequire(import.meta.url);
 const schema = require('./plugins-manifest-schema.json');
@@ -19,7 +19,7 @@ if (!validate(data)) {
 }
 
 // Check for duplicate plugin names
-const names = data.plugins.map(p => p.name);
+const names = data.plugins.map((p) => p.name);
 const duplicates = names.filter((name, idx) => names.indexOf(name) !== idx);
 if (duplicates.length > 0) {
   console.error('Duplicate plugin names found:', [...new Set(duplicates)]);
@@ -28,7 +28,7 @@ if (duplicates.length > 0) {
 
 // Check that each entry points to an existing .js file in plugins folder
 const missingFiles = [];
-data.plugins.forEach(plugin => {
+data.plugins.forEach((plugin) => {
   const entryPath = path.resolve(process.cwd(), plugin.entry);
   if (!fs.existsSync(entryPath) || path.extname(entryPath) !== '.js') {
     missingFiles.push(plugin);

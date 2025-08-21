@@ -1,8 +1,8 @@
 import path from 'path';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import glob from 'glob';
-import { fileURLToPath } from 'url';
+import {fileURLToPath} from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,6 +19,7 @@ const entry = glob.sync('./plugins/**/*.js')
 
 export default {
   mode: 'production',
+  devtool: 'source-map',
   entry,
   output: {
     path: path.resolve(__dirname, 'dist/'),
