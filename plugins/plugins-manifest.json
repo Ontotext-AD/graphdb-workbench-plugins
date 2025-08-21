@@ -1,16 +1,524 @@
 {
   "plugins": [
     {
-      "name": "alert-tool",
-      "entry": "plugins/tools/alert-tool-plugin.js"
+      "name": "core-clickable-element",
+      "entry": "plugins/guides/core-steps/clickable-element.js"
     },
     {
-      "name": "console-tool",
-      "entry": "plugins/tools/console-tool-plugin.js"
+      "name": "core-focus-element",
+      "entry": "plugins/guides/core-steps/focus-element.js"
     },
     {
-      "name": "core-steps",
-      "entry": "plugins/guides/core-steps-plugin.js"
+      "name": "core-read-only-element",
+      "entry": "plugins/guides/core-steps/read-only-element.js"
+    },
+    {
+      "name": "input-element",
+      "entry": "plugins/guides/core-steps/input-element.js"
+    },
+    {
+      "name": "copy-text-element",
+      "entry": "plugins/guides/core-steps/copy-text-element.js"
+    },
+    {
+      "name": "info-message",
+      "entry": "plugins/guides/core-steps/info-message.js"
+    },
+    {
+      "name": "hold-and-wait-until-hidden",
+      "entry": "plugins/guides/core-steps/hold-and-wait-until-hidden.js"
+    },
+    {
+      "name": "hold-and-wait-until-shown",
+      "entry": "plugins/guides/core-steps/hold-and-wait-until-shown.js"
+    },
+    {
+      "name": "wait-for-element-to-hide",
+      "entry": "plugins/guides/core-steps/wait-for-element-to-hide.js"
+    },
+    {
+      "name": "wait-for-element-to-show",
+      "entry": "plugins/guides/core-steps/wait-for-element-to-show.js"
+    },
+    {
+      "name": "guide-end",
+      "entry": "plugins/guides/core-steps/guide-end.js"
+    },
+    {
+      "name": "class-hierarchy-intro",
+      "entry": "plugins/guides/class-hierarchy/class-hierarchy-intro.js"
+    },
+    {
+      "name": "class-hierarchy-dataset-intro",
+      "entry": "plugins/guides/class-hierarchy/class-hierarchy-dataset-intro.js"
+    },
+    {
+      "name": "class-hierarchy-zoom-class",
+      "entry": "plugins/guides/class-hierarchy/class-hierarchy-zoom-class.js"
+    },
+    {
+      "name": "class-hierarchy-explain-class",
+      "entry": "plugins/guides/class-hierarchy/class-hierarchy-explain-class.js"
+    },
+    {
+      "name": "class-hierarchy-open-rdf-instances-side-panel",
+      "entry": "plugins/guides/class-hierarchy/class-hierarchy-open-rdf-instances-side-panel.js"
+    },
+    {
+      "name": "class-hierarchy-close-rdf-instances-side-panel",
+      "entry": "plugins/guides/class-hierarchy/class-hierarchy-close-rdf-instances-side-panel.js"
+    },
+    {
+      "name": "class-hierarchy-rdf-instances-side-panel-intro",
+      "entry": "plugins/guides/class-hierarchy/class-hierarchy-rdf-instances-side-panel-intro.js"
+    },
+    {
+      "name": "class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql",
+      "entry": "plugins/guides/class-hierarchy/class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql.js"
+    },
+    {
+      "name": "class-hierarchy-explain-rdf-instance",
+      "entry": "plugins/guides/class-hierarchy/class-hierarchy-explain-rdf-instance.js"
+    },
+    {
+      "name": "class-hierarchy-toggle-prefixes",
+      "entry": "plugins/guides/class-hierarchy/class-hierarchy-toggle-prefixes.js"
+    },
+    {
+      "name": "class-hierarchy",
+      "entry": "plugins/guides/class-hierarchy/class-hierarchy.js"
+    },
+    {
+      "name": "class-hierarchy-instances",
+      "entry": "plugins/guides/class-hierarchy/class-hierarchy-instances.js"
+    },
+    {
+      "name": "class-relationships-intro",
+      "entry": "plugins/guides/class-relationships/class-relationships-intro.js"
+    },
+    {
+      "name": "class-relationships-diagram-intro",
+      "entry": "plugins/guides/class-relationships/class-relationships-diagram-intro.js"
+    },
+    {
+      "name": "class-relationships-digram-thickness-intro",
+      "entry": "plugins/guides/class-relationships/class-relationships-digram-thickness-intro.js"
+    },
+    {
+      "name": "class-relationships-digram-predicates-intro",
+      "entry": "plugins/guides/class-relationships/class-relationships-digram-predicates-intro.js"
+    },
+    {
+      "name": "class-relationships-named-graph-selection",
+      "entry": "plugins/guides/class-relationships/class-relationships-named-graph-selection.js"
+    },
+    {
+      "name": "class-relationships-class-list-intro",
+      "entry": "plugins/guides/class-relationships/class-relationships-class-list-intro.js"
+    },
+    {
+      "name": "class-relationships-class-list-background-intro",
+      "entry": "plugins/guides/class-relationships/class-relationships-class-list-background-intro.js"
+    },
+    {
+      "name": "class-relationships-class-list-selection",
+      "entry": "plugins/guides/class-relationships/class-relationships-class-list-selection.js"
+    },
+    {
+      "name": "class-relationships",
+      "entry": "plugins/guides/class-relationships/class-relationships.js"
+    },
+    {
+      "name": "repositories-create-repository",
+      "entry": "plugins/guides/repository/repositories-create-repository.js"
+    },
+    {
+      "name": "repositories-create-graphdb",
+      "entry": "plugins/guides/repository/repositories-create-graphdb.js"
+    },
+    {
+      "name": "repositories-id-input",
+      "entry": "plugins/guides/repository/repositories-id-input.js"
+    },
+    {
+      "name": "repositories-ruleset-dropdown",
+      "entry": "plugins/guides/repository/repositories-ruleset-dropdown.js"
+    },
+    {
+      "name": "repositories-enable-fts",
+      "entry": "plugins/guides/repository/repositories-enable-fts.js"
+    },
+    {
+      "name": "repositories-save",
+      "entry": "plugins/guides/repository/repositories-save.js"
+    },
+    {
+      "name": "create-repository",
+      "entry": "plugins/guides/repository/create-repository.js"
+    },
+    {
+      "name": "similarity-click-link",
+      "entry": "plugins/guides/similarity-index/similarity-click-link.js"
+    },
+    {
+      "name": "similarity-type-index-name",
+      "entry": "plugins/guides/similarity-index/similarity-type-index-name.js"
+    },
+    {
+      "name": "similarity-click-to-create",
+      "entry": "plugins/guides/similarity-index/similarity-click-to-create.js"
+    },
+    {
+      "name": "similarity-hold-and-wait-until-shown",
+      "entry": "plugins/guides/similarity-index/similarity-hold-and-wait-until-shown.js"
+    },
+    {
+      "name": "create-similarity-index",
+      "entry": "plugins/guides/similarity-index/create-similarity-index.js"
+    },
+    {
+      "name": "download-guide-resource",
+      "entry": "plugins/guides/download-guide-resource/download-guide-resource.js"
+    },
+    {
+      "name": "autocomplete-enable-checkbox",
+      "entry": "plugins/guides/autocomplete/autocomplete-enable-checkbox.js"
+    },
+    {
+      "name": "autocomplete-focus-on-indexing-status",
+      "entry": "plugins/guides/autocomplete/autocomplete-focus-on-indexing-status.js"
+    },
+    {
+      "name": "enable-autocomplete",
+      "entry": "plugins/guides/autocomplete/enable-autocomplete.js"
+    },
+    {
+      "name": "sparql-results-visual-button",
+      "entry": "plugins/guides/sparql-editor/sparql-results-visual-button.js"
+    },
+    {
+      "name": "sparql-editor-run-button",
+      "entry": "plugins/guides/sparql-editor/sparql-editor-run-button.js"
+    },
+    {
+      "name": "sparql-explain-editor",
+      "entry": "plugins/guides/sparql-editor/sparql-explain-editor.js"
+    },
+    {
+      "name": "sparql-editor",
+      "entry": "plugins/guides/sparql-editor/sparql-editor.js"
+    },
+    {
+      "name": "sparql-results-explain",
+      "entry": "plugins/guides/sparql-editor/sparql-results-explain.js"
+    },
+    {
+      "name": "execute-sparql-query",
+      "entry": "plugins/guides/sparql-editor/execute-sparql-query.js"
+    },
+    {
+      "name": "sparql-results-click-on-iri",
+      "entry": "plugins/guides/sparql-editor/sparql-results-click-on-iri.js"
+    },
+    {
+      "name": "visualise-sparql-query",
+      "entry": "plugins/guides/sparql-editor/visualise-sparql-query.js"
+    },
+    {
+      "name": "import-upload-rdf-file",
+      "entry": "plugins/guides/import/import-upload-rdf-file.js"
+    },
+    {
+      "name": "import-confirm-duplicate-files",
+      "entry": "plugins/guides/import/import-confirm-duplicate-files.js"
+    },
+    {
+      "name": "import-click-on-import-button",
+      "entry": "plugins/guides/import/import-click-on-import-button.js"
+    },
+    {
+      "name": "import-show-progress",
+      "entry": "plugins/guides/import/import-show-progress.js"
+    },
+    {
+      "name": "import-rdf-file",
+      "entry": "plugins/guides/import/import-rdf-file.js"
+    },
+    {
+      "name": "click-main-menu",
+      "entry": "plugins/guides/main-menu/click-main-menu.js"
+    },
+    {
+      "name": "rdf-rank-compute-fill",
+      "entry": "plugins/guides/rdf-rank/rdf-rank-compute-fill.js"
+    },
+    {
+      "name": "resource-results-explain",
+      "entry": "plugins/guides/resource/resource-results-explain.js"
+    },
+    {
+      "name": "resource-results-click-on-iri",
+      "entry": "plugins/guides/resource/resource-results-click-on-iri.js"
+    },
+    {
+      "name": "resource-results-row-explain",
+      "entry": "plugins/guides/resource/resource-results-row-explain.js"
+    },
+    {
+      "name": "resource-click-on-role",
+      "entry": "plugins/guides/resource/resource-click-on-role.js"
+    },
+    {
+      "name": "resource-click-on-visual-graph-button",
+      "entry": "plugins/guides/resource/resource-click-on-visual-graph-button.js"
+    },
+    {
+      "name": "table-graph-explore",
+      "entry": "plugins/guides/resource/table-graph-explore.js"
+    },
+    {
+      "name": "select-repository-dropdown",
+      "entry": "plugins/guides/repositories/select-repository-dropdown.js"
+    },
+    {
+      "name": "repositories-select-repository",
+      "entry": "plugins/guides/repositories/repositories-select-repository.js"
+    },
+    {
+      "name": "visual-graph-intro",
+      "entry": "plugins/guides/visual-graph/visual-graph-intro.js"
+    },
+    {
+      "name": "visual-graph-search-rdf-resources-input",
+      "entry": "plugins/guides/visual-graph/visual-graph-search-rdf-resources-input.js"
+    },
+    {
+      "name": "visual-graph-search-rdf-resources-input-autocomplete-item",
+      "entry": "plugins/guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.js"
+    },
+    {
+      "name": "visual-graph",
+      "entry": "plugins/guides/visual-graph/visual-graph.js"
+    },
+    {
+      "name": "visual-graph-expand",
+      "entry": "plugins/guides/visual-graph/visual-graph-expand.js"
+    },
+    {
+      "name": "visual-graph-properties",
+      "entry": "plugins/guides/visual-graph/visual-graph-properties.js"
+    },
+    {
+      "name": "visual-graph-link-focus",
+      "entry": "plugins/guides/visual-graph/visual-graph-link-focus.js"
+    },
+    {
+      "name": "visual-graph-node-focus",
+      "entry": "plugins/guides/visual-graph/visual-graph-node-focus.js"
+    },
+    {
+      "name": "welcome",
+      "entry": "plugins/guides/welcome/welcome.js"
+    },
+    {
+      "name": "ttyg-ask-question",
+      "entry": "plugins/guides/ttyg/ttyg-ask-question.js"
+    },
+    {
+      "name": "ttyg-explain-response",
+      "entry": "plugins/guides/ttyg/ttyg-explain-response.js"
+    },
+    {
+      "name": "ttyg-ask-agent-explore-sparql",
+      "entry": "plugins/guides/ttyg/ttyg-ask-agent-explore-sparql.js"
+    },
+    {
+      "name": "ttyg-ask-explain-answer-more",
+      "entry": "plugins/guides/ttyg/ttyg-ask-explain-answer-more.js"
+    },
+    {
+      "name": "ask-ttyg-agent",
+      "entry": "plugins/guides/ttyg/ask-ttyg-agent.js"
+    },
+    {
+      "name": "ttyg-conversation-info-message",
+      "entry": "plugins/guides/ttyg/ttyg-conversation-info-message.js"
+    },
+    {
+      "name": "ttyg-click-to-create-new-chat",
+      "entry": "plugins/guides/ttyg/ttyg-click-to-create-new-chat.js"
+    },
+    {
+      "name": "ttyg-create-agent-intro-message",
+      "entry": "plugins/guides/ttyg/ttyg-create-agent-intro-message.js"
+    },
+    {
+      "name": "ttyg-create-agent-click",
+      "entry": "plugins/guides/ttyg/ttyg-create-agent-click.js"
+    },
+    {
+      "name": "ttyg-create-agent-save",
+      "entry": "plugins/guides/ttyg/ttyg-create-agent-save.js"
+    },
+    {
+      "name": "create-ttyg-agent",
+      "entry": "plugins/guides/ttyg/create-ttyg-agent.js"
+    },
+    {
+      "name": "conversation-with-ttyg-agent",
+      "entry": "plugins/guides/ttyg/conversation-with-ttyg-agent.js"
+    },
+    {
+      "name": "ttyg-edit-agent-intro-message",
+      "entry": "plugins/guides/ttyg/ttyg-edit-agent-intro-message.js"
+    },
+    {
+      "name": "ttyg-click-to-edit-selected-agent",
+      "entry": "plugins/guides/ttyg/ttyg-click-to-edit-selected-agent.js"
+    },
+    {
+      "name": "ttyg-edit-agent-click-to-save",
+      "entry": "plugins/guides/ttyg/ttyg-edit-agent-click-to-save.js"
+    },
+    {
+      "name": "edit-ttyg-agent",
+      "entry": "plugins/guides/ttyg/edit-ttyg-agent.js"
+    },
+    {
+      "name": "ttyg-select-agent-info-message",
+      "entry": "plugins/guides/ttyg/ttyg-select-agent-info-message.js"
+    },
+    {
+      "name": "ttyg-select-agent-dropdown-open",
+      "entry": "plugins/guides/ttyg/ttyg-select-agent-dropdown-open.js"
+    },
+    {
+      "name": "ttyg-select-agent-from-dropdown",
+      "entry": "plugins/guides/ttyg/ttyg-select-agent-from-dropdown.js"
+    },
+    {
+      "name": "ttyg-select-agent-check-for-missing-repository-cancel",
+      "entry": "plugins/guides/ttyg/ttyg-select-agent-check-for-missing-repository-cancel.js"
+    },
+    {
+      "name": "select-ttyg-agent",
+      "entry": "plugins/guides/ttyg/select-ttyg-agent.js"
+    },
+    {
+      "name": "configure-top-p",
+      "entry": "plugins/guides/ttyg/configure-top-p.js"
+    },
+    {
+      "name": "configure-temperature",
+      "entry": "plugins/guides/ttyg/configure-temperature.js"
+    },
+    {
+      "name": "configure-iri-discovery-search",
+      "entry": "plugins/guides/ttyg/configure-iri-discovery-search.js"
+    },
+    {
+      "name": "configure-agent-type-agent-name",
+      "entry": "plugins/guides/ttyg/configure-agent-type-agent-name.js"
+    },
+    {
+      "name": "configure-agent-type-model-name",
+      "entry": "plugins/guides/ttyg/configure-agent-type-model-name.js"
+    },
+    {
+      "name": "configure-agent-additional-instructions",
+      "entry": "plugins/guides/ttyg/configure-agent-additional-instructions.js"
+    },
+    {
+      "name": "configure-agent",
+      "entry": "plugins/guides/ttyg/configure-agent.js"
+    },
+    {
+      "name": "end-on-api-key-error",
+      "entry": "plugins/guides/ttyg/end-on-api-key-error.js"
+    },
+    {
+      "name": "set-max-triples-per-call",
+      "entry": "plugins/guides/ttyg/set-max-triples-per-call.js"
+    },
+    {
+      "name": "ttyg-fts-method-disable",
+      "entry": "plugins/guides/ttyg/ttyg-fts-method-disable.js"
+    },
+    {
+      "name": "ttyg-fts-method-info",
+      "entry": "plugins/guides/ttyg/ttyg-fts-method-info.js"
+    },
+    {
+      "name": "ttyg-fts-method-enable",
+      "entry": "plugins/guides/ttyg/ttyg-fts-method-enable.js"
+    },
+    {
+      "name": "fts-search-method",
+      "entry": "plugins/guides/ttyg/fts-search-method.js"
+    },
+    {
+      "name": "ttyg-similarity-toggle-off",
+      "entry": "plugins/guides/ttyg/ttyg-similarity-toggle-off.js"
+    },
+    {
+      "name": "ttyg-similarity-info-message",
+      "entry": "plugins/guides/ttyg/ttyg-similarity-info-message.js"
+    },
+    {
+      "name": "ttyg-similarity-toggle-on",
+      "entry": "plugins/guides/ttyg/ttyg-similarity-toggle-on.js"
+    },
+    {
+      "name": "ttyg-similarity-select-index",
+      "entry": "plugins/guides/ttyg/ttyg-similarity-select-index.js"
+    },
+    {
+      "name": "similarity-search-method",
+      "entry": "plugins/guides/ttyg/similarity-search-method.js"
+    },
+    {
+      "name": "ttyg-sparql-method-enable",
+      "entry": "plugins/guides/ttyg/ttyg-sparql-method-enable.js"
+    },
+    {
+      "name": "ttyg-sparql-method-disable",
+      "entry": "plugins/guides/ttyg/ttyg-sparql-method-disable.js"
+    },
+    {
+      "name": "ttyg-sparql-method-ontology-select",
+      "entry": "plugins/guides/ttyg/ttyg-sparql-method-ontology-select.js"
+    },
+    {
+      "name": "sparql-search-method-type-graph-name",
+      "entry": "plugins/guides/ttyg/sparql-search-method-type-graph-name.js"
+    },
+    {
+      "name": "ttyg-sparql-method-sparql-query-select",
+      "entry": "plugins/guides/ttyg/ttyg-sparql-method-sparql-query-select.js"
+    },
+    {
+      "name": "ttyg-sparql-copy-query-text",
+      "entry": "plugins/guides/ttyg/ttyg-sparql-copy-query-text.js"
+    },
+    {
+      "name": "ttyg-sparql-click-add-namespaces",
+      "entry": "plugins/guides/ttyg/ttyg-sparql-click-add-namespaces.js"
+    },
+    {
+      "name": "ttyg-enabling-sparql-info-message",
+      "entry": "plugins/guides/ttyg/ttyg-enabling-sparql-info-message.js"
+    },
+    {
+      "name": "sparql-search-method-enable-ontology-graph",
+      "entry": "plugins/guides/ttyg/sparql-search-method-enable-ontology-graph.js"
+    },
+    {
+      "name": "sparql-search-method-enable-sparql-query",
+      "entry": "plugins/guides/ttyg/sparql-search-method-enable-sparql-query.js"
+    },
+    {
+      "name": "sparql-search-method",
+      "entry": "plugins/guides/ttyg/sparql-search-method.js"
     }
   ]
 }

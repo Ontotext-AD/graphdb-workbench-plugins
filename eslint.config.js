@@ -1,7 +1,9 @@
 import js from '@eslint/js';
+import googleConfig from 'eslint-config-google';
 
 export default [
   js.configs.recommended,
+  googleConfig,
   {
     languageOptions: {
       ecmaVersion: 2022,
@@ -16,9 +18,13 @@ export default [
         clearTimeout: 'readonly',
         setInterval: 'readonly',
         clearInterval: 'readonly',
+        MutationObserver: 'readonly',
 
         // AngularJS globals
         angular: 'readonly',
+
+        // jQuery global
+        $: 'readonly',
 
         // Node.js globals for scripts
         process: 'readonly',
@@ -49,7 +55,12 @@ export default [
       // Potential problems
       'no-undef': 'error',
       'no-unreachable': 'error',
-      'no-duplicate-imports': 'error'
+      'no-duplicate-imports': 'error',
+
+      // Disable JSDoc rules
+      'valid-jsdoc': 'off',
+      'require-jsdoc': 'off',
+      'max-len': 'off'
     }
   },
   {
