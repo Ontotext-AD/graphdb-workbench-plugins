@@ -1,4 +1,14 @@
-// TODO: for testing purposes. Must be removed
+/**
+ * @module alert-tool
+ * @category plugins
+ * @subcategory tools
+ */
+
+/**
+ * This function registers the alert-tool with the provided plugin registry.
+ *
+ * @param {object} registry - The plugin registry object.
+ */
 export function register(registry) {
   const definition = {
     label: 'Alert Tool',
