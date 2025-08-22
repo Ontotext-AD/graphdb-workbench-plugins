@@ -1,4 +1,13 @@
-// TODO: for testing purposes. Must be removed
+/**
+ * @module console-tool
+ * @category plugins
+ * @subcategory tools
+ */
+
+/**
+ * Register the console tool with the given registry.
+ * @param registry
+ */
 export function register(registry) {
   const definition = {
     label: 'Console Tool',

@@ -41,7 +41,7 @@ export default [
       'eol-last': 'error',
 
       // Best practices
-      'no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
+      'no-unused-vars': ['error', {'argsIgnorePattern': '^_'}],
       'no-console': 'error',
       'prefer-const': 'error',
       'no-var': 'error',
@@ -73,7 +73,8 @@ export default [
     // Ignore patterns
     ignores: [
       'node_modules/**',
-      'dist/**'
+      'dist/**',
+      'docs/**'
     ]
   }
 ];

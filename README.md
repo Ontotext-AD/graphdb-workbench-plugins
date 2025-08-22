@@ -1,5 +1,4 @@
-# graphdb-workbench-plugins
-GraphDB Workbench plugins
+# Graphdb-workbench-plugins
 
 Since v1.2, GraphDB workbench features a plugin system which allows components to be plugged in
 without introducing coupling between new and existing components. The new system allows extending or
