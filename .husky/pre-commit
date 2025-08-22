@@ -11,4 +11,5 @@ fi
 
 # Run your checks
 npm run validate-manifest
+npm run document
 npx eslint . --max-warnings 1000
