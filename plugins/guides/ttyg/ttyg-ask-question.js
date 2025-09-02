@@ -1,5 +1,6 @@
 import * as Utils from '../utils.js';
 
+const CHAT_DETAILS_SELECTOR = 'chat-details';
 const step = {
   guideBlockName: 'ttyg-ask-question',
   getSteps: (options, services) => {
@@ -27,7 +28,8 @@ const step = {
               const value = $(elementSelector).text();
 
               if (value && event.key === 'Enter' && !event.shiftKey && !event.ctrlKey) {
-                guide.next();
+                GuideUtils.waitFor(GuideUtils.getGuideElementSelector(CHAT_DETAILS_SELECTOR))
+                  .then(() => guide.next());
               }
             });
           },
