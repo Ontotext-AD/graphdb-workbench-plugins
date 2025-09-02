@@ -22,6 +22,7 @@ export const createCopyToInputListener = (elementSelector, text) => {
     event.preventDefault();
     const inputElement = document.querySelector(elementSelector);
     inputElement.value = text;
+    inputElement.dispatchEvent(new Event('input', {bubbles: true}));
   };
 };
 
