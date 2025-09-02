@@ -12,7 +12,7 @@ function removeFooterFromHtmlFiles(dirPath) {
   try {
     const files = fs.readdirSync(dirPath);
 
-    files.forEach(file => {
+    files.forEach((file) => {
       const filePath = path.join(dirPath, file);
       const stat = fs.statSync(filePath);
 

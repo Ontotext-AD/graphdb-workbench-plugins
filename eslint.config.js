@@ -19,6 +19,7 @@ export default [
         setInterval: 'readonly',
         clearInterval: 'readonly',
         MutationObserver: 'readonly',
+        Event: 'readonly',
 
         // AngularJS globals
         angular: 'readonly',
