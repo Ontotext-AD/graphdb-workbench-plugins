@@ -172,17 +172,17 @@ export const getWaitForAnswerStep = (GuideUtils, options) => {
 };
 
 export const getConnectorNameSelector = (options, services) => {
-    return services.GuideUtils.getGuideElementSelector(`connector-name-${options.connectorName}`);
+  return services.GuideUtils.getGuideElementSelector(`connector-name-${options.connectorName}`);
 };
 
 export const getConnectorContentSelector = (options, services) => {
-    return services.GuideUtils.getGuideElementSelector(`${options.instanceName}-connector-content`);
+  return services.GuideUtils.getGuideElementSelector(`${options.instanceName}-connector-content`);
 };
 
 export const getConnectorParameterSelector = (options, services) => {
-    return services.GuideUtils.getGuideElementSelector(`${options.parameterName}-connector-parameter`);
+  return services.GuideUtils.getGuideElementSelector(`${options.parameterName}-connector-parameter`);
 };
 
 export const getConnectorSubparameterSelector = (options, services) => {
-    return services.GuideUtils.getGuideElementSelector(`${options.subparameterName}-connector-subproperty`);
+  return services.GuideUtils.getGuideElementSelector(`${options.subparameterName}-connector-subproperty`);
 };

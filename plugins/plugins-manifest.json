@@ -129,6 +129,42 @@
       "entry": "plugins/guides/class-relationships/class-relationships.js"
     },
     {
+      "name": "connectors-intro",
+      "entry": "plugins/guides/connectors/connectors-intro.js"
+    },
+    {
+      "name": "connectors-connector-intro",
+      "entry": "plugins/guides/connectors/connectors-connector-intro.js"
+    },
+    {
+      "name": "connectors-type-intro",
+      "entry": "plugins/guides/connectors/connectors-type-intro.js"
+    },
+    {
+      "name": "connectors-parameter-intro",
+      "entry": "plugins/guides/connectors/connectors-parameter-intro.js"
+    },
+    {
+      "name": "connectors-array-subparameter-intro",
+      "entry": "plugins/guides/connectors/connectors-array-subparameter-intro.js"
+    },
+    {
+      "name": "connectors-expand-connector",
+      "entry": "plugins/guides/connectors/connectors-expand-connector.js"
+    },
+    {
+      "name": "connectors-open-view-sparql-query-dialog",
+      "entry": "plugins/guides/connectors/connectors-open-view-sparql-query-dialog.js"
+    },
+    {
+      "name": "connectors-view-sparql-dialog-intro",
+      "entry": "plugins/guides/connectors/connectors-view-sparql-dialog-intro.js"
+    },
+    {
+      "name": "connectors-close-view-sparql-query-dialog",
+      "entry": "plugins/guides/connectors/connectors-close-view-sparql-query-dialog.js"
+    },
+    {
       "name": "repositories-create-repository",
       "entry": "plugins/guides/repository/repositories-create-repository.js"
     },
