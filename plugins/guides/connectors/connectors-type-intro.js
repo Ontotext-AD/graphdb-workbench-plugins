@@ -1,8 +1,8 @@
-import {CONNECTORS_DEFAULT_TITLE, getConnectorNameSelector} from "../utils.js";
+import {CONNECTORS_DEFAULT_TITLE, getConnectorNameSelector} from '../utils.js';
 
 const step = {
-    guideBlockName: 'connectors-type-intro',
-    /**
+  guideBlockName: 'connectors-type-intro',
+  /**
      * Options:
      * - <b>connectorName</b>: string (required).
      *   <ol>Possible values:
@@ -16,23 +16,23 @@ const step = {
      *
      *   Must override content with connector specific content
      */
-    getSteps: (options, services) => {
-        return [{
-            guideBlockName: 'read-only-element',
-            options: {
-                // If mainAction is set the title will be set automatically
-                ...(options.mainAction ? {} : {title: CONNECTORS_DEFAULT_TITLE}),
-                placement: 'top',
-                class: 'connectors-connectors-intro',
-                content: 'guide.step_plugin.connectors-type-intro.content',
-                ...options,
-                elementSelector: getConnectorNameSelector(options, services),
-                url: 'connectors',
-            },
-        }];
-    },
+  getSteps: (options, services) => {
+    return [{
+      guideBlockName: 'read-only-element',
+      options: {
+        // If mainAction is set the title will be set automatically
+        ...(options.mainAction ? {} : {title: CONNECTORS_DEFAULT_TITLE}),
+        placement: 'top',
+        class: 'connectors-connectors-intro',
+        content: 'guide.step_plugin.connectors-type-intro.content',
+        ...options,
+        elementSelector: getConnectorNameSelector(options, services),
+        url: 'connectors'
+      }
+    }];
+  }
 };
 
 export function register(registry) {
-    registry.add('guide.step', step);
+  registry.add('guide.step', step);
 }
