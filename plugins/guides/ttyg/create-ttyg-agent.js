@@ -21,6 +21,14 @@ const step = {
         options: {...options}
       },
       {
+        guideBlockName: 'wait-for-element-to-hide',
+        options: {
+          ...options,
+          elementSelectorToHide: GuideUtils.getElementSelector('.ttyg-page-loader'),
+          timeToWait: 10
+        }
+      },
+      {
         guideBlockName: 'ttyg-create-agent-click', options: {...options}
       },
       {
@@ -33,10 +41,11 @@ const step = {
       },
       {
         guideBlockName: 'wait-for-element-to-hide',
-        options: angular.extend({}, {
+        options: {
+          ...options,
           elementSelectorToHide: GuideUtils.getElementSelector('.agent-settings-modal'),
           timeToWait: 10
-        }, options)
+        }
       }
     ];
   }
