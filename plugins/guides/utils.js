@@ -79,6 +79,7 @@ export const TTYG_DEFAULT_TITLE = 'menu.ttyg.label';
 export const FTS_METHOD_DEFAULT_TITLE = 'guide.step-action.fts-search-method';
 export const SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE = 'guide.step-action.similarity-search-method';
 export const TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE = 'guide.step-action.sparql-search-method';
+export const CONNECTORS_DEFAULT_TITLE = 'menu.connectors.label';
 
 // Configuration options constants
 export const CONFIGURATION_OPTION_ONTOLOGY_GRAPH = 'ontologyGraph';
@@ -168,4 +169,20 @@ export const getWaitForAnswerStep = (GuideUtils, options) => {
       elementSelectorToWait: GuideUtils.getGuideElementSelector('question-loader')
     }, options)
   };
+};
+
+export const getConnectorNameSelector = (options, services) => {
+    return services.GuideUtils.getGuideElementSelector(`connector-name-${options.connectorName}`);
+};
+
+export const getConnectorContentSelector = (options, services) => {
+    return services.GuideUtils.getGuideElementSelector(`${options.instanceName}-connector-content`);
+};
+
+export const getConnectorParameterSelector = (options, services) => {
+    return services.GuideUtils.getGuideElementSelector(`${options.parameterName}-connector-parameter`);
+};
+
+export const getConnectorSubparameterSelector = (options, services) => {
+    return services.GuideUtils.getGuideElementSelector(`${options.subparameterName}-connector-subproperty`);
 };
