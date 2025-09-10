@@ -13,6 +13,10 @@
       "entry": "plugins/guides/core-steps/read-only-element.js"
     },
     {
+      "name": "scroll-only-element",
+      "entry": "plugins/guides/core-steps/scroll-only-element.js"
+    },
+    {
       "name": "input-element",
       "entry": "plugins/guides/core-steps/input-element.js"
     },

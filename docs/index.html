@@ -66,7 +66,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>plugins</h2><h3>Modules / tools</h3><ul><li><a href="module-alert-tool.html">alert-tool</a></li><li><a href="module-console-tool.html">console-tool</a></li></ul><h3>Modules / core</h3><ul><li><a href="module-core-steps-plugin.html">core-steps-plugin</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#COMMON_DOM_EVENTS">COMMON_DOM_EVENTS</a></li><li><a href="global.html#_configureInteractions">_configureInteractions</a></li><li><a href="global.html#allowAll">allowAll</a></li><li><a href="global.html#allowEvents">allowEvents</a></li><li><a href="global.html#beforeShowPromise">beforeShowPromise</a></li><li><a href="global.html#preventDefault">preventDefault</a></li></ul></div>
                 
             </nav>
         </div>
@@ -100,15 +100,146 @@
 
 
     <section>
-        <article><h1>Graphdb-workbench-plugins</h1>
-<p>Since v1.2, GraphDB workbench features a plugin system which allows components to be plugged in
+        <article><h1>GraphDB Workbench Plugins</h1>
+<p>Since v1.2, GraphDB Workbench features a plugin system which allows components to be plugged in
 without introducing coupling between new and existing components. The new system allows extending or
 replacing existing components, introduction of new single or compositional components. All this
 could be achieved without any changes in the rest of the system.</p>
 <p><em>Currently the new system is integrated in the workbench main components registration. These are the
 components which implement the main workbench views (extension point <code>route</code>) and their respective
 main menu entries (extension point <code>main.menu</code>). In next versions more extension points might be
-introduced.</em></p></article>
+introduced.</em></p>
+<hr>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#available-npm-scripts">Available npm Scripts</a></li>
+<li><a href="#development-workflow">Development Workflow</a></li>
+<li><a href="#project-structure">Project Structure</a></li>
+<li><a href="#plugin-manifest">Plugin Manifest</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<hr>
+<h2>Features</h2>
+<ul>
+<li><strong>Plugin-based architecture</strong> for GraphDB Workbench</li>
+<li>Extend or replace existing components without modifying core code</li>
+<li>Easy integration and validation of plugins</li>
+</ul>
+<hr>
+<h2>Installation</h2>
+<p>Clone the repository and install dependencies:</p>
+<pre class="prettyprint source lang-sh"><code>git clone &lt;repository-url>
+cd graphdb-workbench-plugins
+npm install
+</code></pre>
+<hr>
+<h2>Usage</h2>
+<h3>Building Plugins</h3>
+<p>To build the plugins for production:</p>
+<pre class="prettyprint source lang-sh"><code>npm run build
+</code></pre>
+<p>The output will be in the <code>dist/</code> directory.</p>
+<h3>Development Mode</h3>
+<p>For development with automatic rebuild on changes:</p>
+<pre class="prettyprint source lang-sh"><code>npm run dev
+</code></pre>
+<h3>Linting</h3>
+<p>To check code style and find problems:</p>
+<pre class="prettyprint source lang-sh"><code>npm run lint
+</code></pre>
+<p>To automatically fix linting issues:</p>
+<pre class="prettyprint source lang-sh"><code>npm run lint:fix
+</code></pre>
+<h3>Documentation</h3>
+<p>To generate documentation using JSDoc:</p>
+<pre class="prettyprint source lang-sh"><code>npm run document
+</code></pre>
+<p>The documentation will be generated in the <code>docs/</code> directory.</p>
+<hr>
+<h2>Available npm Scripts</h2>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dev</code></td>
+<td>Watch plugin files and rebuild on changes</td>
+</tr>
+<tr>
+<td><code>build</code></td>
+<td>Validate manifest and build plugins using webpack</td>
+</tr>
+<tr>
+<td><code>validate-manifest</code></td>
+<td>Validate the plugins manifest file</td>
+</tr>
+<tr>
+<td><code>lint</code></td>
+<td>Run ESLint on the codebase</td>
+</tr>
+<tr>
+<td><code>lint:fix</code></td>
+<td>Run ESLint and automatically fix problems</td>
+</tr>
+<tr>
+<td><code>document</code></td>
+<td>Generate documentation using JSDoc</td>
+</tr>
+<tr>
+<td><code>install:ci</code></td>
+<td>Install dependencies in CI mode (clean install)</td>
+</tr>
+<tr>
+<td><code>prepare</code></td>
+<td>Prepare git hooks using Husky</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Development Workflow</h2>
+<ol>
+<li><strong>Clone and install dependencies</strong> as described above.</li>
+<li><strong>Develop plugins</strong> in the <code>plugins/</code> directory.</li>
+<li><strong>Run in development mode</strong> with <code>npm run dev</code> for live rebuilding.</li>
+<li><strong>Validate and build</strong> with <code>npm run build</code>.</li>
+<li><strong>Lint and fix</strong> code with <code>npm run lint</code> and <code>npm run lint:fix</code>.</li>
+<li><strong>Generate documentation</strong> with <code>npm run document</code>.</li>
+</ol>
+<hr>
+<h2>Project Structure</h2>
+<pre class="prettyprint source"><code>graphdb-workbench-plugins/
+├── dist/                   # Compiled plugin output
+├── docs/                   # Generated documentation
+├── plugins/                # Source code for plugins
+├── scripts/                # Utility scripts (e.g., manifest validation)
+├── plugins-manifest.json   # Manifest describing available plugins
+├── package.json            # Project configuration and scripts
+├── webpack.config.js       # Webpack build configuration
+├── jsdoc.config.json       # JSDoc configuration
+└── README.md               # Project documentation
+</code></pre>
+<hr>
+<h2>Plugin Manifest</h2>
+<p>The <code>plugins-manifest.json</code> file describes all available plugins and their extension points. It is validated automatically during the build process.</p>
+<hr>
+<h2>Contributing</h2>
+<p>Please follow these steps:</p>
+<ol>
+<li>Fork the repository and create your branch.</li>
+<li>Make your changes and ensure all lint checks pass.</li>
+<li>Submit a pull request with a clear description of your changes.</li>
+</ol>
+<hr>
+<h2>License</h2>
+<p>This project is licensed under the <a href="LICENSE">Apache-2.0 License</a>.</p></article>
     </section>
 
 

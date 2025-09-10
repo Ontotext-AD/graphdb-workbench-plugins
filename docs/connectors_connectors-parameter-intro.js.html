@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> tools/console-tool-plugin.js</title>
+  <title> connectors/connectors-parameter-intro.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>plugins</h2><h3>Modules / tools</h3><ul><li><a href="module-alert-tool.html">alert-tool</a></li><li><a href="module-console-tool.html">console-tool</a></li></ul><h3>Modules / core</h3><ul><li><a href="module-core-steps-plugin.html">core-steps-plugin</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#COMMON_DOM_EVENTS">COMMON_DOM_EVENTS</a></li><li><a href="global.html#_configureInteractions">_configureInteractions</a></li><li><a href="global.html#allowAll">allowAll</a></li><li><a href="global.html#allowEvents">allowEvents</a></li><li><a href="global.html#beforeShowPromise">beforeShowPromise</a></li><li><a href="global.html#preventDefault">preventDefault</a></li></ul></div>
                 
             </nav>
         </div>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>tools/console-tool-plugin.js</h1>
+                    <h1>connectors/connectors-parameter-intro.js</h1>
                 </header>
                 
 
@@ -85,23 +85,46 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @module console-tool
- * @category plugins
- * @subcategory tools
- */
+            <pre class="prettyprint source linenums"><code>import {CONNECTORS_DEFAULT_TITLE, getConnectorContentSelector, getConnectorNameSelector, getConnectorParameterSelector} from '../utils.js';
 
-/**
- * Register the console tool with the given registry.
- * @param registry
- */
+const step = {
+  guideBlockName: 'connectors-parameter-intro',
+  /**
+     * Options:
+     * - &lt;b>connectorName&lt;/b>: string (required).
+     *   &lt;ol>Possible values:
+     *    &lt;li>Elasticsearch&lt;/li>
+     *    &lt;li>OpenSearch&lt;/li>
+     *    &lt;li>Solr&lt;/li>
+     *    &lt;li>Lucene&lt;/li>
+     *    &lt;li>Kafka&lt;/li>
+     *    &lt;li>ChatGPT-Retrieval&lt;/li>
+     *   &lt;/ol>
+     * - &lt;b>instanceName&lt;/b>: string (required) – the specific connector instance name for &lt;code>connectorName&lt;/code>.
+     * - &lt;b>parameterName&lt;/b>: string (required) – the specific creation parameters name for &lt;code>instanceName&lt;/code>.
+     */
+  getSteps: (options, services) => {
+    const connectorNameSelector = getConnectorNameSelector(options, services);
+    const connectorContentSelector = getConnectorContentSelector(options, services);
+    const parameterSelector = getConnectorParameterSelector(options, services);
+    return [{
+      guideBlockName: 'read-only-element',
+      options: {
+        // If mainAction is set the title will be set automatically
+        ...(options.mainAction ? {} : {title: CONNECTORS_DEFAULT_TITLE}),
+        placement: 'top',
+        class: 'connectors-connector-intro',
+        content: 'guide.step_plugin.connectors-parameter-intro.content',
+        ...options,
+        elementSelector: `${connectorNameSelector} ${connectorContentSelector} ${parameterSelector}`,
+        url: 'connectors'
+      }
+    }];
+  }
+};
+
 export function register(registry) {
-  const definition = {
-    label: 'Console Tool',
-    action: () => console.log('New tool action')
-  };
-  console.log('%cRegister', 'background: yellow', definition.label);
-  registry.add('tools', definition);
+  registry.add('guide.step', step);
 }
 </code></pre>
         </article>
