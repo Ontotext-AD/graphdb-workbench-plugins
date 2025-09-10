@@ -1,4 +1,91 @@
-/**
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> utils.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#COMMON_DOM_EVENTS">COMMON_DOM_EVENTS</a></li><li><a href="global.html#_configureInteractions">_configureInteractions</a></li><li><a href="global.html#allowAll">allowAll</a></li><li><a href="global.html#allowEvents">allowEvents</a></li><li><a href="global.html#beforeShowPromise">beforeShowPromise</a></li><li><a href="global.html#preventDefault">preventDefault</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>utils.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * List of common DOM events to consider for interaction control.
  * @type {string[]}
  */
@@ -77,7 +164,7 @@ const _configureInteractions = (allowedEvents, interactable, elementSelector, se
 export const allowAll = (elementSelector, services) => _configureInteractions([], true, elementSelector, services);
 
 /**
- * Restricts the specified element to only process events listed in <code>allowedEvents</code>.
+ * Restricts the specified element to only process events listed in &lt;code>allowedEvents&lt;/code>.
  *
  * @param {string[]} allowedEvents - An array of event types that should remain enabled.
  * @param {string} elementSelector - A CSS selector identifying the target element.
@@ -165,7 +252,7 @@ export const getResourceURL = (options) => {
   let url = 'resource?role=';
   url += options.role ? options.role : 'subject';
   if (options.iri) {
-    url += `&uri=${encodeURIComponent(options.iri)}`;
+    url += `&amp;uri=${encodeURIComponent(options.iri)}`;
   }
   return url;
 };
@@ -223,3 +310,25 @@ export const getConnectorParameterSelector = (options, services) => {
 export const getConnectorSubparameterSelector = (options, services) => {
   return services.GuideUtils.getGuideElementSelector(`${options.subparameterName}-connector-subproperty`);
 };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

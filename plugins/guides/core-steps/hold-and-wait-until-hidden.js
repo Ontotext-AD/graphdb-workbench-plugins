@@ -7,8 +7,8 @@ const step = {
     return angular.extend({}, BASIC_STEP, {
       initPreviousStep: services.GuideUtils.defaultInitPreviousStep,
       onNextValidate: () => Promise.resolve(!services.GuideUtils.isVisible(options.elementSelectorToWait)),
-      show: () => Utils.disableInteractions(options.elementSelector, services),
-      hide: () => Utils.enableInteractions(options.elementSelector, services)
+      show: () => Utils.allowEvents(Utils.SCROLL_EVENTS, options.elementSelector, services),
+      hide: () => Utils.allowAll(options.elementSelector, services)
     }, options);
   }
 };
