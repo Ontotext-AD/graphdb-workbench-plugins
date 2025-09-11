@@ -169,6 +169,126 @@
       "entry": "plugins/guides/connectors/connectors-close-view-sparql-query-dialog.js"
     },
     {
+      "name": "connectors-lucene-type-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-type-intro.js"
+    },
+    {
+      "name": "connectors-lucene",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene.js"
+    },
+    {
+      "name": "connectors-expand-lucene",
+      "entry": "plugins/guides/connectors/lucene/connectors-expand-lucene.js"
+    },
+    {
+      "name": "connectors-lucene-fields-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-intro.js"
+    },
+    {
+      "name": "connectors-lucene-fields-field-name-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-field-name-intro.js"
+    },
+    {
+      "name": "connectors-lucene-fields-field-name-transform-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-field-name-transform-intro.js"
+    },
+    {
+      "name": "connectors-lucene-fields-property-chain-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-property-chain-intro.js"
+    },
+    {
+      "name": "connectors-lucene-fields-default-value-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-default-value-intro.js"
+    },
+    {
+      "name": "connectors-lucene-fields-datatype-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-datatype-intro.js"
+    },
+    {
+      "name": "connectors-lucene-fields-value-filter-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-value-filter-intro.js"
+    },
+    {
+      "name": "connectors-lucene-fields-indexed-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-indexed-intro.js"
+    },
+    {
+      "name": "connectors-lucene-fields-stored-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-stored-intro.js"
+    },
+    {
+      "name": "connectors-lucene-fields-analyzed-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-analyzed-intro.js"
+    },
+    {
+      "name": "connectors-lucene-fields-multivalued-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-multivalued-intro.js"
+    },
+    {
+      "name": "connectors-lucene-fields-ignore-invalid-values-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-ignore-invalid-values-intro.js"
+    },
+    {
+      "name": "connectors-lucene-fields-facet-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-fields-facet-intro.js"
+    },
+    {
+      "name": "connectors-lucene-languages-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-languages-intro.js"
+    },
+    {
+      "name": "connectors-lucene-types-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-types-intro.js"
+    },
+    {
+      "name": "connectors-lucene-value-filter-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-value-filter-intro.js"
+    },
+    {
+      "name": "connectors-lucene-document-filter-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-document-filter-intro.js"
+    },
+    {
+      "name": "connectors-lucene-readonly-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-readonly-intro.js"
+    },
+    {
+      "name": "connectors-lucene-detect-fields-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-detect-fields-intro.js"
+    },
+    {
+      "name": "connectors-lucene-import-graph-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-import-graph-intro.js"
+    },
+    {
+      "name": "connectors-lucene-import-file-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-import-file-intro.js"
+    },
+    {
+      "name": "connectors-lucene-skip-initial-indexing-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-skip-initial-indexing-intro.js"
+    },
+    {
+      "name": "connectors-lucene-boost-properties-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-boost-properties-intro.js"
+    },
+    {
+      "name": "connectors-lucene-strip-markup-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-strip-markup-intro.js"
+    },
+    {
+      "name": "connectors-lucene-analyzer-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-analyzer-intro.js"
+    },
+    {
+      "name": "connectors-lucene-open-view-sparql-query-dialog",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-open-view-sparql-query-dialog.js"
+    },
+    {
+      "name": "connectors-lucene-view-sparql-dialog-intro",
+      "entry": "plugins/guides/connectors/lucene/connectors-lucene-view-sparql-dialog-intro.js"
+    },
+    {
       "name": "repositories-create-repository",
       "entry": "plugins/guides/repository/repositories-create-repository.js"
     },
