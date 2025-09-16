@@ -16,6 +16,7 @@
     "document": "npm run pre:document && jsdoc -c jsdoc.config.json && npm run post:document",
     "build": "npm run validate-manifest && webpack --config webpack.config.js",
     "validate-manifest": "node scripts/validate-manifest.js",
+    "validate-translations": "node scripts/validate-translations.cjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "install:ci": "npm ci",

@@ -1,4 +1,5 @@
-import * as Utils from '../utils.js';
+import {ENABLE_AUTOCOMPLETE_DEFAULT_TITLE} from '../utils.js';
+import {translate} from '../../../utils/translations/translation-service.js';
 
 const step = {
   guideBlockName: 'autocomplete-focus-on-indexing-status',
@@ -8,9 +9,9 @@ const step = {
     return {
       guideBlockName: 'read-only-element',
       options: {
-        content: 'guide.step_plugin.enable-autocomplete.status_info.content',
+        content: translate(options.language, 'guide.step_plugin.enable-autocomplete.status_info.content'),
         // If mainAction is set the title will be set automatically
-        ...(options.mainAction ? {} : {title: Utils.ENABLE_AUTOCOMPLETE_DEFAULT_TITLE}),
+        ...(options.mainAction ? {} : {title: translate(options.language, ENABLE_AUTOCOMPLETE_DEFAULT_TITLE)}),
         ...options,
         url: 'autocomplete',
         elementSelector: GuideUtils.getGuideElementSelector('autocompleteStatus'),

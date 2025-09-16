@@ -1,4 +1,5 @@
-import * as Utils from '../utils.js';
+import {translate} from '../../../utils/translations/translation-service.js';
+import {ENABLE_AUTOCOMPLETE_DEFAULT_TITLE} from '../utils.js';
 
 const step = {
   guideBlockName: 'autocomplete-enable-checkbox',
@@ -11,9 +12,9 @@ const step = {
       {
         guideBlockName: 'clickable-element',
         options: {
-          content: 'guide.step_plugin.enable-autocomplete.content',
+          content: translate(options.language, 'guide.step_plugin.enable-autocomplete.content'),
           // If mainAction is set the title will be set automatically
-          ...(options.mainAction ? {} : {title: Utils.ENABLE_AUTOCOMPLETE_DEFAULT_TITLE}),
+          ...(options.mainAction ? {} : {title: translate(options.language, ENABLE_AUTOCOMPLETE_DEFAULT_TITLE)}),
           class: 'enable-autocomplete-checkbox',
           ...options,
           url: 'autocomplete',

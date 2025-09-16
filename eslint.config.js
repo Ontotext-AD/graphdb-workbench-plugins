@@ -86,7 +86,8 @@ export default [
     ignores: [
       'node_modules/**',
       'dist/**',
-      'docs/**'
+      'docs/**',
+      'scripts/validate-translations.cjs'
     ]
   }
 ];
