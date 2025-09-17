@@ -4,6 +4,7 @@ const step = {
     const GuideUtils = services.GuideUtils;
     return [
       {
+        guideBlockName: 'hold-and-wait-until-shown',
         options: {
           content: 'guide.step_plugin.create-similarity-index.wait',
           class: 'wait-for-index',
