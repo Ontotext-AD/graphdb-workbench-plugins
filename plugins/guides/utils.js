@@ -199,14 +199,14 @@ export const enableAllVisualGraphNodes = () => () => {
 export const getWaitForAnswerStep = (GuideUtils, options) => {
   return {
     guideBlockName: 'hold-and-wait-until-hidden',
-    options: angular.extend({}, {
+    options: {
       content: 'guide.step_plugin.ask-ttyg-agent.wait-for-answer',
       class: 'wait-for-answer',
       url: 'ttyg',
-      placement: 'left',
       elementSelector: GuideUtils.getGuideElementSelector('chat-details'),
-      elementSelectorToWait: GuideUtils.getGuideElementSelector('question-loader')
-    }, options)
+      elementSelectorToWait: GuideUtils.getGuideElementSelector('question-loader'),
+      ...options
+    }
   };
 };
 
