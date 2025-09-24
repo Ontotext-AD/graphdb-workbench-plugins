@@ -12,4 +12,5 @@ fi
 # Run your checks
 npm run validate-manifest
 npm run document
+npm run validate-guides-translations
 npx eslint . --max-warnings 1000

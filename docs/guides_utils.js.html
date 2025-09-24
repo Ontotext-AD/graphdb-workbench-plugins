@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> guides/utils.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">GraphDB Workbench Plugins</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-Interactive%2520Guide.html">Interactive Guide</a></li></ul><h3>Classes</h3><ul><li><a href="PluginServiceInterface.html">PluginServiceInterface</a></li></ul><h3>Global</h3><ul><li><a href="global.html#COMMON_DOM_EVENTS">COMMON_DOM_EVENTS</a></li><li><a href="global.html#_configureInteractions">_configureInteractions</a></li><li><a href="global.html#allowAll">allowAll</a></li><li><a href="global.html#allowEvents">allowEvents</a></li><li><a href="global.html#beforeShowPromise">beforeShowPromise</a></li><li><a href="global.html#preventDefault">preventDefault</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>guides/utils.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * List of common DOM events to consider for interaction control.
+ * @type {string[]}
+ */
+const COMMON_DOM_EVENTS = [
+  'click',
+  'dblclick',
+  'keydown',
+  'keypress',
+  'keyup',
+  'input',
+  'submit',
+  'scroll',
+  'wheel'
+];
+export const SCROLL_EVENTS = ['scroll', 'wheel'];
+
+/**
+ * This function will be called before show a step. Step will be shown after promise is resolve. It waits element of step to be visible on the page.
+ * @param {*} services
+ * @param {string} elementSelector
+ * @param {number} maxWaitTime
+ * @return {function(): *}
+ */
+export const beforeShowPromise = (services, elementSelector, maxWaitTime) => {
+  return () => {
+    return services.GuideUtils.waitFor(elementSelector, maxWaitTime)
+      .catch((error) => {
+        // error is caught just to show notification in generic way.
+        services.toastr.error(services.$translate.instant('guide.unexpected.error.message'));
+        // throw the error, otherwise guide will continue with the next step.
+        throw error;
+      });
+  };
+};
+
+export const createCopyToInputListener = (elementSelector, text) => {
+  return (event) => {
+    event.preventDefault();
+    const inputElement = document.querySelector(elementSelector);
+    inputElement.value = text;
+    inputElement.dispatchEvent(new Event('input', {bubbles: true}));
+  };
+};
+
+/**
+ * Configures an element interactability, by consuming events and preventing them from propagating.
+ * This allows to keep scrolling, while disallowing interaction with other elements
+ * (such as clicking buttons).
+ * @param {string[]} allowedEvents - List of event types to allow.
+ * @param interactable - true to make the element interactable, false to make it non interactable
+ * @param elementSelector - the elementSelector
+ * @param services - The services object
+ */
+const _configureInteractions = (allowedEvents, interactable, elementSelector, services) => () => {
+  if (!elementSelector) {
+    return;
+  }
+
+  services.GuideUtils.getOrWaitFor(elementSelector)
+    .then((element) => {
+      const eventsToPrevent = COMMON_DOM_EVENTS.filter((event) => !allowedEvents.includes(event));
+      if (interactable) {
+        eventsToPrevent.forEach((event) => element.removeEventListener(event, preventDefault, true));
+      } else {
+        eventsToPrevent.forEach((event) => element.addEventListener(event, preventDefault, true));
+      }
+    });
+};
+
+/**
+ * Enables all interactions on the specified element.
+ *
+ * @param {string} elementSelector - A CSS selector identifying the target element.
+ * @param {Object} services - An object containing utility services, including GuideUtils.
+ */
+export const allowAll = (elementSelector, services) => _configureInteractions([], true, elementSelector, services);
+
+/**
+ * Restricts the specified element to only process events listed in &lt;code>allowedEvents&lt;/code>.
+ *
+ * @param {string[]} allowedEvents - An array of event types that should remain enabled.
+ * @param {string} elementSelector - A CSS selector identifying the target element.
+ * @param {Object} services - An object containing utility services, including GuideUtils.
+ */
+export const allowEvents = (allowedEvents, elementSelector, services) => _configureInteractions(allowedEvents, false, elementSelector, services);
+
+/**
+ * Prevents the default action of an event and stops its propagation.
+ * @param {Event} event - The event to prevent.
+ */
+const preventDefault = (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+};
+
+export const CLASS_HIERARCHY_DEFAULT_TITLE = 'view.class.hierarchy.title';
+export const CLASS_HIERARCHY_RDF_INSTANCES_DEFAULT_TITLE = 'guide.step_plugin.class-hierarchy-instances.title';
+export const CLASS_RELATIONSHIPS_DEFAULT_TITLE = 'view.class.relationships.title';
+export const REPOSITORIES_CREATE_DEFAULT_TITLE = 'guide.step-action.create-repository';
+export const CREATE_SIMILARITY_INDEX_DEFAULT = 'guide.step-action.create-similarity-index';
+export const ENABLE_AUTOCOMPLETE_DEFAULT_TITLE = 'guide.step-action.enable-autocomplete';
+export const SPARQL_EDITOR_DEFAULT_TITLE = 'view.sparql-editor.title';
+export const SPARQL_DIRECTIVE_SELECTOR = '#query-editor';
+export const IMPORT_FILE_DEFAULT_STEP_TITLE = 'guide.step-action.import-file';
+export const RDF_RANK_DEFAULT_TITLE = 'view.rdf.rank.title';
+export const RESOURCE_DEFAULT_TITLE = 'view.resource.title';
+export const REPOSITORIES_DEFAULT_TITLE = 'guide.step_plugin.repositories.default-title';
+export const VISUAL_GRAPH_DEFAULT_TITLE = 'visual.graph.label';
+export const TTYG_ASK_DEFAULT_TITLE = 'guide.step-action.ask-ttyg-agent';
+export const CONVERSATION_WITH_AGENT_DEFAULT_TITLE = 'guide.step-action.conversation-with-ttyg-agent';
+export const TTYG_CREATE_AGENT_DEFAULT_TITLE = 'guide.step-action.create-ttyg-agent';
+export const TTYG_EDIT_AGENT_DEFAULT_TITLE = 'guide.step-action.edit-ttyg-agent';
+export const TTYG_SELECT_AGENT_DEFAULT_TITLE = 'guide.step-action.select-ttyg-agent';
+export const TTYG_DEFAULT_TITLE = 'menu.ttyg.label';
+export const FTS_METHOD_DEFAULT_TITLE = 'guide.step-action.fts-search-method';
+export const SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE = 'guide.step-action.similarity-search-method';
+export const TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE = 'guide.step-action.sparql-search-method';
+export const CONNECTORS_DEFAULT_TITLE = 'menu.connectors.label';
+export const LUCENE_DEFAULT_TITLE = 'guide.step_plugin.connectors-lucene.title';
+export const LUCENE_CONNECTOR_NAME = 'Lucene';
+
+// Configuration options constants
+export const CONFIGURATION_OPTION_ONTOLOGY_GRAPH = 'ontologyGraph';
+export const CONFIGURATION_OPTION_SPARQL_QUERY = 'sparqlQuery';
+
+export const reloadAndOpenInfoPanel = (services, clasInstanceSelector) => {
+  services.RoutingUtil.navigate('/hierarchy');
+  return services.GuideUtils.waitFor(clasInstanceSelector, 3)
+    .then(() => {
+      services.GuideUtils.classHierarchyFocus(clasInstanceSelector);
+      // Wait a little time animation to complete.
+      return services.GuideUtils.deferredShow(500)();
+    });
+};
+
+export const disableAllRDFClasses = () => {
+  document.querySelectorAll('.rdf-class')
+    .forEach((el) => {
+      el.classList.add('disable-rdf-class');
+    });
+};
+
+export const enableAllRDFClasses = () => {
+  document.querySelectorAll('.rdf-class')
+    .forEach((el) => {
+      el.classList.remove('disable-rdf-class');
+    });
+};
+
+export const createDownloadClickHandler = (resourcePath, resourceFile, services) => {
+  return (event) => {
+    event.preventDefault();
+    services.GuidesService.downloadGuidesFile(resourcePath, resourceFile);
+  };
+};
+
+export const createCopyToEditorListener = (YasguiComponentDirectiveUtil, sparqlDirectiveSelector, query) => {
+  return (event) => {
+    event.preventDefault();
+    YasguiComponentDirectiveUtil.setQuery(sparqlDirectiveSelector, query).then(() => {
+    });
+  };
+};
+
+export const getResourceURL = (options) => {
+  let url = 'resource?role=';
+  url += options.role ? options.role : 'subject';
+  if (options.iri) {
+    url += `&amp;uri=${encodeURIComponent(options.iri)}`;
+  }
+  return url;
+};
+
+export const getRepositoryName = (services, options) => {
+  return services.$repositories.getRepositories().find((repo) => repo.id === options.repositoryId) ? options.repositoryId : options.repositoryIdBase;
+};
+
+export const getRepositoryElementSelector = (services, options) => {
+  return services.GuideUtils.getGuideElementSelector(`repository-id-${getRepositoryName(services, options)}`);
+};
+
+export const setRepositorySelectorAutoClose = (autoClose) => {
+  const component = document.querySelector('.onto-repository-selector');
+  if (component) {
+    // Enable auto-close when the guide step is closed.
+    component.autoClose = autoClose;
+  }
+};
+
+export const disableAllVisualGraphNodes = () => () => {
+  $('.node-wrapper').addClass('disable-visual-graph-node');
+};
+
+export const enableAllVisualGraphNodes = () => () => {
+  $('.node-wrapper').removeClass('disable-visual-graph-node');
+};
+
+export const getWaitForAnswerStep = (GuideUtils, options) => {
+  return {
+    guideBlockName: 'hold-and-wait-until-hidden',
+    options: {
+      content: 'guide.step_plugin.ask-ttyg-agent.wait-for-answer',
+      class: 'wait-for-answer',
+      url: 'ttyg',
+      elementSelector: GuideUtils.getGuideElementSelector('chat-details'),
+      elementSelectorToWait: GuideUtils.getGuideElementSelector('question-loader'),
+      ...options
+    }
+  };
+};
+
+export const getConnectorNameSelector = (options, services) => {
+  return services.GuideUtils.getGuideElementSelector(`connector-name-${options.connectorName}`);
+};
+
+export const getConnectorContentSelector = (options, services) => {
+  return services.GuideUtils.getGuideElementSelector(`${options.instanceName}-connector-content`);
+};
+
+export const getConnectorParameterSelector = (options, services) => {
+  return services.GuideUtils.getGuideElementSelector(`${options.parameterName}-connector-parameter`);
+};
+
+export const getConnectorSubparameterSelector = (options, services) => {
+  return services.GuideUtils.getGuideElementSelector(`${options.subparameterName}-connector-subproperty`);
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

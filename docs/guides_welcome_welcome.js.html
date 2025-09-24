@@ -1,0 +1,200 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> guides/welcome/welcome.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">GraphDB Workbench Plugins</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-Interactive%2520Guide.html">Interactive Guide</a></li></ul><h3>Classes</h3><ul><li><a href="PluginServiceInterface.html">PluginServiceInterface</a></li></ul><h3>Global</h3><ul><li><a href="global.html#COMMON_DOM_EVENTS">COMMON_DOM_EVENTS</a></li><li><a href="global.html#_configureInteractions">_configureInteractions</a></li><li><a href="global.html#allowAll">allowAll</a></li><li><a href="global.html#allowEvents">allowEvents</a></li><li><a href="global.html#beforeShowPromise">beforeShowPromise</a></li><li><a href="global.html#preventDefault">preventDefault</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>guides/welcome/welcome.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// eslint-disable-next-line no-unused-vars
+import {Options} from '../options.js';
+
+/**
+ * @name welcome
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * The Welcome step produces two steps:
+ *
+ * - The first step onboards users on how to interact with the guide dialogs. It explains the basic concepts, provides hints,
+ * and describes the overall purpose of the guide.&lt;br>
+ *   &lt;img src="resources/guides/welcome/welcome_1.png" style="height:200px; border: solid; border-width:1px"/>
+ *
+ * - The second step shows the description for the specific guide being run. The content is passed through the option
+ * `translatedGuideDescription`.&lt;br>
+ *   &lt;img src="resources/guides/welcome/welcome_2.png" style="height:200px; border: solid; border-width:1px"/>
+ *
+ * The Welcome step can be configured using the common options defined in [Options](#.Options).
+ *
+ * @example
+ * ```JSON
+ * {
+ *   "guideBlockName": "welcome"
+ * }
+ * ```
+ *
+ */
+const step = {
+  guideBlockName: 'welcome',
+  /**
+   *
+   * @param {Options} options - Options object containing settings and parameters for the step.
+   * @param {PluginServiceInterface} pluginService - The plugin service used to interact with the application (e.g., translations).
+   */
+  getSteps: function(options, pluginService) {
+    const translate = pluginService.translate;
+    const title = translate(this.translationBundle, 'guide.step_plugin.welcome.title', {translatedGuideName: options.translatedGuideName});
+    const infoIconHint = translate(this.translationBundle, 'guide.step_plugin.welcome.info-icon-hint');
+    const mouseIconHint = translate(this.translationBundle, 'guide.step_plugin.welcome.mouse-icon-hint');
+    const inputIconHint = translate(this.translationBundle, 'guide.step_plugin.welcome.input-icon-hint');
+
+    return [
+      {
+        guideBlockName: 'info-message',
+        options: {
+          title,
+          content: translate(this.translationBundle, 'guide.step_plugin.welcome.content', {
+            infoIconHint,
+            mouseIconHint,
+            inputIconHint
+          })
+        }
+      },
+      {
+        guideBlockName: 'info-message',
+        options: {
+          title,
+          content: translate(this.translationBundle, 'guide.step_plugin.welcome-what.content', {translatedGuideDescription: options.translatedGuideDescription})
+        }
+      }
+    ];
+  },
+  // TODO: The translations contains icon that belong to the client application, this should be handled differently via plugin service.
+  translationBundle: {
+    en: {
+      'guide.step_plugin.welcome.title': 'Welcome to {{translatedGuideName}}',
+      'guide.step_plugin.welcome.content': 'Throughout the guide you will see boxes like this one that will provide instructions on what to do.&lt;p>The icon in the top left corner is a hint too:&lt;ul>&lt;li>{{infoIconHint}}&lt;/li>&lt;li>{{mouseIconHint}}&lt;/li>&lt;li>{{inputIconHint}}&lt;/li>&lt;/ul>&lt;/p>',
+      'guide.step_plugin.welcome.info-icon-hint': '&lt;span class="icon icon-1-5x icon-info">&lt;/span> means the box provides information.',
+      'guide.step_plugin.welcome.mouse-icon-hint': '&lt;span class="icon icon-1-5x icon-focus">&lt;/span> asks you to do something with the mouse.',
+      'guide.step_plugin.welcome.input-icon-hint': '&lt;span class="icon icon-1-5x icon-edit">&lt;/span> tells you to type or paste something.',
+      'guide.step_plugin.welcome-what.content': '{{translatedGuideDescription}}&lt;p>Let\'s get started for real now!&lt;/p>'
+    },
+    fr: {
+      'guide.step_plugin.welcome.title': 'Bienvenue dans {{translatedGuideName}}',
+      'guide.step_plugin.welcome.content': 'Tout au long du guide, vous verrez des boîtes comme celle-ci qui fourniront des instructions sur ce qu\'il faut faire.&lt;p>L\'icône dans le coin supérieur gauche est également un indice :&lt;ul>&lt;li>{{infoIconHint}}&lt;/li>&lt;li>{{mouseIconHint}}&lt;/li>&lt;li>{{inputIconHint}}&lt;/li>&lt;/ul>&lt;/p>',
+      'guide.step_plugin.welcome.info-icon-hint': '&lt;span class="icon icon-1-5x icon-info">&lt;/span> signifie que la boîte fournit des informations.',
+      'guide.step_plugin.welcome.mouse-icon-hint': '&lt;span class="icon icon-1-5x icon-focus">&lt;/span> vous demande de faire quelque chose avec la souris.',
+      'guide.step_plugin.welcome.input-icon-hint': '&lt;span class="icon icon-1-5x icon-edit">&lt;/span> vous dit de taper ou de coller quelque chose.',
+      'guide.step_plugin.welcome-what.content': '{{translatedGuideDescription}}&lt;p>Commençons pour de vrai maintenant !&lt;/p>'
+    }
+  }
+};
+
+export function register(registry) {
+  registry.add('guide.step', step);
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

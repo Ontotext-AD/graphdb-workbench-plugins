@@ -14,12 +14,14 @@
     "excludePattern": "(^|\\/|\\\\)_"
   },
   "plugins": [
-    "plugins/markdown",
-    "node_modules/better-docs/category"
+    "plugins/markdown"
   ],
   "templates": {
     "cleverLinks": true,
-    "monospaceLinks": true
+    "monospaceLinks": true,
+    "better-docs": {
+      "name": "GraphDB Workbench Plugins"
+    }
   },
   "opts": {
     "destination": "docs",
