@@ -22,6 +22,7 @@ introduced._
 - [Project Structure](#project-structure)
 - [Plugin Manifest](#plugin-manifest)
 - [Contributing](#contributing)
+- [Documentation](https://ontotext-ad.github.io/graphdb-workbench-plugins)
 - [License](#license)
 
 ---
