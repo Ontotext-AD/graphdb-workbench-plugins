@@ -26,7 +26,9 @@ const step = {
 
     steps.push(...[
       {
-        guideBlockName: 'import-upload-rdf-file', options: {...options}
+        guideBlockName: 'import-upload-rdf-file', options: {
+          disablePreviousFlow: false,
+          ...options}
       },
       // This step is optional and will only appear if the file we want to upload has already been uploaded.
       // If the file is already uploaded, a confirmation dialog will be opened, and this step will display the confirm button of the dialog.
