@@ -119,6 +119,10 @@ export const TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE = 'guide.step-action.sparql
 export const CONNECTORS_DEFAULT_TITLE = 'menu.connectors.label';
 export const LUCENE_DEFAULT_TITLE = 'guide.step_plugin.connectors-lucene.title';
 export const LUCENE_CONNECTOR_NAME = 'Lucene';
+export const SKIP_SECTION = {
+  en: 'Skip section',
+  fr: 'Sauter la section'
+};
 
 // Configuration options constants
 export const CONFIGURATION_OPTION_ONTOLOGY_GRAPH = 'ontologyGraph';

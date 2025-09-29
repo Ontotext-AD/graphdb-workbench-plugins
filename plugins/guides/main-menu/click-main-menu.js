@@ -1,3 +1,5 @@
+import {SKIP_SECTION} from '../utils.js';
+
 const step = {
   guideBlockName: 'click-main-menu',
   getSteps: (options, services) => {
@@ -141,6 +143,7 @@ const step = {
           extraContent: helpInfo,
           extraContentClass: 'alert alert-help text-left',
           skipPoint: true,
+          skipButtonLabel: SKIP_SECTION,
           ...options
         }
       });

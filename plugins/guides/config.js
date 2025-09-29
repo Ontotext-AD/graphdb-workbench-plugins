@@ -12,5 +12,9 @@ export const BASIC_STEP = {
   onNextValidate: () => Promise.resolve(true),
   onPreviousClick: undefined,
   skipPoint: false,
+  skipButtonLabel: {
+    en: 'Skip',
+    fr: 'Sauter'
+  },
   class: ''
 };

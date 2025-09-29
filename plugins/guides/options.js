@@ -38,6 +38,13 @@
  * in the dialog, allowing the user to skip the guide from this point. When clicked, the guide will continue at
  * the next step marked as a skip point. If no further skip points are defined, the guide will be finished.
  * @property {string} [className] - A string that defines additional CSS classes to be added to the step dialog.
+ * @property {Object} [skipButtonLabel] - The bundle object, containing the label for the skip button in different languages.
+ * ```javascript
+ * skipButtonLabel = {
+ *     en: 'Skip',
+ *     fr: 'Sauter'
+ * };
+ * ```
  */
 export class Options {
   translatedGuideName = '';
@@ -51,5 +58,9 @@ export class Options {
   maxWaitTime = 3;
   disablePreviousFlow = true;
   skipPoint = false;
+  skipButtonLabel = {
+    en: 'Skip',
+    fr: 'Sauter'
+  };
   class = '';
 }
