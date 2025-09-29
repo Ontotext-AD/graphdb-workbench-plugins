@@ -23,7 +23,6 @@ const step = {
       submenuDialogClass = 'sub-menu-repositories';
       viewName = 'menu.repositories.label';
       helpInfo = 'view.repositories.helpInfo';
-
       break;
     case 'import':
       menuSelector = 'menu-import';
