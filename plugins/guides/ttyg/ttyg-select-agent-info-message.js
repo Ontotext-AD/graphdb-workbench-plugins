@@ -1,4 +1,4 @@
-import {TTYG_SELECT_AGENT_DEFAULT_TITLE} from '../utils.js';
+import {SKIP_SECTION, TTYG_SELECT_AGENT_DEFAULT_TITLE} from '../utils.js';
 
 const step = {
   guideBlockName: 'ttyg-select-agent-info-message',
@@ -12,6 +12,7 @@ const step = {
           ...(options.mainAction ? {} : {title: TTYG_SELECT_AGENT_DEFAULT_TITLE}),
           class: 'select-ttyg-agent',
           skipPoint: true,
+          skipButtonLabel: SKIP_SECTION,
           disablePreviousFlow: true,
           ...options,
           url: 'ttyg'

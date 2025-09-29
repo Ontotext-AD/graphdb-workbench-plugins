@@ -1,4 +1,5 @@
 import * as Utils from '../utils.js';
+import {SKIP_SECTION} from '../utils.js';
 
 const step = {
   guideBlockName: 'class-hierarchy-instances',
@@ -28,6 +29,7 @@ const step = {
         guideBlockName: 'class-hierarchy-rdf-instances-side-panel-intro',
         options: {
           skipPoint: true,
+          skipButtonLabel: SKIP_SECTION,
           beforeShowPromise: GuideUtils.deferredShow(800),
           onPreviousClick: () => new Promise(function(resolve) {
             GuideUtils.waitFor(closeButtonSelector, 1)

@@ -1,4 +1,5 @@
 import * as Utils from '../utils.js';
+import {SKIP_SECTION} from '../utils.js';
 
 const step = {
   guideBlockName: 'select-repository-dropdown',
@@ -11,13 +12,15 @@ const step = {
 
     return [{
       guideBlockName: 'clickable-element',
-      options: angular.extend({}, {
+      options: {
         skipPoint: true,
+        skipButtonLabel: SKIP_SECTION,
         content: 'guide.step_plugin.choose-repository.content',
         elementSelector: '.onto-repository-selector',
         class: 'repositories-group-button',
-        onNextClick: GuideUtils.clickOnElement('.onto-repository-selector .onto-dropdown-button')
-      }, options)
+        onNextClick: GuideUtils.clickOnElement('.onto-repository-selector .onto-dropdown-button'),
+        ...options
+      }
     }, {
       guideBlockName: 'clickable-element',
       options: angular.extend({}, {

@@ -1,4 +1,5 @@
 import * as Utils from '../utils.js';
+import {SKIP_SECTION} from '../utils.js';
 
 const step = {
   guideBlockName: 'ttyg-edit-agent-intro-message',
@@ -11,6 +12,7 @@ const step = {
           // If mainAction is set the title will be set automatically
           ...(options.mainAction ? {} : {title: Utils.TTYG_EDIT_AGENT_DEFAULT_TITLE}),
           skipPoint: true,
+          skipButtonLabel: SKIP_SECTION,
           ...options
         }
       }
