@@ -85,7 +85,6 @@ const step = {
       submenuDialogClass = 'sub-menu-class-hierarchy';
       viewName = 'view.class.hierarchy.title';
       helpInfo = 'view.class.hierarchy.helpInfo';
-
       break;
     case 'class-relationships':
       menuSelector = 'menu-explore';
