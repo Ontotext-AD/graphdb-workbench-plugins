@@ -1,9 +1,29 @@
-import * as Utils from '../utils.js';
+const DEFAULT_TITLE = 'guide.step_plugin.autocomplete.default.title';
+const CONTENT = 'guide.step_plugin.autocomplete-enable-checkbox.content';
 
+/**
+ * @name autocomplete-enable-checkbox
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ *
+ * The `autocomplete-enable-checkbox` step shows the user how to enable the autocomplete index in GraphDB.<br>
+ * <img src="resources/guides/autocomplete/autocomplete-enable-checkbox.png" style="height:200px; border: solid; border-width:1px"/>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options).
+ *
+ * @example
+ * ```JSON
+ * {
+ *   "guideBlockName": "autocomplete-enable-checkbox"
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'autocomplete-enable-checkbox',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
     const GuideUtils = services.GuideUtils;
+    const translate = services.translate;
     const autocompleteCheckboxSelector = GuideUtils.getGuideElementSelector('autocompleteCheckbox');
     let checkboxElement;
     let autocompleteCheckboxClickEventHandler;
@@ -11,9 +31,8 @@ const step = {
       {
         guideBlockName: 'clickable-element',
         options: {
-          content: 'guide.step_plugin.enable-autocomplete.content',
-          // If mainAction is set the title will be set automatically
-          ...(options.mainAction ? {} : {title: Utils.ENABLE_AUTOCOMPLETE_DEFAULT_TITLE}),
+          content: translate(this.translationBundle, CONTENT),
+          ...(options.title ? {} : {title: translate(this.translationBundle, DEFAULT_TITLE)}),
           class: 'enable-autocomplete-checkbox',
           ...options,
           url: 'autocomplete',
@@ -48,6 +67,16 @@ const step = {
         }
       }
     ];
+  },
+  translationBundle: {
+    en: {
+      [DEFAULT_TITLE]: 'Enable autocomplete',
+      [CONTENT]: 'Click on the checkbox to enable the index.'
+    },
+    fr: {
+      [DEFAULT_TITLE]: 'Activer la saisie semi-automatique',
+      [CONTENT]: 'Cliquez sur la case à cocher pour activer l\'indexation.'
+    }
   }
 };
 
