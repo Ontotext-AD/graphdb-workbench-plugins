@@ -1,16 +1,39 @@
-import * as Utils from '../utils.js';
+const DEFAULT_TITLE = 'guide.step-action.import-file';
+const CONTENT = 'guide.step_plugin.import_status_info.content';
 
+/**
+ * @name import-show-progress
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ *
+ * The `import-show-progress` step guides the user to monitor the progress of an import operation in the import dialog of GraphDB.<br>
+ * <img src="resources/guides/import/import-show-progress.png" style="height:200px; border: solid; border-width:1px"/>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it supports the following options:
+ * @property {string} resourceFile - The name of the resource file that should be downloaded in the step.
+ *
+ * @example
+ * ```JSON
+ * {
+ *   "guideBlockName": "import-show-progress",
+ *   "options": {
+ *     "resourceFile": "example.rdf"
+ *   }
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'import-show-progress',
   getSteps: (options, services) => {
     const GuideUtils = services.GuideUtils;
+    const translate = services.translate;
     return [
       {
         guideBlockName: 'read-only-element',
         options: {
-          content: 'guide.step_plugin.import_status_info.content',
-          // If mainAction is set the title will be set automatically
-          ...(options.mainAction ? {} : {title: Utils.IMPORT_FILE_DEFAULT_STEP_TITLE}),
+          content: translate(step.translationBundle, CONTENT),
+          ...(options.title ? {} : {title: translate(step.translationBundle, DEFAULT_TITLE)}),
           class: 'import-status-info',
           ...options,
           url: 'import',
@@ -28,6 +51,16 @@ const step = {
         }
       }
     ];
+  },
+  translationBundle: {
+    en: {
+      [DEFAULT_TITLE]: 'Import file',
+      [CONTENT]: 'Wait until import finished.'
+    },
+    fr: {
+      [DEFAULT_TITLE]: 'Importer un fichier',
+      [CONTENT]: 'Attendez la fin de l\'importation.'
+    }
   }
 };
 

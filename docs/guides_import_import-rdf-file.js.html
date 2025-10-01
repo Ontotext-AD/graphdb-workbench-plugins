@@ -1,0 +1,216 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> guides/import/import-rdf-file.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">GraphDB Workbench Plugins</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-Interactive%2520Guide.html">Interactive Guide</a></li></ul><h3>Classes</h3><ul><li><a href="PluginServiceInterface.html">PluginServiceInterface</a></li></ul><h3>Global</h3><ul><li><a href="global.html#COMMON_DOM_EVENTS">COMMON_DOM_EVENTS</a></li><li><a href="global.html#_configureInteractions">_configureInteractions</a></li><li><a href="global.html#allowAll">allowAll</a></li><li><a href="global.html#allowEvents">allowEvents</a></li><li><a href="global.html#beforeShowPromise">beforeShowPromise</a></li><li><a href="global.html#preventDefault">preventDefault</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>guides/import/import-rdf-file.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const DEFAULT_TITLE = 'guide.step-action.import-file';
+
+/**
+ * @name import-rdf-file
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * The `import-rdf-file` guide shows how to import an RDF file into GraphDB.
+ *
+ * The guide consists of the following steps:
+ * 1. A step that guides the user to click on the "Import" main menu.&lt;br>
+ * &lt;img src="resources/guides/main-menu/main-menu-import.png" style="height:200px; border: solid; border-width:1px"/>
+ * 2. A step that downloads a guide resource if specified.&lt;br>
+ * &lt;img src="resources/guides/import/import-download-guide-resource.png" style="height:200px; border: solid; border-width:1px"/>
+ * 3. A step that guides the user to upload an RDF file.&lt;br>
+ * &lt;img src="resources/guides/import/import-upload-rdf-file.png" style="height:200px; border: solid; border-width:1px"/>
+ * 4. (Optional) A step that shows an info dialog if the file is already uploaded.&lt;br>
+ * &lt;img src="resources/guides/import/import-confirm-duplicate-files.png" style="height:200px; border: solid; border-width:1px"/>
+ * 5. A step that guides the user to click the import button.&lt;br>
+ * &lt;img src="resources/guides/import/import-click-on-import-button.png" style="height:200px; border: solid; border-width:1px"/>
+ * 6. A step that shows the import progress.&lt;br>
+ * &lt;img src="resources/guides/import/import-show-progress.png" style="height:200px; border: solid; border-width:1px"/>
+ *
+ * This guide can be configured using the common options defined in [Options](#.Options). Additionally, it supports the following options:
+ * @property {string} resourcesPath - The path to the resource that should be downloaded in the step.
+ * @property {string} resourceFile - The name of the resource file that should be downloaded in the step.
+ *
+ * @example
+ * ```JSON
+ * {
+ *   "guideBlockName": "import-rdf-file",
+ *   "options": {
+ *        "resourcePath": "/path/to/example.rdf",
+ *        "resourceFile": "example.rdf",
+ *   }
+ * }
+ * ```
+ */
+const step = {
+  guideBlockName: 'import-rdf-file',
+  getSteps: (options, services) => {
+    const translate = services.translate;
+    options.mainAction = 'import-file';
+    const title = options.title ? options.title : translate(step.translationBundle, DEFAULT_TITLE);
+    const steps = [
+      {
+        guideBlockName: 'click-main-menu',
+        options: {
+          menu: 'import',
+          showIntro: true,
+          title,
+          ...options
+        }
+      }
+    ];
+
+    if (options.resourcePath) {
+      steps.push(
+        {
+          guideBlockName: 'download-guide-resource',
+          options: {
+            title,
+            ...options
+          }
+        }
+      );
+    }
+
+    steps.push(...[
+      {
+        guideBlockName: 'import-upload-rdf-file', options: {
+          disablePreviousFlow: false,
+          title,
+          ...options}
+      },
+      // This step is optional and will only appear if the file we want to upload has already been uploaded.
+      // If the file is already uploaded, a confirmation dialog will be opened, and this step will display the confirm button of the dialog.
+      {
+        guideBlockName: 'import-confirm-duplicate-files', options: {title, ...options}
+      },
+      {
+        guideBlockName: 'import-click-on-import-button', options: {title, ...options}
+      },
+      {
+        guideBlockName: 'import-show-progress', options: {title, ...options}
+      }
+    ]);
+
+    return steps;
+  },
+  translationBundle: {
+    en: {
+      [DEFAULT_TITLE]: 'Import file'
+    },
+    fr: {
+      [DEFAULT_TITLE]: 'Importer un fichier'
+    }
+  }
+};
+
+export function register(registry) {
+  registry.add('guide.step', step);
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>
