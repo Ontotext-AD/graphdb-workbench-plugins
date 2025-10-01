@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "dev": "nodemon --watch plugins --ext js,json --exec \"npm run build\"",
-    "pre:document": "rimraf docs",
+    "pre:document": "rimraf -g docs/[!resource]*",
     "post:document": "node scripts/post-jsdoc.js",
     "document": "npm run pre:document && jsdoc -c jsdoc.config.json && npm run post:document",
     "build": "npm run validate-manifest && webpack --config webpack.config.js",

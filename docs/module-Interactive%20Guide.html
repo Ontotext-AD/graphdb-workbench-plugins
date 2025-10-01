@@ -959,6 +959,1741 @@ where they can see the status of autocomplete indexing process.<br>
             
                 <div class="member">
 
+<h4 class="name" id=".class-hierarchy">
+    <a class="href-link" href="#.class-hierarchy">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-hierarchy
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The Class Hierarchy step is a complex step, which provides an interactive guide for users to explore and understand
+the class hierarchy visualization within the application.</p>
+<p>Click on explore menu<br>
+<img src="resources/guides/class-hierarchy/click-explore-menu.png" style="height:200px; border: solid; border-width:1px"/><br>
+Click on class hierarchy submenu<br>
+<img src="resources/guides/class-hierarchy/click-class-hierarchy.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Class hierarchy dataset intro<br>
+<img src="resources/guides/class-hierarchy/class-hierarchy-intro.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Dataset intro<br>
+<img src="resources/guides/class-hierarchy/class-hierarchy-dataset-intro.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Zoom on a class<br>
+<img src="resources/guides/class-hierarchy/class-hierarchy-zoom-class.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Explain a class<br>
+<img src="resources/guides/class-hierarchy/class-hierarchy-explain-class.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>The step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>introExtraContent</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Object</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>bundle object, which, if provided, will show <code>class-hierarchy-dataset-intro</code></p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>zoomIris</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array.&lt;Object></code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>array of objects, which should be zoomed in.</p></td>
+</tr>
+
+  
+      
+<tr class="deep-level-1">
+    
+        <td class="name"><code>iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>IRI of the class to zoom in</p></td>
+</tr>
+
+  
+      
+<tr class="deep-level-1">
+    
+        <td class="name"><code>postExtraContent</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Object</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>bundle object, which, if provided, will show <code>class-hierarchy-explain-class</code></p></td>
+</tr>
+
+  
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-hierarchy_class-hierarchy.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-hierarchy_class-hierarchy.js.html">guides/class-hierarchy/class-hierarchy.js</a>, <a href="guides_class-hierarchy_class-hierarchy.js.html#line2">line 2</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-hierarchy",
+  "options": {
+    "introExtraContent": {
+      "en": "In this dataset, there is a single top-level class, &lt;b>schema:Movie&lt;/b>, and two subclasses (the smaller circles inside). This tells us that the dataset has to do with movies."
+    },
+    "zoomIris": [
+      {
+        "iri": "schema:Movie",
+        "postExtraContent": {
+          "en": "The two subclasses, &lt;b>imdb:BlackandWhiteMovie&lt;/b> and &lt;b>imdb:ColorMovie&lt;/b>, tell us that the movies are divided into black-and-white and color ones, and there are more color movies than black-and-white ones since the &lt;b>imdb:ColorMovie&lt;/b> circle is larger."
+        }
+      }
+    ]
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-hierarchy-close-rdf-instances-side-panel">
+    <a class="href-link" href="#.class-hierarchy-close-rdf-instances-side-panel">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-hierarchy-close-rdf-instances-side-panel
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to close the RDF instances side panel by clicking on the close (X) icon.</p>
+<img src="resources/guides/class-hierarchy/class-hierarchy-close-rdf-instances-side-panel.png" style="height:200px; border: solid; border-width:1px"/>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-hierarchy_class-hierarchy-close-rdf-instances-side-panel.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-hierarchy_class-hierarchy-close-rdf-instances-side-panel.js.html">guides/class-hierarchy/class-hierarchy-close-rdf-instances-side-panel.js</a>, <a href="guides_class-hierarchy_class-hierarchy-close-rdf-instances-side-panel.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-hierarchy-close-rdf-instances-side-panel"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-hierarchy-dataset-intro">
+    <a class="href-link" href="#.class-hierarchy-dataset-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-hierarchy-dataset-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Showcases a visualizes the top level of a class dataset and its subclasses.</p>
+<img src="resources/guides/class-hierarchy/class-hierarchy-dataset-intro.png" style="height:200px; border: solid; border-width:1px"/>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-hierarchy_class-hierarchy-dataset-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-hierarchy_class-hierarchy-dataset-intro.js.html">guides/class-hierarchy/class-hierarchy-dataset-intro.js</a>, <a href="guides_class-hierarchy_class-hierarchy-dataset-intro.js.html#line3">line 3</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-hierarchy-dataset-intro"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-hierarchy-explain-class">
+    <a class="href-link" href="#.class-hierarchy-explain-class">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-hierarchy-explain-class
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on explaining a specific class within the class hierarchy visualization.
+It highlights the selected class and provides detailed information about it</p>
+<ul>
+<li>
+<img src="resources/guides/class-hierarchy/class-hierarchy-explain-class.png" style="height:200px; border: solid; border-width:1px"/></li>
+</ul>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-hierarchy_class-hierarchy-explain-class.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-hierarchy_class-hierarchy-explain-class.js.html">guides/class-hierarchy/class-hierarchy-explain-class.js</a>, <a href="guides_class-hierarchy_class-hierarchy-explain-class.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+"guideBlockName": "class-hierarchy-explain-class",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-hierarchy-explain-rdf-instance">
+    <a class="href-link" href="#.class-hierarchy-explain-rdf-instance">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-hierarchy-explain-rdf-instance
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on explaining a specific RDF instance within the class hierarchy visualization.
+It highlights the selected instance and provides detailed information about it.</p>
+<img src="resources/guides/class-hierarchy/class-hierarchy-explain-rdf-instance.png" style="height:200px; border: solid; border-width:1px"/>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The IRI of the class to which the instance belongs. This option is required.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.instance</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The label of the RDF instance to be explained. This option is required.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.extraContent</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Object</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Bundle object with additional content to display.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-hierarchy_class-hierarchy-explain-rdf-instance.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-hierarchy_class-hierarchy-explain-rdf-instance.js.html">guides/class-hierarchy/class-hierarchy-explain-rdf-instance.js</a>, <a href="guides_class-hierarchy_class-hierarchy-explain-rdf-instance.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-hierarchy-explain-rdf-instance",
+  "options": {
+    "iri": "imdb:ColorMovie",
+    "instance": "The Godfather",
+    "extraContent": {
+      "en": "My additional content in English",
+      "fr": "Mon contenu additionnel en français"
+    }
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-hierarchy-instances">
+    <a class="href-link" href="#.class-hierarchy-instances">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-hierarchy-instances
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step is a complex step that includes several sub-steps to guide the user through viewing and understanding
+RDF instances of a class in the class hierarchy.</p>
+<p>Open RDF instances side panel<br>
+<img src="resources/guides/class-hierarchy/class-hierarchy-open-rdf-instances-side-panel.png" style="height:200px; border: solid;"><br></p>
+<p>Side panel introduction<br>
+<img src="resources/guides/class-hierarchy/class-hierarchy-rdf-instances-side-panel-intro.png" style="height:200px; border: solid"><br></p>
+<p>Explain RDF instance<br>
+<img src="resources/guides/class-hierarchy/class-hierarchy-explain-rdf-instance.png" style="height:200px; border: solid"><br></p>
+<p>Open all instances in SPARQL<br>
+<img src="resources/guides/class-hierarchy/class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql.png" style="height:200px; border: solid"><br></p>
+<p>SPARQL editor explanation<br>
+<img src="resources/guides/class-hierarchy/sparql-explain-editor.png" style="height:200px; border: solid"><br></p>
+<p>SPARQL results explanation<br>
+<img src="resources/guides/class-hierarchy/sparql-results-explain.png" style="height:200px; border: solid"><br></p>
+<p>Close RDF instances side panel<br>
+<img src="resources/guides/class-hierarchy/class-hierarchy-close-rdf-instances-side-panel.png" style="height:200px; border: solid"><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. It requires <code>options.iri</code></p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The IRI of the class whose instances are to be viewed. This option is required.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.focusInstances</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array.&lt;(string|Object)></code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>An array of instances to focus on. Each entry can be a string (the instance IRI)</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.followCountLink</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Whether to follow the count link when the RDF instance count is clicked.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-hierarchy_class-hierarchy-instances.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-hierarchy_class-hierarchy-instances.js.html">guides/class-hierarchy/class-hierarchy-instances.js</a>, <a href="guides_class-hierarchy_class-hierarchy-instances.js.html#line9">line 9</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-hierarchy-instances",
+  "options": {
+    "iri": "imdb:ColorMovie",
+    "focusInstances": [
+      "imdb:title/Superman",
+      "imdb:title/Mulan"
+    ],
+    "followCountLink": true
+  }
+},
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-hierarchy-intro">
+    <a class="href-link" href="#.class-hierarchy-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-hierarchy-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The Class Hierarchy Intro step provides an introduction to the class hierarchy visualization,
+explaining how to interpret the circles representing classes and their subclasses.</p>
+<img src="resources/guides/class-hierarchy/class-hierarchy-intro.png" style="height:200px; border: solid; border-width:1px"/>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-hierarchy_class-hierarchy-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-hierarchy_class-hierarchy-intro.js.html">guides/class-hierarchy/class-hierarchy-intro.js</a>, <a href="guides_class-hierarchy_class-hierarchy-intro.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-hierarchy-intro"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-hierarchy-open-rdf-instances-side-panel">
+    <a class="href-link" href="#.class-hierarchy-open-rdf-instances-side-panel">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-hierarchy-open-rdf-instances-side-panel
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on guiding the user to open the RDF instances side panel in the class hierarchy view.</p>
+<img src="resources/guides/class-hierarchy/class-hierarchy-open-rdf-instances-side-panel.png" style="height:200px; border: solid">
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. It requires <code>options.iri</code></p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The IRI of the class whose instances are to be viewed. This option is required.</p>
+<ul>
+<li>@example</li>
+</ul>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;guideBlockName&quot;: &quot;class-hierarchy-open-rdf-instances-side-panel&quot;,
+  &quot;options&quot;: {
+    &quot;iri&quot;: &quot;imdb:ColorMovie&quot;
+  }
+}
+</code></pre></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-hierarchy_class-hierarchy-open-rdf-instances-side-panel.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-hierarchy_class-hierarchy-open-rdf-instances-side-panel.js.html">guides/class-hierarchy/class-hierarchy-open-rdf-instances-side-panel.js</a>, <a href="guides_class-hierarchy_class-hierarchy-open-rdf-instances-side-panel.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-hierarchy-rdf-instances-side-panel-intro">
+    <a class="href-link" href="#.class-hierarchy-rdf-instances-side-panel-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-hierarchy-rdf-instances-side-panel-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on introducing the RDF instances side panel in the class hierarchy view.</p>
+<img src="resources/guides/class-hierarchy/class-hierarchy-rdf-instances-side-panel-intro.png" style="height:200px; border: solid">
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. It requires <code>options.iri</code></p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The IRI of the class whose instances are to be viewed. This option is required.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-hierarchy_class-hierarchy-rdf-instances-side-panel-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-hierarchy_class-hierarchy-rdf-instances-side-panel-intro.js.html">guides/class-hierarchy/class-hierarchy-rdf-instances-side-panel-intro.js</a>, <a href="guides_class-hierarchy_class-hierarchy-rdf-instances-side-panel-intro.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-hierarchy-rdf-instances-side-panel-intro",
+  "options": {
+    "iri": "imdb:ColorMovie"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql">
+    <a class="href-link" href="#.class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on guiding the user to open all RDF instances in SPARQL from the class hierarchy view.</p>
+<img src="resources/guides/class-hierarchy/class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql.png" style="height:200px; border: solid">
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. It requires <code>options.iri</code></p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The IRI of the class whose instances are to be viewed. This option is required.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-hierarchy_class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-hierarchy_class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql.js.html">guides/class-hierarchy/class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql.js</a>, <a href="guides_class-hierarchy_class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql",
+  "options": {
+    "iri": "imdb:ColorMovie"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-hierarchy-toggle-prefixes">
+    <a class="href-link" href="#.class-hierarchy-toggle-prefixes">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-hierarchy-toggle-prefixes
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on the button that toggles the display of prefixes in the class hierarchy view.</p>
+<img src="resources/guides/class-hierarchy/class-hierarchy-toggle-prefixes.png" style="height:200px; border: solid; border-width:1px"/>
+<ul>
+<li>@example</li>
+</ul>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;guideBlockName&quot;: &quot;class-hierarchy-toggle-prefixes&quot;,
+}
+</code></pre>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-hierarchy_class-hierarchy-toggle-prefixes.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-hierarchy_class-hierarchy-toggle-prefixes.js.html">guides/class-hierarchy/class-hierarchy-toggle-prefixes.js</a>, <a href="guides_class-hierarchy_class-hierarchy-toggle-prefixes.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-hierarchy-zoom-class">
+    <a class="href-link" href="#.class-hierarchy-zoom-class">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-hierarchy-zoom-class
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on guiding users to zoom into a specific class within the class hierarchy visualization.
+Scrolling will zoom into the class, visualizing subclasses</p>
+<img src="resources/guides/class-hierarchy/class-hierarchy-zoom-class.png" style="height:200px; border: solid; border-width:1px"/>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The IRI of the class to be zoomed into. This option is required.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-hierarchy_class-hierarchy-zoom-class.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-hierarchy_class-hierarchy-zoom-class.js.html">guides/class-hierarchy/class-hierarchy-zoom-class.js</a>, <a href="guides_class-hierarchy_class-hierarchy-zoom-class.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "class-hierarchy-zoom-class",
+ "options": {
+   "iri": "imdb:ColorMovie"
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".click-main-menu">
+    <a class="href-link" href="#.click-main-menu">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        click-main-menu
+    </span>
+    
+</h4>
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_main-menu_click-main-menu.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_main-menu_click-main-menu.js.html">guides/main-menu/click-main-menu.js</a>, <a href="guides_main-menu_click-main-menu.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".enable-autocomplete">
     <a class="href-link" href="#.enable-autocomplete">#</a>
     
