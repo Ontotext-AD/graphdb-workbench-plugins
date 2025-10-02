@@ -67,12 +67,14 @@ const step = {
             if (element) {
               element.addEventListener('dblclick', handleDoubleClick, true);
             }
+            Utils.disableSidebarInteraction();
           },
           hide: () => () => {
             if (element) {
               element.removeEventListener('dblclick', handleDoubleClick, true);
               element = null;
             }
+            Utils.enableSidebarInteraction();
           },
           ...options
         }
