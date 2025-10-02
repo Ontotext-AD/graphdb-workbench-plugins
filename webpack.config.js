@@ -1,26 +1,17 @@
 import path from 'path';
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import glob from 'glob';
 import {fileURLToPath} from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Find all JS files in the plugins directory.
-// Map them to an object entry in order to keep the file structure.
-// This way files can be imported directly using their path.
-const entry = glob.sync('./plugins/**/*.js')
-  .reduce((acc, file) => {
-    const entryName = file.replace('./plugins', '').replace('.js', '');
-    acc[entryName] = file;
-    return acc;
-  }, {});
-
 export default {
   mode: 'production',
   devtool: 'source-map',
-  entry,
+  entry: {
+    'plugins-bundle': './plugins/plugins-bundle.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist/'),
     filename: '[name].js',
@@ -28,6 +19,10 @@ export default {
   },
   experiments: {
     outputModule: true
+  },
+  optimization: {
+    splitChunks: false,
+    runtimeChunk: false
   },
   plugins: [
     new CleanWebpackPlugin(),
