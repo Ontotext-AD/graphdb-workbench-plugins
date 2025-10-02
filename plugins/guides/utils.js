@@ -141,6 +141,7 @@ export const disableAllRDFClasses = () => {
     .forEach((el) => {
       el.classList.add('disable-rdf-class');
     });
+  disableSidebarInteraction();
 };
 
 export const enableAllRDFClasses = () => {
@@ -148,6 +149,19 @@ export const enableAllRDFClasses = () => {
     .forEach((el) => {
       el.classList.remove('disable-rdf-class');
     });
+  enableSidebarInteraction();
+};
+
+export const disableSidebarInteraction = () => {
+  document.querySelector('.rdf-info-side-panel')
+    .classList
+    .add('pointer-events-none');
+};
+
+export const enableSidebarInteraction = () => {
+  document.querySelector('.rdf-info-side-panel')
+    .classList
+    .remove('pointer-events-none');
 };
 
 export const createDownloadClickHandler = (resourcePath, resourceFile, services) => {
