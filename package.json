@@ -14,7 +14,7 @@
     "pre:document": "rimraf -g docs/[!resource]*",
     "post:document": "node scripts/post-jsdoc.js",
     "document": "npm run pre:document && jsdoc -c jsdoc.config.json && npm run post:document",
-    "build": "npm run validate-manifest && webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js",
     "validate-manifest": "node scripts/validate-manifest.js",
     "validate-guides-translations": "node scripts/validate-guides-translations.mjs",
     "lint": "eslint .",
