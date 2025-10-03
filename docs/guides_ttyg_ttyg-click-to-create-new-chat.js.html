@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/core-steps/toggle-element.js</title>
+  <title> guides/ttyg/ttyg-click-to-create-new-chat.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/core-steps/toggle-element.js</h1>
+                    <h1>guides/ttyg/ttyg-click-to-create-new-chat.js</h1>
                 </header>
                 
 
@@ -89,69 +89,58 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {BASIC_STEP} from '../config.js';
-import * as Utils from '../utils.js';
+            <pre class="prettyprint source linenums"><code>const CONVERSATION_WITH_AGENT_DEFAULT_TITLE = 'guide.step-action.conversation-with-ttyg-agent';
+const START_CONVERSATION = 'guide.step_plugin.conversation-with-ttyg-agent.start-conversation';
 
 /**
- * @name toggle-element
+ * @name ttyg-click-to-create-new-chat
  * @memberof module:Interactive Guide
  *
  * @description
- * The Toggleable Element step is used to guide users to enable a specific toggleable element (like a switch or checkbox)
- * on the interface. The step ensures that a user cannot go back to this step and deselect the toggleable element.
+ * This step focuses on guiding the user to click on the "Create Chat" button in the Talk to Your Graph.
+ * It highlights the button and provides instructions on how to start a new conversation with the agent.
  *
- * Toggleable element example&lt;br>
- * &lt;img src="resources/guides/core/toggle-element.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Create a new chat&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-click-to-create-new-chat.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "toggle-element",
+ *  "guideBlockName": "ttyg-click-to-create-new-chat",
  * }
  * ```
  */
 const step = {
-  // An element, which can be toggled via click
-  guideBlockName: 'toggle-element',
-  getStep: (options, pluginService) => {
-    const notOverridable = {
-      type: 'toggleable'
-    };
-
-    let stepHTMLElement;
-    const selector = options.toggleableElementSelector || options.elementSelector;
-
-    const toggleListener = (event) => {
-      if (!event.target.checked) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    };
-    const stepDescription = {
-      ...BASIC_STEP,
-      advanceOn: {
-        selector,
-        event: 'click'
-      },
-
-      initPreviousStep: pluginService.GuideUtils.defaultInitPreviousStep,
-      ...options,
-      show: () => () => {
-        stepHTMLElement = document.querySelector(selector);
-        stepHTMLElement.addEventListener('click', toggleListener, true);
-      },
-      hide: () => () => {
-        if (stepHTMLElement) {
-          stepHTMLElement.removeEventListener('click', toggleListener);
+  guideBlockName: 'ttyg-click-to-create-new-chat',
+  getSteps: function(options, pluginService) {
+    const GuideUtils = pluginService.GuideUtils;
+    const createChatBtnSelector = GuideUtils.getGuideElementSelector('create-chat-btn');
+    const translate = pluginService.translate;
+    const title = options.title ? options.title : translate(this.translationBundle, CONVERSATION_WITH_AGENT_DEFAULT_TITLE);
+    return [
+      {
+        guideBlockName: 'clickable-element',
+        options: {
+          title,
+          content: translate(this.translationBundle, START_CONVERSATION),
+          class: 'start-conversation',
+          disableNextFlow: true,
+          ...options,
+          url: 'ttyg',
+          elementSelector: createChatBtnSelector
         }
-      },
-      ...notOverridable
-    };
-
-    if (!stepDescription.beforeShowPromise) {
-      stepDescription.beforeShowPromise = Utils.beforeShowPromise(pluginService, stepDescription.elementSelector, stepDescription.maxWaitTime);
+      }
+    ];
+  },
+  translationBundle: {
+    en: {
+      [CONVERSATION_WITH_AGENT_DEFAULT_TITLE]: 'Conversation with the agent',
+      [START_CONVERSATION]: 'Click the button to create a new chat'
+    },
+    fr: {
+      [CONVERSATION_WITH_AGENT_DEFAULT_TITLE]: 'Conversation avec l\'agent',
+      [START_CONVERSATION]: 'Cliquez sur le bouton pour créer un nouveau chat'
     }
-    return stepDescription;
   }
 };
 

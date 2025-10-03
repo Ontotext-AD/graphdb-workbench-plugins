@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/core-steps/toggle-element.js</title>
+  <title> guides/ttyg/ask-ttyg-agent.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/core-steps/toggle-element.js</h1>
+                    <h1>guides/ttyg/ask-ttyg-agent.js</h1>
                 </header>
                 
 
@@ -89,69 +89,92 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {BASIC_STEP} from '../config.js';
-import * as Utils from '../utils.js';
-
-/**
- * @name toggle-element
+            <pre class="prettyprint source linenums"><code>/**
+ * @name ask-ttyg-agent
  * @memberof module:Interactive Guide
  *
  * @description
- * The Toggleable Element step is used to guide users to enable a specific toggleable element (like a switch or checkbox)
- * on the interface. The step ensures that a user cannot go back to this step and deselect the toggleable element.
+ * This is a complex step that may show a sequence of steps to guide the user through asking a question to a TTYG agent,
+ * explaining the response, exploring SPARQL queries, and asking for more explanations. The difference between this and
+ * the `ttyg-ask-question` step is that this step may include explanation and exploring SPARQL queries
  *
- * Toggleable element example&lt;br>
- * &lt;img src="resources/guides/core/toggle-element.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Ask an individual question&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-ask-question.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * Wait for the response&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-wait-for-response.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * Explain the response&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-explain-response.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * Explore the SPARQL query&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-ask-agent-explore-sparql.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * Ask for more explanation&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-ask-explain-answer-more.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * The step can be configured using the common options defined in [Options](#.Options).
+ *
+ * @property {string} [options.question] - The question to be asked to the TTYG agent. This will be displayed in the instructions.
+ * @property {boolean} [options.explain] - Whether to include the explanation step after asking the question.
+ * @property {boolean} [options.explainMore] - Whether to include the step for asking more explanation after the explanation step.
+ * @property {boolean} [options.exploreSparql] - Whether to include the step for exploring the SPARQL query after the explanation step.
  *
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "toggle-element",
+ *  "guideBlockName": "ask-ttyg-agent",
+ *  "options": {
+ *    "question": "Count all the web pages published in 2020? Provide five sample names.",
+ *    "explain": true,
+ *    "explainMore": true,
+ *    "exploreSparql": true
+ *   }
  * }
  * ```
  */
 const step = {
-  // An element, which can be toggled via click
-  guideBlockName: 'toggle-element',
-  getStep: (options, pluginService) => {
-    const notOverridable = {
-      type: 'toggleable'
-    };
+  guideBlockName: 'ask-ttyg-agent',
+  getSteps: (options) => {
+    options.mainAction = 'ask-ttyg-agent';
+    options.maxWaitTime = 10;
+    options.forceReload = false;
 
-    let stepHTMLElement;
-    const selector = options.toggleableElementSelector || options.elementSelector;
+    const explain = options.explain;
+    const explainMore = options.explainMore;
+    const exploreSparql = options.exploreSparql;
 
-    const toggleListener = (event) => {
-      if (!event.target.checked) {
-        event.preventDefault();
-        event.stopPropagation();
+    const steps = [
+      {
+        guideBlockName: 'ttyg-ask-question', options: {...options, skipPoint: true}
       }
-    };
-    const stepDescription = {
-      ...BASIC_STEP,
-      advanceOn: {
-        selector,
-        event: 'click'
-      },
+    ];
 
-      initPreviousStep: pluginService.GuideUtils.defaultInitPreviousStep,
-      ...options,
-      show: () => () => {
-        stepHTMLElement = document.querySelector(selector);
-        stepHTMLElement.addEventListener('click', toggleListener, true);
-      },
-      hide: () => () => {
-        if (stepHTMLElement) {
-          stepHTMLElement.removeEventListener('click', toggleListener);
+    if (explain) {
+      steps.push(
+        {
+          guideBlockName: 'ttyg-explain-response', options: {...options}
         }
-      },
-      ...notOverridable
-    };
-
-    if (!stepDescription.beforeShowPromise) {
-      stepDescription.beforeShowPromise = Utils.beforeShowPromise(pluginService, stepDescription.elementSelector, stepDescription.maxWaitTime);
+      );
     }
-    return stepDescription;
+
+    if (explain &amp;&amp; exploreSparql) {
+      steps.push(
+        {
+          guideBlockName: 'ttyg-ask-agent-explore-sparql', options: {...options}
+        }
+      );
+    }
+
+    if (explain &amp;&amp; explainMore) {
+      steps.push(
+        {
+          guideBlockName: 'ttyg-ask-explain-answer-more', options: {...options}
+        }
+      );
+    }
+
+    return steps;
   }
 };
 

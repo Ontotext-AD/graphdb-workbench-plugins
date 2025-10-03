@@ -2,7 +2,7 @@ import {BASIC_STEP} from '../config.js';
 import * as Utils from '../utils.js';
 
 /**
- * @name toggleable-element
+ * @name toggle-element
  * @memberof module:Interactive Guide
  *
  * @description
@@ -15,7 +15,7 @@ import * as Utils from '../utils.js';
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "toggleable-element",
+ *  "guideBlockName": "toggle-element",
  * }
  * ```
  */

@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/core-steps/toggle-element.js</title>
+  <title> guides/ttyg/ttyg-ask-question.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/core-steps/toggle-element.js</h1>
+                    <h1>guides/ttyg/ttyg-ask-question.js</h1>
                 </header>
                 
 
@@ -89,69 +89,88 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {BASIC_STEP} from '../config.js';
-import * as Utils from '../utils.js';
+            <pre class="prettyprint source linenums"><code>import * as Utils from '../utils.js';
+
+const CHAT_DETAILS_SELECTOR = 'chat-details';
+const TTYG_ASK_DEFAULT_TITLE = 'guide.step-action.ask-ttyg-agent';
+const INPUT_QUESTION = 'guide.step_plugin.ask-ttyg-agent.input-question';
 
 /**
- * @name toggle-element
+ * @name ttyg-ask-question
  * @memberof module:Interactive Guide
  *
  * @description
- * The Toggleable Element step is used to guide users to enable a specific toggleable element (like a switch or checkbox)
- * on the interface. The step ensures that a user cannot go back to this step and deselect the toggleable element.
+ * This step focuses on guiding the user to ask a question to the TTYG agent.
+ * It highlights the input area where the user can type their question and provides instructions on how to proceed.
  *
- * Toggleable element example&lt;br>
- * &lt;img src="resources/guides/core/toggle-element.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Ask the agent&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-ask-question.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * @property {Object} [question] - The question to be asked to the TTYG agent. This will be displayed in the instructions.
  *
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "toggle-element",
+ *   "guideBlockName": "ttyg-ask-question",
+ *   "options": {
+ *     "question": "Can you describe your purpose and dataset, please? What classes and instances are there?"
+ *   }
  * }
  * ```
  */
 const step = {
-  // An element, which can be toggled via click
-  guideBlockName: 'toggle-element',
-  getStep: (options, pluginService) => {
-    const notOverridable = {
-      type: 'toggleable'
-    };
+  guideBlockName: 'ttyg-ask-question',
+  getSteps: function(options, pluginService) {
+    const GuideUtils = pluginService.GuideUtils;
+    const translate = pluginService.translate;
+    const title = options.title ? options.title : translate(this.translationBundle, TTYG_ASK_DEFAULT_TITLE);
+    return [
+      {
+        guideBlockName: 'input-element',
+        options: {
+          title,
+          content: translate(this.translationBundle, INPUT_QUESTION, {question: options.question}),
+          class: 'input-question',
+          disableNextFlow: true,
+          ...options,
+          url: 'ttyg',
+          elementSelector: GuideUtils.getGuideElementSelector('question-input'),
+          show: (guide) => () => {
+            const elementSelector = GuideUtils.getGuideElementSelector('contenteditable');
 
-    let stepHTMLElement;
-    const selector = options.toggleableElementSelector || options.elementSelector;
+            // Add "keydown" listener to the element.
+            // The question-input directive listens for "Enter" keypress to trigger question asking.
+            // When enter is pressed, proceed with next step.
+            // Using 'keydown' to trigger before the directive 'keypress', which clears the value.
+            $(elementSelector).on('keydown', (event) => {
+              const value = $(elementSelector).text();
 
-    const toggleListener = (event) => {
-      if (!event.target.checked) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    };
-    const stepDescription = {
-      ...BASIC_STEP,
-      advanceOn: {
-        selector,
-        event: 'click'
-      },
-
-      initPreviousStep: pluginService.GuideUtils.defaultInitPreviousStep,
-      ...options,
-      show: () => () => {
-        stepHTMLElement = document.querySelector(selector);
-        stepHTMLElement.addEventListener('click', toggleListener, true);
-      },
-      hide: () => () => {
-        if (stepHTMLElement) {
-          stepHTMLElement.removeEventListener('click', toggleListener);
+              if (value &amp;&amp; event.key === 'Enter' &amp;&amp; !event.shiftKey &amp;&amp; !event.ctrlKey) {
+                GuideUtils.waitFor(GuideUtils.getGuideElementSelector(CHAT_DETAILS_SELECTOR))
+                  .then(() => guide.next());
+              }
+            });
+          },
+          hide: () => () => {
+            const elementSelector = GuideUtils.getGuideElementSelector('contenteditable');
+            // Remove the "keydown" listener of the element. It is important when the step is hidden.
+            $(elementSelector).off('keydown');
+          }
         }
       },
-      ...notOverridable
-    };
+      Utils.getWaitForAnswerStep(GuideUtils, options)
+    ];
+  },
+  translationBundle: {
+    en: {
+      [TTYG_ASK_DEFAULT_TITLE]: 'Ask the agent',
+      [INPUT_QUESTION]: 'Type "&lt;b>{{question}}&lt;/b>" in the input and press enter'
+    },
 
-    if (!stepDescription.beforeShowPromise) {
-      stepDescription.beforeShowPromise = Utils.beforeShowPromise(pluginService, stepDescription.elementSelector, stepDescription.maxWaitTime);
+    fr: {
+      [TTYG_ASK_DEFAULT_TITLE]: 'Demander à l\'agent',
+      [INPUT_QUESTION]: 'Tapez "&lt;b>{{question}}&lt;/b>" dans le champ de saisie et appuyez sur la touche \'Entrée\''
     }
-    return stepDescription;
   }
 };
 

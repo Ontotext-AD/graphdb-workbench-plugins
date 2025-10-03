@@ -786,6 +786,264 @@ the next step marked as a skip point. If no further skip points are defined, the
             
                 <div class="member">
 
+<h4 class="name" id=".ask-ttyg-agent">
+    <a class="href-link" href="#.ask-ttyg-agent">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ask-ttyg-agent
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This is a complex step that may show a sequence of steps to guide the user through asking a question to a TTYG agent,
+explaining the response, exploring SPARQL queries, and asking for more explanations. The difference between this and
+the <code>ttyg-ask-question</code> step is that this step may include explanation and exploring SPARQL queries</p>
+<p>Ask an individual question<br>
+<img src="resources/guides/ttyg/ttyg-ask-question.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Wait for the response<br>
+<img src="resources/guides/ttyg/ttyg-wait-for-response.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Explain the response<br>
+<img src="resources/guides/ttyg/ttyg-explain-response.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Explore the SPARQL query<br>
+<img src="resources/guides/ttyg/ttyg-ask-agent-explore-sparql.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Ask for more explanation<br>
+<img src="resources/guides/ttyg/ttyg-ask-explain-answer-more.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>The step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.question</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The question to be asked to the TTYG agent. This will be displayed in the instructions.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.explain</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Whether to include the explanation step after asking the question.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.explainMore</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Whether to include the step for asking more explanation after the explanation step.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.exploreSparql</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Whether to include the step for exploring the SPARQL query after the explanation step.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ask-ttyg-agent.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ask-ttyg-agent.js.html">guides/ttyg/ask-ttyg-agent.js</a>, <a href="guides_ttyg_ask-ttyg-agent.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ask-ttyg-agent",
+ "options": {
+   "question": "Count all the web pages published in 2020? Provide five sample names.",
+   "explain": true,
+   "explainMore": true,
+   "exploreSparql": true
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".autocomplete-enable-checkbox">
     <a class="href-link" href="#.autocomplete-enable-checkbox">#</a>
     
@@ -4281,15 +4539,15 @@ by selecting a specific named graph from the All graphs dropdown.<br>
             
                 <div class="member">
 
-<h4 class="name" id=".toggleable-element">
-    <a class="href-link" href="#.toggleable-element">#</a>
+<h4 class="name" id=".toggle-element">
+    <a class="href-link" href="#.toggle-element">#</a>
     
         
             <span class='tag'>static</span>
         
     
     <span class="code-name">
-        toggleable-element
+        toggle-element
     </span>
     
 </h4>
@@ -4358,7 +4616,853 @@ on the interface. The step ensures that a user cannot go back to this step and d
     
         <pre class="prettyprint"><code>```JSON
 {
- "guideBlockName": "toggleable-element",
+ "guideBlockName": "toggle-element",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-ask-agent-explore-sparql">
+    <a class="href-link" href="#.ttyg-ask-agent-explore-sparql">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-ask-agent-explore-sparql
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on guiding the user to explore the SPARQL query generated by the TTYG agent.
+It highlights the &quot;Open in SPARQL editor&quot; button and provides instructions on how to proceed.</p>
+<p>Click on explore SPARQL button<br>
+<img src="resources/guides/ttyg/ttyg-ask-agent-explore-sparql.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-ask-agent-explore-sparql.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-ask-agent-explore-sparql.js.html">guides/ttyg/ttyg-ask-agent-explore-sparql.js</a>, <a href="guides_ttyg_ttyg-ask-agent-explore-sparql.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-ask-agent-explore-sparql",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-ask-explain-answer-more">
+    <a class="href-link" href="#.ttyg-ask-explain-answer-more">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-ask-explain-answer-more
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on guiding the user to ask for more explanation about the response received from the TTYG agent.</p>
+<p>Click on explain more button<br>
+<img src="resources/guides/ttyg/ttyg-ask-explain-answer-more.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-ask-explain-answer-more.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-ask-explain-answer-more.js.html">guides/ttyg/ttyg-ask-explain-answer-more.js</a>, <a href="guides_ttyg_ttyg-ask-explain-answer-more.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-ask-explain-answer-more",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-ask-question">
+    <a class="href-link" href="#.ttyg-ask-question">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-ask-question
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on guiding the user to ask a question to the TTYG agent.
+It highlights the input area where the user can type their question and provides instructions on how to proceed.</p>
+<p>Ask the agent<br>
+<img src="resources/guides/ttyg/ttyg-ask-question.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>question</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Object</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The question to be asked to the TTYG agent. This will be displayed in the instructions.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-ask-question.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-ask-question.js.html">guides/ttyg/ttyg-ask-question.js</a>, <a href="guides_ttyg_ttyg-ask-question.js.html#line7">line 7</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "ttyg-ask-question",
+  "options": {
+    "question": "Can you describe your purpose and dataset, please? What classes and instances are there?"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-click-to-create-new-chat">
+    <a class="href-link" href="#.ttyg-click-to-create-new-chat">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-click-to-create-new-chat
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on guiding the user to click on the &quot;Create Chat&quot; button in the Talk to Your Graph.
+It highlights the button and provides instructions on how to start a new conversation with the agent.</p>
+<p>Create a new chat<br>
+<img src="resources/guides/ttyg/ttyg-click-to-create-new-chat.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-click-to-create-new-chat.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-click-to-create-new-chat.js.html">guides/ttyg/ttyg-click-to-create-new-chat.js</a>, <a href="guides_ttyg_ttyg-click-to-create-new-chat.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-click-to-create-new-chat",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-conversation-info-message">
+    <a class="href-link" href="#.ttyg-conversation-info-message">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-conversation-info-message
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step provides an informational message about the Talk To Your Graph (TTYG) feature.
+It explains the purpose of the TTYG view and how users can interact with it using natural language queries.</p>
+<p>TTYG conversation info message<br>
+<img src="resources/guides/ttyg/ttyg-conversation-info-message.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-conversation-info-message.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-conversation-info-message.js.html">guides/ttyg/ttyg-conversation-info-message.js</a>, <a href="guides_ttyg_ttyg-conversation-info-message.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-conversation-info-message",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-create-agent-click">
+    <a class="href-link" href="#.ttyg-create-agent-click">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-create-agent-click
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on guiding the user to click on the &quot;Create Agent&quot; button in the Talk to Your Graph (TTYG) plugin.
+It highlights the button and provides instructions on how to proceed with creating a new agent.</p>
+<p>Click on create agent button<br>
+<img src="resources/guides/ttyg/ttyg-create-agent-click.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-create-agent-click.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-create-agent-click.js.html">guides/ttyg/ttyg-create-agent-click.js</a>, <a href="guides_ttyg_ttyg-create-agent-click.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-create-agent-click",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-create-agent-intro-message">
+    <a class="href-link" href="#.ttyg-create-agent-intro-message">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-create-agent-intro-message
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step provides an introductory message about creating an agent in the Talk to Your Graph (TTYG) plugin.
+It explains what an agent is and why it is necessary to configure one before using TTYG.</p>
+<p>Create an agent<br>
+<img src="resources/guides/ttyg/ttyg-create-agent-intro-message.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-create-agent-intro-message.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-create-agent-intro-message.js.html">guides/ttyg/ttyg-create-agent-intro-message.js</a>, <a href="guides_ttyg_ttyg-create-agent-intro-message.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-create-agent-intro-message",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-create-agent-save">
+    <a class="href-link" href="#.ttyg-create-agent-save">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-create-agent-save
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on guiding the user to click on the &quot;Save&quot; button after configuring an agent in the Talk to Your Graph (TTYG) plugin.
+It highlights the button and provides instructions on how to save the agent settings.</p>
+<p>Click on save button<br>
+<img src="resources/guides/ttyg/ttyg-create-agent-save.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-create-agent-save.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-create-agent-save.js.html">guides/ttyg/ttyg-create-agent-save.js</a>, <a href="guides_ttyg_ttyg-create-agent-save.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-create-agent-save",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-explain-response">
+    <a class="href-link" href="#.ttyg-explain-response">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-explain-response
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on guiding the user to explain the response received from the TTYG agent.</p>
+<p>Click on explain button<br>
+<img src="resources/guides/ttyg/ttyg-explain-response.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-explain-response.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-explain-response.js.html">guides/ttyg/ttyg-explain-response.js</a>, <a href="guides_ttyg_ttyg-explain-response.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-explain-response",
 }
 ```</code></pre>
     

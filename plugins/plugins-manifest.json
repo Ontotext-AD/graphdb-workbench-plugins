@@ -49,6 +49,10 @@
       "entry": "plugins/guides/core-steps/guide-end.js"
     },
     {
+      "name": "toggle-element",
+      "entry": "plugins/guides/core-steps/toggle-element.js"
+    },
+    {
       "name": "class-hierarchy-intro",
       "entry": "plugins/guides/class-hierarchy/class-hierarchy-intro.js"
     },

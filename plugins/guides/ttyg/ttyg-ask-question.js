@@ -1,17 +1,44 @@
 import * as Utils from '../utils.js';
 
 const CHAT_DETAILS_SELECTOR = 'chat-details';
+const TTYG_ASK_DEFAULT_TITLE = 'guide.step-action.ask-ttyg-agent';
+const INPUT_QUESTION = 'guide.step_plugin.ask-ttyg-agent.input-question';
+
+/**
+ * @name ttyg-ask-question
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step focuses on guiding the user to ask a question to the TTYG agent.
+ * It highlights the input area where the user can type their question and provides instructions on how to proceed.
+ *
+ * Ask the agent<br>
+ * <img src="resources/guides/ttyg/ttyg-ask-question.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * @property {Object} [question] - The question to be asked to the TTYG agent. This will be displayed in the instructions.
+ *
+ * @example
+ * ```JSON
+ * {
+ *   "guideBlockName": "ttyg-ask-question",
+ *   "options": {
+ *     "question": "Can you describe your purpose and dataset, please? What classes and instances are there?"
+ *   }
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'ttyg-ask-question',
-  getSteps: (options, services) => {
-    const GuideUtils = services.GuideUtils;
+  getSteps: function(options, pluginService) {
+    const GuideUtils = pluginService.GuideUtils;
+    const translate = pluginService.translate;
+    const title = options.title ? options.title : translate(this.translationBundle, TTYG_ASK_DEFAULT_TITLE);
     return [
       {
         guideBlockName: 'input-element',
         options: {
-          content: 'guide.step_plugin.ask-ttyg-agent.input-question',
-          // If mainAction is set the title will be set automatically
-          ...(options.mainAction ? {} : {title: Utils.TTYG_ASK_DEFAULT_TITLE}),
+          title,
+          content: translate(this.translationBundle, INPUT_QUESTION, {question: options.question}),
           class: 'input-question',
           disableNextFlow: true,
           ...options,
@@ -42,6 +69,17 @@ const step = {
       },
       Utils.getWaitForAnswerStep(GuideUtils, options)
     ];
+  },
+  translationBundle: {
+    en: {
+      [TTYG_ASK_DEFAULT_TITLE]: 'Ask the agent',
+      [INPUT_QUESTION]: 'Type "<b>{{question}}</b>" in the input and press enter'
+    },
+
+    fr: {
+      [TTYG_ASK_DEFAULT_TITLE]: 'Demander à l\'agent',
+      [INPUT_QUESTION]: 'Tapez "<b>{{question}}</b>" dans le champ de saisie et appuyez sur la touche \'Entrée\''
+    }
   }
 };
 
