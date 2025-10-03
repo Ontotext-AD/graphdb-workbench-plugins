@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/core-steps/toggle-element.js</title>
+  <title> guides/ttyg/ttyg-create-agent-intro-message.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/core-steps/toggle-element.js</h1>
+                    <h1>guides/ttyg/ttyg-create-agent-intro-message.js</h1>
                 </header>
                 
 
@@ -89,69 +89,53 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {BASIC_STEP} from '../config.js';
-import * as Utils from '../utils.js';
+            <pre class="prettyprint source linenums"><code>const TTYG_CREATE_AGENT_DEFAULT_TITLE = 'guide.step-action.create-ttyg-agent';
+const TTYG_INTRO_MESSAGE = 'guide.step_plugin.create-ttyg-agent.intro';
 
 /**
- * @name toggle-element
+ * @name ttyg-create-agent-intro-message
  * @memberof module:Interactive Guide
  *
  * @description
- * The Toggleable Element step is used to guide users to enable a specific toggleable element (like a switch or checkbox)
- * on the interface. The step ensures that a user cannot go back to this step and deselect the toggleable element.
+ * This step provides an introductory message about creating an agent in the Talk to Your Graph (TTYG) plugin.
+ * It explains what an agent is and why it is necessary to configure one before using TTYG.
  *
- * Toggleable element example&lt;br>
- * &lt;img src="resources/guides/core/toggle-element.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Create an agent&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-create-agent-intro-message.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "toggle-element",
+ *  "guideBlockName": "ttyg-create-agent-intro-message",
  * }
  * ```
  */
 const step = {
-  // An element, which can be toggled via click
-  guideBlockName: 'toggle-element',
-  getStep: (options, pluginService) => {
-    const notOverridable = {
-      type: 'toggleable'
-    };
-
-    let stepHTMLElement;
-    const selector = options.toggleableElementSelector || options.elementSelector;
-
-    const toggleListener = (event) => {
-      if (!event.target.checked) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    };
-    const stepDescription = {
-      ...BASIC_STEP,
-      advanceOn: {
-        selector,
-        event: 'click'
-      },
-
-      initPreviousStep: pluginService.GuideUtils.defaultInitPreviousStep,
-      ...options,
-      show: () => () => {
-        stepHTMLElement = document.querySelector(selector);
-        stepHTMLElement.addEventListener('click', toggleListener, true);
-      },
-      hide: () => () => {
-        if (stepHTMLElement) {
-          stepHTMLElement.removeEventListener('click', toggleListener);
+  guideBlockName: 'ttyg-create-agent-intro-message',
+  getSteps: function(options, pluginService) {
+    const translate = pluginService.translate;
+    const title = options.title ? options.title : translate(this.translationBundle, TTYG_CREATE_AGENT_DEFAULT_TITLE);
+    return [
+      {
+        guideBlockName: 'info-message',
+        options: {
+          title,
+          content: translate(this.translationBundle, TTYG_INTRO_MESSAGE),
+          ...options
         }
-      },
-      ...notOverridable
-    };
+      }
+    ];
+  },
+  translationBundle: {
+    en: {
+      [TTYG_CREATE_AGENT_DEFAULT_TITLE]: 'Create an agent',
+      [TTYG_INTRO_MESSAGE]: 'An agent is a helpful assistant that can answer your queries. You need to configure an agent in order to ask anything of Talk to Your Graph.'
+    },
 
-    if (!stepDescription.beforeShowPromise) {
-      stepDescription.beforeShowPromise = Utils.beforeShowPromise(pluginService, stepDescription.elementSelector, stepDescription.maxWaitTime);
+    fr: {
+      [TTYG_CREATE_AGENT_DEFAULT_TITLE]: 'Créer un agent',
+      [TTYG_INTRO_MESSAGE]: 'Un agent est un assistant utile qui peut répondre à vos questions. Vous devez configurer un agent pour pouvoir demander quoi que ce soit à Talk to Your Graph.'
     }
-    return stepDescription;
   }
 };
 

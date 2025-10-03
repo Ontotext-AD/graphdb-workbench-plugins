@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/core-steps/toggle-element.js</title>
+  <title> guides/ttyg/ttyg-explain-response.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/core-steps/toggle-element.js</h1>
+                    <h1>guides/ttyg/ttyg-explain-response.js</h1>
                 </header>
                 
 
@@ -89,69 +89,80 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {BASIC_STEP} from '../config.js';
-import * as Utils from '../utils.js';
+            <pre class="prettyprint source linenums"><code>import * as Utils from '../utils.js';
+
+const TTYG_ASK_DEFAULT_TITLE = 'guide.step-action.ask-ttyg-agent';
+const EXPLAIN_ANSWER = 'guide.step_plugin.ask-ttyg-agent.explain-answer';
 
 /**
- * @name toggle-element
+ * @name ttyg-explain-response
  * @memberof module:Interactive Guide
  *
  * @description
- * The Toggleable Element step is used to guide users to enable a specific toggleable element (like a switch or checkbox)
- * on the interface. The step ensures that a user cannot go back to this step and deselect the toggleable element.
+ * This step focuses on guiding the user to explain the response received from the TTYG agent.
  *
- * Toggleable element example&lt;br>
- * &lt;img src="resources/guides/core/toggle-element.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Click on explain button&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-explain-response.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "toggle-element",
+ *  "guideBlockName": "ttyg-explain-response",
  * }
  * ```
  */
 const step = {
-  // An element, which can be toggled via click
-  guideBlockName: 'toggle-element',
-  getStep: (options, pluginService) => {
-    const notOverridable = {
-      type: 'toggleable'
-    };
-
-    let stepHTMLElement;
-    const selector = options.toggleableElementSelector || options.elementSelector;
-
-    const toggleListener = (event) => {
-      if (!event.target.checked) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    };
-    const stepDescription = {
-      ...BASIC_STEP,
-      advanceOn: {
-        selector,
-        event: 'click'
-      },
-
-      initPreviousStep: pluginService.GuideUtils.defaultInitPreviousStep,
-      ...options,
-      show: () => () => {
-        stepHTMLElement = document.querySelector(selector);
-        stepHTMLElement.addEventListener('click', toggleListener, true);
-      },
-      hide: () => () => {
-        if (stepHTMLElement) {
-          stepHTMLElement.removeEventListener('click', toggleListener);
+  guideBlockName: 'ttyg-explain-response',
+  getSteps: function(options, pluginService) {
+    const GuideUtils = pluginService.GuideUtils;
+    const explainBtnSelector = GuideUtils.getLastGuideElementSelector('explain-response-btn');
+    const elementSelector = GuideUtils.getLastGuideElementSelector('chat-item', explainBtnSelector);
+    const translate = pluginService.translate;
+    const title = options.title ? options.title : translate(this.translationBundle, TTYG_ASK_DEFAULT_TITLE);
+    return [
+      {
+        // If button is not visible for some reason, skip the whole step
+        guideBlockName: 'info-message',
+        options: {
+          url: 'ttyg',
+          beforeShowPromise: (guide, currentStep) => GuideUtils.waitFor(elementSelector, 1)
+            .then(() => {
+              // Using a timeout because the library executes logic to show the step in a then clause which causes current and next steps to show
+              setTimeout(() => guide.next());
+            })
+            .catch(() => {
+              const stepId = currentStep.id;
+              // Using a timeout because the library executes logic to show the step in a then clause which causes current and next steps to show
+              setTimeout(() => guide.show(stepId + 3));
+            }),
+          ...options
         }
       },
-      ...notOverridable
-    };
+      {
+        guideBlockName: 'clickable-element',
+        options: {
+          title,
+          content: translate(this.translationBundle, EXPLAIN_ANSWER),
+          class: 'explain-answer',
+          disableNextFlow: true,
+          ...options,
+          url: 'ttyg',
+          elementSelector
+        }
+      },
+      Utils.getWaitForAnswerStep(GuideUtils, options)
+    ];
+  },
+  translationBundle: {
+    en: {
+      [TTYG_ASK_DEFAULT_TITLE]: 'Ask the agent',
+      [EXPLAIN_ANSWER]: 'Explain the answer by clicking on the \'Explain response\' button.'
+    },
 
-    if (!stepDescription.beforeShowPromise) {
-      stepDescription.beforeShowPromise = Utils.beforeShowPromise(pluginService, stepDescription.elementSelector, stepDescription.maxWaitTime);
+    fr: {
+      [TTYG_ASK_DEFAULT_TITLE]: 'Demander à l\'agent',
+      [EXPLAIN_ANSWER]: 'Expliquez la réponse en cliquant sur le bouton \'Expliquer la réponse\''
     }
-    return stepDescription;
   }
 };
 

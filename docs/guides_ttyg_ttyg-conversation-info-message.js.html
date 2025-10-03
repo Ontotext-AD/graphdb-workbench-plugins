@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/core-steps/toggle-element.js</title>
+  <title> guides/ttyg/ttyg-conversation-info-message.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/core-steps/toggle-element.js</h1>
+                    <h1>guides/ttyg/ttyg-conversation-info-message.js</h1>
                 </header>
                 
 
@@ -89,69 +89,56 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {BASIC_STEP} from '../config.js';
-import * as Utils from '../utils.js';
+            <pre class="prettyprint source linenums"><code>const CONVERSATION_WITH_AGENT_DEFAULT_TITLE = 'guide.step-action.conversation-with-ttyg-agent';
+const CONVERSATION_WITH_AGENT_INFO = 'guide.step_plugin.conversation-with-ttyg-agent.info';
 
 /**
- * @name toggle-element
+ * @name ttyg-conversation-info-message
  * @memberof module:Interactive Guide
  *
  * @description
- * The Toggleable Element step is used to guide users to enable a specific toggleable element (like a switch or checkbox)
- * on the interface. The step ensures that a user cannot go back to this step and deselect the toggleable element.
+ * This step provides an informational message about the Talk To Your Graph (TTYG) feature.
+ * It explains the purpose of the TTYG view and how users can interact with it using natural language queries.
  *
- * Toggleable element example&lt;br>
- * &lt;img src="resources/guides/core/toggle-element.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * TTYG conversation info message&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-conversation-info-message.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "toggle-element",
+ *  "guideBlockName": "ttyg-conversation-info-message",
  * }
  * ```
  */
 const step = {
-  // An element, which can be toggled via click
-  guideBlockName: 'toggle-element',
-  getStep: (options, pluginService) => {
-    const notOverridable = {
-      type: 'toggleable'
-    };
-
-    let stepHTMLElement;
-    const selector = options.toggleableElementSelector || options.elementSelector;
-
-    const toggleListener = (event) => {
-      if (!event.target.checked) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    };
-    const stepDescription = {
-      ...BASIC_STEP,
-      advanceOn: {
-        selector,
-        event: 'click'
-      },
-
-      initPreviousStep: pluginService.GuideUtils.defaultInitPreviousStep,
-      ...options,
-      show: () => () => {
-        stepHTMLElement = document.querySelector(selector);
-        stepHTMLElement.addEventListener('click', toggleListener, true);
-      },
-      hide: () => () => {
-        if (stepHTMLElement) {
-          stepHTMLElement.removeEventListener('click', toggleListener);
+  guideBlockName: 'ttyg-conversation-info-message',
+  getSteps: function(options, pluginService) {
+    const translate = pluginService.translate;
+    const title = options.title ? options.title : translate(step.translationBundle, CONVERSATION_WITH_AGENT_DEFAULT_TITLE);
+    return [
+      {
+        guideBlockName: 'info-message',
+        options: {
+          title,
+          skipPoint: true,
+          class: 'conversation-info',
+          content: translate(step.translationBundle, CONVERSATION_WITH_AGENT_INFO),
+          ...options,
+          url: 'ttyg'
         }
-      },
-      ...notOverridable
-    };
+      }
+    ];
+  },
+  translationBundle: {
+    en: {
+      [CONVERSATION_WITH_AGENT_DEFAULT_TITLE]: 'Conversation with the agent',
+      [CONVERSATION_WITH_AGENT_INFO]: 'The Talk To Your Graph view provides a chat-like interface for querying your data. Natural language queries are written in the chatbox at the bottom of the screen. With the aid of LLM technology, they are translated into a machine-readable question and the RDF answer is narrated back to you.'
+    },
 
-    if (!stepDescription.beforeShowPromise) {
-      stepDescription.beforeShowPromise = Utils.beforeShowPromise(pluginService, stepDescription.elementSelector, stepDescription.maxWaitTime);
+    fr: {
+      [CONVERSATION_WITH_AGENT_DEFAULT_TITLE]: 'Conversation avec l\'agent',
+      [CONVERSATION_WITH_AGENT_INFO]: 'La vue Talk To Your Graph (Parlez à votre graphique) offre une interface de type chat pour interroger vos données. Les requêtes en langage naturel sont écrites dans la boîte de dialogue en bas de l\'écran. Grâce à la technologie LLM, elles sont traduites en une question lisible par une machine et la réponse RDF vous est racontée.'
     }
-    return stepDescription;
   }
 };
 
