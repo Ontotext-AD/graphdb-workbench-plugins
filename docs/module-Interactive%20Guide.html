@@ -2625,6 +2625,863 @@ Scrolling will zoom into the class, visualizing subclasses</p>
             
                 <div class="member">
 
+<h4 class="name" id=".class-relationships">
+    <a class="href-link" href="#.class-relationships">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-relationships
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>class-relationships</code> step shows how to reach the Class relationships view of GraphDB Workbench.</p>
+<p>The step consists of the following steps:</p>
+<ol>
+<li>An introduction to the Class relationships.<br>
+<img src="resources/guides//class-relationships/class-relationships-view-introduction_1.png" style="height:200px; border: solid; border-width:1px"/><br></li>
+<li>A step that guides the user to click on the &quot;Explore&quot; main menu.<br>
+<img src="resources/guides/main-menu/main-menu-explore.png" style="height:200px; border: solid; border-width:1px"/><br></li>
+<li>A step that guides the user to click on the &quot;Class relationships&quot; sub-menu item.<br>
+<img src="resources/guides/main-menu/main-menu-class-relationships.png" style="height:200px; border: solid; border-width:1px"/><br></li>
+<li>Optional step that will be shown only if property <code>introExtraContent</code> is passed through options<br>
+<img src="resources/guides//class-relationships/class-relationships-view-introduction_2.png" style="height:200px; border: solid; border-width:1px"/><br></li>
+</ol>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports the following options:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>introExtraContent</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Object.&lt;string, string></code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>If this option is present, an additional dialog will be displayed as the last step with the passed content, localized by language.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-relationships_class-relationships.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-relationships_class-relationships.js.html">guides/class-relationships/class-relationships.js</a>, <a href="guides_class-relationships_class-relationships.js.html#line3">line 3</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-relationships",
+  "options": {
+     "introExtraContent": {
+       "en": "The Class relationships is a complicated diagram, which by default shows only the top relationships...",
+       "fr": "Les relations de classes constituent un diagramme complexe, qui affiche par défaut uniquement les relations principales.."
+     }
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-relationships-class-list-background-intro">
+    <a class="href-link" href="#.class-relationships-class-list-background-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-relationships-class-list-background-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>class-relationships-class-list-background-intro</code> step displays a dialog that explains which classes are highlighted
+in the dependency table of the Class Relationships view.<br>
+<img src="resources/guides/class-relationships/class-relationships-class-list-background-intro.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-relationships_class-relationships-class-list-background-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-relationships_class-relationships-class-list-background-intro.js.html">guides/class-relationships/class-relationships-class-list-background-intro.js</a>, <a href="guides_class-relationships_class-relationships-class-list-background-intro.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-relationships-class-list-background-intro"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-relationships-class-list-intro">
+    <a class="href-link" href="#.class-relationships-class-list-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-relationships-class-list-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>class-relationships-class-list-intro</code> step displays a dialog that explains class dependency table in
+the Class relationships view.<br>
+<img src="resources/guides/class-relationships/class-relationships-class-list-intro.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-relationships_class-relationships-class-list-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-relationships_class-relationships-class-list-intro.js.html">guides/class-relationships/class-relationships-class-list-intro.js</a>, <a href="guides_class-relationships_class-relationships-class-list-intro.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-relationships-class-list-intro"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-relationships-class-list-selection">
+    <a class="href-link" href="#.class-relationships-class-list-selection">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-relationships-class-list-selection
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>class-relationships-class-list-selection</code> step displays a dialog that explains how users can add or remove classes from the diagram.<br>
+<img src="resources/guides/class-relationships/class-relationships-class-list-selection.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-relationships_class-relationships-class-list-selection.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-relationships_class-relationships-class-list-selection.js.html">guides/class-relationships/class-relationships-class-list-selection.js</a>, <a href="guides_class-relationships_class-relationships-class-list-selection.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-relationships-class-list-selection"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-relationships-diagram-intro">
+    <a class="href-link" href="#.class-relationships-diagram-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-relationships-diagram-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>class-relationships-diagram-intro</code> step displays a dialog that explains the class diagram in the Class Relationships view.<br>
+<img src="resources/guides/class-relationships/class-relationships-diagram-intro.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-relationships_class-relationships-diagram-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-relationships_class-relationships-diagram-intro.js.html">guides/class-relationships/class-relationships-diagram-intro.js</a>, <a href="guides_class-relationships_class-relationships-diagram-intro.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-relationships-diagram-intro"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-relationships-digram-predicates-intro">
+    <a class="href-link" href="#.class-relationships-digram-predicates-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-relationships-digram-predicates-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>class-relationships-digram-predicates-intro</code> step displays a dialog that explains how to explore the relationships between classes
+by clicking on a connection line in the diagram to view the top predicates linking them.<br>
+<img src="resources/guides/class-relationships/class-relationships-digram-predicates-intro.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-relationships_class-relationships-digram-predicates-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-relationships_class-relationships-digram-predicates-intro.js.html">guides/class-relationships/class-relationships-digram-predicates-intro.js</a>, <a href="guides_class-relationships_class-relationships-digram-predicates-intro.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-relationships-digram-predicates-intro"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-relationships-digram-thickness-intro">
+    <a class="href-link" href="#.class-relationships-digram-thickness-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-relationships-digram-thickness-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>class-relationships-digram-thickness-intro</code> step displays a dialog that explains how connection lines in the diagram
+encode information through their thickness, color, and direction.<br>
+<img src="resources/guides/class-relationships/class-relationships-digram-thickness-intro.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-relationships_class-relationships-digram-thickness-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-relationships_class-relationships-digram-thickness-intro.js.html">guides/class-relationships/class-relationships-digram-thickness-intro.js</a>, <a href="guides_class-relationships_class-relationships-digram-thickness-intro.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-relationships-digram-thickness-intro"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-relationships-intro">
+    <a class="href-link" href="#.class-relationships-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-relationships-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>class-relationships-intro</code> step displays a dialog that introduces the Class relationships view.<br>
+<img src="resources/guides/class-relationships/class-relationships-intro.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-relationships_class-relationships-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-relationships_class-relationships-intro.js.html">guides/class-relationships/class-relationships-intro.js</a>, <a href="guides_class-relationships_class-relationships-intro.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-relationships-intro"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".class-relationships-named-graph-selection">
+    <a class="href-link" href="#.class-relationships-named-graph-selection">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        class-relationships-named-graph-selection
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>class-relationships-named-graph-selection</code> step displays a dialog that explains how to filter the Class Relationships view
+by selecting a specific named graph from the All graphs dropdown.<br>
+<img src="resources/guides/class-relationships/class-relationships-named-graph-selection.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_class-relationships_class-relationships-named-graph-selection.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_class-relationships_class-relationships-named-graph-selection.js.html">guides/class-relationships/class-relationships-named-graph-selection.js</a>, <a href="guides_class-relationships_class-relationships-named-graph-selection.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "class-relationships-named-graph-selection"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".click-main-menu">
     <a class="href-link" href="#.click-main-menu">#</a>
     

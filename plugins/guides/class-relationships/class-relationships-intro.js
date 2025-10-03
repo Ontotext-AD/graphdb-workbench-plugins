@@ -1,22 +1,52 @@
-import * as Utils from '../utils.js';
+const DEFAULT_TITLE = 'guide.step_plugin.class-relationships.default.title';
+const CONTENT = 'guide.step_plugin.class-relationships-intro.content';
 
+/**
+ * @name class-relationships-intro
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * The `class-relationships-intro` step displays a dialog that introduces the Class relationships view.<br>
+ * <img src="resources/guides/class-relationships/class-relationships-intro.png" style="height:200px; border: solid; border-width:1px"/>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options).
+ *
+ * @example
+ * ```JSON
+ * {
+ *   "guideBlockName": "class-relationships-intro"
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'class-relationships-intro',
-  getSteps: (options) => {
+  getSteps: function(options, pluginService) {
+    const translate = pluginService.translate;
     return [
       {
         guideBlockName: 'info-message',
         options: {
-          content: 'guide.step_plugin.class-relationships-intro.content',
           url: 'relationships',
           class: 'clas-hierarchy-intro',
           placement: 'left',
-          // If mainAction is set the title will be set automatically
-          title: options.mainAction ?? Utils.CLASS_RELATIONSHIPS_DEFAULT_TITLE,
+          content: translate(this.translationBundle, CONTENT),
+          title: options.title ?? translate(this.translationBundle, DEFAULT_TITLE),
           ...options
         }
       }
     ];
+  },
+  translationBundle: {
+    en: {
+      [DEFAULT_TITLE]: 'Class relationships',
+      [CONTENT]: 'This view shows how data instances from different classes are connected based on real RDF statements.'
+
+    },
+    fr: {
+      [DEFAULT_TITLE]: 'Relations de classe',
+      [CONTENT]: 'Cette vue montre comment les instances de données de différentes classes sont connectées basées sur de vraies déclarations RDF.'
+
+    }
   }
 };
 
