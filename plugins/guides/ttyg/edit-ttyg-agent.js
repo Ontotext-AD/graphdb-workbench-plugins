@@ -1,3 +1,37 @@
+/**
+ * @name edit-ttyg-agent
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * Complex guide step, which takes the user through the process of editing a TTYG agent.
+ *
+ * Click the Lab main menu<br>
+ * <img src="resources/guides/main-menu/main-menu-lab.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * Click on TTYG in the sub-menu<br>
+ * <img src="resources/guides/main-menu/main-menu-ttyg.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * End guide if API key error is present<br>
+ * <img src="resources/guides/ttyg/end-on-api-key-error.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * Edit agent intro message<br>
+ * <img src="resources/guides/ttyg/ttyg-edit-agent-intro-message.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * Click on edit agent button<br>
+ * <img src="resources/guides/ttyg/ttyg-click-to-edit-selected-agent.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * Click on save to save the edited agent<br>
+ * <img src="resources/guides/ttyg/ttyg-edit-agent-click-to-save.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * The `configure-agent` step is configurable complex step. See [configure-agent](#.configure-agent) for more details.
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "edit-ttyg-agent",
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'edit-ttyg-agent',
   getSteps: (options, services) => {
@@ -24,7 +58,7 @@ const step = {
       {
         // Skip next step (which is actually 5 core steps) if there is a selected agent
         guideBlockName: 'info-message',
-        options: angular.extend({}, {
+        options: {
           beforeShowPromise: (guide, currentStep) => {
             if (GuideUtils.isGuideElementVisible('selected-agent')) {
               setTimeout(() => {
@@ -37,8 +71,9 @@ const step = {
                 guide.next();
               });
             }
-          }
-        }, options)
+          },
+          ...options
+        }
       },
       {
         guideBlockName: 'select-ttyg-agent',
@@ -58,10 +93,11 @@ const step = {
       },
       {
         guideBlockName: 'wait-for-element-to-hide',
-        options: angular.extend({}, {
+        options: {
           elementSelectorToHide: GuideUtils.getElementSelector('.agent-settings-modal'),
           timeToWait: 10
-        }, options)
+        },
+        ...options
       }
     ];
   }

@@ -3809,6 +3809,489 @@ by selecting a specific named graph from the All graphs dropdown.<br>
             
                 <div class="member">
 
+<h4 class="name" id=".configure-agent">
+    <a class="href-link" href="#.configure-agent">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        configure-agent
+    </span>
+    
+</h4>
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_configure-agent.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_configure-agent.js.html">guides/ttyg/configure-agent.js</a>, <a href="guides_ttyg_configure-agent.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".conversation-with-ttyg-agent">
+    <a class="href-link" href="#.conversation-with-ttyg-agent">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        conversation-with-ttyg-agent
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user through a conversation with a TTYG agent.
+It includes an optional info message, steps to start a new conversation</p>
+<p>Conversation info message<br>
+<img src="resources/guides/ttyg/ttyg-conversation-info-message.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Create new chat<br>
+<img src="resources/guides/ttyg/ttyg-click-to-create-new-chat.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>startNewConversation</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Whether to include steps to start a new conversation.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>showInfo</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Whether to show an informational message at the start of the conversation.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>questions</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>An array of question objects to ask the TTYG agent. Each object should</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_conversation-with-ttyg-agent.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_conversation-with-ttyg-agent.js.html">guides/ttyg/conversation-with-ttyg-agent.js</a>, <a href="guides_ttyg_conversation-with-ttyg-agent.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "conversation-with-ttyg-agent",
+ "options": {
+   "startNewConversation": true,
+   "showInfo": true,
+   "questions": [{
+       "question": "What is the capital of France?"
+   }]
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".create-ttyg-agent">
+    <a class="href-link" href="#.create-ttyg-agent">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        create-ttyg-agent
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user through the process of creating a new TTYG agent.
+It includes steps to navigate to the TTYG section, open the agent creation modal,
+fill in the necessary details, and save the new agent.</p>
+<p>Click the Lab main menu<br>
+<img src="resources/guides/main-menu/main-menu-lab.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Click on TTYG in the sub-menu<br>
+<img src="resources/guides/main-menu/main-menu-ttyg.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>End guide if API key error is present<br>
+<img src="resources/guides/ttyg/end-on-api-key-error.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Create agent intro message<br>
+<img src="resources/guides/ttyg/ttyg-create-agent-intro-message.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Click on &quot;Create new agent&quot; button<br>
+<img src="resources/guides/ttyg/ttyg-create-agent-click.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Click on &quot;Save&quot; button to create the agent<br>
+<img src="resources/guides/ttyg/ttyg-create-agent-save.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>The <code>configure-agent</code> step is configurable complex step. See <a href="#.configure-agent">configure-agent</a> for more details.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_create-ttyg-agent.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_create-ttyg-agent.js.html">guides/ttyg/create-ttyg-agent.js</a>, <a href="guides_ttyg_create-ttyg-agent.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "create-ttyg-agent",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".edit-ttyg-agent">
+    <a class="href-link" href="#.edit-ttyg-agent">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        edit-ttyg-agent
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Complex guide step, which takes the user through the process of editing a TTYG agent.</p>
+<p>Click the Lab main menu<br>
+<img src="resources/guides/main-menu/main-menu-lab.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Click on TTYG in the sub-menu<br>
+<img src="resources/guides/main-menu/main-menu-ttyg.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>End guide if API key error is present<br>
+<img src="resources/guides/ttyg/end-on-api-key-error.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Edit agent intro message<br>
+<img src="resources/guides/ttyg/ttyg-edit-agent-intro-message.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Click on edit agent button<br>
+<img src="resources/guides/ttyg/ttyg-click-to-edit-selected-agent.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Click on save to save the edited agent<br>
+<img src="resources/guides/ttyg/ttyg-edit-agent-click-to-save.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>The <code>configure-agent</code> step is configurable complex step. See <a href="#.configure-agent">configure-agent</a> for more details.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_edit-ttyg-agent.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_edit-ttyg-agent.js.html">guides/ttyg/edit-ttyg-agent.js</a>, <a href="guides_ttyg_edit-ttyg-agent.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "edit-ttyg-agent",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".enable-autocomplete">
     <a class="href-link" href="#.enable-autocomplete">#</a>
     
@@ -4539,6 +5022,99 @@ by selecting a specific named graph from the All graphs dropdown.<br>
             
                 <div class="member">
 
+<h4 class="name" id=".select-ttyg-agent">
+    <a class="href-link" href="#.select-ttyg-agent">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        select-ttyg-agent
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Complex step, which takes the user through the process of selecting a TTYG agent.
+It includes steps to open the dropdown, select an agent, and handle missing repository scenarios.</p>
+<p>Select an agent info message<br>
+<img src="resources/guides/ttyg/ttyg-select-agent-info-message.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Open the agent selection dropdown<br>
+<img src="resources/guides/ttyg/ttyg-select-agent-dropdown-open.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Select an agent from the dropdown<br>
+<img src="resources/guides/ttyg/ttyg-select-agent-from-dropdown.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Check for missing repository<br>
+<img src="resources/guides/ttyg/ttyg-select-agent-check-for-missing-repository-cancel.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_select-ttyg-agent.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_select-ttyg-agent.js.html">guides/ttyg/select-ttyg-agent.js</a>, <a href="guides_ttyg_select-ttyg-agent.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "select-ttyg-agent",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".toggle-element">
     <a class="href-link" href="#.toggle-element">#</a>
     
@@ -5038,6 +5614,93 @@ It highlights the button and provides instructions on how to start a new convers
             
                 <div class="member">
 
+<h4 class="name" id=".ttyg-click-to-edit-selected-agent">
+    <a class="href-link" href="#.ttyg-click-to-edit-selected-agent">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-click-to-edit-selected-agent
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to click on the edit button to modify the configuration of the selected TTYG agent.</p>
+<p>Click on edit agent button<br>
+<img src="resources/guides/ttyg/ttyg-click-to-edit-selected-agent.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-click-to-edit-selected-agent.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-click-to-edit-selected-agent.js.html">guides/ttyg/ttyg-click-to-edit-selected-agent.js</a>, <a href="guides_ttyg_ttyg-click-to-edit-selected-agent.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-click-to-edit-selected-agent",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".ttyg-conversation-info-message">
     <a class="href-link" href="#.ttyg-conversation-info-message">#</a>
     
@@ -5386,6 +6049,181 @@ It highlights the button and provides instructions on how to save the agent sett
             
                 <div class="member">
 
+<h4 class="name" id=".ttyg-edit-agent-click-to-save">
+    <a class="href-link" href="#.ttyg-edit-agent-click-to-save">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-edit-agent-click-to-save
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to click the save button after editing a TTYG agent.</p>
+<p>Click on save to save the edited agent<br>
+<img src="resources/guides/ttyg/ttyg-edit-agent-click-to-save.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-edit-agent-click-to-save.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-edit-agent-click-to-save.js.html">guides/ttyg/ttyg-edit-agent-click-to-save.js</a>, <a href="guides_ttyg_ttyg-edit-agent-click-to-save.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-edit-agent-click-to-save",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-edit-agent-intro-message">
+    <a class="href-link" href="#.ttyg-edit-agent-intro-message">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-edit-agent-intro-message
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step provides an introductory message when editing a TTYG agent.
+It informs the user that an agent's configuration can be reconfigured at any time.</p>
+<p>Edit agent intro message<br>
+<img src="resources/guides/ttyg/ttyg-edit-agent-intro-message.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-edit-agent-intro-message.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-edit-agent-intro-message.js.html">guides/ttyg/ttyg-edit-agent-intro-message.js</a>, <a href="guides_ttyg_ttyg-edit-agent-intro-message.js.html#line5">line 5</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-edit-agent-intro-message",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".ttyg-explain-response">
     <a class="href-link" href="#.ttyg-explain-response">#</a>
     
@@ -5463,6 +6301,357 @@ It highlights the button and provides instructions on how to save the agent sett
         <pre class="prettyprint"><code>```JSON
 {
  "guideBlockName": "ttyg-explain-response",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-select-agent-check-for-missing-repository-cancel">
+    <a class="href-link" href="#.ttyg-select-agent-check-for-missing-repository-cancel">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-select-agent-check-for-missing-repository-cancel
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step displays, that a repository is missing for the selected agent</p>
+<p>Missing repository for selected agent<br>
+<img src="resources/guides/ttyg/ttyg-select-agent-check-for-missing-repository-cancel.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-select-agent-check-for-missing-repository-cancel.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-select-agent-check-for-missing-repository-cancel.js.html">guides/ttyg/ttyg-select-agent-check-for-missing-repository-cancel.js</a>, <a href="guides_ttyg_ttyg-select-agent-check-for-missing-repository-cancel.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-select-agent-check-for-missing-repository-cancel",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-select-agent-dropdown-open">
+    <a class="href-link" href="#.ttyg-select-agent-dropdown-open">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-select-agent-dropdown-open
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to open the agent selection dropdown in the TTYG interface.
+It highlights the dropdown element and provides instructions on how to proceed.</p>
+<p>Click on the agents dropdown<br>
+<img src="resources/guides/ttyg/ttyg-select-agent-dropdown-open.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-select-agent-dropdown-open.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-select-agent-dropdown-open.js.html">guides/ttyg/ttyg-select-agent-dropdown-open.js</a>, <a href="guides_ttyg_ttyg-select-agent-dropdown-open.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-select-agent-dropdown-open",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-select-agent-from-dropdown">
+    <a class="href-link" href="#.ttyg-select-agent-from-dropdown">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-select-agent-from-dropdown
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to select an agent from a dropdown menu in the TTYG interface.
+It highlights the dropdown element and provides instructions on how to proceed.</p>
+<p>Select an agent from the dropdown<br>
+<img src="resources/guides/ttyg/ttyg-select-agent-from-dropdown.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-select-agent-from-dropdown.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-select-agent-from-dropdown.js.html">guides/ttyg/ttyg-select-agent-from-dropdown.js</a>, <a href="guides_ttyg_ttyg-select-agent-from-dropdown.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-select-agent-from-dropdown",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-select-agent-info-message">
+    <a class="href-link" href="#.ttyg-select-agent-info-message">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-select-agent-info-message
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step provides an informational message when selecting a TTYG agent.
+It informs the user that they need to select an agent before interacting with their graph.</p>
+<p>Select an agent to edit<br>
+<img src="resources/guides/ttyg/ttyg-select-agent-info-message.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-select-agent-info-message.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-select-agent-info-message.js.html">guides/ttyg/ttyg-select-agent-info-message.js</a>, <a href="guides_ttyg_ttyg-select-agent-info-message.js.html#line5">line 5</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-select-agent-info-message",
 }
 ```</code></pre>
     

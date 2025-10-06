@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> guides/ttyg/ttyg-select-agent-info-message.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">GraphDB Workbench Plugins</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-Interactive%2520Guide.html">Interactive Guide</a></li></ul><h3>Classes</h3><ul><li><a href="PluginServiceInterface.html">PluginServiceInterface</a></li></ul><h3>Global</h3><ul><li><a href="global.html#COMMON_DOM_EVENTS">COMMON_DOM_EVENTS</a></li><li><a href="global.html#_configureInteractions">_configureInteractions</a></li><li><a href="global.html#allowAll">allowAll</a></li><li><a href="global.html#allowEvents">allowEvents</a></li><li><a href="global.html#beforeShowPromise">beforeShowPromise</a></li><li><a href="global.html#preventDefault">preventDefault</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>guides/ttyg/ttyg-select-agent-info-message.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const TTYG_SELECT_AGENT_DEFAULT_TITLE = 'guide.step-action.select-ttyg-agent';
+const SELECT_AGENT_INFO = 'guide.step_plugin.select-ttyg-agent.info.content';
+const SKIP_SECTION = 'btn.skip-section';
+
+/**
+ * @name ttyg-select-agent-info-message
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step provides an informational message when selecting a TTYG agent.
+ * It informs the user that they need to select an agent before interacting with their graph.
+ *
+ * Select an agent to edit&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-select-agent-info-message.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options).
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "ttyg-select-agent-info-message",
+ * }
+ * ```
+ */
+const step = {
+  guideBlockName: 'ttyg-select-agent-info-message',
+  getSteps: function(options, pluginService) {
+    const translate = pluginService.translate;
+    return [
+      {
+        guideBlockName: 'info-message',
+        options: {
+          content: translate(this.translationBundle, SELECT_AGENT_INFO),
+          ...(options.title ?? {title: translate(this.translationBundle, TTYG_SELECT_AGENT_DEFAULT_TITLE)}),
+          class: 'select-ttyg-agent',
+          skipPoint: true,
+          skipButtonLabel: translate(this.translationBundle, SKIP_SECTION),
+          disablePreviousFlow: true,
+          ...options,
+          url: 'ttyg'
+        }
+      }
+    ];
+  },
+  translationBundle: {
+    en: {
+      [TTYG_SELECT_AGENT_DEFAULT_TITLE]: 'Select an agent',
+      [SELECT_AGENT_INFO]: 'To talk to your graph, you need to select an agent first',
+      [SKIP_SECTION]: 'Skip section'
+    },
+
+    fr: {
+      [TTYG_SELECT_AGENT_DEFAULT_TITLE]: 'Sélectionner un agent',
+      [SELECT_AGENT_INFO]: 'Pour parler à votre graphique, vous devez d\'abord choisir un agent',
+      [SKIP_SECTION]: 'Sauter la section'
+    }
+  }
+};
+
+export function register(registry) {
+  registry.add('guide.step', step);
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>
