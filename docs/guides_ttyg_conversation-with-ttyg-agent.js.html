@@ -1,0 +1,207 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> guides/ttyg/conversation-with-ttyg-agent.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">GraphDB Workbench Plugins</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-Interactive%2520Guide.html">Interactive Guide</a></li></ul><h3>Classes</h3><ul><li><a href="PluginServiceInterface.html">PluginServiceInterface</a></li></ul><h3>Global</h3><ul><li><a href="global.html#COMMON_DOM_EVENTS">COMMON_DOM_EVENTS</a></li><li><a href="global.html#_configureInteractions">_configureInteractions</a></li><li><a href="global.html#allowAll">allowAll</a></li><li><a href="global.html#allowEvents">allowEvents</a></li><li><a href="global.html#beforeShowPromise">beforeShowPromise</a></li><li><a href="global.html#preventDefault">preventDefault</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>guides/ttyg/conversation-with-ttyg-agent.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @name conversation-with-ttyg-agent
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step guides the user through a conversation with a TTYG agent.
+ * It includes an optional info message, steps to start a new conversation
+ *
+ * Conversation info message&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-conversation-info-message.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * Create new chat&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-click-to-create-new-chat.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * @property {boolean} [startNewConversation] - Whether to include steps to start a new conversation.
+ * @property {boolean} [showInfo] - Whether to show an informational message at the start of the conversation.
+ * @property {Array} questions - An array of question objects to ask the TTYG agent. Each object should
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "conversation-with-ttyg-agent",
+ *  "options": {
+ *    "startNewConversation": true,
+ *    "showInfo": true,
+ *    "questions": [{
+ *        "question": "What is the capital of France?"
+ *    }]
+ *  }
+ * }
+ * ```
+ *
+ */
+const step = {
+  guideBlockName: 'conversation-with-ttyg-agent',
+  getSteps: (options, services) => {
+    const GuideUtils = services.GuideUtils;
+    options.mainAction = 'conversation-with-ttyg-agent';
+    const startNewConversation = options.startNewConversation;
+    const showInfo = options.showInfo;
+
+    const steps = [];
+
+    if (showInfo) {
+      steps.push({
+        guideBlockName: 'ttyg-conversation-info-message',
+        options: {...options}
+      });
+    }
+
+    if (startNewConversation) {
+      const createChatBtnSelector = GuideUtils.getGuideElementSelector('create-chat-btn');
+      const newConversationStartSteps = [
+        {
+          // If button is not visible for some reason, skip the whole step
+          guideBlockName: 'info-message',
+          options: {
+            url: 'ttyg',
+            beforeShowPromise: (guide, currentStep) => GuideUtils.waitFor(createChatBtnSelector, 1)
+              .then(() => {
+                // Using a timeout because the library executes logic to show the step in a then clause which causes current and next steps to show
+                setTimeout(() => guide.next());
+              })
+              .catch(() => {
+                const stepId = currentStep.id;
+                // Using a timeout because the library executes logic to show the step in a then clause which causes current and next steps to show
+                setTimeout(() => guide.show(stepId + 2));
+              }),
+            ...options
+          }
+        },
+        {
+          guideBlockName: 'ttyg-click-to-create-new-chat', options: {...options}
+        }
+      ];
+      steps.push(...newConversationStartSteps);
+    }
+
+    const questionSteps = options.questions.map((questionWithOptions) => {
+      return {
+        guideBlockName: 'ask-ttyg-agent',
+        options: questionWithOptions
+      };
+    });
+
+    steps.push(...questionSteps);
+
+    return steps;
+  }
+};
+
+export function register(registry) {
+  registry.add('guide.step', step);
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

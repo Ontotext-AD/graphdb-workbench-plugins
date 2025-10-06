@@ -1,3 +1,39 @@
+/**
+ * @name create-ttyg-agent
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step guides the user through the process of creating a new TTYG agent.
+ * It includes steps to navigate to the TTYG section, open the agent creation modal,
+ * fill in the necessary details, and save the new agent.
+ *
+ * Click the Lab main menu<br>
+ * <img src="resources/guides/main-menu/main-menu-lab.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * Click on TTYG in the sub-menu<br>
+ * <img src="resources/guides/main-menu/main-menu-ttyg.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * End guide if API key error is present<br>
+ * <img src="resources/guides/ttyg/end-on-api-key-error.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * Create agent intro message<br>
+ * <img src="resources/guides/ttyg/ttyg-create-agent-intro-message.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * Click on "Create new agent" button<br>
+ * <img src="resources/guides/ttyg/ttyg-create-agent-click.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * Click on "Save" button to create the agent<br>
+ * <img src="resources/guides/ttyg/ttyg-create-agent-save.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * The `configure-agent` step is configurable complex step. See [configure-agent](#.configure-agent) for more details.
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "create-ttyg-agent",
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'create-ttyg-agent',
   getSteps: (options, services) => {

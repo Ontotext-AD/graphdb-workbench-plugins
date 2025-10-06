@@ -1,3 +1,7 @@
+/**
+ * @name configure-agent
+ * @memberof module:Interactive Guide
+ */
 const step = {
   guideBlockName: 'configure-agent',
   getSteps: (options, services) => {
