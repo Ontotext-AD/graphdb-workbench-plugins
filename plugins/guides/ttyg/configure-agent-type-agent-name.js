@@ -1,23 +1,45 @@
-import {TTYG_DEFAULT_TITLE} from '../utils.js';
+const TTYG_DEFAULT_TITLE = 'menu.ttyg.label';
+const CONFIGURE_AGENT_NAME = 'guide.step_plugin.configure-agent.name-input';
 
+/**
+ * @name configure-agent-type-agent-name
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step guides the user to input a name for the agent in the TTYG interface.
+ * It highlights the input field and provides instructions on how to proceed.
+ *
+ * Type a name for the agent<br>
+ * <img src="resources/guides/ttyg/configure-agent-type-agent-name.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options)
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "configure-agent-type-agent-name",
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'configure-agent-type-agent-name',
-  getSteps: (options, services) => {
-    const GuideUtils = services.GuideUtils;
+  getSteps: function(options, pluginService) {
+    const GuideUtils = pluginService.GuideUtils;
+    const translate = pluginService.translate;
+
     return [
       {
         guideBlockName: 'input-element',
         options: {
-          content: 'guide.step_plugin.configure-agent.name-input',
+          content: translate(this.translationBundle, CONFIGURE_AGENT_NAME),
           class: 'input-agent-name',
           disablePreviousFlow: false,
-          // If mainAction is set the title will be set automatically
-          ...(options.mainAction ? {} : {title: TTYG_DEFAULT_TITLE}),
+          ...(options.title ?? {title: translate(this.translationBundle, TTYG_DEFAULT_TITLE)}),
           ...options,
           url: 'ttyg',
           beforeShowPromise: () => GuideUtils.waitFor(GuideUtils.getGuideElementSelector('agent-form'), 5)
             .catch((error) => {
-              services.toastr.error(services.$translate.instant('guide.unexpected.error.message'));
+              pluginService.toastr.error(pluginService.$translate.instant('guide.unexpected.error.message'));
               throw error;
             }),
           elementSelector: GuideUtils.getGuideElementSelector('agent-name'),
@@ -25,6 +47,16 @@ const step = {
         }
       }
     ];
+  },
+  translationBundle: {
+    en: {
+      [TTYG_DEFAULT_TITLE]: 'Talk to Your Graph',
+      [CONFIGURE_AGENT_NAME]: 'Type a name for the agent. You will refer to it later.'
+    },
+    fr: {
+      [TTYG_DEFAULT_TITLE]: 'Parlez à votre graphe',
+      [CONFIGURE_AGENT_NAME]: 'Saisissez un nom pour l\'agent. Vous y ferez référence ultérieurement'
+    }
   }
 };
 

@@ -3825,7 +3825,305 @@ by selecting a specific named graph from the All graphs dropdown.<br>
 
 
 
+<div class="description">
+    <p>Complex guide step, which takes the user through the process of configuring a TTYG agent.
+It includes steps to edit the agent name, model, extraction methods, temperature, top-p,</p>
+<p>Configure agent name<br>
+<img src="resources/guides/ttyg/configure-agent-type-agent-name.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Configure temperature<br>
+<img src="resources/guides/ttyg/configure-temperature.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Configure top-p<br>
+<img src="resources/guides/ttyg/configure-top-p.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Configure model name<br>
+<img src="resources/guides/ttyg/configure-agent-type-model-name.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Configure iri discovery search<br>
+<img src="resources/guides/ttyg/configure-iri-discovery-search.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Configure additional instructions<br>
+<img src="resources/guides/ttyg/configure-agent-additional-instructions.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+</div>
 
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>editName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Whether to include steps to edit the agent name.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>model</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The model name to set for the agent. If provided, steps to configure the model will be included.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>methods</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>An array of method objects to configure. Each object should contain a <code>guideBlockName</code> and optional <code>options</code>.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>temperature</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The temperature value to set for the agent. If provided, steps to configure temperature will be included.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>topP</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The top-p value to set for the agent. If provided, steps to configure top-p will be included.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>iriDiscoverySearch</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Object</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Configuration for IRI discovery search. If provided, steps to configure it will be included.</p></td>
+</tr>
+
+  
+      
+<tr class="deep-level-1">
+    
+        <td class="name"><code>disable</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Whether to disable IRI discovery search.</p></td>
+</tr>
+
+  
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>userInstructions</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Additional user instructions to set for the agent. If</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
 
 
 
@@ -3872,6 +4170,853 @@ by selecting a specific named graph from the All graphs dropdown.<br>
 
 
 
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "configure-agent",
+ "options": {
+   "editName": true,
+   "model": "gpt-4o-mini",
+   "methods": [
+     {
+       "guideBlockName": "fts-search-method",
+       "options": {
+         "disable": true
+       }
+     },
+     {
+       "guideBlockName": "similarity-search-method"
+     }
+   ],
+   "temperature": 0.7,
+   "topP": 0.9,
+   "iriDiscoverySearch": {
+     "disable": false
+   },
+   "userInstructions": "Please provide concise answers."
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".configure-agent-additional-instructions">
+    <a class="href-link" href="#.configure-agent-additional-instructions">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        configure-agent-additional-instructions
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on guiding the user to add additional instructions for the TTYG agent.
+It highlights the input area where the user can type their instructions and provides a text to copy</p>
+<ul>
+<li>Add additional instructions<br>
+<img src="resources/guides/ttyg/configure-agent-additional-instructions.png" style="height:200px; border: solid; border-width:1px"/><br></li>
+</ul>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>userInstructions</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The additional instructions to be passed to the agent. This will be displayed in the instructions.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_configure-agent-additional-instructions.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_configure-agent-additional-instructions.js.html">guides/ttyg/configure-agent-additional-instructions.js</a>, <a href="guides_ttyg_configure-agent-additional-instructions.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "configure-agent-additional-instructions",
+ "options": {
+   "userInstructions": "When writing SPARQL queries, please do not bind inside the query select clause. Also add all prefix definitions when writing the query"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".configure-agent-type-agent-name">
+    <a class="href-link" href="#.configure-agent-type-agent-name">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        configure-agent-type-agent-name
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to input a name for the agent in the TTYG interface.
+It highlights the input field and provides instructions on how to proceed.</p>
+<p>Type a name for the agent<br>
+<img src="resources/guides/ttyg/configure-agent-type-agent-name.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a></p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_configure-agent-type-agent-name.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_configure-agent-type-agent-name.js.html">guides/ttyg/configure-agent-type-agent-name.js</a>, <a href="guides_ttyg_configure-agent-type-agent-name.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "configure-agent-type-agent-name",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".configure-agent-type-model-name">
+    <a class="href-link" href="#.configure-agent-type-model-name">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        configure-agent-type-model-name
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to input the name of the OpenAI model to be used for the agent in the TTYG interface.
+It highlights the input field and provides instructions on how to proceed.</p>
+<p>Type the name of the OpenAI model to be used<br>
+<img src="resources/guides/ttyg/configure-agent-type-model-name.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.model</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The name of the OpenAI model to be used (e.g., &quot;gpt-4o-mini&quot; ).</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_configure-agent-type-model-name.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_configure-agent-type-model-name.js.html">guides/ttyg/configure-agent-type-model-name.js</a>, <a href="guides_ttyg_configure-agent-type-model-name.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "configure-agent-type-model-name",
+ "options": {
+   "model": "gpt-4o-mini"
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".configure-iri-discovery-search">
+    <a class="href-link" href="#.configure-iri-discovery-search">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        configure-iri-discovery-search
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to enable or disable the IRI discovery search feature in the TTYG interface.
+It highlights the toggle element and provides instructions on how to proceed.</p>
+<p>Click on the toggle to enable/disable IRI discovery search<br>
+<img src="resources/guides/ttyg/configure-iri-discovery-search.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.disable</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>Set to true to guide the user to disable the IRI discovery search, or false to enable it.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_configure-iri-discovery-search.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_configure-iri-discovery-search.js.html">guides/ttyg/configure-iri-discovery-search.js</a>, <a href="guides_ttyg_configure-iri-discovery-search.js.html#line5">line 5</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "configure-iri-discovery-search",
+ "options": {
+   "disable": true // or false to enable
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".configure-temperature">
+    <a class="href-link" href="#.configure-temperature">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        configure-temperature
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to configure the sampling temperature setting for the TTYG agent.
+It highlights the sampling temperature control element and provides instructions on how to set it.</p>
+<p>Configure sampling temperature<br>
+<img src="resources/guides/ttyg/configure-temperature.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.temperature</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The temperature value to set, typically between 0 and 2.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_configure-temperature.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_configure-temperature.js.html">guides/ttyg/configure-temperature.js</a>, <a href="guides_ttyg_configure-temperature.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "configure-temperature",
+ "options": {
+   "temperature": 0.7
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".configure-top-p">
+    <a class="href-link" href="#.configure-top-p">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        configure-top-p
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step sets the nucleus sampling parameter (top-p) for the TTYG agent.
+It guides the user to adjust the top-p control to a specified value.</p>
+<p>Configure the nucleus sampling (top-p) parameter<br>
+<img src="resources/guides/ttyg/configure-top-p.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.topP</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The target value for the top-p parameter (between 0 and 1).</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_configure-top-p.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_configure-top-p.js.html">guides/ttyg/configure-top-p.js</a>, <a href="guides_ttyg_configure-top-p.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "configure-top-p",
+ "options": {
+   "topP": 0.9
+ }
+}
+```</code></pre>
+    
 
 
 </div>
@@ -4382,6 +5527,93 @@ fill in the necessary details, and save the new agent.</p>
 {
   "guideBlockName": "enable-autocomplete"
 }</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".end-on-api-key-error">
+    <a class="href-link" href="#.end-on-api-key-error">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        end-on-api-key-error
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step checks for an API key error message and ends the guide if the error is present.</p>
+<p>Missing OpenAI key error message<br>
+<img src="resources/guides/ttyg/end-on-api-key-error.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_end-on-api-key-error.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_end-on-api-key-error.js.html">guides/ttyg/end-on-api-key-error.js</a>, <a href="guides_ttyg_end-on-api-key-error.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "end-on-api-key-error",
+}
+```</code></pre>
     
 
 
@@ -5106,6 +6338,149 @@ It includes steps to open the dropdown, select an agent, and handle missing repo
         <pre class="prettyprint"><code>```JSON
 {
  "guideBlockName": "select-ttyg-agent",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".set-max-triples-per-call">
+    <a class="href-link" href="#.set-max-triples-per-call">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        set-max-triples-per-call
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to set the maximum number of triples to retrieve per call in the FTS search method configuration.
+It highlights the input field and provides instructions on how to proceed.</p>
+<p>Set maximum triples per call<br>
+<img src="resources/guides/ttyg/set-max-triples-per-call.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.maxTriplesPerCall</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The maximum number of triples to retrieve per call. This will be displayed in the instructions and used for validation.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_set-max-triples-per-call.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_set-max-triples-per-call.js.html">guides/ttyg/set-max-triples-per-call.js</a>, <a href="guides_ttyg_set-max-triples-per-call.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "set-max-triples-per-call",
+ "options": {
+   "maxTriplesPerCall": 100
+ }
 }
 ```</code></pre>
     
@@ -6301,6 +7676,94 @@ It informs the user that an agent's configuration can be reconfigured at any tim
         <pre class="prettyprint"><code>```JSON
 {
  "guideBlockName": "ttyg-explain-response",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-fts-method-disable">
+    <a class="href-link" href="#.ttyg-fts-method-disable">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-fts-method-disable
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to disable the FTS search query method in the TTYG interface.
+It highlights the toggle element and provides instructions on how to proceed.</p>
+<p>Click on the toggle to disable FTS search query method<br>
+<img src="resources/guides/ttyg/ttyg-fts-method-disable.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-fts-method-disable.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-fts-method-disable.js.html">guides/ttyg/ttyg-fts-method-disable.js</a>, <a href="guides_ttyg_ttyg-fts-method-disable.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-fts-method-disable",
 }
 ```</code></pre>
     
