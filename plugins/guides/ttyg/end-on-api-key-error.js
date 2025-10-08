@@ -1,6 +1,16 @@
 const MISSING_KEY_TITLE = 'guide.step_plugin.ttyg.missing-key.title';
 const MISSING_KEY_CONTENT = 'guide.step_plugin.ttyg.missing-key.content';
 
+const GRAPHDB_API_KEY_PROPERTIES = [
+  'graphdb.llm.api-key',
+  // deprecated
+  'graphdb.openai.api-key'
+];
+
+const isApiKeyError = (text) => {
+  return GRAPHDB_API_KEY_PROPERTIES.some((key) => text.includes(key));
+};
+
 /**
  * @name end-on-api-key-error
  * @memberof module:Interactive Guide
@@ -38,7 +48,7 @@ const step = {
             // Check if error toast is visible waiting for 1 seconds
             return GuideUtils.waitFor('.toast-message', 1)
               .then((element) => {
-                if (element.text().includes('graphdb.openai.api-key')) {
+                if (isApiKeyError(element.textContent)) {
                   // Error toast is visible, show this step and complete on next click
                   currentStepDescription.onNextClick = (guide) => {
                     guide.complete();
