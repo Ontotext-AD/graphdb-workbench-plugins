@@ -7,17 +7,17 @@ const step = {
     const toggleSelector = GuideUtils.getGuideElementSelector('query-method-similarity_search-input');
     return [
       {
-        guideBlockName: 'clickable-element',
+        guideBlockName: 'toggle-element',
         options: {
           content: 'guide.step_plugin.similarity-search-method.disable-toggle',
           class: 'toggle-similarity-search',
           // If mainAction is set the title will be set automatically
           ...(options.mainAction ? {} : {title: SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE}),
           ...options,
+          disable: true,
           url: 'ttyg',
-          showOn: () => GuideUtils.isChecked(toggleSelector),
           elementSelector: GuideUtils.getGuideElementSelector('query-method-similarity_search'),
-          clickableElementSelector: toggleSelector,
+          toggleableElementSelector: toggleSelector,
           onNextValidate: () => Promise.resolve(!GuideUtils.isChecked(toggleSelector))
         }
       }

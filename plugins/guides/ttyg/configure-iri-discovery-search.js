@@ -43,7 +43,7 @@ const step = {
     }
 
     return {
-      guideBlockName: 'clickable-element',
+      guideBlockName: 'toggle-element',
       options: {
         content,
         class: 'toggle-iri-discovery-search',
@@ -51,11 +51,7 @@ const step = {
         ...options,
         url: 'ttyg',
         elementSelector: GuideUtils.getGuideElementSelector('iri-discovery-search'),
-        clickableElementSelector: toggleSelector,
-        showOn: () => {
-          const isEnabled = GuideUtils.isChecked(toggleSelector);
-          return shouldToggleOff ? isEnabled : !isEnabled;
-        },
+        toggleableElementSelector: toggleSelector,
         onNextValidate: () => {
           const isEnabled = GuideUtils.isChecked(toggleSelector);
           return Promise.resolve(shouldToggleOff ? !isEnabled : isEnabled);

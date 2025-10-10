@@ -6511,9 +6511,62 @@ It highlights the input field and provides instructions on how to proceed.</p>
 on the interface. The step ensures that a user cannot go back to this step and deselect the toggleable element.</p>
 <p>Toggleable element example<br>
 <img src="resources/guides/core/toggle-element.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally it supports:</p>
 </div>
 
 
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.disable</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>Set to true to guide the user to disable the element, or false(or missing) to enable it.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
 
 
 
@@ -6568,6 +6621,9 @@ on the interface. The step ensures that a user cannot go back to this step and d
         <pre class="prettyprint"><code>```JSON
 {
  "guideBlockName": "toggle-element",
+ "options": {
+   "disable": true, // or false to enable
+ }
 }
 ```</code></pre>
     

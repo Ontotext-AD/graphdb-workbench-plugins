@@ -8,7 +8,7 @@ const step = {
 
     return [
       {
-        guideBlockName: 'clickable-element',
+        guideBlockName: 'toggle-element',
         options: {
           content: 'guide.step_plugin.similarity-search-method.enable-toggle',
           class: 'toggle-similarity-search',
@@ -17,7 +17,7 @@ const step = {
           ...options,
           url: 'ttyg',
           elementSelector: GuideUtils.getGuideElementSelector('query-method-similarity_search'),
-          clickableElementSelector: toggleSelector,
+          toggleableElementSelector: toggleSelector,
           onNextValidate: () => Promise.resolve(GuideUtils.isChecked(toggleSelector))
         }
       }
