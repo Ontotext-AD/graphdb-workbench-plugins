@@ -12,10 +12,17 @@ import * as Utils from '../utils.js';
  * Toggleable element example<br>
  * <img src="resources/guides/core/toggle-element.png" style="height:200px; border: solid; border-width:1px"/><br>
  *
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally it supports:
+ *
+ * @property {boolean} options.disable - Set to true to guide the user to disable the element, or false(or missing) to enable it.
+ *
  * @example
  * ```JSON
  * {
  *  "guideBlockName": "toggle-element",
+ *  "options": {
+ *    "disable": true, // or false to enable
+ *  }
  * }
  * ```
  */
@@ -29,9 +36,12 @@ const step = {
 
     let stepHTMLElement;
     const selector = options.toggleableElementSelector || options.elementSelector;
+    // By default, allow only enabling of the element, unless disable is explicitly set to true. In that case
+    // only disabling will be allowed
+    const shouldDisable = options.disable ?? false;
 
     const toggleListener = (event) => {
-      if (!event.target.checked) {
+      if (event.target.checked === shouldDisable) {
         event.preventDefault();
         event.stopPropagation();
       }

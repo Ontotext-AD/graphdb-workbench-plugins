@@ -8,7 +8,7 @@ const step = {
 
     return [
       {
-        guideBlockName: 'clickable-element',
+        guideBlockName: 'toggle-element',
         options: {
           content: 'guide.step_plugin.fts-search-method.enable-toggle',
           // If mainAction is set the title will be set automatically
@@ -17,7 +17,7 @@ const step = {
           ...options,
           url: 'ttyg',
           elementSelector: GuideUtils.getGuideElementSelector('query-method-fts_search'),
-          clickableElementSelector: toggleSelector,
+          toggleableElementSelector: toggleSelector,
           onNextValidate: () => Promise.resolve(GuideUtils.isChecked(toggleSelector))
         }
       }

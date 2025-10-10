@@ -121,16 +121,16 @@ const step = {
 
     return [
       {
-        guideBlockName: 'clickable-element',
+        guideBlockName: 'toggle-element',
         options: {
           content: translate(this.translationBundle, DISABLE_TOGGLE),
           ...(options.title ?? {title: translate(this.translationBundle, FTS_METHOD_DEFAULT_TITLE)}),
           class: 'toggle-fts-search',
           ...options,
+          disable: true,
           url: 'ttyg',
-          showOn: () => GuideUtils.isChecked(toggleSelector),
           elementSelector: GuideUtils.getGuideElementSelector('query-method-fts_search'),
-          clickableElementSelector: toggleSelector,
+          toggleableElementSelector: toggleSelector,
           onNextValidate: () => Promise.resolve(!GuideUtils.isChecked(toggleSelector))
         }
       }
