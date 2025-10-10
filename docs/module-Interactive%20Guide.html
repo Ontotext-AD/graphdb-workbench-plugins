@@ -5621,6 +5621,196 @@ fill in the necessary details, and save the new agent.</p>
             
                 <div class="member">
 
+<h4 class="name" id=".fts-search-method">
+    <a class="href-link" href="#.fts-search-method">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        fts-search-method
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This is a complex step that guides the user through enabling or disabling the FTS search query method in the TTYG interface.
+It includes steps to provide information about the FTS search method, enable it if it's disabled, or disable it if it's enabled.
+If enabling, it can also include an optional step to set the maximum number of triples per call.</p>
+<p>Disable FTS search method<br>
+<img src="resources/guides/ttyg/ttyg-fts-method-disable.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Enable FTS search method<br>
+<img src="resources/guides/ttyg/ttyg-fts-method-enable.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Set max triples per call<br>
+<img src="resources/guides/ttyg/set-max-triples-per-call.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports the following specific options:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.disable</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>If true, the step will guide the user to disable the FTS search method. If false or not provided, it will guide to enable it.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.maxTriplesPerCall</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>If provided and enabling the FTS search method, an additional step will be included to set the maximum number of triples per call to this value.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_fts-search-method.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_fts-search-method.js.html">guides/ttyg/fts-search-method.js</a>, <a href="guides_ttyg_fts-search-method.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "fts-search-method",
+  "options": {
+    "disable": false,
+    "maxTriplesPerCall": 1000
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".import-click-on-import-button">
     <a class="href-link" href="#.import-click-on-import-button">#</a>
     
@@ -6481,6 +6671,166 @@ It highlights the input field and provides instructions on how to proceed.</p>
  "options": {
    "maxTriplesPerCall": 100
  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".similarity-search-method">
+    <a class="href-link" href="#.similarity-search-method">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        similarity-search-method
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This is a complex step that guides the user through enabling or disabling the Similarity search query method in the TTYG interface.
+It includes steps to provide information about the Similarity search method, enable it if it's disabled, or disable it if it's enabled.
+If disabled, it will show only the step to disable it. If not disabled, it will show the steps to enable it and select the index to use.</p>
+<p>Disable Similarity search method<br>
+<img src="resources/guides/ttyg/ttyg-similarity-toggle-off.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Show information about Similarity search method<br>
+<img src="resources/guides/ttyg/ttyg-similarity-info-message.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Enable Similarity search method<br>
+<img src="resources/guides/ttyg/ttyg-similarity-toggle-on.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Select index for Similarity search method<br>
+<img src="resources/guides/ttyg/ttyg-similarity-select-index.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports the following specific options:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.disable</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>If true, the step will guide the user to disable the Similarity search method. If false or not provided, it will guide to enable it.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_similarity-search-method.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_similarity-search-method.js.html">guides/ttyg/similarity-search-method.js</a>, <a href="guides_ttyg_similarity-search-method.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "similarity-search-method",
+  "options": {
+    "disable": false
+  }
 }
 ```</code></pre>
     
@@ -7829,6 +8179,182 @@ It highlights the toggle element and provides instructions on how to proceed.</p
             
                 <div class="member">
 
+<h4 class="name" id=".ttyg-fts-method-enable">
+    <a class="href-link" href="#.ttyg-fts-method-enable">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-fts-method-enable
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to enable the FTS search query method in the TTYG interface.
+It highlights the toggle element and provides instructions on how to proceed.</p>
+<p>Click on the toggle to enable FTS search query method<br>
+<img src="resources/guides/ttyg/ttyg-fts-method-enable.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-fts-method-enable.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-fts-method-enable.js.html">guides/ttyg/ttyg-fts-method-enable.js</a>, <a href="guides_ttyg_ttyg-fts-method-enable.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-fts-method-enable",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-fts-method-info">
+    <a class="href-link" href="#.ttyg-fts-method-info">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-fts-method-info
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step provides information about the FTS search query method in the TTYG interface.
+It highlights an info message block and provides details about the FTS search functionality.</p>
+<p>FTS search query method<br>
+<img src="resources/guides/ttyg/ttyg-fts-method-info.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-fts-method-info.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-fts-method-info.js.html">guides/ttyg/ttyg-fts-method-info.js</a>, <a href="guides_ttyg_ttyg-fts-method-info.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-fts-method-info",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".ttyg-select-agent-check-for-missing-repository-cancel">
     <a class="href-link" href="#.ttyg-select-agent-check-for-missing-repository-cancel">#</a>
     
@@ -8180,6 +8706,358 @@ It informs the user that they need to select an agent before interacting with th
             
                 <div class="member">
 
+<h4 class="name" id=".ttyg-similarity-info-message">
+    <a class="href-link" href="#.ttyg-similarity-info-message">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-similarity-info-message
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step provides an informational message about the Similarity search query method in the TTYG interface.
+It explains the benefits and use cases of enabling Similarity search.</p>
+<p>Similarity info message<br>
+<img src="resources/guides/ttyg/ttyg-similarity-info-message.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-similarity-info-message.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-similarity-info-message.js.html">guides/ttyg/ttyg-similarity-info-message.js</a>, <a href="guides_ttyg_ttyg-similarity-info-message.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-similarity-info-message",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-similarity-select-index">
+    <a class="href-link" href="#.ttyg-similarity-select-index">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-similarity-select-index
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to select the index to use for Similarity search in the TTYG interface.
+It highlights the dropdown element and provides instructions on how to proceed.</p>
+<p>Select the index to use for Similarity search<br>
+<img src="resources/guides/ttyg/ttyg-similarity-select-index.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-similarity-select-index.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-similarity-select-index.js.html">guides/ttyg/ttyg-similarity-select-index.js</a>, <a href="guides_ttyg_ttyg-similarity-select-index.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-similarity-select-index",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-similarity-toggle-off">
+    <a class="href-link" href="#.ttyg-similarity-toggle-off">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-similarity-toggle-off
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to disable the Similarity search query method in the TTYG interface.
+It highlights the toggle element and provides instructions on how to proceed.</p>
+<p>Click on the toggle to disable Similarity search query method<br>
+<img src="resources/guides/ttyg/ttyg-similarity-toggle-off.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-similarity-toggle-off.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-similarity-toggle-off.js.html">guides/ttyg/ttyg-similarity-toggle-off.js</a>, <a href="guides_ttyg_ttyg-similarity-toggle-off.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-similarity-toggle-off",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-similarity-toggle-on">
+    <a class="href-link" href="#.ttyg-similarity-toggle-on">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-similarity-toggle-on
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to enable the Similarity search query method in the TTYG interface.
+It highlights the toggle element and provides instructions on how to proceed.</p>
+<p>Click on the toggle to enable Similarity search query method<br>
+<img src="resources/guides/ttyg/ttyg-similarity-toggle-on.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-similarity-toggle-on.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-similarity-toggle-on.js.html">guides/ttyg/ttyg-similarity-toggle-on.js</a>, <a href="guides_ttyg_ttyg-similarity-toggle-on.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-similarity-toggle-on",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".ttyg-sparql-click-add-namespaces">
     <a class="href-link" href="#.ttyg-sparql-click-add-namespaces">#</a>
     
@@ -8267,6 +9145,94 @@ It is a toggle step, which means that the user can enable the switch, but disabl
             
                 <div class="member">
 
+<h4 class="name" id=".ttyg-sparql-method-disable">
+    <a class="href-link" href="#.ttyg-sparql-method-disable">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-sparql-method-disable
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step is used to disable the SPARQL search method in the TTYG plugin.
+It is a clickable step, which means that the user can disable the switch, but enabling will not be allowed.</p>
+<p>Disable SPARQL query search method<br>
+<img src="resources/guides/ttyg/ttyg-sparql-method-disable.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-sparql-method-disable.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-sparql-method-disable.js.html">guides/ttyg/ttyg-sparql-method-disable.js</a>, <a href="guides_ttyg_ttyg-sparql-method-disable.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  guideBlockName: 'ttyg-sparql-method-disable',
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".ttyg-sparql-method-enable">
     <a class="href-link" href="#.ttyg-sparql-method-enable">#</a>
     
@@ -8345,6 +9311,94 @@ It is a toggle step, which means that the user can enable the switch, but disabl
         <pre class="prettyprint"><code>```JSON
 {
   guideBlockName: 'ttyg-sparql-method-enable',
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-sparql-method-ontology-select">
+    <a class="href-link" href="#.ttyg-sparql-method-ontology-select">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-sparql-method-ontology-select
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to enable providing an ontology in a named graph for the SPARQL search method in the TTYG interface.
+It highlights the checkbox element and provides instructions on how to proceed.</p>
+<p>Click on the toggle to enable providing an ontology in a named graph.<br>
+<img src="resources/guides/ttyg/ttyg-sparql-method-ontology-select.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-sparql-method-ontology-select.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-sparql-method-ontology-select.js.html">guides/ttyg/ttyg-sparql-method-ontology-select.js</a>, <a href="guides_ttyg_ttyg-sparql-method-ontology-select.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-sparql-method-ontology-select",
 }
 ```</code></pre>
     
