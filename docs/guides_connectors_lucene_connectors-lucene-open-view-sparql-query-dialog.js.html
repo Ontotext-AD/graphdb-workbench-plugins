@@ -89,27 +89,60 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {LUCENE_CONNECTOR_NAME, LUCENE_DEFAULT_TITLE} from '../../utils.js';
+            <pre class="prettyprint source linenums"><code>const LUCENE_CONNECTOR_NAME = 'Lucene';
+const LUCENE_DEFAULT_TITLE = 'guide.step_plugin.connectors-lucene.title';
+const OPEN_SPARQL = 'guide.step_plugin.connectors-lucene-open-view-sparql-query-dialog.content';
 
+/**
+ * @name connectors-lucene-open-view-sparql-query-dialog
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step guides the user to open the SPARQL query dialog for a specific Lucene connector instance in GraphDB.
+ * It prompts the user to click on "View SPARQL Query" to see the query used to create the Lucene connector.
+ *
+ * Open Lucene connector SPARQL query dialog&lt;br>
+ * &lt;img src="resources/guides/connectors/lucene/connectors-lucene-open-view-sparql-query-dialog.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options).
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "connectors-lucene-open-view-sparql-query-dialog",
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'connectors-lucene-open-view-sparql-query-dialog',
   /**
    * Options:
    * - &lt;b>instanceName&lt;/b>: string (required) – the specific instance name of the Lucene connector.
    */
-  getSteps: (options) => {
+  getSteps: function(options, pluginService) {
+    const translate = pluginService.translate;
+
     return [{
       guideBlockName: 'connectors-open-view-sparql-query-dialog',
       options: {
-        content: 'guide.step_plugin.connectors-lucene-open-view-sparql-query-dialog.content',
-        // If mainAction is set the title will be set automatically
-        ...(options.mainAction ? {} : {title: LUCENE_DEFAULT_TITLE}),
+        content: translate(this.translationBundle, OPEN_SPARQL),
+        ...(options.title ?? {title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE)}),
         ...options,
         class: 'connectors-lucene-open-view-sparql-query-dialog',
         connectorName: LUCENE_CONNECTOR_NAME,
         parameterName: 'analyzer'
       }
     }];
+  },
+  translationBundle: {
+    en: {
+      [LUCENE_DEFAULT_TITLE]: 'Lucene connector',
+      [OPEN_SPARQL]: 'Click on &lt;b>View SPARQL Query&lt;/b> to view the Lucene connector creation query.'
+    },
+    fr: {
+      [LUCENE_DEFAULT_TITLE]: 'Connecteur Lucene',
+      [OPEN_SPARQL]: 'Cliquez sur &lt;b>Voir la requête SPARQL&lt;/b> pour afficher la requête de création du connecteur Lucene.'
+    }
   }
 };
 
