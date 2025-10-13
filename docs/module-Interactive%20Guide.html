@@ -6840,6 +6840,707 @@ If disabled, it will show only the step to disable it. If not disabled, it will 
             
                 <div class="member">
 
+<h4 class="name" id=".sparql-search-method">
+    <a class="href-link" href="#.sparql-search-method">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        sparql-search-method
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This is a complex step that guides the user through enabling or disabling the SPARQL search query method in the TTYG interface.
+It includes steps to provide information about the SPARQL search method, enable it if it's disabled, or disable it if it's enabled.
+If enabling, it can also include an optional step to set the ontology source, either via a named graph or a SPARQL CONSTRUCT query.</p>
+<p>Disable SPARQL search method<br>
+<img src="resources/guides/ttyg/ttyg-sparql-method-disable.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Enable SPARQL info message<br>
+<img src="resources/guides/ttyg/ttyg-enabling-sparql-info-message.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Enable SPARQL search method<br>
+<img src="resources/guides/ttyg/ttyg-sparql-method-enable.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>The <code>sparql-search-method-enable-ontology-graph</code> step is a configurable complex step. See <a href="#.sparql-search-method-enable-ontology-graph">sparql-search-method-enable-ontology-graph</a> for more details.
+The <code>sparql-search-method-enable-sparql-query</code> step is a configurable complex step, See <a href="#.sparql-search-method-enable-sparql-query">sparql-search-method-enable-sparql-query</a> for more details.</p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.disable</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>If true, the step will guide the user to disable the SPARQL search method. If false or not provided, it will guide to enable it.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.ontologyGraph</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>If provided and enabling the SPARQL search method, an additional step will be included to set the ontology source via a named graph with this value.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.sparqlQuery</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>If provided and enabling the SPARQL search method, an additional step will be included to set the ontology source via a SPARQL CONSTRUCT query with this value.</p>
+<p>Note: Only one of <code>ontologyGraph</code> or <code>sparqlQuery</code> should be provided. If both are provided, <code>ontologyGraph</code> will take precedence.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_sparql-search-method.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_sparql-search-method.js.html">guides/ttyg/sparql-search-method.js</a>, <a href="guides_ttyg_sparql-search-method.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "sparql-search-method",
+  "options": {
+    "disable": false,
+    "ontologyGraph": "http://example.org/graph/ontology"
+  }
+}
+```
+
+```JSON
+{
+  "guideBlockName": "sparql-search-method",
+  "options": {
+    "disable": false,
+    "sparqlQuery": "CONSTRUCT { ?s ?p ?o } WHERE { ?s ?p ?o } LIMIT 100"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".sparql-search-method-enable-ontology-graph">
+    <a class="href-link" href="#.sparql-search-method-enable-ontology-graph">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        sparql-search-method-enable-ontology-graph
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This is a complex step that guides the user through enabling the option to provide an ontology in a named graph for the SPARQL search method in the TTYG interface.
+It includes steps to enable the option and type the name of the named graph that contains the ontology.</p>
+<p>Ontology select<br>
+<img src="resources/guides/ttyg/ttyg-sparql-method-ontology-select.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Type graph name<br>
+<img src="resources/guides/ttyg/sparql-search-method-type-graph-name.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Add missing namespaces<br>
+<img src="resources/guides/ttyg/ttyg-sparql-click-add-namespaces.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.addMissingNamespaces</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>If true, an additional step will be included to click on the &quot;Add missing namespaces&quot; after typing the graph name.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_sparql-search-method-enable-ontology-graph.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_sparql-search-method-enable-ontology-graph.js.html">guides/ttyg/sparql-search-method-enable-ontology-graph.js</a>, <a href="guides_ttyg_sparql-search-method-enable-ontology-graph.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "sparql-search-method-enable-ontology-graph",
+  "options": {
+    "addMissingNamespaces": true
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".sparql-search-method-enable-sparql-query">
+    <a class="href-link" href="#.sparql-search-method-enable-sparql-query">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        sparql-search-method-enable-sparql-query
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This is a complex step that guides the user through enabling the option to provide a SPARQL CONSTRUCT query that fetches the ontology for the SPARQL search method in the TTYG interface.
+It includes steps to enable the option, select the SPARQL query option, copy the example query text, and optionally add missing namespaces.</p>
+<p>SPARQL query select<br>
+<img src="resources/guides/ttyg/ttyg-sparql-method-sparql-query-select.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Copy query text<br>
+<img src="resources/guides/ttyg/ttyg-sparql-copy-query-text.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Add missing namespaces<br>
+<img src="resources/guides/ttyg/ttyg-sparql-click-add-namespaces.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.addMissingNamespaces</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>If true, an additional step will be included to click on the &quot;Add missing namespaces&quot; after copying the query text.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_sparql-search-method-enable-sparql-query.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_sparql-search-method-enable-sparql-query.js.html">guides/ttyg/sparql-search-method-enable-sparql-query.js</a>, <a href="guides_ttyg_sparql-search-method-enable-sparql-query.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "sparql-search-method-enable-sparql-query",
+  "options": {
+    "addMissingNamespaces": true
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".sparql-search-method-type-graph-name">
+    <a class="href-link" href="#.sparql-search-method-type-graph-name">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        sparql-search-method-type-graph-name
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to type the name of the named graph that contains the ontology for the SPARQL search method in the TTYG interface.
+It highlights the input element and provides instructions on how to proceed.</p>
+<p>Type the name of the named graph that contains the ontology<br>
+<img src="resources/guides/ttyg/sparql-search-method-type-graph-name.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, the following specific option is available:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.ontologyGraph</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The name of the named graph that contains the ontology. Default is 'http://example.org/ontology'.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_sparql-search-method-type-graph-name.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_sparql-search-method-type-graph-name.js.html">guides/ttyg/sparql-search-method-type-graph-name.js</a>, <a href="guides_ttyg_sparql-search-method-type-graph-name.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "sparql-search-method-type-graph-name",
+ "options": {
+   "ontologyGraph": "http://example.org/ontology"
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".toggle-element">
     <a class="href-link" href="#.toggle-element">#</a>
     
@@ -8005,6 +8706,94 @@ It informs the user that an agent's configuration can be reconfigured at any tim
             
                 <div class="member">
 
+<h4 class="name" id=".ttyg-enabling-sparql-info-message">
+    <a class="href-link" href="#.ttyg-enabling-sparql-info-message">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-enabling-sparql-info-message
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step provides an informational message about enabling the SPARQL search query method in the TTYG interface.
+It explains the benefits of using SPARQL search for datasets with good ontologies and closed-ended questions.</p>
+<p>Enabling SPARQL in info message<br>
+<img src="resources/guides/ttyg/ttyg-enabling-sparql-info-message.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-enabling-sparql-info-message.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-enabling-sparql-info-message.js.html">guides/ttyg/ttyg-enabling-sparql-info-message.js</a>, <a href="guides_ttyg_ttyg-enabling-sparql-info-message.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "ttyg-enabling-sparql-info-message",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".ttyg-explain-response">
     <a class="href-link" href="#.ttyg-explain-response">#</a>
     
@@ -9145,6 +9934,159 @@ It is a toggle step, which means that the user can enable the switch, but disabl
             
                 <div class="member">
 
+<h4 class="name" id=".ttyg-sparql-copy-query-text">
+    <a class="href-link" href="#.ttyg-sparql-copy-query-text">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-sparql-copy-query-text
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to copy a provided SPARQL query into the SPARQL query input field in the TTYG interface.
+It highlights the input field and provides instructions on how to proceed.</p>
+<p>Copy the following SPARQL query into the input field:<br>
+<img src="resources/guides/ttyg/ttyg-sparql-copy-query-text.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, the following specific option is available:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.sparqlQuery</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The SPARQL query to be copied into the input field.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-sparql-copy-query-text.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-sparql-copy-query-text.js.html">guides/ttyg/ttyg-sparql-copy-query-text.js</a>, <a href="guides_ttyg_ttyg-sparql-copy-query-text.js.html#line3">line 3</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "ttyg-sparql-copy-query-text",
+  "options": {
+    "sparqlQuery": "CONSTRUCT { ?s ?p ?o } WHERE { ?s ?p ?o } LIMIT 100"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".ttyg-sparql-method-disable">
     <a class="href-link" href="#.ttyg-sparql-method-disable">#</a>
     
@@ -9399,6 +10341,94 @@ It highlights the checkbox element and provides instructions on how to proceed.<
         <pre class="prettyprint"><code>```JSON
 {
  "guideBlockName": "ttyg-sparql-method-ontology-select",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".ttyg-sparql-method-sparql-query-select">
+    <a class="href-link" href="#.ttyg-sparql-method-sparql-query-select">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        ttyg-sparql-method-sparql-query-select
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to enable providing a SPARQL CONSTRUCT query that fetches the ontology for the SPARQL search method in the TTYG interface.
+It highlights the checkbox element and provides instructions on how to proceed.</p>
+<p>Click on the toggle to enable providing a SPARQL CONSTRUCT query that fetches the ontology.<br>
+<img src="resources/guides/ttyg/ttyg-sparql-method-sparql-query-select.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_ttyg-sparql-method-sparql-query-select.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_ttyg-sparql-method-sparql-query-select.js.html">guides/ttyg/ttyg-sparql-method-sparql-query-select.js</a>, <a href="guides_ttyg_ttyg-sparql-method-sparql-query-select.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "ttyg-sparql-method-sparql-query-select",
 }
 ```</code></pre>
     
