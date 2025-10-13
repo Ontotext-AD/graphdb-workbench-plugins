@@ -89,21 +89,44 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {LUCENE_CONNECTOR_NAME, LUCENE_DEFAULT_TITLE} from '../../utils.js';
+            <pre class="prettyprint source linenums"><code>const LUCENE_CONNECTOR_NAME = 'Lucene';
+const LUCENE_DEFAULT_TITLE = 'guide.step_plugin.connectors-lucene.title';
+const DATATYPE_INTRO = 'guide.step_plugin.connectors-lucene-fields-datatype-intro.content';
 
+/**
+ * @name connectors-lucene-fields-datatype-intro
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step is an introductory step for the "Datatype" sub-parameter within the fields configuration of the Lucene connector in GraphDB.
+ * It explains the purpose and usage of the "Datatype" in mapping data between GraphDB and Lucene.
+ *
+ * Lucene connector datatype introduction&lt;br>
+ * &lt;img src="resources/guides/connectors/lucene/connectors-lucene-fields-datatype-intro.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options).
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "connectors-lucene-fields-datatype-intro",
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'connectors-lucene-fields-datatype-intro',
   /**
    * Options:
    * - &lt;b>instanceName&lt;/b>: string (required) – the specific instance name of the Lucene connector.
    */
-  getSteps: (options) => {
+  getSteps: function(options, pluginService) {
+    const translate = pluginService.translate;
+
     return [{
       guideBlockName: 'connectors-array-subparameter-intro',
       options: {
-        content: 'guide.step_plugin.connectors-lucene-fields-datatype-intro.content',
-        // If mainAction is set the title will be set automatically
-        ...(options.mainAction ? {} : {title: LUCENE_DEFAULT_TITLE}),
+        content: translate(this.translationBundle, DATATYPE_INTRO),
+        ...(options.title ?? {title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE)}),
         ...options,
         class: 'connectors-lucene-fields-datatype-intro',
         connectorName: LUCENE_CONNECTOR_NAME,
@@ -111,6 +134,16 @@ const step = {
         subparameterName: 'datatype'
       }
     }];
+  },
+  translationBundle: {
+    en: {
+      [LUCENE_DEFAULT_TITLE]: 'Lucene connector',
+      [DATATYPE_INTRO]: 'The &lt;b>Datatype&lt;/b> defines how literal values are mapped to Lucene types. By default, this is inferred from the datatype, but it can be overridden per field using the datatype parameter with any supported xsd: type.'
+    },
+    fr: {
+      [LUCENE_DEFAULT_TITLE]: 'Connecteur Lucene',
+      [DATATYPE_INTRO]: 'Le &lt;b>datatype&lt;/b> définit comment les valeurs littérales sont mappées aux types Lucene. Par défaut, cela est déduit du datatype, mais cela peut être remplacé par champ en utilisant le paramètre datatype avec tout type xsd: pris en charge.'
+    }
   }
 };
 

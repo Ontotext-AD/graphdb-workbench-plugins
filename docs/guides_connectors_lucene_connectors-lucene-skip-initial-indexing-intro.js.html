@@ -89,27 +89,60 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {LUCENE_CONNECTOR_NAME, LUCENE_DEFAULT_TITLE} from '../../utils.js';
+            <pre class="prettyprint source linenums"><code>const LUCENE_CONNECTOR_NAME = 'Lucene';
+const LUCENE_DEFAULT_TITLE = 'guide.step_plugin.connectors-lucene.title';
+const SKIP_INITIAL_INDEXING = 'guide.step_plugin.connectors-lucene-skip-initial-indexing-intro.content';
 
+/**
+ * @name connectors-lucene-skip-initial-indexing-intro
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step is an introductory step for the "skipInitialIndexing" parameter of the Lucene connector in GraphDB.
+ * It explains the purpose and usage of the "skipInitialIndexing" parameter in controlling the initial indexing behavior.
+ *
+ * Lucene connector skipInitialIndexing introduction&lt;br>
+ * &lt;img src="resources/guides/connectors/lucene/connectors-lucene-skip-initial-indexing-intro.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options).
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "connectors-lucene-skip-initial-indexing-intro",
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'connectors-lucene-skip-initial-indexing-intro',
   /**
    * Options:
    * - &lt;b>instanceName&lt;/b>: string (required) – the specific instance name of the Lucene connector.
    */
-  getSteps: (options) => {
+  getSteps: function(options, pluginService) {
+    const translate = pluginService.translate;
+
     return [{
       guideBlockName: 'connectors-parameter-intro',
       options: {
-        content: 'guide.step_plugin.connectors-lucene-skip-initial-indexing-intro.content',
-        // If mainAction is set the title will be set automatically
-        ...(options.mainAction ? {} : {title: LUCENE_DEFAULT_TITLE}),
+        content: translate(this.translationBundle, SKIP_INITIAL_INDEXING),
+        ...(options.title ?? {title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE)}),
         ...options,
         class: 'connectors-lucene-skip-initial-indexing-intro',
         connectorName: LUCENE_CONNECTOR_NAME,
         parameterName: 'skipInitialIndexing'
       }
     }];
+  },
+  translationBundle: {
+    en: {
+      [LUCENE_DEFAULT_TITLE]: 'Lucene connector',
+      [SKIP_INITIAL_INDEXING]: 'The &lt;b>skipInitialIndexing&lt;/b> parameter, when enabled, skips the initial indexing but allows incremental updates to be processed normally.'
+    },
+    fr: {
+      [LUCENE_DEFAULT_TITLE]: 'Connecteur Lucene',
+      [SKIP_INITIAL_INDEXING]: 'Le paramètre &lt;b>skipInitialIndexing&lt;/b>, lorsqu’il est activé, ignore l’indexation initiale mais permet aux mises à jour incrémentales d’être traitées normalement.'
+    }
   }
 };
 
