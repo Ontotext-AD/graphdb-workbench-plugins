@@ -1,0 +1,173 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> guides/ttyg/ttyg-sparql-method-sparql-query-select.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">GraphDB Workbench Plugins</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-Interactive%2520Guide.html">Interactive Guide</a></li></ul><h3>Classes</h3><ul><li><a href="PluginServiceInterface.html">PluginServiceInterface</a></li></ul><h3>Global</h3><ul><li><a href="global.html#COMMON_DOM_EVENTS">COMMON_DOM_EVENTS</a></li><li><a href="global.html#_configureInteractions">_configureInteractions</a></li><li><a href="global.html#allowAll">allowAll</a></li><li><a href="global.html#allowEvents">allowEvents</a></li><li><a href="global.html#beforeShowPromise">beforeShowPromise</a></li><li><a href="global.html#preventDefault">preventDefault</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>guides/ttyg/ttyg-sparql-method-sparql-query-select.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE = 'guide.step-action.sparql-search-method';
+const ENABLE_SPARQL_QUERY = 'guide.step_plugin.sparql-search-method.enable-sparql-query';
+
+/**
+ * @name ttyg-sparql-method-sparql-query-select
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step guides the user to enable providing a SPARQL CONSTRUCT query that fetches the ontology for the SPARQL search method in the TTYG interface.
+ * It highlights the checkbox element and provides instructions on how to proceed.
+ *
+ * Click on the toggle to enable providing a SPARQL CONSTRUCT query that fetches the ontology.&lt;br>
+ * &lt;img src="resources/guides/ttyg/ttyg-sparql-method-sparql-query-select.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options).
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "ttyg-sparql-method-sparql-query-select",
+ * }
+ * ```
+ */
+const step = {
+  guideBlockName: 'ttyg-sparql-method-sparql-query-select',
+  getSteps: function(options, services) {
+    const GuideUtils = services.GuideUtils;
+    const translate = services.translate;
+
+    return [
+      {
+        guideBlockName: 'clickable-element',
+        options: {
+          content: translate(this.translationBundle, ENABLE_SPARQL_QUERY),
+          ...(options.title ?? {title: translate(this.translationBundle, TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE)}),
+          class: 'enable-sparql-query',
+          url: 'ttyg',
+          elementSelector: GuideUtils.getGuideElementSelector('sparql-query-option'),
+          clickableElementSelector: GuideUtils.getGuideElementSelector('sparql-query-option-input'),
+          onNextValidate: () => Promise.resolve(GuideUtils.isChecked(GuideUtils.getGuideElementSelector('sparql-query-option-input'))),
+          ...options
+        }
+      }
+    ];
+  },
+  translationBundle: {
+    en: {
+      [TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE]: 'SPARQL search query method',
+      [ENABLE_SPARQL_QUERY]: 'Click on the toggle to enable to providing a SPARQL CONSTRUCT query that fetches the ontology.'
+    },
+    fr: {
+      [TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE]: 'Méthode de recherche SPARQL',
+      [ENABLE_SPARQL_QUERY]: 'Cliquez sur le bouton bascule pour activer la fourniture d\'une requête SPARQL CONSTRUCT qui récupère l\'ontologie.'
+    }
+  }
+};
+
+export function register(registry) {
+  registry.add('guide.step', step);
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>
