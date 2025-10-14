@@ -29,7 +29,7 @@ const step = {
 
     return [
       {
-        guideBlockName: 'clickable-element',
+        guideBlockName: 'focus-element',
         options: {
           content: translate(this.translationBundle, SELECT_INDEX),
           class: 'select-similarity-index',
