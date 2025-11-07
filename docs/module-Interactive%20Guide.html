@@ -9590,6 +9590,224 @@ If disabled, it will show only the step to disable it. If not disabled, it will 
             
                 <div class="member">
 
+<h4 class="name" id=".similarity-view-created-index">
+    <a class="href-link" href="#.similarity-view-created-index">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        similarity-view-created-index
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step highlights the newly created similarity index in the Existing Indexes table. The default index to highlight
+is the first index, unless <code>options.rowIndex</code> is specified.</p>
+<p>View the newly created similarity index<br>
+<img src="resources/guides/similarity-index/similarity-view-created-index.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.content</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The content of the dialog.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.title</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The title of the dialog.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.rowIndex</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The index of the row to focus on.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_similarity-index_similarity-view-created-index.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_similarity-index_similarity-view-created-index.js.html">guides/similarity-index/similarity-view-created-index.js</a>, <a href="guides_similarity-index_similarity-view-created-index.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "similarity-view-created-index",
+  "options": {
+    "title": {
+      "en": "Explore Similarity index"
+    },
+    "content": "In the &lt;b>Existing Indexes&lt;/b> table, you can now see the &lt;b>SpellSimIndex&lt;/b> which is the similarity index we created with the previous query.",
+    "rowIndex": 1
+  }
+}</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".sparql-search-method">
     <a class="href-link" href="#.sparql-search-method">#</a>
     

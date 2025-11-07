@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/ttyg/ttyg-similarity-select-index.js</title>
+  <title> guides/similarity-index/similarity-view-created-index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/ttyg/ttyg-similarity-select-index.js</h1>
+                    <h1>guides/similarity-index/similarity-view-created-index.js</h1>
                 </header>
                 
 
@@ -89,56 +89,65 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE = 'guide.step-action.similarity-search-method';
-const SELECT_INDEX = 'guide.step_plugin.similarity-search-method.select-index';
+            <pre class="prettyprint source linenums"><code>const CREATE_SIMILARITY_INDEX_DEFAULT = 'guide.step-action.create-similarity-index';
+const VIEW_CREATED_INDEX_DEFAULT = 'guide.step_plugin.similarity-view-created-index';
 
 /**
- * @name ttyg-similarity-select-index
+ * @name similarity-view-created-index
  * @memberof module:Interactive Guide
  *
  * @description
- * This step guides the user to select the index to use for Similarity search in the TTYG interface.
- * It highlights the dropdown element and provides instructions on how to proceed.
+ * This step highlights the newly created similarity index in the Existing Indexes table. The default index to highlight
+ * is the first index, unless &lt;code>options.rowIndex&lt;/code> is specified.
  *
- * Select the index to use for Similarity search&lt;br>
- * &lt;img src="resources/guides/ttyg/ttyg-similarity-select-index.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * View the newly created similarity index&lt;br>
+ * &lt;img src="resources/guides/similarity-index/similarity-view-created-index.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
- * This step can be configured using the common options defined in [Options](#.Options).
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it supports:
+ *
+ * @property {string} [options.content] - The content of the dialog.
+ * @property {string} [options.title] - The title of the dialog.
+ * @property {number} [options.rowIndex] - The index of the row to focus on.
  *
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "ttyg-similarity-select-index",
+ *   "guideBlockName": "similarity-view-created-index",
+ *   "options": {
+ *     "title": {
+ *       "en": "Explore Similarity index"
+ *     },
+ *     "content": "In the &lt;b>Existing Indexes&lt;/b> table, you can now see the &lt;b>SpellSimIndex&lt;/b> which is the similarity index we created with the previous query.",
+ *     "rowIndex": 1
+ *   }
  * }
- * ```
+ *
  */
 const step = {
-  guideBlockName: 'ttyg-similarity-select-index',
-  getSteps: function(options, pluginService) {
-    const GuideUtils = pluginService.GuideUtils;
-    const translate = pluginService.translate;
-
+  guideBlockName: 'similarity-view-created-index',
+  getSteps: (options, services) => {
+    const GuideUtils = services.GuideUtils;
     return [
       {
         guideBlockName: 'focus-element',
         options: {
-          content: translate(this.translationBundle, SELECT_INDEX),
-          class: 'select-similarity-index',
-          ...(options.title ?? {title: translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE)}),
+          content: options.content || 'guide.step_plugin.similarity-view-created-index',
+          class: 'view-created-index',
+          ...(options.title ?? {title: CREATE_SIMILARITY_INDEX_DEFAULT}),
           ...options,
-          elementSelector: GuideUtils.getGuideElementSelector('similarity-index-select')
+          elementSelector: GuideUtils.getGuideElementSelector(`similarity-index-name-${options.rowIndex || 0}`)
         }
       }
     ];
   },
   translationBundle: {
     en: {
-      [SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE]: 'FTS search query method',
-      [SELECT_INDEX]: 'Select the index to use for Similarity search.'
+      [CREATE_SIMILARITY_INDEX_DEFAULT]: 'Create Similarity index',
+      [VIEW_CREATED_INDEX_DEFAULT]: 'In the &lt;b>Existing Indexes&lt;/b> table, you can now see the &lt;b>SpellSimIndex&lt;/b> which is the similarity index we created with the previous query.'
     },
     fr: {
-      [SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE]: 'Méthode de recherche FTS',
-      [SELECT_INDEX]: 'Sélectionner l\'index à utiliser pour la recherche de similarité.'
+      [CREATE_SIMILARITY_INDEX_DEFAULT]: 'Créer un indice de similitude',
+      [VIEW_CREATED_INDEX_DEFAULT]: 'Dans le tableau &lt;b>Index existants&lt;/b>, vous pouvez maintenant voir le &lt;b>SpellSimIndex&lt;/b> qui est l\'index de similarité que nous avons créé avec la requête précédente.'
     }
   }
 };
