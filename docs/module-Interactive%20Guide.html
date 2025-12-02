@@ -3809,6 +3809,222 @@ by selecting a specific named graph from the All graphs dropdown.<br>
             
                 <div class="member">
 
+<h4 class="name" id=".clickable-element">
+    <a class="href-link" href="#.clickable-element">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        clickable-element
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The Clickable Element step is used to guide users to click on a specific element on the interface. Clicking on the
+element will automatically advance to the next step.</p>
+<p>Clickable element example<br>
+<img src="resources/guides/core/clickable-element.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.clickableElementSelector</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The CSS selector of the element to be clicked. If not provided, <code>options.elementSelector</code> will be used.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.elementSelector</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The CSS selector of the element to be highlighted. If not provided, the first clickable element will be highlighted.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.beforeShowPromise</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">function</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>A promise that has to resolve, before the step is shown. If not provided, the step will be shown immediately.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_core-steps_clickable-element.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_core-steps_clickable-element.js.html">guides/core-steps/clickable-element.js</a>, <a href="guides_core-steps_clickable-element.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "clickable-element",
+  "options": {
+    "clickableElementSelector": "#submit-button",
+    "content": "Please click the Submit button to proceed."
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".configure-agent">
     <a class="href-link" href="#.configure-agent">#</a>
     
@@ -9299,6 +9515,174 @@ It includes an optional info message, steps to start a new conversation</p>
             
                 <div class="member">
 
+<h4 class="name" id=".copy-text-element">
+    <a class="href-link" href="#.copy-text-element">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        copy-text-element
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Step that shows an input-like step with a code block containing provided text and a button to copy that
+text into a target input (specified by <code>options.elementSelector</code>). It internally uses <code>input-element</code> to render the
+step and manages attaching/removing the copy click listener when the step is shown/hidden.</p>
+<p>Copy text element example<br>
+<img src="resources/guides/core/copy-text-element.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.text</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The text content to display and copy into the target input.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.elementSelector</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>CSS selector of the target input where text will be inserted on copy.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_core-steps_copy-text-element.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_core-steps_copy-text-element.js.html">guides/core-steps/copy-text-element.js</a>, <a href="guides_core-steps_copy-text-element.js.html#line5">line 5</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "copy-text-element",
+  "options": {
+    "elementSelector": "#query-input",
+    "text": "SELECT * WHERE { ?s ?p ?o }"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".create-ttyg-agent">
     <a class="href-link" href="#.create-ttyg-agent">#</a>
     
@@ -9679,6 +10063,159 @@ fill in the necessary details, and save the new agent.</p>
             
                 <div class="member">
 
+<h4 class="name" id=".focus-element">
+    <a class="href-link" href="#.focus-element">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        focus-element
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The Focus Element step is used to guide users to see a specific element on the interface.</p>
+<p>Focus element example<br>
+<img src="resources/guides/core/focus-element.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.beforeShowPromise</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">function</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>A promise that has to resolve, before the step is shown. If not provided, the step will be shown immediately.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_core-steps_focus-element.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_core-steps_focus-element.js.html">guides/core-steps/focus-element.js</a>, <a href="guides_core-steps_focus-element.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "focus-element",
+  "options": {
+    "elementSelector": "#important-info",
+    "content": "Please take a look at this important information."
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".fts-search-method">
     <a class="href-link" href="#.fts-search-method">#</a>
     
@@ -9859,6 +10396,515 @@ If enabling, it can also include an optional step to set the maximum number of t
   "options": {
     "disable": false,
     "maxTriplesPerCall": 1000
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".guide-end">
+    <a class="href-link" href="#.guide-end">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        guide-end
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Final step indicating the guide has ended.</p>
+<p>Final step example<br>
+<img src="resources/guides/core/guide-end.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.title</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>A custom title for the final step.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.content</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>A custom content/message for the final step.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_core-steps_guide-end.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_core-steps_guide-end.js.html">guides/core-steps/guide-end.js</a>, <a href="guides_core-steps_guide-end.js.html#line5">line 5</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "guide-end",
+  "options": {
+    "title": "All done!",
+    "content": "You have completed the guide."
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".hold-and-wait-until-hidden">
+    <a class="href-link" href="#.hold-and-wait-until-hidden">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        hold-and-wait-until-hidden
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Holds the current step and waits until a specific element becomes hidden before allowing the user to proceed.
+While waiting, scroll events are allowed on the targeted element.</p>
+<p>Hold and wait until hidden example<br>
+<img src="resources/guides/core/hold-and-wait-until-hidden.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.elementSelectorToWait</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>CSS selector of the element whose visibility is being monitored to become hidden.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.elementSelector</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>CSS selector of the element on which scroll events are allowed while waiting.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_core-steps_hold-and-wait-until-hidden.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_core-steps_hold-and-wait-until-hidden.js.html">guides/core-steps/hold-and-wait-until-hidden.js</a>, <a href="guides_core-steps_hold-and-wait-until-hidden.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "hold-and-wait-until-hidden",
+  "options": {
+    "elementSelectorToWait": "#loading",
+    "elementSelector": "#scrollable"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".hold-and-wait-until-shown">
+    <a class="href-link" href="#.hold-and-wait-until-shown">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        hold-and-wait-until-shown
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Holds the current step and waits until a specific element becomes visible before allowing the user to proceed.</p>
+<p>Hold and wait until shown example<br>
+<img src="resources/guides/core/hold-and-wait-until-shown.png" style="height:200px; border: solid; border-width:1px"/><br></br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.elementSelectorToWait</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>CSS selector of the element whose visibility is being monitored to become visible.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_core-steps_hold-and-wait-until-shown.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_core-steps_hold-and-wait-until-shown.js.html">guides/core-steps/hold-and-wait-until-shown.js</a>, <a href="guides_core-steps_hold-and-wait-until-shown.js.html#line3">line 3</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "hold-and-wait-until-shown",
+  "options": {
+    "elementSelectorToWait": "#loaded-panel"
   }
 }
 ```</code></pre>
@@ -10492,6 +11538,486 @@ If enabling, it can also include an optional step to set the maximum number of t
   "guideBlockName": "import-upload-rdf-file",
   "options": {
        "resourceFile": "example.rdf"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".info-message">
+    <a class="href-link" href="#.info-message">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        info-message
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Displays a read-only informational message to the user. Interaction is not required to proceed unless configured
+via common options.</p>
+<p>Info message example<br>
+<img src="resources/guides/core/info-message.png" style="height:200px; border: solid; border-width:1px"/><br></br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_core-steps_info-message.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_core-steps_info-message.js.html">guides/core-steps/info-message.js</a>, <a href="guides_core-steps_info-message.js.html#line3">line 3</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "info-message",
+  "options": {
+    "title": "Heads up",
+    "content": "Please read this information."
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".input-element">
+    <a class="href-link" href="#.input-element">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        input-element
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Focuses a specific input element and allows the user to type into it.</p>
+<p>Input element example<br>
+<img src="resources/guides/core/input-element.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_core-steps_input-element.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_core-steps_input-element.js.html">guides/core-steps/input-element.js</a>, <a href="guides_core-steps_input-element.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "input-element",
+  "options": {
+    "elementSelector": "#query-input",
+    "content": "Type your query here."
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".read-only-element">
+    <a class="href-link" href="#.read-only-element">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        read-only-element
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The Read-Only Element step is used to guide users to see a specific element on the interface, but not interact with it.</p>
+<p>Read-only element example<br>
+<img src="resources/guides/core/read-only-element.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.beforeShowPromise</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">function</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>A promise that has to resolve, before the step is shown. If not provided, the step will be shown immediately.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_core-steps_read-only-element.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_core-steps_read-only-element.js.html">guides/core-steps/read-only-element.js</a>, <a href="guides_core-steps_read-only-element.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "read-only-element",
+  "options": {
+    "elementSelector": "#important-info",
+    "content": "Please take a look at this important information, but do not interact with it."
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".scroll-only-element">
+    <a class="href-link" href="#.scroll-only-element">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        scroll-only-element
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Focuses a specific element while allowing only scroll-related interactions on it. Other interactions are disabled
+for the duration of the step. Useful when users need to scroll within a container to find content without clicking
+or typing.</p>
+<p>Scroll only element example<br>
+<img src="resources/guides/core/scroll-only-element.png" style="height:200px; border: solid; border-width:1px"/><br></br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.elementSelector</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>CSS selector of the scrollable element to focus.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_core-steps_scroll-only-element.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_core-steps_scroll-only-element.js.html">guides/core-steps/scroll-only-element.js</a>, <a href="guides_core-steps_scroll-only-element.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "scroll-only-element",
+  "options": {
+    "elementSelector": "#results-pane"
   }
 }
 ```</code></pre>
@@ -14705,6 +16231,390 @@ It highlights the checkbox element and provides instructions on how to proceed.<
         <pre class="prettyprint"><code>```JSON
 {
  "guideBlockName": "ttyg-sparql-method-sparql-query-select",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".wait-for-element-to-hide">
+    <a class="href-link" href="#.wait-for-element-to-hide">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        wait-for-element-to-hide
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Waits for a specific element to become hidden and then immediately advances to the next step.</p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.elementSelectorToHide</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+        <td class="default">
+        
+        </td>
+    
+
+    <td class="description last"><p>CSS selector of the element that must become hidden before advancing.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.timeToWait</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+        <td class="default">
+        
+            2
+        
+        </td>
+    
+
+    <td class="description last"><p>Max seconds to wait before aborting the guide.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_core-steps_wait-for-element-to-hide.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_core-steps_wait-for-element-to-hide.js.html">guides/core-steps/wait-for-element-to-hide.js</a>, <a href="guides_core-steps_wait-for-element-to-hide.js.html#line3">line 3</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "wait-for-element-to-hide",
+  "options": {
+    "elementSelectorToHide": "#loading",
+    "timeToWait": 5
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".wait-for-element-to-show">
+    <a class="href-link" href="#.wait-for-element-to-show">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        wait-for-element-to-show
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Waits for a specific element to become visible and then immediately advances to the next step.</p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.elementSelectorToShow</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+        <td class="default">
+        
+        </td>
+    
+
+    <td class="description last"><p>CSS selector of the element that must appear before advancing.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.timeToWait</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+        <td class="default">
+        
+            2
+        
+        </td>
+    
+
+    <td class="description last"><p>Max seconds to wait before aborting the guide.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_core-steps_wait-for-element-to-show.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_core-steps_wait-for-element-to-show.js.html">guides/core-steps/wait-for-element-to-show.js</a>, <a href="guides_core-steps_wait-for-element-to-show.js.html#line3">line 3</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "wait-for-element-to-show",
+  "options": {
+    "elementSelectorToShow": "#loaded-panel",
+    "timeToWait": 5
+  }
 }
 ```</code></pre>
     

@@ -1,9 +1,33 @@
 import {BASIC_STEP} from '../config.js';
 
+/**
+ * @name wait-for-element-to-show
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * Waits for a specific element to become visible and then immediately advances to the next step.
+ *
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it supports:
+ *
+ * @property {string} options.elementSelectorToShow - CSS selector of the element that must appear before advancing.
+ * @property {number} [options.timeToWait=2] - Max seconds to wait before aborting the guide.
+ *
+ * @example
+ * ```JSON
+ * {
+ *   "guideBlockName": "wait-for-element-to-show",
+ *   "options": {
+ *     "elementSelectorToShow": "#loaded-panel",
+ *     "timeToWait": 5
+ *   }
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'wait-for-element-to-show',
   getStep: (options, services) => {
-    return angular.extend({}, BASIC_STEP, {
+    return {
+      ...BASIC_STEP,
       initPreviousStep: services.GuideUtils.defaultInitPreviousStep,
       beforeShowPromise: (guide) => services.GuideUtils.getOrWaitFor(options.elementSelectorToShow, options.timeToWait || 2)
         .catch(() => {
@@ -12,8 +36,9 @@ const step = {
       show: (guide) => () => {
         // Using a timeout because the library executes async logic
         setTimeout(() => guide.next());
-      }
-    }, options);
+      },
+      ...options
+    };
   }
 };
 

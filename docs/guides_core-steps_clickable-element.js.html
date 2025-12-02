@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/ttyg/ttyg-similarity-select-index.js</title>
+  <title> guides/core-steps/clickable-element.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/ttyg/ttyg-similarity-select-index.js</h1>
+                    <h1>guides/core-steps/clickable-element.js</h1>
                 </header>
                 
 
@@ -89,57 +89,60 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE = 'guide.step-action.similarity-search-method';
-const SELECT_INDEX = 'guide.step_plugin.similarity-search-method.select-index';
+            <pre class="prettyprint source linenums"><code>import * as Utils from '../utils.js';
+import {BASIC_STEP} from '../config.js';
 
 /**
- * @name ttyg-similarity-select-index
+ * @name clickable-element
  * @memberof module:Interactive Guide
  *
  * @description
- * This step guides the user to select the index to use for Similarity search in the TTYG interface.
- * It highlights the dropdown element and provides instructions on how to proceed.
+ * The Clickable Element step is used to guide users to click on a specific element on the interface. Clicking on the
+ * element will automatically advance to the next step.
  *
- * Select the index to use for Similarity search&lt;br>
- * &lt;img src="resources/guides/ttyg/ttyg-similarity-select-index.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Clickable element example&lt;br>
+ * &lt;img src="resources/guides/core/clickable-element.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
- * This step can be configured using the common options defined in [Options](#.Options).
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it supports:
+ *
+ * @property {string} [options.clickableElementSelector] - The CSS selector of the element to be clicked. If not provided, `options.elementSelector` will be used.
+ * @property {string} [options.elementSelector] - The CSS selector of the element to be highlighted. If not provided, the first clickable element will be highlighted.
+ * @property {function} [options.beforeShowPromise] - A promise that has to resolve, before the step is shown. If not provided, the step will be shown immediately.
  *
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "ttyg-similarity-select-index",
+ *   "guideBlockName": "clickable-element",
+ *   "options": {
+ *     "clickableElementSelector": "#submit-button",
+ *     "content": "Please click the Submit button to proceed."
+ *   }
  * }
  * ```
  */
 const step = {
-  guideBlockName: 'ttyg-similarity-select-index',
-  getSteps: function(options, pluginService) {
-    const GuideUtils = pluginService.GuideUtils;
-    const translate = pluginService.translate;
+  // An element which is expected to be clicked. If onNextClick is not defined, it will automatically click on the element on next button press
+  guideBlockName: 'clickable-element',
+  getStep: (options, services) => {
+    const notOverridable = {
+      type: 'clickable'
+    };
 
-    return [
-      {
-        guideBlockName: 'focus-element',
-        options: {
-          content: translate(this.translationBundle, SELECT_INDEX),
-          class: 'select-similarity-index',
-          ...(options.title ?? {title: translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE)}),
-          ...options,
-          elementSelector: GuideUtils.getGuideElementSelector('similarity-connector-select')
-        }
-      }
-    ];
-  },
-  translationBundle: {
-    en: {
-      [SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE]: 'FTS search query method',
-      [SELECT_INDEX]: 'Select the index to use for Similarity search.'
-    },
-    fr: {
-      [SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE]: 'Méthode de recherche FTS',
-      [SELECT_INDEX]: 'Sélectionner l\'index à utiliser pour la recherche de similarité.'
+    const stepDescription = {
+      ...BASIC_STEP,
+      advanceOn: {
+        selector: options.clickableElementSelector || options.elementSelector,
+        event: 'click'
+      },
+      initPreviousStep: services.GuideUtils.defaultInitPreviousStep,
+      ...options,
+      ...notOverridable
+    };
+
+    if (!stepDescription.beforeShowPromise) {
+      stepDescription.beforeShowPromise = Utils.beforeShowPromise(services, stepDescription.elementSelector, stepDescription.maxWaitTime);
     }
+    return stepDescription;
   }
 };
 
