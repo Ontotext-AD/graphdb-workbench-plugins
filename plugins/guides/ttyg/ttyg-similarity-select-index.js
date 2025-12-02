@@ -35,7 +35,7 @@ const step = {
           class: 'select-similarity-index',
           ...(options.title ?? {title: translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE)}),
           ...options,
-          elementSelector: GuideUtils.getGuideElementSelector('similarity-index-select')
+          elementSelector: GuideUtils.getGuideElementSelector('similarity-connector-select')
         }
       }
     ];

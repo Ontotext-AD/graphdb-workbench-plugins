@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/ttyg/ttyg-similarity-select-index.js</title>
+  <title> guides/core-steps/read-only-element.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/ttyg/ttyg-similarity-select-index.js</h1>
+                    <h1>guides/core-steps/read-only-element.js</h1>
                 </header>
                 
 
@@ -89,57 +89,51 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE = 'guide.step-action.similarity-search-method';
-const SELECT_INDEX = 'guide.step_plugin.similarity-search-method.select-index';
+            <pre class="prettyprint source linenums"><code>import * as Utils from '../utils.js';
+import {BASIC_STEP} from '../config.js';
 
 /**
- * @name ttyg-similarity-select-index
+ * @name read-only-element
  * @memberof module:Interactive Guide
  *
  * @description
- * This step guides the user to select the index to use for Similarity search in the TTYG interface.
- * It highlights the dropdown element and provides instructions on how to proceed.
+ * The Read-Only Element step is used to guide users to see a specific element on the interface, but not interact with it.
  *
- * Select the index to use for Similarity search&lt;br>
- * &lt;img src="resources/guides/ttyg/ttyg-similarity-select-index.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Read-only element example&lt;br>
+ * &lt;img src="resources/guides/core/read-only-element.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
- * This step can be configured using the common options defined in [Options](#.Options).
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it supports:
+ *
+ * @property {function} [options.beforeShowPromise] - A promise that has to resolve, before the step is shown. If not provided, the step will be shown immediately.
  *
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "ttyg-similarity-select-index",
+ *   "guideBlockName": "read-only-element",
+ *   "options": {
+ *     "elementSelector": "#important-info",
+ *     "content": "Please take a look at this important information, but do not interact with it."
+ *   }
  * }
  * ```
  */
 const step = {
-  guideBlockName: 'ttyg-similarity-select-index',
-  getSteps: function(options, pluginService) {
-    const GuideUtils = pluginService.GuideUtils;
-    const translate = pluginService.translate;
-
-    return [
-      {
-        guideBlockName: 'focus-element',
-        options: {
-          content: translate(this.translationBundle, SELECT_INDEX),
-          class: 'select-similarity-index',
-          ...(options.title ?? {title: translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE)}),
-          ...options,
-          elementSelector: GuideUtils.getGuideElementSelector('similarity-connector-select')
-        }
-      }
-    ];
-  },
-  translationBundle: {
-    en: {
-      [SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE]: 'FTS search query method',
-      [SELECT_INDEX]: 'Select the index to use for Similarity search.'
-    },
-    fr: {
-      [SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE]: 'Méthode de recherche FTS',
-      [SELECT_INDEX]: 'Sélectionner l\'index à utiliser pour la recherche de similarité.'
+  // An element which is expected to be focused, but interactions are disabled.
+  guideBlockName: 'read-only-element',
+  getStep: (options, services) => {
+    const notOverridable = {
+      type: 'readonly'
+    };
+    const stepDescription = {
+      ...BASIC_STEP,
+      initPreviousStep: services.GuideUtils.defaultInitPreviousStep,
+      ...options,
+      ...notOverridable
+    };
+    if (!stepDescription.beforeShowPromise) {
+      stepDescription.beforeShowPromise = Utils.beforeShowPromise(services, stepDescription.elementSelector, stepDescription.maxWaitTime);
     }
+    return stepDescription;
   }
 };
 

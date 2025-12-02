@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/ttyg/ttyg-similarity-select-index.js</title>
+  <title> guides/core-steps/guide-end.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/ttyg/ttyg-similarity-select-index.js</h1>
+                    <h1>guides/core-steps/guide-end.js</h1>
                 </header>
                 
 
@@ -89,56 +89,61 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE = 'guide.step-action.similarity-search-method';
-const SELECT_INDEX = 'guide.step_plugin.similarity-search-method.select-index';
+            <pre class="prettyprint source linenums"><code>import {BASIC_STEP} from '../config.js';
 
+const GUIDE_END_TITLE = 'guide.step_plugin.guide-ended.title';
+const GUIDE_END_CONTENT = 'guide.step_plugin.guide-ended.content';
 /**
- * @name ttyg-similarity-select-index
+ * @name guide-end
  * @memberof module:Interactive Guide
  *
  * @description
- * This step guides the user to select the index to use for Similarity search in the TTYG interface.
- * It highlights the dropdown element and provides instructions on how to proceed.
+ * Final step indicating the guide has ended.
  *
- * Select the index to use for Similarity search&lt;br>
- * &lt;img src="resources/guides/ttyg/ttyg-similarity-select-index.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Final step example&lt;br>
+ * &lt;img src="resources/guides/core/guide-end.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
- * This step can be configured using the common options defined in [Options](#.Options).
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it supports:
+ *
+ * @property {string} [options.title] - A custom title for the final step.
+ * @property {string} [options.content] - A custom content/message for the final step.
  *
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "ttyg-similarity-select-index",
+ *   "guideBlockName": "guide-end",
+ *   "options": {
+ *     "title": "All done!",
+ *     "content": "You have completed the guide."
+ *   }
  * }
  * ```
  */
 const step = {
-  guideBlockName: 'ttyg-similarity-select-index',
-  getSteps: function(options, pluginService) {
-    const GuideUtils = pluginService.GuideUtils;
+  guideBlockName: 'guide-end',
+  getStep: function(options, pluginService) {
     const translate = pluginService.translate;
-
-    return [
-      {
-        guideBlockName: 'focus-element',
-        options: {
-          content: translate(this.translationBundle, SELECT_INDEX),
-          class: 'select-similarity-index',
-          ...(options.title ?? {title: translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE)}),
-          ...options,
-          elementSelector: GuideUtils.getGuideElementSelector('similarity-connector-select')
-        }
-      }
-    ];
+    const notOverridable = {
+      type: 'readonly',
+      title: options.title || translate(this.translationBundle, GUIDE_END_TITLE),
+      content: options.content || translate(this.translationBundle, GUIDE_END_CONTENT),
+      lastStep: true
+    };
+    return {
+      ...BASIC_STEP,
+      initPreviousStep: pluginService.GuideUtils.defaultInitPreviousStep,
+      ...options,
+      ...notOverridable
+    };
   },
   translationBundle: {
     en: {
-      [SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE]: 'FTS search query method',
-      [SELECT_INDEX]: 'Select the index to use for Similarity search.'
+      [GUIDE_END_TITLE]: 'End of guide',
+      [GUIDE_END_CONTENT]: 'This guide has ended.'
     },
     fr: {
-      [SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE]: 'Méthode de recherche FTS',
-      [SELECT_INDEX]: 'Sélectionner l\'index à utiliser pour la recherche de similarité.'
+      [GUIDE_END_TITLE]: 'Fin du guide',
+      [GUIDE_END_CONTENT]: 'Ce guide est terminé.'
     }
   }
 };

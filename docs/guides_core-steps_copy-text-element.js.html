@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/ttyg/ttyg-similarity-select-index.js</title>
+  <title> guides/core-steps/copy-text-element.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/ttyg/ttyg-similarity-select-index.js</h1>
+                    <h1>guides/core-steps/copy-text-element.js</h1>
                 </header>
                 
 
@@ -89,56 +89,82 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE = 'guide.step-action.similarity-search-method';
-const SELECT_INDEX = 'guide.step_plugin.similarity-search-method.select-index';
+            <pre class="prettyprint source linenums"><code>import * as Utils from '../utils.js';
+
+const COPY_TEXT = 'guide.step_plugin.core-steps.copy-text-element.copy-to-input';
 
 /**
- * @name ttyg-similarity-select-index
+ * @name copy-text-element
  * @memberof module:Interactive Guide
  *
  * @description
- * This step guides the user to select the index to use for Similarity search in the TTYG interface.
- * It highlights the dropdown element and provides instructions on how to proceed.
+ * Step that shows an input-like step with a code block containing provided text and a button to copy that
+ * text into a target input (specified by `options.elementSelector`). It internally uses `input-element` to render the
+ * step and manages attaching/removing the copy click listener when the step is shown/hidden.
  *
- * Select the index to use for Similarity search&lt;br>
- * &lt;img src="resources/guides/ttyg/ttyg-similarity-select-index.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Copy text element example&lt;br>
+ * &lt;img src="resources/guides/core/copy-text-element.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
- * This step can be configured using the common options defined in [Options](#.Options).
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it supports:
+ *
+ * @property {string} options.text - The text content to display and copy into the target input.
+ * @property {string} options.elementSelector - CSS selector of the target input where text will be inserted on copy.
  *
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "ttyg-similarity-select-index",
+ *   "guideBlockName": "copy-text-element",
+ *   "options": {
+ *     "elementSelector": "#query-input",
+ *     "text": "SELECT * WHERE { ?s ?p ?o }"
+ *   }
  * }
  * ```
  */
 const step = {
-  guideBlockName: 'ttyg-similarity-select-index',
+  guideBlockName: 'copy-text-element',
   getSteps: function(options, pluginService) {
-    const GuideUtils = pluginService.GuideUtils;
     const translate = pluginService.translate;
+    const GuideUtils = pluginService.GuideUtils;
+
+    const text = options.text;
+    const code = document.createElement('code');
+    code.innerText = text;
+
+    const copy = document.createElement('button');
+    const copyToInputQueryButtonClass = 'guide-copy-to-input-query-button';
+    copy.className = `btn btn-sm btn-secondary ${copyToInputQueryButtonClass}`;
+    copy.innerText = translate(this.translationBundle, COPY_TEXT);
+
+    let stepHTMLElement;
+    const copyToInputListener = Utils.createCopyToInputListener(GuideUtils.getElementSelector(options.elementSelector), text);
 
     return [
       {
-        guideBlockName: 'focus-element',
+        guideBlockName: 'input-element',
         options: {
-          content: translate(this.translationBundle, SELECT_INDEX),
-          class: 'select-similarity-index',
-          ...(options.title ?? {title: translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE)}),
           ...options,
-          elementSelector: GuideUtils.getGuideElementSelector('similarity-connector-select')
+          content: 'guide.step_plugin.core-steps.copy-text-element.content',
+          textAsHtmlCodeElement: '&lt;div class="shepherd-code">' + code.outerHTML + copy.outerHTML + '&lt;/div>',
+          show: (guide) => () => {
+            stepHTMLElement = guide.currentStep.el.querySelector(`.${copyToInputQueryButtonClass}`);
+            stepHTMLElement.addEventListener('click', copyToInputListener);
+          },
+          hide: () => () => {
+            if (stepHTMLElement) {
+              stepHTMLElement.removeEventListener('click', copyToInputListener);
+            }
+          }
         }
       }
     ];
   },
   translationBundle: {
     en: {
-      [SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE]: 'FTS search query method',
-      [SELECT_INDEX]: 'Select the index to use for Similarity search.'
+      [COPY_TEXT]: 'Copy to input'
     },
     fr: {
-      [SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE]: 'Méthode de recherche FTS',
-      [SELECT_INDEX]: 'Sélectionner l\'index à utiliser pour la recherche de similarité.'
+      [COPY_TEXT]: 'Copier dans la saisie'
     }
   }
 };
