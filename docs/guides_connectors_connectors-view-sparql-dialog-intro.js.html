@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/connectors/connectors-parameter-intro.js</title>
+  <title> guides/connectors/connectors-view-sparql-dialog-intro.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/connectors/connectors-parameter-intro.js</h1>
+                    <h1>guides/connectors/connectors-view-sparql-dialog-intro.js</h1>
                 </header>
                 
 
@@ -89,69 +89,44 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {getConnectorContentSelector, getConnectorNameSelector, getConnectorParameterSelector} from '../utils.js';
-
-const CONNECTORS_DEFAULT_TITLE = 'menu.connectors.label';
-const PARAMETER_INTRO = 'guide.step_plugin.connectors-parameter-intro.content';
+            <pre class="prettyprint source linenums"><code>const CONNECTORS_DEFAULT_TITLE = 'menu.connectors.label';
+const VIEW_SPARQL_DIALOG = 'guide.step_plugin.connectors-view-sparql-dialog-intro.content';
 
 /**
- * @name connectors-parameter-intro
+ * @name connectors-view-sparql-dialog-intro
  * @memberof module:Interactive Guide
  *
  * @description
- * This step showcases a parameter of a connector instance.
+ * This step is an introductory step for the "View SPARQL Query" dialog of the connectors section of the GraphDB Workbench.
+ * It explains the purpose of the dialog and how users can utilize the SPARQL query displayed within it.
  *
- * Connectors parameter introduction&lt;br>
- * &lt;img src="resources/guides/connectors/connectors-parameter-intro.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Connectors "View SPARQL Query" dialog introduction&lt;br>
+ * &lt;img src="resources/guides/connectors/connectors-view-sparql-dialog-intro.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
- * This step can be configured using the common options defined in [Options](#.Options). Additionally, it requires:
- *
- * @property {string} connectorName - the name of the connector for which the parameter is being defined.
- * @property {string} instanceName - the specific instance name of the connector.
- * @property {string} parameterName - the specific creation parameters name for &lt;code>instanceName&lt;/code>.
+ * This step can be configured using the common options defined in [Options](#.Options).
  *
  * @example
  * ```JSON
  * {
- *  "guideBlockName": "connectors-parameter-intro",
- *  "options": {
- *    "connectorName": "Elasticsearch",
- *    "instanceName": "MyElasticsearchConnector",
- *    "parameterName": "hosts"
- *  }
+ *  "guideBlockName": "connectors-view-sparql-dialog-intro",
  * }
  * ```
  */
 const step = {
-  guideBlockName: 'connectors-parameter-intro',
-  /**
-     * Options:
-     * - &lt;b>connectorName&lt;/b>: string (required).
-     *   &lt;ol>Possible values:
-     *    &lt;li>Elasticsearch&lt;/li>
-     *    &lt;li>OpenSearch&lt;/li>
-     *    &lt;li>Solr&lt;/li>
-     *    &lt;li>Lucene&lt;/li>
-     *    &lt;li>Kafka&lt;/li>
-     *    &lt;li>ChatGPT-Retrieval&lt;/li>
-     *   &lt;/ol>
-     * - &lt;b>instanceName&lt;/b>: string (required) – the specific connector instance name for &lt;code>connectorName&lt;/code>.
-     * - &lt;b>parameterName&lt;/b>: string (required) – the specific creation parameters name for &lt;code>instanceName&lt;/code>.
-     */
+  guideBlockName: 'connectors-view-sparql-dialog-intro',
   getSteps: function(options, services) {
     const translate = services.translate;
-    const connectorNameSelector = getConnectorNameSelector(options, services);
-    const connectorContentSelector = getConnectorContentSelector(options, services);
-    const parameterSelector = getConnectorParameterSelector(options, services);
+    const GuideUtils = services.GuideUtils;
     return [{
-      guideBlockName: 'read-only-element',
+      guideBlockName: 'scroll-only-element',
       options: {
         ...(options.title ?? {title: translate(this.translationBundle, CONNECTORS_DEFAULT_TITLE)}),
-        placement: 'top',
-        class: 'connectors-connector-intro',
-        content: translate(this.translationBundle, PARAMETER_INTRO),
+        placement: 'left',
+        class: 'connectors-view-sparql-dialog-intro',
+        content: translate(this.translationBundle, VIEW_SPARQL_DIALOG),
         ...options,
-        elementSelector: `${connectorNameSelector} ${connectorContentSelector} ${parameterSelector}`,
+        elementSelectorToWait: GuideUtils.getGuideElementSelector('view-query-body'),
+        elementSelector: GuideUtils.getGuideElementSelector('view-query-body'),
         url: 'connectors'
       }
     }];
@@ -159,11 +134,11 @@ const step = {
   translationBundle: {
     en: {
       [CONNECTORS_DEFAULT_TITLE]: 'Connectors',
-      [PARAMETER_INTRO]: 'The creation parameters for luc:createConnector define how a connector instance is created. They are provided in a JSON object with parameter names as keys. Some parameters are required, others optional, and values can be simple types, lists, or objects.'
+      [VIEW_SPARQL_DIALOG]: 'The dialog displays the SPARQL query used to create the connector. You can copy it to execute manually or integrate it into automation scripts.'
     },
     fr: {
       [CONNECTORS_DEFAULT_TITLE]: 'Connecteurs',
-      [PARAMETER_INTRO]: 'Les paramètres de création pour luc:createConnector définissent comment une instance de connecteur est créée. Ils sont fournis dans un objet JSON avec les noms des paramètres comme clés. Certains paramètres sont obligatoires, d\'autres optionnels, et les valeurs peuvent être des types simples, des listes ou des objets.'
+      [VIEW_SPARQL_DIALOG]: 'La boîte de dialogue affiche la requête SPARQL utilisée pour créer le connecteur. Vous pouvez la copier pour l\'exécuter manuellement ou l\'intégrer dans des scripts d\'automatisation.'
     }
   }
 };

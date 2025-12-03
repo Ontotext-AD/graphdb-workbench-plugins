@@ -102,9 +102,6 @@ export const RDF_RANK_DEFAULT_TITLE = 'view.rdf.rank.title';
 export const RESOURCE_DEFAULT_TITLE = 'view.resource.title';
 export const REPOSITORIES_DEFAULT_TITLE = 'guide.step_plugin.repositories.default-title';
 export const VISUAL_GRAPH_DEFAULT_TITLE = 'visual.graph.label';
-export const CONNECTORS_DEFAULT_TITLE = 'menu.connectors.label';
-export const LUCENE_DEFAULT_TITLE = 'guide.step_plugin.connectors-lucene.title';
-export const LUCENE_CONNECTOR_NAME = 'Lucene';
 export const SKIP_SECTION = {
   en: 'Skip section',
   fr: 'Sauter la section'

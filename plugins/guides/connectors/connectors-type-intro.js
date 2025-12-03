@@ -1,5 +1,32 @@
-import {CONNECTORS_DEFAULT_TITLE, getConnectorNameSelector} from '../utils.js';
+import {getConnectorNameSelector} from '../utils.js';
 
+const CONNECTORS_DEFAULT_TITLE = 'menu.connectors.label';
+const CONNECTOR_TYPE_INTRO = 'guide.step_plugin.connectors-type-intro.content';
+
+
+/**
+ * @name connectors-type-intro
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step shows the type of connector.
+ *
+ * Connectors type introduction<br>
+ * <img src="resources/guides/connectors/connectors-type-intro.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it requires:
+ * @property {string} connectorName - the name of the connector for which the section is being defined.
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "connectors-type-intro",
+ *  "options": {
+ *    "connectorName": "Elasticsearch"
+ *  }
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'connectors-type-intro',
   /**
@@ -16,20 +43,30 @@ const step = {
      *
      *   Must override content with connector specific content
      */
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
+    const translate = services.translate;
     return [{
       guideBlockName: 'read-only-element',
       options: {
-        // If mainAction is set the title will be set automatically
-        ...(options.mainAction ? {} : {title: CONNECTORS_DEFAULT_TITLE}),
+        ...(options.title ?? {title: translate(this.translationBundle, CONNECTORS_DEFAULT_TITLE)}),
         placement: 'top',
         class: 'connectors-connectors-intro',
-        content: 'guide.step_plugin.connectors-type-intro.content',
+        content: translate(this.translationBundle, CONNECTOR_TYPE_INTRO),
         ...options,
         elementSelector: getConnectorNameSelector(options, services),
         url: 'connectors'
       }
     }];
+  },
+  translationBundle: {
+    en: {
+      [CONNECTORS_DEFAULT_TITLE]: 'Connectors',
+      [CONNECTOR_TYPE_INTRO]: 'Specific GraphDB Connectors provide different connection possibilities.'
+    },
+    fr: {
+      [CONNECTORS_DEFAULT_TITLE]: 'Connecteurs',
+      [CONNECTOR_TYPE_INTRO]: 'Les connecteurs GraphDB spécifiques offrent différentes possibilités de connexion.'
+    }
   }
 };
 
