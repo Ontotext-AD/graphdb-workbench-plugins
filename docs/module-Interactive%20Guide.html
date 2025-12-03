@@ -5023,6 +5023,728 @@ It guides the user to adjust the top-p control to a specified value.</p>
             
                 <div class="member">
 
+<h4 class="name" id=".connectors-array-subparameter-intro">
+    <a class="href-link" href="#.connectors-array-subparameter-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        connectors-array-subparameter-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step is an introductory step for the creation of a subparameter within a parameter of a connector.
+It explains the purpose and usage of subparameters in defining how a connector instance is created.</p>
+<p>Connectors subparameter introduction<br>
+<img src="resources/guides/connectors/connectors-array-subparameter-intro.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>connectorName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the name of the connector for which the subparameter is being defined.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>instanceName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the specific instance name of the connector.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>parameterName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the specific creation parameter name for <code>instanceName</code>.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>subparameterName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the specific creation subparameter name for <code>parameterName</code>.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_connectors_connectors-array-subparameter-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_connectors_connectors-array-subparameter-intro.js.html">guides/connectors/connectors-array-subparameter-intro.js</a>, <a href="guides_connectors_connectors-array-subparameter-intro.js.html#line11">line 11</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "connectors-array-subparameter-intro",
+ "options": {
+   "connectorName": "Elasticsearch",
+   "instanceName": "MyElasticsearchConnector",
+   "parameterName": "hosts",
+   "subparameterName": "host"
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".connectors-close-view-sparql-query-dialog">
+    <a class="href-link" href="#.connectors-close-view-sparql-query-dialog">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        connectors-close-view-sparql-query-dialog
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step prompts the user to close the &quot;View SPARQL Query&quot; dialog.</p>
+<p>Close SPARQL Query dialog example<br>
+<img src="resources/guides/connectors/connectors-close-view-sparql-query-dialog.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_connectors_connectors-close-view-sparql-query-dialog.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_connectors_connectors-close-view-sparql-query-dialog.js.html">guides/connectors/connectors-close-view-sparql-query-dialog.js</a>, <a href="guides_connectors_connectors-close-view-sparql-query-dialog.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "connectors-close-view-sparql-query-dialog",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".connectors-connector-intro">
+    <a class="href-link" href="#.connectors-connector-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        connectors-connector-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step is an introductory step for the connectors section of the GraphDB Workbench.
+It explains the purpose of an individual connector.</p>
+<p>Connectors section introduction<br>
+<img src="resources/guides/connectors/connectors-connector-intro.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>connectorName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the name of the connector for which the section is being defined.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>instanceName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the specific instance name of the connector.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_connectors_connectors-connector-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_connectors_connectors-connector-intro.js.html">guides/connectors/connectors-connector-intro.js</a>, <a href="guides_connectors_connectors-connector-intro.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "connectors-connector-intro",
+ "options": {
+   "connectorName": "Elasticsearch",
+   "instanceName": "MyElasticsearchConnector"
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".connectors-connectors-intro">
+    <a class="href-link" href="#.connectors-connectors-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        connectors-connectors-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step is an introductory step for the &quot;Connectors&quot; section of the GraphDB Workbench.</p>
+<p>Connectors introduction<br>
+<img src="resources/guides/connectors/connectors-intro.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_connectors_connectors-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_connectors_connectors-intro.js.html">guides/connectors/connectors-intro.js</a>, <a href="guides_connectors_connectors-intro.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "connectors-intro",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".connectors-expand-connector">
+    <a class="href-link" href="#.connectors-expand-connector">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        connectors-expand-connector
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step  prompts the user to expand the connector details by clicking on its name.</p>
+<p>Connectors expand step<br>
+<img src="resources/guides/connectors/connectors-expand-connector.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>connectorName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the name of the connector for which the section is being defined.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>instanceName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the specific instance name of the connector.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_connectors_connectors-expand-connector.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_connectors_connectors-expand-connector.js.html">guides/connectors/connectors-expand-connector.js</a>, <a href="guides_connectors_connectors-expand-connector.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "connectors-expand-connector",
+ "options": {
+   "connectorName": "Elasticsearch",
+   "instanceName": "MyElasticsearchConnector"
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".connectors-expand-lucene">
     <a class="href-link" href="#.connectors-expand-lucene">#</a>
     
@@ -7764,6 +8486,592 @@ It explains the purpose of the dialog and how users can utilize the SPARQL query
         <pre class="prettyprint"><code>```JSON
 {
  "guideBlockName": "connectors-lucene-view-sparql-dialog-intro",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".connectors-open-view-sparql-query-dialog">
+    <a class="href-link" href="#.connectors-open-view-sparql-query-dialog">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        connectors-open-view-sparql-query-dialog
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step prompts the user to open the &quot;View SPARQL Query&quot; dialog.</p>
+<p>View SPARQL Query dialog example<br>
+<img src="resources/guides/connectors/connectors-open-view-sparql-query-dialog.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>connectorName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the name of the connector for which the section is being defined.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>instanceName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the specific instance name of the connector.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_connectors_connectors-open-view-sparql-query-dialog.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_connectors_connectors-open-view-sparql-query-dialog.js.html">guides/connectors/connectors-open-view-sparql-query-dialog.js</a>, <a href="guides_connectors_connectors-open-view-sparql-query-dialog.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "connectors-open-view-sparql-query-dialog",
+ "options": {
+   "connectorName": "Elasticsearch",
+   "instanceName": "MyElasticsearchConnector"
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".connectors-parameter-intro">
+    <a class="href-link" href="#.connectors-parameter-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        connectors-parameter-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step showcases a parameter of a connector instance.</p>
+<p>Connectors parameter introduction<br>
+<img src="resources/guides/connectors/connectors-parameter-intro.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>connectorName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the name of the connector for which the parameter is being defined.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>instanceName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the specific instance name of the connector.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>parameterName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the specific creation parameters name for <code>instanceName</code>.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_connectors_connectors-parameter-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_connectors_connectors-parameter-intro.js.html">guides/connectors/connectors-parameter-intro.js</a>, <a href="guides_connectors_connectors-parameter-intro.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "connectors-parameter-intro",
+ "options": {
+   "connectorName": "Elasticsearch",
+   "instanceName": "MyElasticsearchConnector",
+   "parameterName": "hosts"
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".connectors-type-intro">
+    <a class="href-link" href="#.connectors-type-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        connectors-type-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step shows the type of connector.</p>
+<p>Connectors type introduction<br>
+<img src="resources/guides/connectors/connectors-type-intro.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>connectorName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>the name of the connector for which the section is being defined.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_connectors_connectors-type-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_connectors_connectors-type-intro.js.html">guides/connectors/connectors-type-intro.js</a>, <a href="guides_connectors_connectors-type-intro.js.html#line7">line 7</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "connectors-type-intro",
+ "options": {
+   "connectorName": "Elasticsearch"
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".connectors-view-sparql-dialog-intro">
+    <a class="href-link" href="#.connectors-view-sparql-dialog-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        connectors-view-sparql-dialog-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step is an introductory step for the &quot;View SPARQL Query&quot; dialog of the connectors section of the GraphDB Workbench.
+It explains the purpose of the dialog and how users can utilize the SPARQL query displayed within it.</p>
+<p>Connectors &quot;View SPARQL Query&quot; dialog introduction<br>
+<img src="resources/guides/connectors/connectors-view-sparql-dialog-intro.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_connectors_connectors-view-sparql-dialog-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_connectors_connectors-view-sparql-dialog-intro.js.html">guides/connectors/connectors-view-sparql-dialog-intro.js</a>, <a href="guides_connectors_connectors-view-sparql-dialog-intro.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "connectors-view-sparql-dialog-intro",
 }
 ```</code></pre>
     

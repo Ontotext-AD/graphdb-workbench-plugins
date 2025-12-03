@@ -90,13 +90,46 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import {
-  CONNECTORS_DEFAULT_TITLE,
   getConnectorContentSelector,
   getConnectorNameSelector,
   getConnectorParameterSelector,
   getConnectorSubparameterSelector
 } from '../utils.js';
 
+const CONNECTORS_DEFAULT_TITLE = 'menu.connectors.label';
+const SUBPARAMETER_INTRO = 'guide.step_plugin.connectors-array-subparameter-intro.content';
+
+/**
+ * @name connectors-array-subparameter-intro
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step is an introductory step for the creation of a subparameter within a parameter of a connector.
+ * It explains the purpose and usage of subparameters in defining how a connector instance is created.
+ *
+ * Connectors subparameter introduction&lt;br>
+ * &lt;img src="resources/guides/connectors/connectors-array-subparameter-intro.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it requires:
+ *
+ * @property {string} connectorName - the name of the connector for which the subparameter is being defined.
+ * @property {string} instanceName - the specific instance name of the connector.
+ * @property {string} parameterName - the specific creation parameter name for &lt;code>instanceName&lt;/code>.
+ * @property {string} subparameterName - the specific creation subparameter name for &lt;code>parameterName&lt;/code>.
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "connectors-array-subparameter-intro",
+ *  "options": {
+ *    "connectorName": "Elasticsearch",
+ *    "instanceName": "MyElasticsearchConnector",
+ *    "parameterName": "hosts",
+ *    "subparameterName": "host"
+ *  }
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'connectors-array-subparameter-intro',
   /**
@@ -114,24 +147,34 @@ const step = {
      * - &lt;b>parameterName&lt;/b>: string (required) – the specific creation parameter name for &lt;code>instanceName&lt;/code>.
      * - &lt;b>subparameterName&lt;/b>: string (required) – the specific creation subparameter name for &lt;code>parameterName&lt;/code>.
      */
-  getSteps: (options, services) => {
-    const connectorNameSelector = getConnectorNameSelector(options, services);
-    const connectorContentSelector = getConnectorContentSelector(options, services);
-    const parameterSelector = getConnectorParameterSelector(options, services);
-    const subparameterName = getConnectorSubparameterSelector(options, services);
+  getSteps: function(options, pluginService) {
+    const translate = pluginService.translate;
+    const connectorNameSelector = getConnectorNameSelector(options, pluginService);
+    const connectorContentSelector = getConnectorContentSelector(options, pluginService);
+    const parameterSelector = getConnectorParameterSelector(options, pluginService);
+    const subparameterName = getConnectorSubparameterSelector(options, pluginService);
     return [{
       guideBlockName: 'read-only-element',
       options: {
-        // If mainAction is set the title will be set automatically
-        ...(options.mainAction ? {} : {title: CONNECTORS_DEFAULT_TITLE}),
+        ...(options.title ?? {title: translate(this.translationBundle, CONNECTORS_DEFAULT_TITLE)}),
         placement: 'top',
         class: 'connectors-connector-intro',
-        content: 'guide.step_plugin.connectors-array-subparameter-intro.content',
+        content: translate(this.translationBundle, SUBPARAMETER_INTRO),
         ...options,
         elementSelector: `${connectorNameSelector} ${connectorContentSelector} ${parameterSelector} ${subparameterName}`,
         url: 'connectors'
       }
     }];
+  },
+  translationBundle: {
+    en: {
+      [CONNECTORS_DEFAULT_TITLE]: 'Connectors',
+      [SUBPARAMETER_INTRO]: 'A parameter can define how an instance is created. Its value may be a simple type, a list, or an object, and it can be required or optional.'
+    },
+    fr: {
+      [CONNECTORS_DEFAULT_TITLE]: 'Connecteurs',
+      [SUBPARAMETER_INTRO]: 'Un paramètre peut définir comment une instance est créée. Sa valeur peut être un type simple, une liste ou un objet, et il peut être obligatoire ou optionnel.'
+    }
   }
 };
 
