@@ -9683,6 +9683,200 @@ step and manages attaching/removing the copy click listener when the step is sho
             
                 <div class="member">
 
+<h4 class="name" id=".create-repository">
+    <a class="href-link" href="#.create-repository">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        create-repository
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Complex step, guiding the user through the creation of a new repository.
+The step consists of the following steps:</p>
+<p>Click on the &quot;Create repository&quot; button.<br>
+<img src="resources/guides/repository/repositories-create-repository.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Create GraphDB repository.<br>
+<img src="resources/guides/repository/repositories-create-graphdb.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Enter a repository ID.<br>
+<img src="resources/guides/repository/repositories-id-input.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>(Optional) Select a ruleset.<br>
+<img src="resources/guides/repository/repositories-ruleset-dropdown.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>(Optional) Enable full-text search.<br>
+<img src="resources/guides/repository/repositories-enable-fts.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Save the repository.<br>
+<img src="resources/guides/repository/repositories-save.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports the following options:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>rulesetName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>If this option is present, a dropdown will be displayed to select a ruleset.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>fts</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>If this option is present, a checkbox will be displayed to enable full-text search.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_repository_create-repository.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_repository_create-repository.js.html">guides/repository/create-repository.js</a>, <a href="guides_repository_create-repository.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "create-repository",
+  "options": {
+    "rulesetName": "my-ruleset",
+    "fts": true
+  }
+}</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".create-ttyg-agent">
     <a class="href-link" href="#.create-ttyg-agent">#</a>
     
@@ -11884,6 +12078,726 @@ via common options.</p>
             
                 <div class="member">
 
+<h4 class="name" id=".repositories-create-graphdb">
+    <a class="href-link" href="#.repositories-create-graphdb">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        repositories-create-graphdb
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step explains how to create a GraphDB repository.</p>
+<p>Create GraphDB repository step<br>
+<img src="resources/guides/repository/repositories-create-graphdb.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_repository_repositories-create-graphdb.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_repository_repositories-create-graphdb.js.html">guides/repository/repositories-create-graphdb.js</a>, <a href="guides_repository_repositories-create-graphdb.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "repositories-create-graphdb"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".repositories-create-repository">
+    <a class="href-link" href="#.repositories-create-repository">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        repositories-create-repository
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step explains how to create a repository.</p>
+<p>Create repository step<br>
+<img src="resources/guides/repository/repositories-create-repository.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_repository_repositories-create-repository.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_repository_repositories-create-repository.js.html">guides/repository/repositories-create-repository.js</a>, <a href="guides_repository_repositories-create-repository.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "repositories-create-repository"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".repositories-enable-fts">
+    <a class="href-link" href="#.repositories-enable-fts">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        repositories-enable-fts
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to enable full-text search (FTS) index for a repository.</p>
+<p>Enable full-text search step<br>
+<img src="resources/guides/repository/repositories-enable-fts.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_repository_repositories-enable-fts.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_repository_repositories-enable-fts.js.html">guides/repository/repositories-enable-fts.js</a>, <a href="guides_repository_repositories-enable-fts.js.html#line5">line 5</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "repositories-enable-fts"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".repositories-id-input">
+    <a class="href-link" href="#.repositories-id-input">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        repositories-id-input
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to enter a repository ID.</p>
+<p>Repository ID input step<br>
+<img src="resources/guides/repository/repositories-id-input.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Takes repositoryId from
+repositoryIdBase + index if needed</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_repository_repositories-id-input.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_repository_repositories-id-input.js.html">guides/repository/repositories-id-input.js</a>, <a href="guides_repository_repositories-id-input.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "repositories-id-input"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".repositories-ruleset-dropdown">
+    <a class="href-link" href="#.repositories-ruleset-dropdown">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        repositories-ruleset-dropdown
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to select a ruleset for a repository.</p>
+<p>Ruleset dropdown step<br>
+<img src="resources/guides/repository/repositories-ruleset-dropdown.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>rulesetName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The name of the ruleset to be selected.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_repository_repositories-ruleset-dropdown.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_repository_repositories-ruleset-dropdown.js.html">guides/repository/repositories-ruleset-dropdown.js</a>, <a href="guides_repository_repositories-ruleset-dropdown.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "repositories-ruleset-dropdown",
+ "options": {
+   "rulesetName": "OWL2-RL"
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".repositories-save">
+    <a class="href-link" href="#.repositories-save">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        repositories-save
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to save the repository creation.</p>
+<p>Save repository step<br>
+<img src="resources/guides/repository/repositories-save.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_repository_repositories-save.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_repository_repositories-save.js.html">guides/repository/repositories-save.js</a>, <a href="guides_repository_repositories-save.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "repositories-save"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".repositories-select-repository">
+    <a class="href-link" href="#.repositories-select-repository">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        repositories-select-repository
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to connect to a repository.</p>
+<p>Connect to a repository<br>
+<img src="resources/guides/repository/repositories-select-repository.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>repositoryIdToSelect</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The id of the repository to connect to.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_repositories_repositories-select-repository.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_repositories_repositories-select-repository.js.html">guides/repositories/repositories-select-repository.js</a>, <a href="guides_repositories_repositories-select-repository.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "repositories-select-repository",
+  "options": {
+    "repositoryIdToSelect": "my-repo"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".resource-click-on-role">
     <a class="href-link" href="#.resource-click-on-role">#</a>
     
@@ -12732,6 +13646,96 @@ or typing.</p>
   "options": {
     "elementSelector": "#results-pane"
   }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".select-repository-dropdown">
+    <a class="href-link" href="#.select-repository-dropdown">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        select-repository-dropdown
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Composite step, guiding the user to select a repository from the dropdown.
+It prompts the user to click the dropdown button and select a repository from the list.</p>
+<p>Click on the dropdown button example<br>
+<img src="resources/guides/repository/select-repository-dropdown.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Select a repository from the dropdown example<br>
+<img src="resources/guides/repository/select-repository-dropdown-2.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_repositories_select-repository-dropdown.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_repositories_select-repository-dropdown.js.html">guides/repositories/select-repository-dropdown.js</a>, <a href="guides_repositories_select-repository-dropdown.js.html#line9">line 9</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "select-repository-dropdown"
 }
 ```</code></pre>
     
