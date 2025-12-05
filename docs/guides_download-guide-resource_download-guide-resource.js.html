@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/similarity-index/similarity-view-created-index.js</title>
+  <title> guides/download-guide-resource/download-guide-resource.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/similarity-index/similarity-view-created-index.js</h1>
+                    <h1>guides/download-guide-resource/download-guide-resource.js</h1>
                 </header>
                 
 
@@ -89,65 +89,75 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const CREATE_SIMILARITY_INDEX_DEFAULT = 'guide.step-action.create-similarity-index';
-const VIEW_CREATED_INDEX_DEFAULT = 'guide.step_plugin.similarity-view-created-index';
+            <pre class="prettyprint source linenums"><code>import * as Utils from '../utils.js';
+
+const DOWNLOAD_RESOURCE_TITLE = 'guide.step_plugin.download-guide-resource.title';
+const RESOURCE_CONTENT = 'guide.step_plugin.download-guide-resource.content';
 
 /**
- * @name similarity-view-created-index
+ * @name download-guide-resource
  * @memberof module:Interactive Guide
  *
  * @description
- * This step highlights the newly created similarity index in the Existing Indexes table. The default index to highlight
- * is the first index, unless &lt;code>options.rowIndex&lt;/code> is specified.
+ * This step guides the user to download a resource file required for the guide.
  *
- * View the newly created similarity index&lt;br>
- * &lt;img src="resources/guides/similarity-index/similarity-view-created-index.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Download guide resource step&lt;br>
+ * &lt;img src="resources/guides/download-guide-resource/download-guide-resource.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
- * This step can be configured using the common options defined in [Options](#.Options). Additionally, it supports:
- *
- * @property {string} [options.content] - The content of the dialog.
- * @property {string} [options.title] - The title of the dialog.
- * @property {number} [options.rowIndex] - The index of the row to focus on.
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it requires:
+ * @property {string} options.resourcePath - The path to the resource file.
+ * @property {string} options.resourceFile - The name of the resource file.
  *
  * @example
  * ```JSON
  * {
- *   "guideBlockName": "similarity-view-created-index",
+ *   "guideBlockName": "download-guide-resource",
  *   "options": {
- *     "title": {
- *       "en": "Explore Similarity index"
- *     },
- *     "content": "In the &lt;b>Existing Indexes&lt;/b> table, you can now see the &lt;b>SpellSimIndex&lt;/b> which is the similarity index we created with the previous query.",
- *     "rowIndex": 1
+ *     "resourcePath": "movies",
+ *     "resourceFile": "movies.ttl"
  *   }
  * }
+ * ```
  */
 const step = {
-  guideBlockName: 'similarity-view-created-index',
+  guideBlockName: 'download-guide-resource',
   getSteps: function(options, services) {
     const translate = services.translate;
-    const GuideUtils = services.GuideUtils;
-    return [
-      {
-        guideBlockName: 'focus-element',
-        options: {
-          content: options.content || translate(this.translationBundle, VIEW_CREATED_INDEX_DEFAULT),
-          class: 'view-created-index',
-          ...(options.title ?? {title: CREATE_SIMILARITY_INDEX_DEFAULT}),
-          ...options,
-          elementSelector: GuideUtils.getGuideElementSelector(`similarity-index-name-${options.rowIndex || 0}`)
-        }
+    const downloadButtonClass = `guide-${options.repositoryId}-download-resource-link`;
+    const downloadResourceListener = Utils.createDownloadClickHandler(options.resourcePath, options.resourceFile, services);
+    let stepHTMLElement;
+    return {
+      guideBlockName: 'info-message',
+      options: {
+        title: translate(this.translationBundle, DOWNLOAD_RESOURCE_TITLE),
+        content: translate(this.translationBundle, RESOURCE_CONTENT, {
+          downloadButtonClass,
+          resourceFile: options.resourceFile
+        }),
+        canBePaused: true,
+        forceReload: true,
+        downloadButtonClass,
+        show: (guide) => () => {
+          stepHTMLElement = guide.currentStep.el.querySelector(`.${downloadButtonClass}`);
+          stepHTMLElement.addEventListener('click', downloadResourceListener);
+        },
+        hide: () => () => {
+          if (stepHTMLElement) {
+            stepHTMLElement.removeEventListener('click', downloadResourceListener);
+          }
+        },
+        ...options
       }
-    ];
+    };
   },
   translationBundle: {
     en: {
-      [CREATE_SIMILARITY_INDEX_DEFAULT]: 'Create Similarity index',
-      [VIEW_CREATED_INDEX_DEFAULT]: 'In the &lt;b>Existing Indexes&lt;/b> table, you can now see the &lt;b>SpellSimIndex&lt;/b> which is the similarity index we created with the previous query.'
+      [DOWNLOAD_RESOURCE_TITLE]: 'Download guide resources',
+      [RESOURCE_CONTENT]: 'This guide requires a file to be downloaded.&lt;br>Please &lt;a href="#" class="{{downloadButtonClass}}">download {{resourceFile}}&lt;/a>.'
     },
     fr: {
-      [CREATE_SIMILARITY_INDEX_DEFAULT]: 'Créer un indice de similitude',
-      [VIEW_CREATED_INDEX_DEFAULT]: 'Dans le tableau &lt;b>Index existants&lt;/b>, vous pouvez maintenant voir le &lt;b>SpellSimIndex&lt;/b> qui est l\'index de similarité que nous avons créé avec la requête précédente.'
+      [DOWNLOAD_RESOURCE_TITLE]: 'Télécharger les ressources du guide',
+      [RESOURCE_CONTENT]: 'Ce guide nécessite le téléchargement d\'un fichier.&lt;br>Veuillez &lt;a href="#" class="{{downloadButtonClass}}">télécharger {{resourceFile}}&lt;/a>.'
     }
   }
 };

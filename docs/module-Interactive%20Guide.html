@@ -9877,6 +9877,99 @@ The step consists of the following steps:</p>
             
                 <div class="member">
 
+<h4 class="name" id=".create-similarity-index">
+    <a class="href-link" href="#.create-similarity-index">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        create-similarity-index
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Complex step, which includes all steps needed to create a similarity index.</p>
+<p>Similarity click link<br>
+<img src="resources/guides/similarity-index/similarity-click-link.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Similarity type index name<br>
+<img src="resources/guides/similarity-index/similarity-type-index-name.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Similarity click to create<br>
+<img src="resources/guides/similarity-index/similarity-click-to-create.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Similarity hold and wait until shown<br>
+<img src="resources/guides/similarity-index/similarity-hold-and-wait-until-shown.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_similarity-index_create-similarity-index.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_similarity-index_create-similarity-index.js.html">guides/similarity-index/create-similarity-index.js</a>, <a href="guides_similarity-index_create-similarity-index.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "create-similarity-index"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".create-ttyg-agent">
     <a class="href-link" href="#.create-ttyg-agent">#</a>
     
@@ -9967,6 +10060,172 @@ fill in the necessary details, and save the new agent.</p>
         <pre class="prettyprint"><code>```JSON
 {
  "guideBlockName": "create-ttyg-agent",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".download-guide-resource">
+    <a class="href-link" href="#.download-guide-resource">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        download-guide-resource
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to download a resource file required for the guide.</p>
+<p>Download guide resource step<br>
+<img src="resources/guides/download-guide-resource/download-guide-resource.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.resourcePath</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The path to the resource file.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.resourceFile</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The name of the resource file.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_download-guide-resource_download-guide-resource.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_download-guide-resource_download-guide-resource.js.html">guides/download-guide-resource/download-guide-resource.js</a>, <a href="guides_download-guide-resource_download-guide-resource.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "download-guide-resource",
+  "options": {
+    "resourcePath": "movies",
+    "resourceFile": "movies.ttl"
+  }
 }
 ```</code></pre>
     
@@ -13981,6 +14240,266 @@ It highlights the input field and provides instructions on how to proceed.</p>
             
                 <div class="member">
 
+<h4 class="name" id=".similarity-click-link">
+    <a class="href-link" href="#.similarity-click-link">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        similarity-click-link
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step highlights the &quot;Create Similarity index&quot; link and prompts the user to click it.</p>
+<p>Click the link to start creating a new Similarity index<br>
+<img src="resources/guides/similarity-index/similarity-click-link.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_similarity-index_similarity-click-link.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_similarity-index_similarity-click-link.js.html">guides/similarity-index/similarity-click-link.js</a>, <a href="guides_similarity-index_similarity-click-link.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "similarity-click-link"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".similarity-click-to-create">
+    <a class="href-link" href="#.similarity-click-to-create">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        similarity-click-to-create
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step highlights the &quot;Create Similarity index&quot; button and prompts the user to click it.</p>
+<p>Click the button to create a new Similarity index<br>
+<img src="resources/guides/similarity-index/similarity-click-to-create.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_similarity-index_similarity-click-to-create.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_similarity-index_similarity-click-to-create.js.html">guides/similarity-index/similarity-click-to-create.js</a>, <a href="guides_similarity-index_similarity-click-to-create.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "similarity-click-to-create"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".similarity-hold-and-wait-until-shown">
+    <a class="href-link" href="#.similarity-hold-and-wait-until-shown">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        similarity-hold-and-wait-until-shown
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step instructs the user to wait until the new similarity index is created</p>
+<p><img src="resources/guides/similarity-index/similarity-hold-and-wait-until-shown.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_similarity-index_similarity-hold-and-wait-until-shown.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_similarity-index_similarity-hold-and-wait-until-shown.js.html">guides/similarity-index/similarity-hold-and-wait-until-shown.js</a>, <a href="guides_similarity-index_similarity-hold-and-wait-until-shown.js.html#line3">line 3</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "similarity-hold-and-wait-until-shown"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".similarity-search-method">
     <a class="href-link" href="#.similarity-search-method">#</a>
     
@@ -14132,6 +14651,93 @@ If disabled, it will show only the step to disable it. If not disabled, it will 
   "options": {
     "disable": false
   }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".similarity-type-index-name">
+    <a class="href-link" href="#.similarity-type-index-name">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        similarity-type-index-name
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step prompts the user to type a name for the similarity index.</p>
+<p>Type a name for the similarity index<br>
+<img src="resources/guides/similarity-index/similarity-type-index-name.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_similarity-index_similarity-type-index-name.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_similarity-index_similarity-type-index-name.js.html">guides/similarity-index/similarity-type-index-name.js</a>, <a href="guides_similarity-index_similarity-type-index-name.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "similarity-type-index-name"
 }
 ```</code></pre>
     
