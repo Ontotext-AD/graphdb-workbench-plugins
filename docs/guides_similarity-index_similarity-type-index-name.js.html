@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/similarity-index/similarity-view-created-index.js</title>
+  <title> guides/similarity-index/similarity-type-index-name.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/similarity-index/similarity-view-created-index.js</h1>
+                    <h1>guides/similarity-index/similarity-type-index-name.js</h1>
                 </header>
                 
 
@@ -90,52 +90,43 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>const CREATE_SIMILARITY_INDEX_DEFAULT = 'guide.step-action.create-similarity-index';
-const VIEW_CREATED_INDEX_DEFAULT = 'guide.step_plugin.similarity-view-created-index';
+const INPUT_INDEX_NAME = 'guide.step_plugin.create-similarity-index.input-index-name';
 
 /**
- * @name similarity-view-created-index
+ * @name similarity-type-index-name
  * @memberof module:Interactive Guide
  *
  * @description
- * This step highlights the newly created similarity index in the Existing Indexes table. The default index to highlight
- * is the first index, unless &lt;code>options.rowIndex&lt;/code> is specified.
+ * This step prompts the user to type a name for the similarity index.
  *
- * View the newly created similarity index&lt;br>
- * &lt;img src="resources/guides/similarity-index/similarity-view-created-index.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Type a name for the similarity index&lt;br>
+ * &lt;img src="resources/guides/similarity-index/similarity-type-index-name.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
- * This step can be configured using the common options defined in [Options](#.Options). Additionally, it supports:
- *
- * @property {string} [options.content] - The content of the dialog.
- * @property {string} [options.title] - The title of the dialog.
- * @property {number} [options.rowIndex] - The index of the row to focus on.
+ * This step can be configured using the common options defined in [Options](#.Options).
  *
  * @example
  * ```JSON
  * {
- *   "guideBlockName": "similarity-view-created-index",
- *   "options": {
- *     "title": {
- *       "en": "Explore Similarity index"
- *     },
- *     "content": "In the &lt;b>Existing Indexes&lt;/b> table, you can now see the &lt;b>SpellSimIndex&lt;/b> which is the similarity index we created with the previous query.",
- *     "rowIndex": 1
- *   }
+ *  "guideBlockName": "similarity-type-index-name"
  * }
+ * ```
  */
 const step = {
-  guideBlockName: 'similarity-view-created-index',
+  guideBlockName: 'similarity-type-index-name',
   getSteps: function(options, services) {
     const translate = services.translate;
     const GuideUtils = services.GuideUtils;
     return [
       {
-        guideBlockName: 'focus-element',
+        guideBlockName: 'input-element',
         options: {
-          content: options.content || translate(this.translationBundle, VIEW_CREATED_INDEX_DEFAULT),
-          class: 'view-created-index',
-          ...(options.title ?? {title: CREATE_SIMILARITY_INDEX_DEFAULT}),
+          content: translate(this.translationBundle, INPUT_INDEX_NAME),
+          ...(options.title ?? {title: translate(this.translationBundle, CREATE_SIMILARITY_INDEX_DEFAULT)}),
+          class: 'similarity-index-name-input',
           ...options,
-          elementSelector: GuideUtils.getGuideElementSelector(`similarity-index-name-${options.rowIndex || 0}`)
+          url: 'similarity/index/create',
+          elementSelector: GuideUtils.getGuideElementSelector('similarity-index-name'),
+          onNextValidate: () => Promise.resolve(GuideUtils.validateTextInputNotEmpty(GuideUtils.getGuideElementSelector('similarity-index-name')))
         }
       }
     ];
@@ -143,11 +134,11 @@ const step = {
   translationBundle: {
     en: {
       [CREATE_SIMILARITY_INDEX_DEFAULT]: 'Create Similarity index',
-      [VIEW_CREATED_INDEX_DEFAULT]: 'In the &lt;b>Existing Indexes&lt;/b> table, you can now see the &lt;b>SpellSimIndex&lt;/b> which is the similarity index we created with the previous query.'
+      [INPUT_INDEX_NAME]: 'Type a name for the index. You will refer to it later.'
     },
     fr: {
       [CREATE_SIMILARITY_INDEX_DEFAULT]: 'Créer un indice de similitude',
-      [VIEW_CREATED_INDEX_DEFAULT]: 'Dans le tableau &lt;b>Index existants&lt;/b>, vous pouvez maintenant voir le &lt;b>SpellSimIndex&lt;/b> qui est l\'index de similarité que nous avons créé avec la requête précédente.'
+      [INPUT_INDEX_NAME]: 'Saisissez un nom pour l\'index. Vous y ferez référence ultérieurement.'
     }
   }
 };

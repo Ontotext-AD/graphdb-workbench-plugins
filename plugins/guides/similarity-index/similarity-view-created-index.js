@@ -30,17 +30,17 @@ const VIEW_CREATED_INDEX_DEFAULT = 'guide.step_plugin.similarity-view-created-in
  *     "rowIndex": 1
  *   }
  * }
- *
  */
 const step = {
   guideBlockName: 'similarity-view-created-index',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
+    const translate = services.translate;
     const GuideUtils = services.GuideUtils;
     return [
       {
         guideBlockName: 'focus-element',
         options: {
-          content: options.content || 'guide.step_plugin.similarity-view-created-index',
+          content: options.content || translate(this.translationBundle, VIEW_CREATED_INDEX_DEFAULT),
           class: 'view-created-index',
           ...(options.title ?? {title: CREATE_SIMILARITY_INDEX_DEFAULT}),
           ...options,
