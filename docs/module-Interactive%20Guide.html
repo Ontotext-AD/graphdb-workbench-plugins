@@ -10516,6 +10516,172 @@ fill in the necessary details, and save the new agent.</p>
             
                 <div class="member">
 
+<h4 class="name" id=".execute-sparql-query">
+    <a class="href-link" href="#.execute-sparql-query">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        execute-sparql-query
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Composite step that executes a SPARQL query and displays the results.
+Included steps are:</p>
+<p>Copy to editor<br>
+<img src="resources/guides/sparql-editor/sparql-editor.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Click run button<br>
+<img src="resources/guides/sparql-editor/sparql-editor-run-button.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Explain results<br>
+<img src="resources/guides/sparql-editor/sparql-results-explain.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>queries</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>An array of objects containing the query and the additional content to display in the results.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_sparql-editor_execute-sparql-query.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_sparql-editor_execute-sparql-query.js.html">guides/sparql-editor/execute-sparql-query.js</a>, <a href="guides_sparql-editor_execute-sparql-query.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "execute-sparql-query",
+ "options": {
+   "queries": [
+     {
+       "query": "SELECT ?s WHERE { ?s ?p ?o } LIMIT 10",
+       "queryExtraContent": {
+         "en": "This is the first query extra content."
+       },
+       "resultExtraContent": {
+         "en": "This is the first result extra content."
+       }
+     },
+     {
+       "query": "SELECT ?o WHERE { &lt;http://example.org/subject> ?p ?o } LIMIT 5",
+       "queryExtraContent": {
+         "en": "This is the second query extra content."
+       },
+       "resultExtraContent": {
+         "en": "This is the second result extra content."
+       }
+     }
+   ]
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".focus-element">
     <a class="href-link" href="#.focus-element">#</a>
     
@@ -14958,6 +15124,722 @@ is the first index, unless <code>options.rowIndex</code> is specified.</p>
     "rowIndex": 1
   }
 }</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".sparql-editor">
+    <a class="href-link" href="#.sparql-editor">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        sparql-editor
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step prompts the user to copy a SPARQL query to the SPARQL editor.</p>
+<p>Copy to editor<br>
+<img src="resources/guides/sparql-editor/sparql-editor.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>query</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The SPARQL query to be copied to the editor.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>queryExtraContent</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+|
+
+<code class="param-type">Object</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>Additional content to display in the editor.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_sparql-editor_sparql-editor.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_sparql-editor_sparql-editor.js.html">guides/sparql-editor/sparql-editor.js</a>, <a href="guides_sparql-editor_sparql-editor.js.html#line8">line 8</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "sparql-editor",
+ "options": {
+   "query": "SELECT ?s WHERE { ?s ?p ?o } LIMIT 10",
+   "queryExtraContent": {
+      "en": "The query selects RDF statements whose &lt;i>subject&lt;/i> is the movie &lt;b>Pirates of the Caribbean At World's End&lt;/b> (identified by the IRI &lt;b>imdb:title/PiratesoftheCaribbeanAtWorldsEnd&lt;/b>). Note that we need to escape the / in the shortened IRI."
+    }
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".sparql-editor-run-button">
+    <a class="href-link" href="#.sparql-editor-run-button">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        sparql-editor-run-button
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This prompts the user to click on the SPARQL run button to execute the query.</p>
+<p>Clicking on the button<br>
+<img src="resources/guides/sparql-editor/sparql-editor-run-button.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_sparql-editor_sparql-editor-run-button.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_sparql-editor_sparql-editor-run-button.js.html">guides/sparql-editor/sparql-editor-run-button.js</a>, <a href="guides_sparql-editor_sparql-editor-run-button.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "sparql-editor-run-button"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".sparql-explain-editor">
+    <a class="href-link" href="#.sparql-explain-editor">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        sparql-explain-editor
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step provides an additional explanation for the SPARQL query editor.</p>
+<p>Additional explanation<br>
+<img src="resources/guides/sparql-editor/sparql-explain-editor.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>extraContent</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The additional content to display in the editor.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_sparql-editor_sparql-explain-editor.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_sparql-editor_sparql-explain-editor.js.html">guides/sparql-editor/sparql-explain-editor.js</a>, <a href="guides_sparql-editor_sparql-explain-editor.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "sparql-explain-editor",
+ "options": {
+   "extraContent": "This is an additional explanation for the SPARQL editor."
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".sparql-results-click-on-iri">
+    <a class="href-link" href="#.sparql-results-click-on-iri">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        sparql-results-click-on-iri
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step prompts the user to click on an IRI in the SPARQL results table to explore it.</p>
+<p>Clicking on the IRI<br>
+<img src="resources/guides/sparql-editor/sparql-results-click-on-iri.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The IRI to click on.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_sparql-editor_sparql-results-click-on-iri.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_sparql-editor_sparql-results-click-on-iri.js.html">guides/sparql-editor/sparql-results-click-on-iri.js</a>, <a href="guides_sparql-editor_sparql-results-click-on-iri.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "sparql-results-click-on-iri",
+ "options": {
+   "iri": "http://example.org/resource/Item1"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".sparql-results-explain">
+    <a class="href-link" href="#.sparql-results-explain">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        sparql-results-explain
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on the table that shows the results of a SPARQL query.</p>
+<p>Visualize results table<br>
+<img src="resources/guides/sparql-editor/sparql-results-explain.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_sparql-editor_sparql-results-explain.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_sparql-editor_sparql-results-explain.js.html">guides/sparql-editor/sparql-results-explain.js</a>, <a href="guides_sparql-editor_sparql-results-explain.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "sparql-results-explain"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".sparql-results-visual-button">
+    <a class="href-link" href="#.sparql-results-visual-button">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        sparql-results-visual-button
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on the button that allows users to visualize the results of a SPARQL query.</p>
+<p>Clicking on the button<br>
+<img src="resources/guides/sparql-editor/sparql-results-visual-button.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_sparql-editor_sparql-results-visual-button.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_sparql-editor_sparql-results-visual-button.js.html">guides/sparql-editor/sparql-results-visual-button.js</a>, <a href="guides_sparql-editor_sparql-results-visual-button.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "sparql-results-visual-button"
+}
+```</code></pre>
     
 
 
@@ -20223,6 +21105,198 @@ Additionally, the following specific option is available:</p>
 
 
 
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visualise-sparql-query">
+    <a class="href-link" href="#.visualise-sparql-query">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visualise-sparql-query
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Composite step that guides the user through visualizing the results of a SPARQL query.
+Included steps are:</p>
+<p>Copy SPARQL query to the editor<br>
+<img src="resources/guides/sparql-editor/sparql-editor.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Run the query<br>
+<img src="resources/guides/sparql-editor/sparql-editor-run-button.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Press the &quot;Visual&quot; button to visualize the results<br>
+<img src="resources/guides/sparql-editor/sparql-results-visual-button.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>query</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The SPARQL query to be visualized.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>queryExtraContent</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+|
+
+<code class="param-type">object</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>If this option is present, an additional dialog will be displayed as the last step with the passed content, localized by language.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_sparql-editor_visualise-sparql-query.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_sparql-editor_visualise-sparql-query.js.html">guides/sparql-editor/visualise-sparql-query.js</a>, <a href="guides_sparql-editor_visualise-sparql-query.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "visualise-sparql-query",
+ "options": {
+  "query": "SELECT ?s ?p ?o WHERE {?s ?p ?o} LIMIT 10",
+  "queryExtraContent": {
+    "en": "The query selects RDF statements whose &lt;i>subject&lt;/i> is the movie &lt;b>Pirates of the Caribbean At World's End&lt;/b> (identified by the IRI &lt;b>imdb:title/PiratesoftheCaribbeanAtWorldsEnd&lt;/b>). Note that we need to escape the / in the shortened IRI."
+  }
+ }
+}
+```</code></pre>
+    
 
 
 </div>

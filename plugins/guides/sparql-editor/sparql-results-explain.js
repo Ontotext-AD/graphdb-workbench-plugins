@@ -1,16 +1,36 @@
-import * as Utils from '../utils.js';
+const SPARQL_EDITOR_TITLE = 'view.sparql-editor.title';
+const EXPLAIN_CONTENT = 'guide.step_plugin.sparql-results-explain.content';
 
+/**
+ * @name sparql-results-explain
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step focuses on the table that shows the results of a SPARQL query.
+ *
+ * Visualize results table<br>
+ * <img src="resources/guides/sparql-editor/sparql-results-explain.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options).
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "sparql-results-explain"
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'sparql-results-explain',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
+    const translate = services.translate;
     const GuideUtils = services.GuideUtils;
     return [
       {
         guideBlockName: 'read-only-element',
         options: {
-          // If mainAction is set the title will be set automatically
-          ...(options.mainAction ? {} : {title: Utils.SPARQL_EDITOR_DEFAULT_TITLE}),
-          content: 'guide.step_plugin.sparql-results-explain.content',
+          ...(options.title ?? {title: translate(this.translationBundle, SPARQL_EDITOR_TITLE)}),
+          content: translate(this.translationBundle, EXPLAIN_CONTENT),
           url: 'sparql',
           placement: 'top',
           elementSelector: GuideUtils.CSS_SELECTORS.SPARQL_RESULTS_SELECTOR,
@@ -23,6 +43,16 @@ const step = {
         }
       }
     ];
+  },
+  translationBundle: {
+    en: {
+      [SPARQL_EDITOR_TITLE]: 'SPARQL Query & Update',
+      [EXPLAIN_CONTENT]: 'The table shows the results from executing the query.'
+    },
+    fr: {
+      [SPARQL_EDITOR_TITLE]: 'Requête et mise à jour SPARQL',
+      [EXPLAIN_CONTENT]: 'Le tableau montre les résultats de l\'exécution de la requête.'
+    }
   }
 };
 
