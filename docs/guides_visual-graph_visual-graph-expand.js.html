@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> guides/visual-graph/visual-graph-expand.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">GraphDB Workbench Plugins</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-Interactive%2520Guide.html">Interactive Guide</a></li></ul><h3>Classes</h3><ul><li><a href="PluginServiceInterface.html">PluginServiceInterface</a></li></ul><h3>Global</h3><ul><li><a href="global.html#COMMON_DOM_EVENTS">COMMON_DOM_EVENTS</a></li><li><a href="global.html#_configureInteractions">_configureInteractions</a></li><li><a href="global.html#allowAll">allowAll</a></li><li><a href="global.html#allowEvents">allowEvents</a></li><li><a href="global.html#beforeShowPromise">beforeShowPromise</a></li><li><a href="global.html#preventDefault">preventDefault</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>guides/visual-graph/visual-graph-expand.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const VISUAL_GRAPH_EXPAND_TITLE = 'guide.step_plugin.visual-graph-expand.title';
+const VISUAL_GRAPH_EXPAND_CONTENT = 'guide.step_plugin.visual-graph-expand.content';
+
+/**
+ * @name visual-graph-expand
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * The `visual-graph-expand` guide step that explains how to expand a node in the Visual Graph by double-clicking it.
+ *
+ * &lt;img src="resources/guides/visual-graph/visual-graph-expand.png" style="height:200px; border: solid; border-width:1px"/>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options).
+ * Additionally, the following specific option is available:
+ *
+ * Options:
+ * @property {string} [options.iri] - The IRI used to build the element selector for the node and in the translations.
+ *
+ * @example
+ * ```json
+ * {
+ *   "guideBlockName": "visual-graph-expand",
+ *   "options": {
+ *     "iri": "http://example.org/resource",
+ *   }
+ * }
+ * ```
+ */
+const step = {
+  guideBlockName: 'visual-graph-expand',
+  getSteps: function(options, services) {
+    const GuideUtils = services.GuideUtils;
+    const $rootScope = services.$rootScope;
+    const $route = services.$route;
+    const translate = services.translate;
+    const elementSelector = `.node-wrapper[id^="${options.iri}"] circle`;
+
+    // Expands visual graph when a node is double-clicked.
+    const dblClickFunction = (guide) => () => {
+      GuideUtils.graphVizExpandNode(elementSelector);
+      guide.getCurrentStep().hide();
+      GuideUtils.awaitAlphaDropD3(null, $rootScope)()
+        .then(() => {
+          guide.next();
+        });
+    };
+
+    return [
+      {
+        guideBlockName: 'clickable-element',
+        options: {
+          title: translate(this.translationBundle, VISUAL_GRAPH_EXPAND_TITLE),
+          content: translate(this.translationBundle, VISUAL_GRAPH_EXPAND_CONTENT, {iriLabel: options.iri}),
+          url: 'graphs-visualizations',
+          canBePaused: false,
+          class: 'visual-graph-expand-node',
+          elementSelector,
+          // Disable default behavior of service when element is clicked.
+          advanceOn: undefined,
+          onNextClick: (guide) => {
+            GuideUtils.graphVizExpandNode(elementSelector);
+            guide.getCurrentStep().hide();
+            GuideUtils.awaitAlphaDropD3(null, $rootScope)()
+              .then(() => {
+                guide.next();
+              });
+          },
+          show: (guide) => () => {
+            // Add "dblclick" listener to the element. Processing of double-click event is disabled for the visual graph when guide is started.
+            // So we have expanded the graph manually when a selected node is double-clicked.
+            $(elementSelector).on('dblclick.onNodeDbClicked', dblClickFunction(guide));
+          },
+          hide: () => () => {
+            // Remove the "dblclick" listener of element. It is important when step is hided.
+            $(elementSelector).off('dblclick.onNodeDbClicked');
+          },
+          beforeShowPromise: () => {
+            $route.reload();
+            return GuideUtils.deferredShow(50)()
+              .then(() => {
+                return GuideUtils.awaitAlphaDropD3(elementSelector, $rootScope)();
+              });
+          },
+          initPreviousStep: (services, stepId) => {
+            const previousStep = services.ShepherdService.getPreviousStepFromHistory(stepId);
+            return previousStep.options.initPreviousStep(services, previousStep.id)
+              .then(() => {
+                const currentStepId = services.ShepherdService.getCurrentStepId();
+                // Skip expanding of node if last step is "visual-graph-expand"
+                if (currentStepId === stepId) {
+                  return Promise.resolve;
+                }
+
+                GuideUtils.graphVizExpandNode(elementSelector);
+                return GuideUtils.deferredShow(50)()
+                  .then(() => {
+                    return GuideUtils.awaitAlphaDropD3(null, $rootScope)();
+                  });
+              });
+          },
+          ...options
+        }
+      }
+    ];
+  },
+  translationBundle: {
+    en: {
+      [VISUAL_GRAPH_EXPAND_TITLE]: 'Visual graph: expand node',
+      [VISUAL_GRAPH_EXPAND_CONTENT]: 'Double click on &lt;b>{{iriLabel}}&lt;/b> to expand the graph.'
+    },
+    fr: {
+      [VISUAL_GRAPH_EXPAND_TITLE]: 'Graphe visuel : développer un nœud',
+      [VISUAL_GRAPH_EXPAND_CONTENT]: 'Double-cliquez sur &lt;b>{{iriLabel}}&lt;/b> pour développer le graphique.'
+    }
+  }
+};
+
+export function register(registry) {
+  registry.add('guide.step', step);
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

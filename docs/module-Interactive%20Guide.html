@@ -18763,6 +18763,1472 @@ It highlights the checkbox element and provides instructions on how to proceed.<
             
                 <div class="member">
 
+<h4 class="name" id=".visual-graph">
+    <a class="href-link" href="#.visual-graph">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph</code> guide demonstrates how to use the Visual Graph features in GraphDB.</p>
+<p>The guide consists of the following steps:</p>
+<ol>
+<li>Click on the &quot;Visual graph&quot; main menu.<br>
+<img src="resources/guides/visual-graph/visual-graph-click-explore-menu.png" style="height:200px; border: solid; border-width:1px"/>
+<img src="resources/guides/visual-graph/visual-graph-click-main-menu.png" style="height:200px; border: solid; border-width:1px"/></li>
+<li>Use the RDF resources search input to enter an IRI.<br>
+<img src="resources/guides/visual-graph/visual-graph-search-rdf-resources-input.png" style="height:200px; border: solid; border-width:1px"/></li>
+<li>Choose a resource from the autocomplete list.<br>
+<img src="resources/guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.png" style="height:200px; border: solid; border-width:1px"/></li>
+<li>Inspect and interact with the visual graph (expand nodes, view properties, focus links).<br>
+<img src="resources/guides/visual-graph/visual-graph-intro.png" style="height:200px; border: solid; border-width:1px"/></li>
+</ol>
+<p>This guide can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.easyGraphInputText</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The text to enter into the Easy graph input.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The IRI used to target nodes in the visual graph.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iriLabel</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The label of the IRI link shown in the visualization.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.fromIri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Source IRI for link-focused steps.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.toIri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Target IRI for link-focused steps.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.focusProperties</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Array describing focus properties displayed in properties steps.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph.js.html">guides/visual-graph/visual-graph.js</a>, <a href="guides_visual-graph_visual-graph.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph",
+  "options": {
+    "iri": "http://example.org/resource",
+    "iriLabel": "hasRole",
+    "easyGraphInputText": "http://example.org/resource",
+    "focusProperties": ["ontl:roleStartDate"]
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-expand">
+    <a class="href-link" href="#.visual-graph-expand">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-expand
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph-expand</code> guide step that explains how to expand a node in the Visual Graph by double-clicking it.</p>
+<img src="resources/guides/visual-graph/visual-graph-expand.png" style="height:200px; border: solid; border-width:1px"/>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific option is available:</p>
+<p>Options:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The IRI used to build the element selector for the node and in the translations.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-expand.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-expand.js.html">guides/visual-graph/visual-graph-expand.js</a>, <a href="guides_visual-graph_visual-graph-expand.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```json
+{
+  "guideBlockName": "visual-graph-expand",
+  "options": {
+    "iri": "http://example.org/resource",
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-intro">
+    <a class="href-link" href="#.visual-graph-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph-intro</code>
+guide step highlights the graph visualization and explains how the start node connects to other nodes.<br></p>
+<p><img src="resources/guides/visual-graph/visual-graph-intro.png" style="height:200px;
+border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific option is available:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The label of the start IRI shown in the visualization.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-intro.js.html">guides/visual-graph/visual-graph-intro.js</a>, <a href="guides_visual-graph_visual-graph-intro.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-intro",
+  "options": {
+    "iri": "Wine"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-link-focus">
+    <a class="href-link" href="#.visual-graph-link-focus">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-link-focus
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph-link-focus</code> guide step explains the link between two nodes in the Visual Graph.<br>
+<img src="resources/guides/visual-graph/visual-graph-link-focus.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific options are available:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.fromIri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The source IRI.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.toIri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The target IRI.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iriLabel</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Label for predicate.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-link-focus.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-link-focus.js.html">guides/visual-graph/visual-graph-link-focus.js</a>, <a href="guides_visual-graph_visual-graph-link-focus.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-node-focus">
+    <a class="href-link" href="#.visual-graph-node-focus">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-node-focus
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph-node-focus</code> guide step explains RDF resources in the Visual Graph.<br>
+<img src="resources/guides/visual-graph/visual-graph-node-focus.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific option is available:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The IRI used in this step.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-node-focus.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-node-focus.js.html">guides/visual-graph/visual-graph-node-focus.js</a>, <a href="guides_visual-graph_visual-graph-node-focus.js.html#line6">line 6</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-properties">
+    <a class="href-link" href="#.visual-graph-properties">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-properties
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph-properties</code> guide demonstrates how to open and read node properties in the Visual Graph.</p>
+<p>The guide consists of the following steps:</p>
+<ol>
+<li>Click a node to open the properties side panel.<br>
+<img src="resources/guides/visual-graph/visual-graph-click-to-show-properties.png" style="height:200px; border: solid; border-width:1px"/></li>
+<li>Read the properties in the side panel.<br>
+<img src="resources/guides/visual-graph/visual-graph-side-panel-properties.png" style="height:200px; border: solid; border-width:1px"/></li>
+<li>Focus specific property sections (e.g. types or a particular property).<br>
+<img src="resources/guides/visual-graph/visual-graph-properties-in-panel.png" style="height:200px; border: solid; border-width:1px"/></li>
+<li>Close the side panel.<br>
+<img src="resources/guides/visual-graph/visual-graph-x-to-close.png" style="height:200px; border: solid; border-width:1px"/></li>
+</ol>
+<p>This guide can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+<p>Common / additional options used by the contained steps:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The IRI used to target nodes in the visual graph.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iriLabel</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The label of the IRI shown in the dialogs.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.focusProperties</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Array describing focus properties displayed in properties steps.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-properties.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-properties.js.html">guides/visual-graph/visual-graph-properties.js</a>, <a href="guides_visual-graph_visual-graph-properties.js.html#line12">line 12</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-properties",
+  "options": {
+    "iri": "http://example.org/resource",
+    "iriLabel": "Example resource",
+    "focusProperties": ["ontl:roleStartDate"]
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-search-rdf-resources-input">
+    <a class="href-link" href="#.visual-graph-search-rdf-resources-input">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-search-rdf-resources-input
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph-search-rdf-resources-input</code> step guides the user to enter an IRI in the Easy graph search input<br>
+<img src="resources/guides/visual-graph/visual-graph-search-rdf-resources-input.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.easyGraphInputText</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The text to be entered in the Easy graph text input.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-search-rdf-resources-input.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-search-rdf-resources-input.js.html">guides/visual-graph/visual-graph-search-rdf-resources-input.js</a>, <a href="guides_visual-graph_visual-graph-search-rdf-resources-input.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-search-rdf-resources-input-autocomplete-item">
+    <a class="href-link" href="#.visual-graph-search-rdf-resources-input-autocomplete-item">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-search-rdf-resources-input-autocomplete-item
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph-search-rdf-resources-input-autocomplete-item</code> step triggers the autocomplete item for a discovered RDF resource in the Visual Graph search input.<br>
+<img src="resources/guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific option is available:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The IRI displayed in the autocomplete item.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-search-rdf-resources-input-autocomplete-item.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-search-rdf-resources-input-autocomplete-item.js.html">guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.js</a>, <a href="guides_visual-graph_visual-graph-search-rdf-resources-input-autocomplete-item.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".wait-for-element-to-hide">
     <a class="href-link" href="#.wait-for-element-to-hide">#</a>
     

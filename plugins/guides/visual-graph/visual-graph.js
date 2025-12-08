@@ -1,6 +1,47 @@
+/**
+ * @name visual-graph
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * The `visual-graph` guide demonstrates how to use the Visual Graph features in GraphDB.
+ *
+ * The guide consists of the following steps:
+ * 1. Click on the "Visual graph" main menu.<br>
+ * <img src="resources/guides/visual-graph/visual-graph-click-explore-menu.png" style="height:200px; border: solid; border-width:1px"/>
+ * <img src="resources/guides/visual-graph/visual-graph-click-main-menu.png" style="height:200px; border: solid; border-width:1px"/>
+ * 2. Use the RDF resources search input to enter an IRI.<br>
+ * <img src="resources/guides/visual-graph/visual-graph-search-rdf-resources-input.png" style="height:200px; border: solid; border-width:1px"/>
+ * 3. Choose a resource from the autocomplete list.<br>
+ * <img src="resources/guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.png" style="height:200px; border: solid; border-width:1px"/>
+ * 4. Inspect and interact with the visual graph (expand nodes, view properties, focus links).<br>
+ * <img src="resources/guides/visual-graph/visual-graph-intro.png" style="height:200px; border: solid; border-width:1px"/>
+ *
+ * This guide can be configured using the common options defined in [Options](#.Options).
+ *
+ * @property {string} [options.easyGraphInputText] - The text to enter into the Easy graph input.
+ * @property {string} [options.iri] - The IRI used to target nodes in the visual graph.
+ * @property {string} [options.iriLabel] - The label of the IRI link shown in the visualization.
+ * @property {string} [options.fromIri] - Source IRI for link-focused steps.
+ * @property {string} [options.toIri] - Target IRI for link-focused steps.
+ * @property {string} [options.focusProperties] - Array describing focus properties displayed in properties steps.
+ *
+ * @example
+ * ```JSON
+ * {
+ *   "guideBlockName": "visual-graph",
+ *   "options": {
+ *     "iri": "http://example.org/resource",
+ *     "iriLabel": "hasRole",
+ *     "easyGraphInputText": "http://example.org/resource",
+ *     "focusProperties": ["ontl:roleStartDate"]
+ *   }
+ * }
+ * ```
+ */
+
 const step = {
   guideBlockName: 'visual-graph',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
     const GuideUtils = services.GuideUtils;
     const RoutingUtil = services.RoutingUtil;
     options.mainAction = 'visual-graph';
