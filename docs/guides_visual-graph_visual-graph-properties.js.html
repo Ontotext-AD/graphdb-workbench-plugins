@@ -1,4 +1,95 @@
-const VISUAL_GRAPH_PROPERTIES_TITLE = 'guide.step_plugin.visual-graph-properties.title';
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> guides/visual-graph/visual-graph-properties.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">GraphDB Workbench Plugins</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-Interactive%2520Guide.html">Interactive Guide</a></li></ul><h3>Classes</h3><ul><li><a href="PluginServiceInterface.html">PluginServiceInterface</a></li></ul><h3>Global</h3><ul><li><a href="global.html#COMMON_DOM_EVENTS">COMMON_DOM_EVENTS</a></li><li><a href="global.html#_configureInteractions">_configureInteractions</a></li><li><a href="global.html#allowAll">allowAll</a></li><li><a href="global.html#allowEvents">allowEvents</a></li><li><a href="global.html#beforeShowPromise">beforeShowPromise</a></li><li><a href="global.html#preventDefault">preventDefault</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>guides/visual-graph/visual-graph-properties.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const VISUAL_GRAPH_PROPERTIES_TITLE = 'guide.step_plugin.visual-graph-properties.title';
 const VISUAL_GRAPH_PROPERTIES_CONTENT = 'guide.step_plugin.visual-graph-properties.content';
 const VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_TITLE = 'guide.step_plugin.visual-graph-properties-side-panel.title';
 const VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_CONTENT = 'guide.step_plugin.visual-graph-properties-side-panel.content';
@@ -17,14 +108,14 @@ const VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_CLOSE_CONTENT = 'guide.step_plugin.visu
  * The `visual-graph-properties` guide demonstrates how to open and read node properties in the Visual Graph.
  *
  * The guide consists of the following steps:
- * 1. Click a node to open the properties side panel.<br>
- * <img src="resources/guides/visual-graph/visual-graph-click-to-show-properties.png" style="height:200px; border: solid; border-width:1px"/>
- * 2. Read the properties in the side panel.<br>
- * <img src="resources/guides/visual-graph/visual-graph-side-panel-properties.png" style="height:200px; border: solid; border-width:1px"/>
- * 3. Focus specific property sections (e.g. types or a particular property).<br>
- * <img src="resources/guides/visual-graph/visual-graph-properties-in-panel.png" style="height:200px; border: solid; border-width:1px"/>
- * 4. Close the side panel.<br>
- * <img src="resources/guides/visual-graph/visual-graph-x-to-close.png" style="height:200px; border: solid; border-width:1px"/>
+ * 1. Click a node to open the properties side panel.&lt;br>
+ * &lt;img src="resources/guides/visual-graph/visual-graph-click-to-show-properties.png" style="height:200px; border: solid; border-width:1px"/>
+ * 2. Read the properties in the side panel.&lt;br>
+ * &lt;img src="resources/guides/visual-graph/visual-graph-side-panel-properties.png" style="height:200px; border: solid; border-width:1px"/>
+ * 3. Focus specific property sections (e.g. types or a particular property).&lt;br>
+ * &lt;img src="resources/guides/visual-graph/visual-graph-properties-in-panel.png" style="height:200px; border: solid; border-width:1px"/>
+ * 4. Close the side panel.&lt;br>
+ * &lt;img src="resources/guides/visual-graph/visual-graph-x-to-close.png" style="height:200px; border: solid; border-width:1px"/>
  *
  * This guide can be configured using the common options defined in [Options](#.Options).
  *
@@ -60,7 +151,7 @@ const step = {
     const onClick = (services, guide) => (event) => {
       if (mouseEventTimer) {
         // Cancels expansion of the sidebar panel if user double-clicked.
-        if (event.timeStamp - mouseClickTimeStamp < 400) {
+        if (event.timeStamp - mouseClickTimeStamp &lt; 400) {
           services.$timeout.cancel(mouseEventTimer);
           mouseEventTimer = null;
         }
@@ -135,7 +226,7 @@ const step = {
         }
         const translationIdSuffix = focusProperty.property === 'types' ? '-types' : '-property';
         const titleKey = 'guide.step_plugin.visual-graph-properties-focus' + translationIdSuffix + '.title';
-        const contentKey = focusProperty.skipGenericMessage && focusProperty.message ?
+        const contentKey = focusProperty.skipGenericMessage &amp;&amp; focusProperty.message ?
           null : 'guide.step_plugin.visual-graph-properties-focus' + translationIdSuffix + '.content';
 
         const params = (focusProperty.property === 'types') ?
@@ -191,25 +282,25 @@ const step = {
   translationBundle: {
     en: {
       [VISUAL_GRAPH_PROPERTIES_TITLE]: 'Visual graph properties',
-      [VISUAL_GRAPH_PROPERTIES_CONTENT]: 'Click on <b>{{iriLabel}}</b> to show its properties.',
+      [VISUAL_GRAPH_PROPERTIES_CONTENT]: 'Click on &lt;b>{{iriLabel}}&lt;/b> to show its properties.',
       [VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_TITLE]: 'Visual graph properties',
-      [VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_CONTENT]: 'The side panel shows the properties of the clicked node, <b>{{iriLabel}}</b>.',
+      [VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_CONTENT]: 'The side panel shows the properties of the clicked node, &lt;b>{{iriLabel}}&lt;/b>.',
       [VISUAL_GRAPH_PROPERTIES_FOCUS_PROPERTY_TITLE_TYPES]: 'Visual graph properties',
-      [VISUAL_GRAPH_PROPERTIES_FOCUS_PROPERTY_CONTENT_TYPES]: '<b>Types</b> shows all the RDF types for <b>{{iriLabel}}</b>.',
+      [VISUAL_GRAPH_PROPERTIES_FOCUS_PROPERTY_CONTENT_TYPES]: '&lt;b>Types&lt;/b> shows all the RDF types for &lt;b>{{iriLabel}}&lt;/b>.',
       [VISUAL_GRAPH_PROPERTIES_FOCUS_PROPERTY_TITLE]: 'Visual graph properties',
-      [VISUAL_GRAPH_PROPERTIES_FOCUS_PROPERTY_CONTENT]: 'The values for generic properties like <b>{{focusProperty}}</b> are listed in dedicated sections.',
+      [VISUAL_GRAPH_PROPERTIES_FOCUS_PROPERTY_CONTENT]: 'The values for generic properties like &lt;b>{{focusProperty}}&lt;/b> are listed in dedicated sections.',
       [VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_CLOSE_TITLE]: 'Visual graph properties',
       [VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_CLOSE_CONTENT]: 'You can close the panel by clicking on the X icon.'
     },
     fr: {
       [VISUAL_GRAPH_PROPERTIES_TITLE]: 'Propriétés du graphe visuel',
-      [VISUAL_GRAPH_PROPERTIES_CONTENT]: 'Cliquez sur <b>{{iriLabel}}</b> pour afficher ses propriétés.',
+      [VISUAL_GRAPH_PROPERTIES_CONTENT]: 'Cliquez sur &lt;b>{{iriLabel}}&lt;/b> pour afficher ses propriétés.',
       [VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_TITLE]: 'Propriétés du graphique visuel',
-      [VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_CONTENT]: 'Le panneau latéral affiche les propriétés du nœud cliqué, <b>{{iriLabel}}</b>.',
+      [VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_CONTENT]: 'Le panneau latéral affiche les propriétés du nœud cliqué, &lt;b>{{iriLabel}}&lt;/b>.',
       [VISUAL_GRAPH_PROPERTIES_FOCUS_PROPERTY_TITLE_TYPES]: 'Propriétés du graphique visuel',
-      [VISUAL_GRAPH_PROPERTIES_FOCUS_PROPERTY_CONTENT_TYPES]: '<b>Les types</b> affiche tous les types RDF pour <b>{{iriLabel}}</b>.',
+      [VISUAL_GRAPH_PROPERTIES_FOCUS_PROPERTY_CONTENT_TYPES]: '&lt;b>Les types&lt;/b> affiche tous les types RDF pour &lt;b>{{iriLabel}}&lt;/b>.',
       [VISUAL_GRAPH_PROPERTIES_FOCUS_PROPERTY_TITLE]: 'Propriétés du graphique visuel',
-      [VISUAL_GRAPH_PROPERTIES_FOCUS_PROPERTY_CONTENT]: 'Les valeurs des propriétés génériques telles que <b>{{focusProperty}}</b> sont répertoriées dans des sections dédiées.',
+      [VISUAL_GRAPH_PROPERTIES_FOCUS_PROPERTY_CONTENT]: 'Les valeurs des propriétés génériques telles que &lt;b>{{focusProperty}}&lt;/b> sont répertoriées dans des sections dédiées.',
       [VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_CLOSE_TITLE]: 'Propriétés du graphique visuel',
       [VISUAL_GRAPH_PROPERTIES_SIDE_PANEL_CLOSE_CONTENT]: 'Vous pouvez fermer le panneau en cliquant sur l\'icône X.'
     }
@@ -219,3 +310,25 @@ const step = {
 export function register(registry) {
   registry.add('guide.step', step);
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

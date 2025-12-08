@@ -1,17 +1,35 @@
 import {disableAllVisualGraphNodes, enableAllVisualGraphNodes} from '../utils.js';
 
+const VISUAL_GRAPH_NODE_FOCUS_DEFAULT_TITLE = 'guide.step_plugin.visual-graph-node-focus.title';
+const VISUAL_GRAPH_NODE_FOCUS_CONTENT = 'guide.step_plugin.visual-graph-node-focus.content';
+
+/**
+ * @name visual-graph-node-focus
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * The `visual-graph-node-focus` guide step explains RDF resources in the Visual Graph.<br>
+ * <img src="resources/guides/visual-graph/visual-graph-node-focus.png" style="height:200px; border: solid; border-width:1px"/>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options).
+ * Additionally, the following specific option is available:
+ *
+ * @property {string} [options.iri] - The IRI used in this step.
+ */
 const step = {
   guideBlockName: 'visual-graph-node-focus',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
     const GuideUtils = services.GuideUtils;
     const $rootScope = services.$rootScope;
+    const translate = services.translate;
     const elementSelector = `.node-wrapper[id^="${options.iri}"] circle`;
+
     return [
       {
         guideBlockName: 'read-only-element',
         options: {
-          title: 'guide.step_plugin.visual-graph-node-focus.title',
-          content: 'guide.step_plugin.visual-graph-node-focus.content',
+          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_NODE_FOCUS_DEFAULT_TITLE)}),
+          content: translate(this.translationBundle, VISUAL_GRAPH_NODE_FOCUS_CONTENT, {iriLabel: options.iri}),
           url: 'graphs-visualizations',
           canBePaused: false,
           elementSelector,
@@ -31,6 +49,16 @@ const step = {
         }
       }
     ];
+  },
+  translationBundle: {
+    en: {
+      [VISUAL_GRAPH_NODE_FOCUS_DEFAULT_TITLE]: 'Visual graph nodes',
+      [VISUAL_GRAPH_NODE_FOCUS_CONTENT]: 'A circle represents an RDF resource. In this case, <b>{{iriLabel}}</b>.'
+    },
+    fr: {
+      [VISUAL_GRAPH_NODE_FOCUS_DEFAULT_TITLE]: 'Nœuds de graphique visuel',
+      [VISUAL_GRAPH_NODE_FOCUS_CONTENT]: 'Un cercle représente une ressource RDF. Dans ce cas, <b>{{iriLabel}}</b>.'
+    }
   }
 };
 
