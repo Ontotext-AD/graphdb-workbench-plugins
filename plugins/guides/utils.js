@@ -94,12 +94,8 @@ const preventDefault = (event) => {
   event.stopPropagation();
 };
 
-export const CREATE_SIMILARITY_INDEX_DEFAULT = 'guide.step-action.create-similarity-index';
-export const SPARQL_EDITOR_DEFAULT_TITLE = 'view.sparql-editor.title';
 export const SPARQL_DIRECTIVE_SELECTOR = '#query-editor';
 export const RDF_RANK_DEFAULT_TITLE = 'view.rdf.rank.title';
-export const RESOURCE_DEFAULT_TITLE = 'view.resource.title';
-export const VISUAL_GRAPH_DEFAULT_TITLE = 'visual.graph.label';
 export const SKIP_SECTION = {
   en: 'Skip section',
   fr: 'Sauter la section'

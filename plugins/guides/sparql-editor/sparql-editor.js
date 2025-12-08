@@ -1,9 +1,41 @@
 import * as Utils from '../utils.js';
 
+const SPARQL_EDITOR_TITLE = 'view.sparql-editor.title';
+const COPY_TO_EDITOR = 'guide.step_plugin.execute-sparql-query.copy-to-editor.button';
+const QUERY_EDITOR_CONTENT = 'guide.step_plugin.execute-sparql-query.query-editor.content';
+const UNEXPECTED_ERROR = 'guide.unexpected.error.message';
+
+/**
+ * @name sparql-editor
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step prompts the user to copy a SPARQL query to the SPARQL editor.
+ *
+ * Copy to editor<br>
+ * <img src="resources/guides/sparql-editor/sparql-editor.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it requires:
+ * @property {string} query - The SPARQL query to be copied to the editor.
+ * @property {string | Object} queryExtraContent - Additional content to display in the editor.
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "sparql-editor",
+ *  "options": {
+ *    "query": "SELECT ?s WHERE { ?s ?p ?o } LIMIT 10",
+ *    "queryExtraContent": {
+ *       "en": "The query selects RDF statements whose <i>subject</i> is the movie <b>Pirates of the Caribbean At World's End</b> (identified by the IRI <b>imdb:title/PiratesoftheCaribbeanAtWorldsEnd</b>). Note that we need to escape the / in the shortened IRI."
+ *     }
+ *   }
+ * }
+ * ```
+ */
 const step = {
   guideBlockName: 'sparql-editor',
-  getSteps: (options, services) => {
-    const $translate = services.$translate;
+  getSteps: function(options, services) {
+    const translate = services.translate;
     const GuideUtils = services.GuideUtils;
     const YasguiComponentDirectiveUtil = services.YasguiComponentDirectiveUtil;
 
@@ -11,10 +43,11 @@ const step = {
     const copy = document.createElement('button');
     const copyToEditorButtonClass = 'guide-copy-to-editor-query-button';
     copy.className = `btn btn-sm btn-secondary ${copyToEditorButtonClass}`;
-    copy.innerText = $translate.instant('guide.step_plugin.execute-sparql-query.copy-to-editor.button');
+    copy.innerText = translate(this.translationBundle, COPY_TO_EDITOR);
     const query = options.query;
     const copyToEditorListener = Utils.createCopyToEditorListener(YasguiComponentDirectiveUtil, Utils.SPARQL_DIRECTIVE_SELECTOR, query);
     code.innerText = query;
+    const queryAsHtmlCodeElement = '<div class="shepherd-code">' + code.outerHTML + copy.outerHTML + '</div>';
 
     let stepHTMLElement;
 
@@ -22,18 +55,16 @@ const step = {
       {
         guideBlockName: 'input-element',
         options: {
-          // If mainAction is set the title will be set automatically
-          ...(options.mainAction ? {} : {title: Utils.SPARQL_EDITOR_DEFAULT_TITLE}),
-          content: 'guide.step_plugin.execute-sparql-query.query-editor.content',
+          ...(options.title ?? {title: translate(this.translationBundle, SPARQL_EDITOR_TITLE)}),
+          content: translate(this.translationBundle, QUERY_EDITOR_CONTENT, {queryAsHtmlCodeElement}),
           url: 'sparql',
           elementSelector: GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR,
           class: 'yasgui-query-editor',
-          queryAsHtmlCodeElement: '<div class="shepherd-code">' + code.outerHTML + copy.outerHTML + '</div>',
           beforeShowPromise: () => YasguiComponentDirectiveUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
             .then(() => GuideUtils.waitFor(GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR, 3))
             .then(() => GuideUtils.deferredShow(500)())
             .catch((error) => {
-              services.toastr.error(services.$translate.instant('guide.unexpected.error.message'));
+              services.toastr.error(translate(this.translationBundle, UNEXPECTED_ERROR));
               throw error;
             }),
           onNextValidate: () => YasguiComponentDirectiveUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
@@ -57,6 +88,20 @@ const step = {
         }
       }
     ];
+  },
+  translationBundle: {
+    en: {
+      [SPARQL_EDITOR_TITLE]: 'SPARQL Query & Update',
+      [COPY_TO_EDITOR]: 'Copy to editor',
+      [QUERY_EDITOR_CONTENT]: 'Enter the following SPARQL query: {{queryAsHtmlCodeElement}}',
+      [UNEXPECTED_ERROR]: 'The guide was cancelled due to an unexpected error. Please run the guide again and if the problem persists contact the support.'
+    },
+    fr: {
+      [SPARQL_EDITOR_TITLE]: 'Requête et mise à jour SPARQL',
+      [COPY_TO_EDITOR]: 'Copier dans l\'éditeur',
+      [QUERY_EDITOR_CONTENT]: 'Entrez la requête SPARQL suivante: {{queryAsHtmlCodeElement}}',
+      [UNEXPECTED_ERROR]: 'Le guide a été annulé en raison d\'une erreur inattendue. Veuillez exécuter à nouveau le guide et si le problème persiste, contactez le support.'
+    }
   }
 };
 
