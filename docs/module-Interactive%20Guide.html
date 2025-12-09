@@ -3756,7 +3756,111 @@ by selecting a specific named graph from the All graphs dropdown.<br>
 
 
 
+<div class="description">
+    <p>This guide step is used to guide the user through the main menu.
+The guide step is composed of two steps: An optional intro message and 1 or 2 clickable menu elements.
+All are calculated dynamically based on the <code>options.menu</code> parameter.</p>
+<p>Intro message<br>
+<img src="resources/guides/main-menu/click-main-menu-intro.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Click main menu<br>
+<img src="resources/guides/main-menu/main-menu-lab.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Click submenu<br>
+<img src="resources/guides/main-menu/main-menu-ttyg.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
 
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.menu</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The menu for which to add intro and click-menu steps.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.mainAction</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The action to be performed on the main menu. Used to display the correct intro message.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
 
 
 
@@ -3795,7 +3899,7 @@ by selecting a specific named graph from the All graphs dropdown.<br>
         <p class="tag-source">
             <a href="guides_main-menu_click-main-menu.js.html" class="button">View Source</a>
             <span>
-                <a href="guides_main-menu_click-main-menu.js.html">guides/main-menu/click-main-menu.js</a>, <a href="guides_main-menu_click-main-menu.js.html#line4">line 4</a>
+                <a href="guides_main-menu_click-main-menu.js.html">guides/main-menu/click-main-menu.js</a>, <a href="guides_main-menu_click-main-menu.js.html#line48">line 48</a>
             </span>
         </p>
     
@@ -3803,6 +3907,20 @@ by selecting a specific named graph from the All graphs dropdown.<br>
 
 
 
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "click-main-menu",
+  "options": {
+   "menu": "repositories",
+   "mainAction": "create-repository"
+  }
+}</code></pre>
+    
 
 
 </div>
@@ -9849,7 +9967,7 @@ The step consists of the following steps:</p>
         <p class="tag-source">
             <a href="guides_repository_create-repository.js.html" class="button">View Source</a>
             <span>
-                <a href="guides_repository_create-repository.js.html">guides/repository/create-repository.js</a>, <a href="guides_repository_create-repository.js.html#line1">line 1</a>
+                <a href="guides_repository_create-repository.js.html">guides/repository/create-repository.js</a>, <a href="guides_repository_create-repository.js.html#line3">line 3</a>
             </span>
         </p>
     
@@ -12341,6 +12459,93 @@ via common options.</p>
     "elementSelector": "#query-input",
     "content": "Type your query here."
   }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".rdf-rank-compute-fill">
+    <a class="href-link" href="#.rdf-rank-compute-fill">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        rdf-rank-compute-fill
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step prompts the user to click on the &quot;Compute Full&quot; button to start the RDF Rank computation.</p>
+<p>Click Compute Full<br>
+<img src="resources/guides/rdf-rank/rdf-rank-compute-fill.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_rdf-rank_rdf-rank-compute-fill.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_rdf-rank_rdf-rank-compute-fill.js.html">guides/rdf-rank/rdf-rank-compute-fill.js</a>, <a href="guides_rdf-rank_rdf-rank-compute-fill.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "rdf-rank-compute-fill"
 }
 ```</code></pre>
     

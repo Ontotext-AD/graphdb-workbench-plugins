@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/repository/create-repository.js</title>
+  <title> guides/rdf-rank/rdf-rank-compute-fill.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/repository/create-repository.js</h1>
+                    <h1>guides/rdf-rank/rdf-rank-compute-fill.js</h1>
                 </header>
                 
 
@@ -89,86 +89,56 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const REPOSITORIES_CREATE_DEFAULT_TITLE = 'guide.step-action.create-repository';
+            <pre class="prettyprint source linenums"><code>const RDF_RANK_TITLE = 'view.rdf.rank.title';
+const COMPUTE_FILL = 'guide.step_plugin.rdf-rank-compute-fill.content';
 
 /**
- * @name create-repository
+ * @name rdf-rank-compute-fill
  * @memberof module:Interactive Guide
  *
  * @description
- * Complex step, guiding the user through the creation of a new repository.
- * The step consists of the following steps:
+ * This step prompts the user to click on the "Compute Full" button to start the RDF Rank computation.
  *
- * Click on the "Create repository" button.&lt;br>
- * &lt;img src="resources/guides/repository/repositories-create-repository.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ * Click Compute Full&lt;br>
+ * &lt;img src="resources/guides/rdf-rank/rdf-rank-compute-fill.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
- * Create GraphDB repository.&lt;br>
- * &lt;img src="resources/guides/repository/repositories-create-graphdb.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
- *
- * Enter a repository ID.&lt;br>
- * &lt;img src="resources/guides/repository/repositories-id-input.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
- *
- * (Optional) Select a ruleset.&lt;br>
- * &lt;img src="resources/guides/repository/repositories-ruleset-dropdown.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
- *
- * (Optional) Enable full-text search.&lt;br>
- * &lt;img src="resources/guides/repository/repositories-enable-fts.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
- *
- * Save the repository.&lt;br>
- * &lt;img src="resources/guides/repository/repositories-save.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
- *
- * This step can be configured using the common options defined in [Options](#.Options). Additionally, it supports the following options:
- * @property {string} [rulesetName] - If this option is present, a dropdown will be displayed to select a ruleset.
- * @property {boolean} [fts] - If this option is present, a checkbox will be displayed to enable full-text search.
+ * This step can be configured using the common options defined in [Options](#.Options).
  *
  * @example
  * ```JSON
  * {
- *   "guideBlockName": "create-repository",
- *   "options": {
- *     "rulesetName": "my-ruleset",
- *     "fts": true
- *   }
+ *  "guideBlockName": "rdf-rank-compute-fill"
  * }
+ * ```
  */
 const step = {
-  guideBlockName: 'create-repository',
-  getSteps: function(options, pluginService) {
-    const translate = pluginService.translate;
-    options.mainAction = 'create-repository';
-    options.title = options.title ?? translate(this.translationBundle, REPOSITORIES_CREATE_DEFAULT_TITLE);
-
-    const steps = [
+  guideBlockName: 'rdf-rank-compute-fill',
+  getSteps: function(options, services) {
+    const translate = services.translate;
+    const GuideUtils = services.GuideUtils;
+    const computeRDFRankButtonSelector = GuideUtils.getGuideElementSelector('compute-rdf-rank-btn');
+    return [
       {
-        guideBlockName: 'click-main-menu',
+        guideBlockName: 'clickable-element',
         options: {
-          menu: 'repositories',
-          showIntro: true,
+          url: 'rdfrank',
+          content: translate(this.translationBundle, COMPUTE_FILL),
+          elementSelector: computeRDFRankButtonSelector,
+          ...(options.title ?? {title: translate(this.translationBundle, RDF_RANK_TITLE)}),
+          onNextClick: computeRDFRankButtonSelector,
           ...options
         }
-      },
-      {guideBlockName: 'repositories-create-repository', options: {...options}},
-      {guideBlockName: 'repositories-create-graphdb', options: {...options}},
-      {guideBlockName: 'repositories-id-input', options: {...options}}
+      }
     ];
-
-    if (options.rulesetName) {
-      steps.push({guideBlockName: 'repositories-ruleset-dropdown', options: {...options}});
-    }
-    if (options.fts) {
-      steps.push({guideBlockName: 'repositories-enable-fts', options: {...options}});
-    }
-
-    steps.push({guideBlockName: 'repositories-save', options: {...options}});
-
-    return steps;
   },
   translationBundle: {
     en: {
-      [REPOSITORIES_CREATE_DEFAULT_TITLE]: 'Create repository'
+      [RDF_RANK_TITLE]: 'RDF Rank',
+      [COMPUTE_FILL]: 'Click on &lt;b>Compute Full&lt;/b> to start the RDF Rank computation.'
     },
     fr: {
-      [REPOSITORIES_CREATE_DEFAULT_TITLE]: 'Créer un dépôt'
+      [RDF_RANK_TITLE]: 'Rang RDF',
+      [COMPUTE_FILL]: 'Cliquez sur &lt;b>Calculer tout&lt;/b> pour lancer le calcul du RDF Rank.'
     }
   }
 };

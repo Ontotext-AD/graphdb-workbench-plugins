@@ -90,12 +90,12 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import * as Utils from '../utils.js';
-import {SKIP_SECTION} from '../utils.js';
 
 const QUERY_CONTENT = 'guide.step_plugin.class-hierarchy-instances-query.content';
 const RESULTS_CONTENT = 'guide.step_plugin.class-hierarchy-instances-results.content';
 const RESULTS_EXTRA_CONTENT = 'guide.step_plugin.class-hierarchy-instances-results.extraContent';
 const RDF_INSTANCES_TITLE = 'guide.step_plugin.class-hierarchy-instances.title';
+const SKIP_SECTION = 'skip.section';
 
 /**
  * @name class-hierarchy-instances
@@ -182,7 +182,7 @@ const step = {
         options: {
           title,
           skipPoint: true,
-          skipButtonLabel: SKIP_SECTION,
+          skipButtonLabel: translate(this.translationBundle, SKIP_SECTION),
           beforeShowPromise: GuideUtils.deferredShow(800),
           onPreviousClick: () => new Promise(function(resolve) {
             GuideUtils.waitFor(closeButtonSelector, 1)
@@ -280,14 +280,16 @@ const step = {
       [QUERY_CONTENT]: 'This SPARQL query selects all instances of the class &lt;b>{{iri}}&lt;/b>. The query was entered automatically when you clicked on the view instances link.',
       [RESULTS_CONTENT]: 'The table shows the results. Note that in this particular case, the query was executed automatically.',
       [RESULTS_EXTRA_CONTENT]: 'Do not worry &amp;mdash; there will be a dedicated section on the SPARQL editor later in the guide.',
-      [RDF_INSTANCES_TITLE]: 'Class hierarchy instances'
+      [RDF_INSTANCES_TITLE]: 'Class hierarchy instances',
+      [SKIP_SECTION]: 'Skip section'
     },
 
     fr: {
       [QUERY_CONTENT]: 'Cette requête SPARQL sélectionne toutes les instances de la classe &lt;b>{{iri}}&lt;/b>. La requête a été saisie automatiquement lorsque vous avez cliqué sur la vue lien d\'instances.',
       [RESULTS_CONTENT]: 'Le tableau montre les résultats. Notez que dans ce cas particulier, la requête a été exécutée automatiquement.',
       [RESULTS_EXTRA_CONTENT]: 'Ne vous inquiétez pas &amp;mdash; il y aura une section dédiée à l\'éditeur SPARQL plus tard dans le guide.',
-      [RDF_INSTANCES_TITLE]: 'Instances de hiérarchie de classes'
+      [RDF_INSTANCES_TITLE]: 'Instances de hiérarchie de classes',
+      [SKIP_SECTION]: 'Sauter la section'
     }
   }
 };

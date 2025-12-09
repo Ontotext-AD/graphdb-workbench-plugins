@@ -52,7 +52,6 @@ const step = {
     }, {
       guideBlockName: 'clickable-element',
       options: {
-        content: translate(this.translationBundle, SELECT_REPOSITORY, {repositoryId: options.repositoryId}),
         elementSelector: () => {
           return Utils.getRepositoryElementSelector(services, options);
         },
@@ -66,6 +65,16 @@ const step = {
           }),
         show: (guide) => () => {
           Utils.setRepositorySelectorAutoClose(false);
+          const currentStep = guide.getCurrentStep();
+          if (currentStep) {
+            // We don't know if the user has created a repo in the previous step, or not.
+            // That's why we need to update the step at the time of showing it, to know if the incremented
+            // repositoryId exists. If not we default to options.repositoryIdBase
+            const repositoryId = Utils.getRepositoryName(services, options);
+            currentStep.updateStepOptions({
+              text: translate(this.translationBundle, SELECT_REPOSITORY, {repositoryId})
+            });
+          }
           // Added listener to the element.
           if (repositorySelectorElement) {
             mouseUpHandler = () => guide.next();
