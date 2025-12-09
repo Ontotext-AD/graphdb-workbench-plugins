@@ -89,16 +89,89 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {SKIP_SECTION} from '../utils.js';
+            <pre class="prettyprint source linenums"><code>const RDF_RANK_TITLE = 'view.rdf.rank.title';
+const CLICK_MAIN_MENU = 'guide.step-menu.click-menu';
+const SKIP_SECTION = 'skip.section';
 
+const MENU_SETUP_LABEL = 'menu.setup.label';
+const MENU_IMPORT_LABEL = 'common.import';
+const MENU_EXPLORE_LABEL = 'menu.explore.label';
+const MENU_SPARQL_LABEL = 'menu.sparql.label';
+const MENU_LAB_LABEL = 'menu.lab.label';
+
+const SUBMENU_REPOSITORIES_LABEL = 'menu.repositories.label';
+const SUBMENU_AUTOCOMPLETE_LABEL = 'menu.autocomplete.label';
+const SUBMENU_CONNECTORS_LABEL = 'menu.connectors.label';
+const SUBMENU_VISUAL_GRAPH_LABEL = 'visual.graph.label';
+const SUBMENU_CLASS_HIERARCHY_LABEL = 'menu.class.hierarchy.label';
+const SUBMENU_CLASS_RELATIONSHIPS_LABEL = 'menu.class.relationships.label';
+const SUBMENU_TTYG_LABEL = 'menu.ttyg.label';
+const SUBMENU_SIMILARITY_LABEL = 'menu.similarity.label';
+
+const VIEW_AUTOCOMPLETE_TITLE = 'view.autocomplete.title';
+const VIEW_CONNECTOR_MANAGEMENT_TITLE = 'view.connector.management.title';
+const VIEW_SPARQL_EDITOR_TITLE = 'view.sparql-editor.title';
+const VIEW_CLASS_HIERARCHY_TITLE = 'view.class.hierarchy.title';
+const VIEW_CLASS_RELATIONSHIPS_TITLE = 'view.class.relationships.title';
+
+const HELP_INFO_REPOSITORIES = 'view.repositories.helpInfo';
+const HELP_INFO_IMPORT = 'view.import.helpInfo';
+const HELP_INFO_AUTOCOMPLETE = 'view.autocomplete.helpInfo';
+const HELP_INFO_CONNECTOR_MANAGEMENT = 'view.connector.management.helpInfo';
+const HELP_INFO_VISUAL_GRAPH = 'view.visual.graph.helpInfo';
+const HELP_INFO_SPARQL_EDITOR = 'view.sparql-editor.helpInfo';
+const HELP_INFO_CLASS_HIERARCHY = 'view.class.hierarchy.helpInfo';
+const HELP_INFO_CLASS_RELATIONSHIPS = 'view.class.relationships.helpInfo';
+const HELP_INFO_TTYG = 'ttyg.helpInfo';
+const HELP_INFO_SIMILARITY = 'guide.step-help-info.create-similarity-index';
+const HELP_INFO_RDF_RANK = 'view.rdf.rank.helpInfo';
+
+const INTRO_CREATE_REPOSITORY = 'guide.step-intro.create-repository';
+const INTRO_ENABLE_AUTOCOMPLETE = 'guide.step-intro.enable-autocomplete';
+const INTRO_EXECUTE_SPARQL_QUERY = 'guide.step-intro.execute-sparql-query';
+const INTRO_VISUAL_GRAPH = 'guide.step-intro.visual-graph';
+const INTRO_IMPORT_FILE = 'guide.step-intro.import-file';
+const INTRO_CLASS_HIERARCHY = 'guide.step-intro.class-hierarchy';
+const INTRO_CREATE_TTYG_AGENT = 'guide.step-intro.create-ttyg-agent';
+const INTRO_CREATE_SIMILARITY_INDEX = 'guide.step-intro.create-similarity-index';
+const INTRO_CLASS_RELATIONSHIPS = 'guide.step-intro.class-relationships';
 
 /**
  * @name click-main-menu
  * @memberof module:Interactive Guide
+ *
+ * @description
+ * This guide step is used to guide the user through the main menu.
+ * The guide step is composed of two steps: An optional intro message and 1 or 2 clickable menu elements.
+ * All are calculated dynamically based on the `options.menu` parameter.
+ *
+ * Intro message&lt;br>
+ * &lt;img src="resources/guides/main-menu/click-main-menu-intro.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * Click main menu&lt;br>
+ * &lt;img src="resources/guides/main-menu/main-menu-lab.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * Click submenu&lt;br>
+ * &lt;img src="resources/guides/main-menu/main-menu-ttyg.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it requires:
+ * @property {string} options.menu - The menu for which to add intro and click-menu steps.
+ * @property {string} [options.mainAction] - The action to be performed on the main menu. Used to display the correct intro message.
+ *
+ * @example
+ * ```JSON
+ * {
+ *   "guideBlockName": "click-main-menu",
+ *   "options": {
+ *    "menu": "repositories",
+ *    "mainAction": "create-repository"
+ *   }
+ * }
  */
 const step = {
   guideBlockName: 'click-main-menu',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
+    const translate = services.translate;
     const GuideUtils = services.GuideUtils;
     const steps = [];
 
@@ -114,142 +187,143 @@ const step = {
     switch (options.menu) {
     case 'repositories':
       menuSelector = 'menu-setup';
-      menuTitle = 'menu.setup.label';
+      menuTitle = MENU_SETUP_LABEL;
       menuDialogClass = 'menu-setup';
       submenuSelector = 'sub-menu-repositories';
-      submenuTitle = 'menu.repositories.label';
+      submenuTitle = SUBMENU_REPOSITORIES_LABEL;
       submenuDialogClass = 'sub-menu-repositories';
-      viewName = 'menu.repositories.label';
-      helpInfo = 'view.repositories.helpInfo';
+      viewName = SUBMENU_REPOSITORIES_LABEL;
+      helpInfo = HELP_INFO_REPOSITORIES;
       break;
     case 'import':
       menuSelector = 'menu-import';
-      menuTitle = 'common.import';
+      menuTitle = MENU_IMPORT_LABEL;
       menuDialogClass = 'menu-import';
-      viewName = 'common.import';
-      helpInfo = 'view.import.helpInfo';
+      viewName = MENU_IMPORT_LABEL;
+      helpInfo = HELP_INFO_IMPORT;
 
       break;
     case 'autocomplete':
       menuSelector = 'menu-setup';
-      menuTitle = 'menu.setup.label';
+      menuTitle = MENU_SETUP_LABEL;
       menuDialogClass = 'menu-setup';
       submenuSelector = 'sub-menu-autocomplete';
-      submenuTitle = 'menu.autocomplete.label';
+      submenuTitle = SUBMENU_AUTOCOMPLETE_LABEL;
       submenuDialogClass = 'sub-menu-autocomplete';
-      viewName = 'view.autocomplete.title';
-      helpInfo = 'view.autocomplete.helpInfo';
+      viewName = VIEW_AUTOCOMPLETE_TITLE;
+      helpInfo = HELP_INFO_AUTOCOMPLETE;
 
       break;
 
     case 'connectors':
       menuSelector = 'menu-setup';
-      menuTitle = 'menu.setup.label';
+      menuTitle = MENU_SETUP_LABEL;
       menuDialogClass = 'menu-setup-guide-dialog';
       submenuSelector = 'sub-menu-connectors';
-      submenuTitle = 'menu.connectors.label';
+      submenuTitle = SUBMENU_CONNECTORS_LABEL;
       submenuDialogClass = 'sub-menu-connectors-guide-dialog';
-      viewName = 'view.connector.management.title';
-      helpInfo = 'view.connector.management.helpInfo';
+      viewName = VIEW_CONNECTOR_MANAGEMENT_TITLE;
+      helpInfo = HELP_INFO_CONNECTOR_MANAGEMENT;
 
       break;
     case 'visual-graph':
       menuSelector = 'menu-explore';
-      menuTitle = 'menu.explore.label';
+      menuTitle = MENU_EXPLORE_LABEL;
       menuDialogClass = 'menu-explore';
       submenuSelector = 'sub-menu-visual-graph';
-      submenuTitle = 'visual.graph.label';
+      submenuTitle = SUBMENU_VISUAL_GRAPH_LABEL;
       submenuDialogClass = 'sub-menu-visual-graph';
-      viewName = 'visual.graph.label';
-      helpInfo = 'view.visual.graph.helpInfo';
+      viewName = SUBMENU_VISUAL_GRAPH_LABEL;
+      helpInfo = HELP_INFO_VISUAL_GRAPH;
 
       break;
     case 'sparql':
       menuSelector = 'menu-sparql';
-      menuTitle = 'menu.sparql.label';
+      menuTitle = MENU_SPARQL_LABEL;
       menuDialogClass = 'menu-sparql';
-      viewName = 'view.sparql-editor.title';
-      helpInfo = 'view.sparql-editor.helpInfo';
+      viewName = VIEW_SPARQL_EDITOR_TITLE;
+      helpInfo = HELP_INFO_SPARQL_EDITOR;
 
       break;
     case 'class-hierarchy':
       menuSelector = 'menu-explore';
-      menuTitle = 'menu.explore.label';
+      menuTitle = MENU_EXPLORE_LABEL;
       menuDialogClass = 'menu-explore';
       submenuSelector = 'menu-class-hierarchy';
-      submenuTitle = 'menu.class.hierarchy.label';
+      submenuTitle = SUBMENU_CLASS_HIERARCHY_LABEL;
       submenuDialogClass = 'sub-menu-class-hierarchy';
-      viewName = 'view.class.hierarchy.title';
-      helpInfo = 'view.class.hierarchy.helpInfo';
+      viewName = VIEW_CLASS_HIERARCHY_TITLE;
+      helpInfo = HELP_INFO_CLASS_HIERARCHY;
       break;
     case 'class-relationships':
       menuSelector = 'menu-explore';
-      menuTitle = 'menu.explore.label';
+      menuTitle = MENU_EXPLORE_LABEL;
       menuDialogClass = 'menu-explore';
       submenuSelector = 'sub-menu-class-relationships';
-      submenuTitle = 'menu.class.relationships.label';
+      submenuTitle = SUBMENU_CLASS_RELATIONSHIPS_LABEL;
       submenuDialogClass = 'sub-menu-class-relationships';
-      viewName = 'view.class.relationships.title';
-      helpInfo = 'view.class.relationships.helpInfo';
+      viewName = VIEW_CLASS_RELATIONSHIPS_TITLE;
+      helpInfo = HELP_INFO_CLASS_RELATIONSHIPS;
 
       break;
     case 'ttyg':
       menuSelector = 'menu-lab';
-      menuTitle = 'menu.lab.label';
+      menuTitle = MENU_LAB_LABEL;
       menuDialogClass = 'menu-lab';
       submenuSelector = 'sub-menu-ttyg';
-      submenuTitle = 'menu.ttyg.label';
+      submenuTitle = SUBMENU_TTYG_LABEL;
       submenuDialogClass = 'sub-menu-ttyg';
-      viewName = 'menu.ttyg.label';
-      helpInfo = 'ttyg.helpInfo';
+      viewName = SUBMENU_TTYG_LABEL;
+      helpInfo = HELP_INFO_TTYG;
 
       break;
     case 'similarity':
       menuSelector = 'menu-explore';
-      menuTitle = 'menu.explore.label';
+      menuTitle = MENU_EXPLORE_LABEL;
       menuDialogClass = 'menu-explore';
       submenuSelector = 'sub-menu-similarity';
-      submenuTitle = 'menu.similarity.label';
+      submenuTitle = SUBMENU_SIMILARITY_LABEL;
       submenuDialogClass = 'sub-menu-similarity';
-      viewName = 'menu.similarity.label';
-      helpInfo = 'guide.step-help-info.create-similarity-index';
+      viewName = SUBMENU_SIMILARITY_LABEL;
+      helpInfo = HELP_INFO_SIMILARITY;
       break;
     case 'rdf-rank':
       menuSelector = 'menu-setup';
-      menuTitle = 'menu.setup.label';
+      menuTitle = MENU_SETUP_LABEL;
       menuDialogClass = 'menu-setup';
       submenuSelector = 'sub-menu-rdf-rank';
-      submenuTitle = 'view.rdf.rank.title';
+      submenuTitle = RDF_RANK_TITLE;
       submenuDialogClass = 'sub-menu-rdf-rank';
-      viewName = 'view.rdf.rank.title';
-      helpInfo = 'view.rdf.rank.helpInfo';
+      viewName = RDF_RANK_TITLE;
+      helpInfo = HELP_INFO_RDF_RANK;
       break;
     }
 
     const mainMenuClickElementPostSelector = submenuSelector ? ' div' : ' a';
     options.viewName = viewName;
 
+    viewName = translate(this.translationBundle, viewName);
     // View intro element
     if (options.showIntro &amp;&amp; options.mainAction) {
       steps.push({
         guideBlockName: 'info-message',
         options: {
-          content: 'guide.step-intro.' + options.mainAction,
-          extraContent: helpInfo,
+          content: translate(this.translationBundle, 'guide.step-intro.' + options.mainAction, {viewName}),
+          extraContent: translate(this.translationBundle, helpInfo),
           extraContentClass: 'alert alert-help text-left',
           skipPoint: true,
-          skipButtonLabel: SKIP_SECTION,
+          skipButtonLabel: translate(this.translationBundle, SKIP_SECTION),
           ...options
         }
       });
     }
 
+    const menuLabel = translate(this.translationBundle, menuTitle);
     // Main menu element
     steps.push({
       guideBlockName: 'clickable-element',
       options: {
-        content: 'guide.step-menu.click-menu',
-        menuLabelKey: menuTitle,
+        content: translate(this.translationBundle, CLICK_MAIN_MENU, {menuLabel}),
         class: menuDialogClass,
         elementSelector: GuideUtils.getGuideElementSelector(menuSelector),
         showOn: () => {
@@ -272,12 +346,12 @@ const step = {
       }
     });
 
+    const submenuLabel = translate(this.translationBundle, submenuTitle);
     if (submenuSelector) {
       steps.push({
         guideBlockName: 'clickable-element',
         options: {
-          content: 'guide.step-menu.click-menu',
-          menuLabelKey: submenuTitle,
+          content: translate(this.translationBundle, CLICK_MAIN_MENU, {menuLabel: submenuLabel}),
           class: submenuDialogClass,
           elementSelector: GuideUtils.getGuideElementSelector(submenuSelector),
           placement: 'right',
@@ -299,6 +373,94 @@ const step = {
       });
     }
     return steps;
+  },
+  translationBundle: {
+    en: {
+      [RDF_RANK_TITLE]: 'RDF Rank',
+      [CLICK_MAIN_MENU]: 'Click on the &lt;b>{{menuLabel}}&lt;/b> menu.',
+      [SKIP_SECTION]: 'Skip section',
+      [MENU_SETUP_LABEL]: 'Setup',
+      [MENU_IMPORT_LABEL]: 'Import',
+      [MENU_EXPLORE_LABEL]: 'Explore',
+      [MENU_SPARQL_LABEL]: 'SPARQL',
+      [MENU_LAB_LABEL]: 'Lab',
+      [SUBMENU_REPOSITORIES_LABEL]: 'Repositories',
+      [SUBMENU_AUTOCOMPLETE_LABEL]: 'Autocomplete',
+      [SUBMENU_CONNECTORS_LABEL]: 'Connectors',
+      [SUBMENU_VISUAL_GRAPH_LABEL]: 'Visual graph',
+      [SUBMENU_CLASS_HIERARCHY_LABEL]: 'Class hierarchy',
+      [SUBMENU_CLASS_RELATIONSHIPS_LABEL]: 'Class relationships',
+      [SUBMENU_TTYG_LABEL]: 'Talk to Your Graph',
+      [SUBMENU_SIMILARITY_LABEL]: 'Similarity',
+      [VIEW_AUTOCOMPLETE_TITLE]: 'Autocomplete index',
+      [VIEW_CONNECTOR_MANAGEMENT_TITLE]: 'Connector management',
+      [VIEW_SPARQL_EDITOR_TITLE]: 'SPARQL Query &amp; Update',
+      [VIEW_CLASS_HIERARCHY_TITLE]: 'Class hierarchy',
+      [VIEW_CLASS_RELATIONSHIPS_TITLE]: 'Class relationships',
+      [HELP_INFO_REPOSITORIES]: 'The Repositories view is used to create, modify and delete repositories and connections to remote GraphDB instances (also known as remote locations).',
+      [HELP_INFO_IMPORT]: 'The Import view allows you to import RDF data into a GraphDB repository. Import data from local files, from files on the server where GraphDB is running, from a remote URL, or by pasting the RDF data as a text snippet. Each import method supports various RDF serialisation formats.',
+      [HELP_INFO_AUTOCOMPLETE]: 'The Autocomplete index is used for automatic completion of IRIs in the SPARQL editor and the View resource page. Use this view to enable or disable the index and check its status.',
+      [HELP_INFO_CONNECTOR_MANAGEMENT]: 'The Connector management view is used to create, manage and view GraphDB connector instances.',
+      [HELP_INFO_VISUAL_GRAPH]: 'The Visual graph view provides a visual representation of parts of the RDF graph. The visualisation starts from a single resource and the resources connected to it or from a graph query result. Double-click on resources to expand the graph with their connections.',
+      [HELP_INFO_SPARQL_EDITOR]: 'The SPARQL Query &amp; Update view is a unified editor for queries and updates. Enter any SPARQL query or update and click Run to execute it. The view also allows you to save queries for future retrieval and execution in the SPARQL editor.',
+      [HELP_INFO_CLASS_HIERARCHY]: 'The Class hierarchy view shows the hierarchy of RDF classes by the number of instances. The biggest circles are the parent classes, and the smaller nested ones are their subclasses. Hover over a given class to see its subclasses or zoom in a nested circle (RDF class) for further exploration.',
+      [HELP_INFO_CLASS_RELATIONSHIPS]: 'The Class relationships view shows the relationships between RDF classes, where a relationship is represented by links between the individual instances of two classes. Each link is an RDF statement where the subject is an instance of one class, the object is an instance of another class, and the link is the predicate. Depending on the number of links between the instances of two classes, the bundle can be thicker or thinner, and it receives the colour of the class with more incoming links. The links can be in both directions.',
+      [HELP_INFO_TTYG]: '&lt;b>Talk to Your Graph&lt;/b> lets you interact with your database through a conversational interface. Ask natural language questions about the data and receive answers generated through the combined power of GraphDB and LLMs. It supports multiple agent configurations and persistent chats for ongoing, contextual conversations.',
+      [HELP_INFO_SIMILARITY]: 'The similarity index is used for finding words which have been used in similar contexts to the one which you search for. For example, searching for "ontology" will return "knowledge graph", while a simple textual similarity could return "oncology". This is an alternative for full-text search.',
+      [HELP_INFO_RDF_RANK]: 'RDF Rank is an algorithm that identifies the most important or popular entities in the repository by examining their interconnectedness. The popularity of the entities can be used to order the query results. Use this view to configure the RDF rank, recompute it or check the current state.',
+      [INTRO_CREATE_REPOSITORY]: 'The following steps show how to use the &lt;b>{{viewName}}&lt;/b> view to create a repository.',
+      [INTRO_ENABLE_AUTOCOMPLETE]: 'The following steps show how to use the &lt;b>{{viewName}}&lt;/b> view to enable the autocomplete index.',
+      [INTRO_EXECUTE_SPARQL_QUERY]: 'The following steps show how to use the &lt;b>{{viewName}}&lt;/b> view to execute queries.',
+      [INTRO_VISUAL_GRAPH]: 'The following steps show how to use the &lt;b>{{viewName}}&lt;/b> view to explore data in a visual manner.',
+      [INTRO_IMPORT_FILE]: 'The following steps show how to use the &lt;b>{{viewName}}&lt;/b> view to import data from a file.',
+      [INTRO_CLASS_HIERARCHY]: 'The following steps show how to use the &lt;b>{{viewName}}&lt;/b> view to inspect the class hierarchy and gain an insight on what the dataset contains.',
+      [INTRO_CREATE_TTYG_AGENT]: 'The following steps show how to use the &lt;b>{{viewName}}&lt;/b> view to create an agent.',
+      [INTRO_CREATE_SIMILARITY_INDEX]: 'The following steps show how to create a Similarity index for your dataset.',
+      [INTRO_CLASS_RELATIONSHIPS]: 'The following steps show how to use the &lt;b>{{viewName}}&lt;/b> view to explore how classes are connected and understand the relationships between different types of data in your dataset.'
+    },
+    fr: {
+      [RDF_RANK_TITLE]: 'Rang RDF',
+      [CLICK_MAIN_MENU]: 'Cliquez sur le menu &lt;b>{{menuLabel}}&lt;/b>.',
+      [SKIP_SECTION]: 'Sauter la section',
+      [MENU_SETUP_LABEL]: 'Configurer',
+      [MENU_IMPORT_LABEL]: 'Importer',
+      [MENU_EXPLORE_LABEL]: 'Explorez',
+      [MENU_SPARQL_LABEL]: 'SPARQL',
+      [MENU_LAB_LABEL]: 'Laboratoire',
+      [SUBMENU_REPOSITORIES_LABEL]: 'Dépôts',
+      [SUBMENU_AUTOCOMPLETE_LABEL]: 'Autocomplétion',
+      [SUBMENU_CONNECTORS_LABEL]: 'Connecteurs',
+      [SUBMENU_VISUAL_GRAPH_LABEL]: 'Graphique visuel',
+      [SUBMENU_CLASS_HIERARCHY_LABEL]: 'Hiérarchie des classes',
+      [SUBMENU_CLASS_RELATIONSHIPS_LABEL]: 'Relations entre les classes',
+      [SUBMENU_TTYG_LABEL]: 'Parlez à votre graphe',
+      [SUBMENU_SIMILARITY_LABEL]: 'Similarité',
+      [VIEW_AUTOCOMPLETE_TITLE]: 'Index Autocomplete',
+      [VIEW_CONNECTOR_MANAGEMENT_TITLE]: 'Gestion des connecteurs',
+      [VIEW_SPARQL_EDITOR_TITLE]: 'Requête et mise à jour SPARQL',
+      [VIEW_CLASS_HIERARCHY_TITLE]: 'Hiérarchie de classe',
+      [VIEW_CLASS_RELATIONSHIPS_TITLE]: 'Relations de classe',
+      [HELP_INFO_REPOSITORIES]: 'La vue Dépôts est utilisée pour créer, modifier et supprimer des dépôts et des connexions à des instances GraphDB distantes (également appelées emplacements distants).',
+      [HELP_INFO_IMPORT]: 'La vue Importation vous permet d\'importer des données RDF dans un dépôt GraphDB. Importez des données à partir de fichiers locaux, de fichiers sur le serveur sur lequel GraphDB s\'exécute, d\'une URL distante, ou en collant les données RDF sous forme d\'extrait de texte. Chaque méthode d\'importation prend en charge différents formats de sérialisation.',
+      [HELP_INFO_AUTOCOMPLETE]: 'L\'index Autocomplete est utilisé pour la complétion automatique des IRIs dans l\'éditeur SPARQL et la page de ressources View. Utilisez cette vue pour activer ou désactiver l\'index et vérifier son état.',
+      [HELP_INFO_CONNECTOR_MANAGEMENT]: 'La vue Gestion des connecteurs est utilisée pour créer, gérer et inspecter les instances de connecteurs GraphDB.',
+      [HELP_INFO_VISUAL_GRAPH]: 'La vue Graphique visuel fournit un moyen de créer une représentation visuelle de parties du graphe RDF. La visualisation part d\'une seule ressource et des ressources qui lui sont connectées ou du résultat d\'une requête de graphique. Double-cliquez sur les ressources pour développer le graphique avec ses connexions.',
+      [HELP_INFO_SPARQL_EDITOR]: 'La vue Requête et mise à jour SPARQL est un éditeur unifié pour les requêtes et les mises à jour. Entrez n\'importe quelle requête ou mise à jour SPARQL et cliquez sur Exécuter pour l\'exécuter. La vue vous permet également d\'enregistrer des requêtes pour une récupération et une exécution futures dans l\'éditeur SPARQL.',
+      [HELP_INFO_CLASS_HIERARCHY]: 'La vue Hiérarchie de classe montre la hiérarchie des classes RDF par nombre d\'instances. Les cercles les plus grands sont les classes parentes et les cercles plus petits imbriqués sont leurs sous-classes. Passez la souris sur une classe donnée pour voir ses sous-classes ou faites un zoom sur un cercle imbriqué (classe RDF) pour une exploration plus approfondie.',
+      [HELP_INFO_CLASS_RELATIONSHIPS]: 'La vue Relations de classe montre les relations entre les classes RDF, où une relation est représentée par des liens entre les instances individuelles de deux classes. Chaque lien est une déclaration RDF où le sujet est une instance d\'une classe, l\'objet est une instance d\'une autre classe et le lien est le prédicat. En fonction du nombre de liens entre les instances de deux classes, le faisceau peut être plus ou moins épais et il prend la couleur de la classe ayant le plus de liens entrants. Les liens peuvent être dans les deux sens.',
+      [HELP_INFO_TTYG]: '&lt;b>Parlez à votre graphe&lt;/b> vous permet d’interagir avec votre base de données via une interface conversationnelle. Posez des questions en langage naturel sur les données et recevez des réponses générées grâce à la puissance combinée de GraphDB et des LLM. Cette fonctionnalité prend en charge plusieurs configurations d’agents et des discussions persistantes pour des conversations continues et contextuelles.',
+      [HELP_INFO_SIMILARITY]: 'L\'indice de similarité est utilisé pour trouver des mots qui ont été utilisés dans des contextes similaires à celui que vous recherchez. Par exemple, la recherche de "ontology" renverra à "knowledge graph", tandis qu\'une simple similarité textuelle renverra à "oncology". Il s\'agit d\'une alternative à la recherche en texte intégral.',
+      [HELP_INFO_RDF_RANK]: 'RDF Rank est un algorithme qui identifie les entités les plus importantes ou les plus populaires dans le dépôt en examinant leur interconnexion. La popularité des entités peut alors être utilisée pour ordonner les résultats des requêtes. Utilisez cette vue pour configurer le RDF Rank, le recalculer ou vérifier l\'état actuel.',
+      [INTRO_CREATE_REPOSITORY]: 'Les étapes suivantes montrent comment utiliser la vue &lt;b>{{viewName}}&lt;/b> pour créer un dépôt.',
+      [INTRO_ENABLE_AUTOCOMPLETE]: 'Les étapes suivantes montrent comment utiliser la vue &lt;b>{{viewName}}&lt;/b> pour activer l\'index de saisie semi-automatique.',
+      [INTRO_EXECUTE_SPARQL_QUERY]: 'Les étapes suivantes montrent comment utiliser la vue &lt;b>{{viewName}}&lt;/b> pour exécuter des requêtes.',
+      [INTRO_VISUAL_GRAPH]: 'Les étapes suivantes montrent comment utiliser la vue &lt;b>{{viewName}}&lt;/b> pour explorer les données de manière visuelle.',
+      [INTRO_IMPORT_FILE]: 'Les étapes suivantes montrent comment utiliser la vue &lt;b>{{viewName}}&lt;/b> pour importer des données depuis un fichier.',
+      [INTRO_CLASS_HIERARCHY]: 'Les étapes suivantes montrent comment utiliser la vue &lt;b>{{viewName}}&lt;/b> pour inspecter la hiérarchie des classes et avoir un aperçu du contenu de l\'ensemble de données .',
+      [INTRO_CREATE_TTYG_AGENT]: 'Les étapes suivantes montrent comment utiliser la vue &lt;b>{{viewName}}&lt;/b> pour créer un agent.',
+      [INTRO_CREATE_SIMILARITY_INDEX]: 'Les étapes suivantes montrent comment créer un index de similarité pour votre ensemble de données.',
+      [INTRO_CLASS_RELATIONSHIPS]: 'Les étapes suivantes montrent comment utiliser la vue &lt;b>{{viewName}}&lt;/b> pour explorer comment les classes sont connectées et comprendre les relations entre différents types de données dans votre jeu de données.'
+    }
   }
 };
 

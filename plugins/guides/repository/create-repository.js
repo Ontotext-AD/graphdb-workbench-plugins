@@ -1,3 +1,5 @@
+const REPOSITORIES_CREATE_DEFAULT_TITLE = 'guide.step-action.create-repository';
+
 /**
  * @name create-repository
  * @memberof module:Interactive Guide
@@ -40,8 +42,10 @@
  */
 const step = {
   guideBlockName: 'create-repository',
-  getSteps: (options) => {
+  getSteps: function(options, pluginService) {
+    const translate = pluginService.translate;
     options.mainAction = 'create-repository';
+    options.title = options.title ?? translate(this.translationBundle, REPOSITORIES_CREATE_DEFAULT_TITLE);
 
     const steps = [
       {
@@ -67,6 +71,14 @@ const step = {
     steps.push({guideBlockName: 'repositories-save', options: {...options}});
 
     return steps;
+  },
+  translationBundle: {
+    en: {
+      [REPOSITORIES_CREATE_DEFAULT_TITLE]: 'Create repository'
+    },
+    fr: {
+      [REPOSITORIES_CREATE_DEFAULT_TITLE]: 'Créer un dépôt'
+    }
   }
 };
 
