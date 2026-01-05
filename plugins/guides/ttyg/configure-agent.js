@@ -105,6 +105,12 @@ const step = {
       });
     }
 
+    if (hasModelName) {
+      steps.push({
+        guideBlockName: 'configure-agent-type-model-name', options: {...options}
+      });
+    }
+
     if (shouldConfigureTemperature) {
       steps.push({
         guideBlockName: 'configure-temperature',
@@ -116,12 +122,6 @@ const step = {
       steps.push({
         guideBlockName: 'configure-top-p',
         options: {...options}
-      });
-    }
-
-    if (hasModelName) {
-      steps.push({
-        guideBlockName: 'configure-agent-type-model-name', options: {...options}
       });
     }
 
