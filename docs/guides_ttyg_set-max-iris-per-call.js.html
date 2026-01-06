@@ -1,0 +1,179 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> guides/ttyg/set-max-iris-per-call.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">GraphDB Workbench Plugins</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-Interactive%2520Guide.html">Interactive Guide</a></li></ul><h3>Classes</h3><ul><li><a href="PluginServiceInterface.html">PluginServiceInterface</a></li></ul><h3>Global</h3><ul><li><a href="global.html#COMMON_DOM_EVENTS">COMMON_DOM_EVENTS</a></li><li><a href="global.html#_configureInteractions">_configureInteractions</a></li><li><a href="global.html#allowAll">allowAll</a></li><li><a href="global.html#allowEvents">allowEvents</a></li><li><a href="global.html#beforeShowPromise">beforeShowPromise</a></li><li><a href="global.html#preventDefault">preventDefault</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>guides/ttyg/set-max-iris-per-call.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const TTYG_DEFAULT_TITLE = 'menu.ttyg.label';
+const SET_MAX_IRIS_PER_CALL = 'guide.step_plugin.ttyg.set-max-iris-per-call';
+
+/**
+ * @name set-max-iris-per-call
+ * @memberof module:Interactive Guide
+ *
+ * @description
+ * This step guides the user to set the maximum number of IRIs to retrieve per call in the TTYG agent configuration.
+ * It highlights the input field and provides instructions on how to proceed.
+ *
+ * Set maximum IRIs per call&lt;br>
+ * &lt;img src="resources/guides/ttyg/set-max-iris-per-call.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
+ *
+ * This step can be configured using the common options defined in [Options](#.Options). Additionally, it supports:
+ *
+ * @property {number} options.maxIrisPerCall - The maximum number of IRIs per call. This will be displayed in the instructions and used for validation.
+ *
+ * @example
+ * ```JSON
+ * {
+ *  "guideBlockName": "set-max-iris-per-call",
+ *  "options": {
+ *    "maxIrisPerCall": 20
+ *  }
+ * }
+ * ```
+ */
+const step = {
+  guideBlockName: 'set-max-iris-per-call',
+  getSteps: function(options, pluginService) {
+    const GuideUtils = pluginService.GuideUtils;
+    const translate = pluginService.translate;
+    const maxIrisPerCall = options.maxIrisPerCall ?? 10;
+    const maxIrisInputSelector = GuideUtils.getGuideElementSelector('autocomplete-max-iris-input');
+
+    return {
+      guideBlockName: 'input-element',
+      options: {
+        content: translate(this.translationBundle, SET_MAX_IRIS_PER_CALL, {maxIrisPerCall}),
+        ...(options.title ?? {title: translate(this.translationBundle, TTYG_DEFAULT_TITLE)}),
+        class: 'set-max-iris-per-call',
+        ...options,
+        url: 'ttyg',
+        elementSelector: maxIrisInputSelector,
+        onNextValidate: () => {
+          return Promise.resolve(GuideUtils.validateTextInput(maxIrisInputSelector, maxIrisPerCall, false));
+        }
+      }
+    };
+  },
+  translationBundle: {
+    en: {
+      [TTYG_DEFAULT_TITLE]: 'Talk to Your Graph',
+      [SET_MAX_IRIS_PER_CALL]: 'Set the &lt;b>Max number of results (IRIs) per call&lt;/b> to &lt;b>{{maxIrisPerCall}}&lt;/b>.&lt;br>This setting limits how many candidate IRIs the agent retrieves in a single autocomplete call when trying to resolve partial names. Keeping this value at a reasonable level helps control the amount of data returned so that the agent sees a manageable set of possible matches without overwhelming the query context.'
+    },
+    fr: {
+      [TTYG_DEFAULT_TITLE]: 'Parlez à votre graphe',
+      [SET_MAX_IRIS_PER_CALL]: 'Réglez le &lt;b>Nombre maximal de résultats (IRI) par appel&lt;/b> sur &lt;b>{{maxIrisPerCall}}&lt;/b>.&lt;br>Ce paramètre limite le nombre d\'IRI candidates que l\'agent récupère lors d\'un seul appel d\'autocomplétion lorsqu\'il tente de résoudre des noms partiels. Maintenir cette valeur à un niveau raisonnable aide à contrôler la quantité de données renvoyées afin que l\'agent voie un ensemble gérable de correspondances possibles sans submerger le contexte de la requête.'
+    }
+  }
+};
+
+export function register(registry) {
+  registry.add('guide.step', step);
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

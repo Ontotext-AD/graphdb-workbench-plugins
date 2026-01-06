@@ -4928,6 +4928,159 @@ It highlights the input field and provides instructions on how to proceed.</p>
             
                 <div class="member">
 
+<h4 class="name" id=".configure-autocomplete-iri-discovery">
+    <a class="href-link" href="#.configure-autocomplete-iri-discovery">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        configure-autocomplete-iri-discovery
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to enable or disable the autocomplete IRI discovery feature in the TTYG interface.
+It highlights the toggle element and provides instructions on how to proceed.</p>
+<p>Click on the toggle to enable/disable autocomplete for IRI discovery<br>
+<img src="resources/guides/ttyg/configure-autocomplete-iri-discovery.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.disable</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Set to true to guide the user to disable the IRI discovery search, or false to enable it.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_configure-autocomplete-iri-discovery.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_configure-autocomplete-iri-discovery.js.html">guides/ttyg/configure-autocomplete-iri-discovery.js</a>, <a href="guides_ttyg_configure-autocomplete-iri-discovery.js.html#line5">line 5</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "configure-autocomplete-iri-discovery",
+ "options": {
+   "disable": true // or false to enable
+ }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".configure-iri-discovery-search">
     <a class="href-link" href="#.configure-iri-discovery-search">#</a>
     
@@ -14459,6 +14612,149 @@ It includes steps to open the dropdown, select an agent, and handle missing repo
         <pre class="prettyprint"><code>```JSON
 {
  "guideBlockName": "select-ttyg-agent",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".set-max-iris-per-call">
+    <a class="href-link" href="#.set-max-iris-per-call">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        set-max-iris-per-call
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to set the maximum number of IRIs to retrieve per call in the TTYG agent configuration.
+It highlights the input field and provides instructions on how to proceed.</p>
+<p>Set maximum IRIs per call<br>
+<img src="resources/guides/ttyg/set-max-iris-per-call.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it supports:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.maxIrisPerCall</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The maximum number of IRIs per call. This will be displayed in the instructions and used for validation.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_set-max-iris-per-call.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_set-max-iris-per-call.js.html">guides/ttyg/set-max-iris-per-call.js</a>, <a href="guides_ttyg_set-max-iris-per-call.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "set-max-iris-per-call",
+ "options": {
+   "maxIrisPerCall": 20
+ }
 }
 ```</code></pre>
     
