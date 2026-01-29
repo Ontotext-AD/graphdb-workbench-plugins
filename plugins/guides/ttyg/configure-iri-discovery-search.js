@@ -42,6 +42,7 @@ const step = {
       content = translate(this.translationBundle, ENABLE_TOGGLE);
     }
 
+    const elementSelector = GuideUtils.getGuideElementSelector('iri-discovery-search');
     return {
       guideBlockName: 'toggle-element',
       options: {
@@ -50,12 +51,13 @@ const step = {
         ...(options.title ?? {title: translate(this.translationBundle, TTYG_DEFAULT_TITLE)}),
         ...options,
         url: 'ttyg',
-        elementSelector: GuideUtils.getGuideElementSelector('iri-discovery-search'),
+        elementSelector,
         toggleableElementSelector: toggleSelector,
         onNextValidate: () => {
           const isEnabled = GuideUtils.isChecked(toggleSelector);
           return Promise.resolve(shouldToggleOff ? !isEnabled : isEnabled);
-        }
+        },
+        scrollToHandler: () => GuideUtils.scrollIntoView(elementSelector, {block: 'center'})
       }
     };
   },
