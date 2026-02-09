@@ -34,7 +34,7 @@ const step = {
           content: translate(this.translationBundle, COMPUTE_FILL),
           elementSelector: computeRDFRankButtonSelector,
           ...(options.title ?? {title: translate(this.translationBundle, RDF_RANK_TITLE)}),
-          onNextClick: computeRDFRankButtonSelector,
+          onNextClick: GuideUtils.clickOnElement( computeRDFRankButtonSelector),
           ...options
         }
       }
