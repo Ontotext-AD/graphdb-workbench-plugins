@@ -36,9 +36,7 @@ const step = {
           disableNextFlow: true,
           ...options,
           url: 'similarity/index/create',
-          elementSelector: GuideUtils.getGuideElementSelector('create-similarity-index-btn'),
-          onNextClick: () => {
-          }
+          elementSelector: GuideUtils.getGuideElementSelector('create-similarity-index-btn')
         }
       }
     ];

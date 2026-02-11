@@ -1,6 +1,7 @@
 const DEFAULT_TITLE = 'guide.step-action.import-file';
 const CONTENT = 'guide.step_plugin.import_rdf_file.content';
 const UPLOAD_FILE_ERROR = 'guide.step_plugin.import_rdf_file.file-must-be-uploaded';
+const UNEXPECTED_FILE = 'guide.step_plugin.import_rdf_file.unexpected-file';
 
 /**
  * @name import-upload-rdf-file
@@ -26,7 +27,7 @@ const UPLOAD_FILE_ERROR = 'guide.step_plugin.import_rdf_file.file-must-be-upload
  */
 const step = {
   guideBlockName: 'import-upload-rdf-file',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
     const GuideUtils = services.GuideUtils;
     const toastr = services.toastr;
     const $translate = services.$translate;
@@ -66,6 +67,7 @@ const step = {
               } else {
                 // Canceling the automatic uploading of files
                 // because the guide rdf file is not selected.
+                GuideUtils.noNextErrorToast(toastr, $translate, $interpolate, translate(this.translationBundle, UNEXPECTED_FILE, {resourceFile: options.resourceFile}), options);
                 eventData.cancel = true;
               }
             }));
@@ -110,12 +112,14 @@ const step = {
     en: {
       [DEFAULT_TITLE]: 'Import file',
       [CONTENT]: 'Click on the <b>Upload RDF files</b> button and choose a file with the name <b>{{resourceFile}}</b>.',
-      [UPLOAD_FILE_ERROR]: 'Upload the file <b>{{resourceFile}}</b> first'
+      [UPLOAD_FILE_ERROR]: 'Upload the file <b>{{resourceFile}}</b> first',
+      [UNEXPECTED_FILE]: 'The uploaded file does not match the expected resource. Please upload <b>{{resourceFile}}</b>.'
     },
     fr: {
       [DEFAULT_TITLE]: 'Importer un fichier',
       [CONTENT]: 'Cliquez sur le bouton <b>Télécharger des fichiers RDF</b> et choisissez un fichier avec le nom <b>{{resourceFile}}</b>.',
-      [UPLOAD_FILE_ERROR]: 'Téléchargez d\'abord le fichier <b>{{resourceFile}}</b>'
+      [UPLOAD_FILE_ERROR]: 'Téléchargez d\'abord le fichier <b>{{resourceFile}}</b>',
+      [UNEXPECTED_FILE]: 'Le fichier importé ne correspond pas à la ressource attendue. Veuillez importer <b>{{resourceFile}}</b>.'
     }
   }
 };

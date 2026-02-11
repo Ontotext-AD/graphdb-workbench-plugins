@@ -21,7 +21,7 @@ const CONTENT = 'guide.step_plugin.import_rdf_file.confirm_duplicate_files_dialo
  */
 const step = {
   guideBlockName: 'import-confirm-duplicate-files',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
     const GuideUtils = services.GuideUtils;
     const translate = services.translate;
     return [
