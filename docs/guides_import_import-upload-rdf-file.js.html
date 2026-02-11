@@ -92,6 +92,7 @@
             <pre class="prettyprint source linenums"><code>const DEFAULT_TITLE = 'guide.step-action.import-file';
 const CONTENT = 'guide.step_plugin.import_rdf_file.content';
 const UPLOAD_FILE_ERROR = 'guide.step_plugin.import_rdf_file.file-must-be-uploaded';
+const UNEXPECTED_FILE = 'guide.step_plugin.import_rdf_file.unexpected-file';
 
 /**
  * @name import-upload-rdf-file
@@ -117,7 +118,7 @@ const UPLOAD_FILE_ERROR = 'guide.step_plugin.import_rdf_file.file-must-be-upload
  */
 const step = {
   guideBlockName: 'import-upload-rdf-file',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
     const GuideUtils = services.GuideUtils;
     const toastr = services.toastr;
     const $translate = services.$translate;
@@ -157,6 +158,7 @@ const step = {
               } else {
                 // Canceling the automatic uploading of files
                 // because the guide rdf file is not selected.
+                GuideUtils.noNextErrorToast(toastr, $translate, $interpolate, translate(this.translationBundle, UNEXPECTED_FILE, {resourceFile: options.resourceFile}), options);
                 eventData.cancel = true;
               }
             }));
@@ -201,12 +203,14 @@ const step = {
     en: {
       [DEFAULT_TITLE]: 'Import file',
       [CONTENT]: 'Click on the &lt;b>Upload RDF files&lt;/b> button and choose a file with the name &lt;b>{{resourceFile}}&lt;/b>.',
-      [UPLOAD_FILE_ERROR]: 'Upload the file &lt;b>{{resourceFile}}&lt;/b> first'
+      [UPLOAD_FILE_ERROR]: 'Upload the file &lt;b>{{resourceFile}}&lt;/b> first',
+      [UNEXPECTED_FILE]: 'The uploaded file does not match the expected resource. Please upload &lt;b>{{resourceFile}}&lt;/b>.'
     },
     fr: {
       [DEFAULT_TITLE]: 'Importer un fichier',
       [CONTENT]: 'Cliquez sur le bouton &lt;b>Télécharger des fichiers RDF&lt;/b> et choisissez un fichier avec le nom &lt;b>{{resourceFile}}&lt;/b>.',
-      [UPLOAD_FILE_ERROR]: 'Téléchargez d\'abord le fichier &lt;b>{{resourceFile}}&lt;/b>'
+      [UPLOAD_FILE_ERROR]: 'Téléchargez d\'abord le fichier &lt;b>{{resourceFile}}&lt;/b>',
+      [UNEXPECTED_FILE]: 'Le fichier importé ne correspond pas à la ressource attendue. Veuillez importer &lt;b>{{resourceFile}}&lt;/b>.'
     }
   }
 };

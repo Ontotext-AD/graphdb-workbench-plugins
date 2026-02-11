@@ -319,21 +319,27 @@ const step = {
     }
 
     const menuLabel = translate(this.translationBundle, menuTitle);
+    const elementSelector = GuideUtils.getGuideElementSelector(menuSelector);
     // Main menu element
     steps.push({
       guideBlockName: 'clickable-element',
       options: {
         content: translate(this.translationBundle, CLICK_MAIN_MENU, {menuLabel}),
         class: menuDialogClass,
-        elementSelector: GuideUtils.getGuideElementSelector(menuSelector),
-        showOn: () => {
-          // If submenu is visible this mean that we have to close menu.
+        elementSelector,
+        beforeShowPromise: () => {
           if (!!submenuSelector &amp;&amp; GuideUtils.isGuideElementVisible(submenuSelector)) {
-            GuideUtils.clickOnGuideElement(menuSelector, mainMenuClickElementPostSelector)();
+            return new Promise((resolve) => {
+              GuideUtils.clickOnGuideElement(menuSelector, mainMenuClickElementPostSelector)();
+              // Needed to wait the layout to complete, before painting, thus avoiding ResizeObserver loop error
+              setTimeout(resolve, 500);
+            });
           }
-          return true;
+          return Promise.resolve();
         },
+
         onNextClick: GuideUtils.clickOnGuideElement(menuSelector, mainMenuClickElementPostSelector),
+        scrollToHandler: () => GuideUtils.scrollIntoView(elementSelector, {block: 'center'}),
         initPreviousStep: (services, stepId) => {
           const previousStep = services.ShepherdService.getPreviousStepFromHistory(stepId);
           if (previousStep) {
@@ -348,15 +354,17 @@ const step = {
 
     const submenuLabel = translate(this.translationBundle, submenuTitle);
     if (submenuSelector) {
+      const elementSubmenuSelector = GuideUtils.getGuideElementSelector(submenuSelector);
       steps.push({
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, CLICK_MAIN_MENU, {menuLabel: submenuLabel}),
           class: submenuDialogClass,
-          elementSelector: GuideUtils.getGuideElementSelector(submenuSelector),
+          elementSelector: elementSubmenuSelector,
           placement: 'right',
           canBePaused: false,
           onNextClick: GuideUtils.clickOnGuideElement(submenuSelector, ' a'),
+          scrollToHandler: () => GuideUtils.scrollIntoView(elementSubmenuSelector, {block: 'center'}),
           initPreviousStep: (services, stepId) => {
             const previousStep = services.ShepherdService.getPreviousStepFromHistory(stepId);
             if (previousStep) {

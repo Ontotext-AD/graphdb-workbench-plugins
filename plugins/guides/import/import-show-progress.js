@@ -25,7 +25,7 @@ const CONTENT = 'guide.step_plugin.import_status_info.content';
  */
 const step = {
   guideBlockName: 'import-show-progress',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
     const GuideUtils = services.GuideUtils;
     const translate = services.translate;
     return [

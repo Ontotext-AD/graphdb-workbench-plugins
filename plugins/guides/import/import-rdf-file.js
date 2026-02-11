@@ -38,7 +38,7 @@ const DEFAULT_TITLE = 'guide.step-action.import-file';
  */
 const step = {
   guideBlockName: 'import-rdf-file',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
     const translate = services.translate;
     options.mainAction = 'import-file';
     const title = options.title ? options.title : translate(step.translationBundle, DEFAULT_TITLE);

@@ -171,7 +171,7 @@ const step = {
     queries[-1] = 'PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nselect * where { \n\t?s ?p ?o .\n?o rdf:type ""\n} limit 100 ';
 
     let overwriteQuery = false;
-    options.queries.forEach((queryDef, index) => {
+    (options.queries ?? []).forEach((queryDef, index) => {
       const query = queryDef.query;
       queries[index] = query;
 

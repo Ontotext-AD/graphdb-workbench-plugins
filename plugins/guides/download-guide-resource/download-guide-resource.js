@@ -32,7 +32,7 @@ const step = {
   guideBlockName: 'download-guide-resource',
   getSteps: function(options, services) {
     const translate = services.translate;
-    const downloadButtonClass = `guide-${options.repositoryId}-download-resource-link`;
+    const downloadButtonClass = options.repositoryId ? `guide-${options.repositoryId}-download-resource-link` : 'guide-download-resource-link';
     const downloadResourceListener = Utils.createDownloadClickHandler(options.resourcePath, options.resourceFile, services);
     let stepHTMLElement;
     return {

@@ -144,8 +144,7 @@ export const createDownloadClickHandler = (resourcePath, resourceFile, services)
 export const createCopyToEditorListener = (YasguiComponentDirectiveUtil, sparqlDirectiveSelector, query) => {
   return (event) => {
     event.preventDefault();
-    YasguiComponentDirectiveUtil.setQuery(sparqlDirectiveSelector, query).then(() => {
-    });
+    YasguiComponentDirectiveUtil.setQuery(sparqlDirectiveSelector, query);
   };
 };
 

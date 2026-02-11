@@ -22,7 +22,7 @@ const UNEXPECTED_ERROR = 'guide.unexpected.error.message';
  */
 const step = {
   guideBlockName: 'import-click-on-import-button',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
     const GuideUtils = services.GuideUtils;
     const translate = services.translate;
     const importSettingsButtonSelector = GuideUtils.getGuideElementSelector('import-settings-import-button');
