@@ -120,11 +120,13 @@ const step = {
    * - &lt;b>instanceName&lt;/b>: string (required) – the specific instance name of the Lucene connector.
    */
   getSteps: function(options, pluginService) {
+    const GuideUtils = pluginService.GuideUtils;
     const translate = pluginService.translate;
     return [{
       guideBlockName: 'connectors-parameter-intro',
       options: {
         content: translate(this.translationBundle, FIELD_INTRO_CONTENT),
+        scrollOffset: GuideUtils.SCROLL_OFFSET.CENTER,
         ...(options.title ?? {title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE)}),
         ...options,
         class: 'connectors-lucene-fields-intro',
