@@ -1,6 +1,6 @@
 import * as Utils from '../utils.js';
 
-const REPOSITORIES_CREATE_DEFAULT_TITLE = 'guide.step-action.create-repository';
+const REPOSITORIES_SELECT_REPOSITORY_DEFAULT_TITLE = 'guide.step-action.select-repository';
 const CHOOSE_REPOSITORY = 'guide.step_plugin.choose-repository.content';
 const SELECT_REPOSITORY = 'guide.step_plugin.select-repository.content';
 const SKIP_SECTION = 'skip-section';
@@ -37,6 +37,8 @@ const step = {
     options.mainAction = 'select-repository';
     let repositorySelectorElement;
     let mouseUpHandler;
+
+    options.title = options.title ?? translate(this.translationBundle, REPOSITORIES_SELECT_REPOSITORY_DEFAULT_TITLE);
 
     return [{
       guideBlockName: 'clickable-element',
@@ -90,22 +92,22 @@ const step = {
             repositorySelectorElement.removeEventListener('click', mouseUpHandler);
           }
         },
-        canBePaused: false
-      },
-      ...options
+        canBePaused: false,
+        ...options
+      }
     }
     ];
   },
   translationBundle: {
     en: {
-      [REPOSITORIES_CREATE_DEFAULT_TITLE]: 'Create repository',
+      [REPOSITORIES_SELECT_REPOSITORY_DEFAULT_TITLE]: 'Connect to repository',
       [CHOOSE_REPOSITORY]: 'Click on the repository selection dropdown.',
       [SELECT_REPOSITORY]: 'Click on the <b>{{repositoryId}}</b> repository button.',
       [SKIP_SECTION]: 'Skip section',
       [UNEXPECTED_ERROR_MESSAGE]: 'The guide was cancelled due to an unexpected error. Please run the guide again and if the problem persists contact the support.'
     },
     fr: {
-      [REPOSITORIES_CREATE_DEFAULT_TITLE]: 'Créer un dépôt',
+      [REPOSITORIES_SELECT_REPOSITORY_DEFAULT_TITLE]: 'Se connecter au dépôt',
       [CHOOSE_REPOSITORY]: 'Cliquez sur la liste déroulante de sélection du dépôt.',
       [SELECT_REPOSITORY]: 'Cliquez sur le bouton de dépôt <b>{{repositoryId}}</b>.',
       [SKIP_SECTION]: 'Sauter la section',

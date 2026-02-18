@@ -22,7 +22,8 @@ const VISUAL_GRAPH_INTRO_CONTENT = 'guide.step_plugin.visual_graph_intro.content
  * {
  *   "guideBlockName": "visual-graph-intro",
  *   "options": {
- *     "iri": "Wine"
+ *     "iri": "http://example.com/my-start-node"
+ *     "iriLabel": "My start node"
  *   }
  * }
  * ```
@@ -36,7 +37,7 @@ const step = {
       {
         guideBlockName: 'read-only-element',
         options: {
-          content: translate(this.translationBundle, VISUAL_GRAPH_INTRO_CONTENT, {iriLabel: options.iri}),
+          content: translate(this.translationBundle, VISUAL_GRAPH_INTRO_CONTENT, {iriLabel: options.iriLabel}),
           ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_INTRO_DEFAULT_TITLE)}),
           url: 'graphs-visualizations',
           elementSelector: '.graph-visualization',

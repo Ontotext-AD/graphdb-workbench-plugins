@@ -1,3 +1,5 @@
+const VISUAL_GRAPH_EXPLORE_TITLE = 'guide.step-action.visual-graph';
+
 /**
  * @name visual-graph
  * @memberof module:Interactive Guide
@@ -44,7 +46,11 @@ const step = {
   getSteps: function(options, services) {
     const GuideUtils = services.GuideUtils;
     const RoutingUtil = services.RoutingUtil;
+    const translate = services.translate;
     options.mainAction = 'visual-graph';
+
+    options.title = options.title ?? translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE);
+
     return [
       {
         guideBlockName: 'click-main-menu',
@@ -85,6 +91,14 @@ const step = {
         }
       }
     ];
+  },
+  translationBundle: {
+    en: {
+      [VISUAL_GRAPH_EXPLORE_TITLE]: 'Visual graph explore'
+    },
+    fr: {
+      [VISUAL_GRAPH_EXPLORE_TITLE]: 'Explorer le graphique visuel'
+    }
   }
 };
 

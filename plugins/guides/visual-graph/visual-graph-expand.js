@@ -22,6 +22,7 @@ const VISUAL_GRAPH_EXPAND_CONTENT = 'guide.step_plugin.visual-graph-expand.conte
  *   "guideBlockName": "visual-graph-expand",
  *   "options": {
  *     "iri": "http://example.org/resource",
+ *     "iriLabel": "my resource"
  *   }
  * }
  * ```
@@ -50,7 +51,7 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           title: translate(this.translationBundle, VISUAL_GRAPH_EXPAND_TITLE),
-          content: translate(this.translationBundle, VISUAL_GRAPH_EXPAND_CONTENT, {iriLabel: options.iri}),
+          content: translate(this.translationBundle, VISUAL_GRAPH_EXPAND_CONTENT, {iriLabel: options.iriLabel}),
           url: 'graphs-visualizations',
           canBePaused: false,
           class: 'visual-graph-expand-node',

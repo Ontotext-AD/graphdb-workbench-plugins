@@ -17,6 +17,22 @@ const VISUAL_GRAPH_LINK_FOCUS_CONTENT = 'guide.step_plugin.visual-graph-link-foc
  * @property {string} [options.fromIri] - The source IRI.
  * @property {string} [options.toIri] - The target IRI.
  * @property {string} [options.iriLabel] - Label for predicate.
+ * @property {string} [options.fromIriLabel] - Label for source node.
+ * @property {string} [options.toIriLabel] - Label for target node.
+ *
+ * @example
+ * ```json
+ * {
+ *   "guideBlockName": "visual-graph-link-focus",
+ *   "options": {
+ *     "fromIri": "http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine",
+ *     "fromIriLabel": "Wine",
+ *     "toIri": "http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#PotableLiquid",
+ *     "toIriLabel": "Potable Liquid",
+ *     "iriLabel": "type"
+ *   }
+ * }
+ *
  */
 const step = {
   guideBlockName: 'visual-graph-link-focus',
@@ -31,9 +47,9 @@ const step = {
         options: {
           ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_LINK_FOCUS_TITLE)}),
           content: translate(this.translationBundle, VISUAL_GRAPH_LINK_FOCUS_CONTENT, {
-            fromIriLabel: options.fromIri,
+            fromIriLabel: options.fromIriLabel,
             iriLabel: options.iriLabel,
-            toIriLabel: options.toIri
+            toIriLabel: options.toIriLabel
           }),
           url: 'graphs-visualizations',
           canBePaused: false,

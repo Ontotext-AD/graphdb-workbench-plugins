@@ -13,6 +13,7 @@ const CLICK_ON_IRI = 'guide.step_plugin.sparql-results-click-on-iri.content';
  *
  * This step can be configured using the common options defined in [Options](#.Options). Additionally, it requires:
  * @property {string} iri - The IRI to click on.
+ * @property {string} iriLabel - The label to display for the IRI.
  *
  * @example
  * ```JSON
@@ -20,6 +21,7 @@ const CLICK_ON_IRI = 'guide.step_plugin.sparql-results-click-on-iri.content';
  *  "guideBlockName": "sparql-results-click-on-iri",
  *  "options": {
  *    "iri": "http://example.org/resource/Item1"
+ *    "iriLabel": "Item1"
  *   }
  * }
  * ```
@@ -33,7 +35,7 @@ const step = {
       {
         guideBlockName: 'clickable-element',
         options: {
-          content: translate(this.translationBundle, CLICK_ON_IRI, {iriLabel: options.iri}),
+          content: translate(this.translationBundle, CLICK_ON_IRI, {iriLabel: options.iriLabel}),
           placement: 'top',
           ...(options.title ?? {title: translate(this.translationBundle, SPARQL_EDITOR_TITLE)}),
           ...options,

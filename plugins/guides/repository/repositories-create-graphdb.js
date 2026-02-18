@@ -44,7 +44,7 @@ const step = {
   translationBundle: {
     en: {
       [REPOSITORIES_CREATE_DEFAULT_TITLE]: 'Create repository',
-      [GRAPHDB_REPOSITORY_CONTENT]: 'Click on the <b>GraphDB repository</b> button.'
+      [GRAPHDB_REPOSITORY_CONTENT]: 'Click on the <b>GraphDB Repository</b> button.'
     },
     fr: {
       [REPOSITORIES_CREATE_DEFAULT_TITLE]: 'Créer un dépôt',
