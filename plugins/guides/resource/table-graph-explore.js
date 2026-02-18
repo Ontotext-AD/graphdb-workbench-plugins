@@ -7,6 +7,7 @@ const TABLE_GRAPH_ROLE_OBJECT_CONTENT = 'guide.step_plugin.table-graph-role.obje
 const TABLE_GRAPH_ROLE_CONTEXT_CONTENT = 'guide.step_plugin.table-graph-role.context.content';
 const TABLE_GRAPH_ROLE_ALL_CONTENT = 'guide.step_plugin.table-graph-role.all.content';
 const TABLE_GRAPH_VISUAL = 'guide.step_plugin.table-graph-visual';
+const TABLE_GRAPH_TITLE = 'guide.step_plugin.table-graph-title';
 
 /**
  * @name table-graph-explore
@@ -62,6 +63,8 @@ const step = {
     const translate = services.translate;
     options.mainAction = 'table-graph';
 
+    options.title = options.title ?? translate(this.translationBundle, TABLE_GRAPH_TITLE);
+
     const steps = [
       {
         guideBlockName: 'sparql-results-click-on-iri',
@@ -102,7 +105,7 @@ const step = {
       }
     ];
 
-    if (angular.isArray(options.subSteps)) {
+    if (Array.isArray(options.subSteps)) {
       options.subSteps.forEach((subStep) => {
         switch (subStep.type) {
         case 'link':
@@ -242,7 +245,8 @@ const step = {
       [TABLE_GRAPH_ROLE_OBJECT_CONTENT]: 'You can configure the view to show RDF statements where the current IRI is the <i>subject</i>, <i>predicate</i>, <i>object</i>, <i>context</i> or in any position. Click on the <b>object</b> tab.',
       [TABLE_GRAPH_ROLE_CONTEXT_CONTENT]: 'You can configure the view to show RDF statements where the current IRI is the <i>subject</i>, <i>predicate</i>, <i>object</i>, <i>context</i> or in any position. Click on the <b>context</b> tab.',
       [TABLE_GRAPH_ROLE_ALL_CONTENT]: 'You can configure the view to show RDF statements where the current IRI is the <i>subject</i>, <i>predicate</i>, <i>object</i>, <i>context</i> or in any position. Click on the <b>all</b> tab.',
-      [TABLE_GRAPH_VISUAL]: 'You can always explore the same data using the <b>Visual graph</b> view. Click on the Visual graph button to try it now.'
+      [TABLE_GRAPH_VISUAL]: 'You can always explore the same data using the <b>Visual graph</b> view. Click on the Visual graph button to try it now.',
+      [TABLE_GRAPH_TITLE]: 'Explore RDF as a table'
     },
     fr: {
       [TABLE_GRAPH_INTRO]: 'Les étapes suivantes montrent comment explorer les données RDF sous forme de tableau sans écrire de requêtes SPARQL. Cliquez sur l\'IRI <b>{{iriLabel}}</b> pour l\'explorer.',
@@ -253,7 +257,8 @@ const step = {
       [TABLE_GRAPH_ROLE_OBJECT_CONTENT]: 'Vous pouvez configurer la vue pour afficher les déclarations RDF où l\'IRI actuel est l\'<i>objet</i>, le <i>sujet</i>, le <i>prédicat</i>, le <i>contexte</i> ou dans n\'importe quelle position. Cliquez sur l\'onglet <b>objet</b>.',
       [TABLE_GRAPH_ROLE_CONTEXT_CONTENT]: 'Vous pouvez configurer la vue pour afficher les déclarations RDF où l\'IRI actuel est le <i>contexte</i>, le <i>sujet</i>, le <i>prédicat</i>, l\'<i>objet</i> ou dans n\'importe quelle position. Cliquez sur l\'onglet <b>contexte</b>.',
       [TABLE_GRAPH_ROLE_ALL_CONTENT]: 'Vous pouvez configurer la vue pour afficher les déclarations RDF où l\'IRI actuel est le <i>sujet</i>, le <i>prédicat</i>, l\'<i>objet</i>, le <i>contexte</i> ou dans n\'importe quelle position. Cliquez sur l\'onglet <b>tous</b>.',
-      [TABLE_GRAPH_VISUAL]: 'Vous pouvez toujours explorer les mêmes données en utilisant la vue <b>Graphique visuel</b>. Cliquez sur le Graphique visuel pour l\'essayer maintenant.'
+      [TABLE_GRAPH_VISUAL]: 'Vous pouvez toujours explorer les mêmes données en utilisant la vue <b>Graphique visuel</b>. Cliquez sur le Graphique visuel pour l\'essayer maintenant.',
+      [TABLE_GRAPH_TITLE]: 'Explorer RDF sous forme de tableau'
     }
   }
 };

@@ -1,3 +1,5 @@
+const SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE = 'guide.step-action.similarity-search-method';
+
 /**
  * @name similarity-search-method
  * @memberof module:Interactive Guide
@@ -35,8 +37,10 @@
  */
 const step = {
   guideBlockName: 'similarity-search-method',
-  getSteps: (options, _services) => {
+  getSteps: function(options, services) {
     options.mainAction = 'similarity-search-method';
+    const translate = services.translate;
+    options.title = options.title ?? translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE);
 
     const shouldToggleOff = options.disable;
 
@@ -57,6 +61,14 @@ const step = {
         guideBlockName: 'ttyg-similarity-select-index', options: {...options}
       }
     ];
+  },
+  translationBundle: {
+    en: {
+      [SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE]: 'Similarity search query method'
+    },
+    fr: {
+      [SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE]: 'Méthode de recherche par similarité'
+    }
   }
 };
 

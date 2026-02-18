@@ -73,10 +73,10 @@ const step = {
   },
   translationBundle: {
     en: {
-      [DEFAULT_TITLE]: 'Class relationships'
+      [DEFAULT_TITLE]: 'Explore the class relationships'
     },
     fr: {
-      [DEFAULT_TITLE]: 'Relations de classe'
+      [DEFAULT_TITLE]: 'Explorer les relations entre classes'
     }
   }
 };

@@ -108,7 +108,7 @@ pipeline {
                 // Optional Slack notification if enabled and channel is provided
                 if (params.NOTIFY_SLACK && params.SLACK_CHANNEL?.trim()) {
                     try {
-                        slack.notifyResult(channel: params.SLACK_CHANNEL, color:'good', message:"Released graphdb-workbench v${params.RELEASE_VERSION}")
+                        slack.notifyResult(channel: params.SLACK_CHANNEL, color:'good', message:"Released graphdb-workbench-plugins v${params.RELEASE_VERSION}")
                     } catch (e) {
                         echo "Slack notification failed: ${e.getMessage()}"
                     }

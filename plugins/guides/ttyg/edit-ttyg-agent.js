@@ -1,3 +1,5 @@
+const TTYG_EDIT_TITLE = 'menu.ttyg.edit.label';
+
 /**
  * @name edit-ttyg-agent
  * @memberof module:Interactive Guide
@@ -34,10 +36,12 @@
  */
 const step = {
   guideBlockName: 'edit-ttyg-agent',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
+    const translate = services.translate;
     const GuideUtils = services.GuideUtils;
     const RoutingUtil = services.RoutingUtil;
     options.mainAction = 'edit-ttyg-agent';
+    options.title = options.title ?? translate(this.translationBundle, TTYG_EDIT_TITLE);
 
     return [
       {
@@ -100,6 +104,14 @@ const step = {
         ...options
       }
     ];
+  },
+  translationBundle: {
+    en: {
+      [TTYG_EDIT_TITLE]: 'Edit an agent'
+    },
+    fr: {
+      [TTYG_EDIT_TITLE]: 'Modifier un agent'
+    }
   }
 };
 

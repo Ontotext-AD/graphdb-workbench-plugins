@@ -15,6 +15,18 @@ const VISUAL_GRAPH_NODE_FOCUS_CONTENT = 'guide.step_plugin.visual-graph-node-foc
  * Additionally, the following specific option is available:
  *
  * @property {string} [options.iri] - The IRI used in this step.
+ * @property {string} [options.iriLabel] - Label for predicate.
+ *
+ * @example
+ * ```json
+ * {
+ *   "guideBlockName": "visual-graph-node-focus",
+ *   "options": {
+ *     "iri": "http://example.org/resource",
+ *     "iriLabel": "my resource"
+ *   }
+ * }
+ * ```
  */
 const step = {
   guideBlockName: 'visual-graph-node-focus',
@@ -29,7 +41,7 @@ const step = {
         guideBlockName: 'read-only-element',
         options: {
           ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_NODE_FOCUS_DEFAULT_TITLE)}),
-          content: translate(this.translationBundle, VISUAL_GRAPH_NODE_FOCUS_CONTENT, {iriLabel: options.iri}),
+          content: translate(this.translationBundle, VISUAL_GRAPH_NODE_FOCUS_CONTENT, {iriLabel: options.iriLabel}),
           url: 'graphs-visualizations',
           canBePaused: false,
           elementSelector,
