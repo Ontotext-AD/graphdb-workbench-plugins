@@ -87,8 +87,9 @@ const step = {
                 // while the second scenario suggests
                 // that the guide has been started more than once.
                 if ('rejected' === confirmDialogPromise.status && 'rejected' === importButtonPromise.status) {
+                  const uploadFileError = translate(this.translationBundle, UPLOAD_FILE_ERROR, {resourceFile: options.resourceFile});
                   // TODO should be reworked with GDB-13089
-                  GuideUtils.noNextErrorToast(toastr, $translate, $interpolate, UPLOAD_FILE_ERROR, options);
+                  GuideUtils.noNextErrorToast(toastr, $translate, $interpolate, uploadFileError, options);
                   return false;
                 }
                 return true;

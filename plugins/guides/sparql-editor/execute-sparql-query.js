@@ -2,6 +2,7 @@ import * as Utils from '../utils.js';
 
 const QUERY_NOT_SAME_ERROR = 'guide.step_plugin.execute-sparql-query.query-not-same.error';
 const UNEXPECTED_ERROR = 'guide.unexpected.error.message';
+const SPARQL_EDITOR_TITLE = 'view.sparql-editor.title';
 
 /**
  * @name execute-sparql-query
@@ -63,6 +64,7 @@ const step = {
     const $interpolate = services.$interpolate;
     const RoutingUtil = services.RoutingUtil;
     options.mainAction = 'execute-sparql-query';
+    options.title = options.title ?? translate(this.translationBundle, SPARQL_EDITOR_TITLE);
 
     const steps = [
       {
@@ -175,9 +177,11 @@ const step = {
   },
   translationBundle: {
     en: {
+      [SPARQL_EDITOR_TITLE]: 'Execute SPARQL query',
       [UNEXPECTED_ERROR]: 'The guide was cancelled due to an unexpected error. Please run the guide again and if the problem persists contact the support.'
     },
     fr: {
+      [SPARQL_EDITOR_TITLE]: 'Exécuter une requête SPARQL',
       [UNEXPECTED_ERROR]: 'Le guide a été annulé en raison d\'une erreur inattendue. Veuillez exécuter à nouveau le guide et si le problème persiste, contactez le support.'
     }
   }

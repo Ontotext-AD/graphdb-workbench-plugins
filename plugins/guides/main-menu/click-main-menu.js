@@ -45,6 +45,16 @@ const INTRO_CREATE_TTYG_AGENT = 'guide.step-intro.create-ttyg-agent';
 const INTRO_CREATE_SIMILARITY_INDEX = 'guide.step-intro.create-similarity-index';
 const INTRO_CLASS_RELATIONSHIPS = 'guide.step-intro.class-relationships';
 
+const ACTION_CREATE_REPOSITORY = 'guide.step-action.create-repository';
+const ACTION_ENABLE_AUTOCOMPLETE = 'guide.step-action.enable-autocomplete';
+const ACTION_EXECUTE_SPARQL_QUERY = 'guide.step-action.execute-sparql-query';
+const ACTION_VISUAL_GRAPH = 'guide.step-action.visual-graph';
+const ACTION_IMPORT_FILE = 'guide.step-action.import-file';
+const ACTION_CREATE_TTYG_AGENT = 'guide.step-action.create-ttyg-agent';
+const ACTION_CREATE_SIMILARITY_INDEX = 'guide.step-action.create-similarity-index';
+const ACTION_CLASS_HIERARCHY = 'guide.step-action.class-hierarchy';
+const ACTION_CLASS_RELATIONSHIPS = 'guide.step-action.class-relationships';
+
 /**
  * @name click-main-menu
  * @memberof module:Interactive Guide
@@ -90,6 +100,7 @@ const step = {
     let submenuTitle;
     let viewName;
     let helpInfo;
+    let dialogTitle;
     let menuDialogClass = '';
     let submenuDialogClass = '';
 
@@ -103,15 +114,18 @@ const step = {
       submenuDialogClass = 'sub-menu-repositories';
       viewName = SUBMENU_REPOSITORIES_LABEL;
       helpInfo = HELP_INFO_REPOSITORIES;
+      dialogTitle = ACTION_CREATE_REPOSITORY;
       break;
+
     case 'import':
       menuSelector = 'menu-import';
       menuTitle = MENU_IMPORT_LABEL;
       menuDialogClass = 'menu-import';
       viewName = MENU_IMPORT_LABEL;
       helpInfo = HELP_INFO_IMPORT;
-
+      dialogTitle = ACTION_IMPORT_FILE;
       break;
+
     case 'autocomplete':
       menuSelector = 'menu-setup';
       menuTitle = MENU_SETUP_LABEL;
@@ -121,7 +135,7 @@ const step = {
       submenuDialogClass = 'sub-menu-autocomplete';
       viewName = VIEW_AUTOCOMPLETE_TITLE;
       helpInfo = HELP_INFO_AUTOCOMPLETE;
-
+      dialogTitle = ACTION_ENABLE_AUTOCOMPLETE;
       break;
 
     case 'connectors':
@@ -133,8 +147,8 @@ const step = {
       submenuDialogClass = 'sub-menu-connectors-guide-dialog';
       viewName = VIEW_CONNECTOR_MANAGEMENT_TITLE;
       helpInfo = HELP_INFO_CONNECTOR_MANAGEMENT;
-
       break;
+
     case 'visual-graph':
       menuSelector = 'menu-explore';
       menuTitle = MENU_EXPLORE_LABEL;
@@ -144,16 +158,18 @@ const step = {
       submenuDialogClass = 'sub-menu-visual-graph';
       viewName = SUBMENU_VISUAL_GRAPH_LABEL;
       helpInfo = HELP_INFO_VISUAL_GRAPH;
-
+      dialogTitle = ACTION_VISUAL_GRAPH;
       break;
+
     case 'sparql':
       menuSelector = 'menu-sparql';
       menuTitle = MENU_SPARQL_LABEL;
       menuDialogClass = 'menu-sparql';
       viewName = VIEW_SPARQL_EDITOR_TITLE;
       helpInfo = HELP_INFO_SPARQL_EDITOR;
-
+      dialogTitle = ACTION_EXECUTE_SPARQL_QUERY;
       break;
+
     case 'class-hierarchy':
       menuSelector = 'menu-explore';
       menuTitle = MENU_EXPLORE_LABEL;
@@ -163,7 +179,9 @@ const step = {
       submenuDialogClass = 'sub-menu-class-hierarchy';
       viewName = VIEW_CLASS_HIERARCHY_TITLE;
       helpInfo = HELP_INFO_CLASS_HIERARCHY;
+      dialogTitle = ACTION_CLASS_HIERARCHY;
       break;
+
     case 'class-relationships':
       menuSelector = 'menu-explore';
       menuTitle = MENU_EXPLORE_LABEL;
@@ -173,8 +191,9 @@ const step = {
       submenuDialogClass = 'sub-menu-class-relationships';
       viewName = VIEW_CLASS_RELATIONSHIPS_TITLE;
       helpInfo = HELP_INFO_CLASS_RELATIONSHIPS;
-
+      dialogTitle = ACTION_CLASS_RELATIONSHIPS;
       break;
+
     case 'ttyg':
       menuSelector = 'menu-lab';
       menuTitle = MENU_LAB_LABEL;
@@ -184,8 +203,9 @@ const step = {
       submenuDialogClass = 'sub-menu-ttyg';
       viewName = SUBMENU_TTYG_LABEL;
       helpInfo = HELP_INFO_TTYG;
-
+      dialogTitle = ACTION_CREATE_TTYG_AGENT;
       break;
+
     case 'similarity':
       menuSelector = 'menu-explore';
       menuTitle = MENU_EXPLORE_LABEL;
@@ -195,7 +215,9 @@ const step = {
       submenuDialogClass = 'sub-menu-similarity';
       viewName = SUBMENU_SIMILARITY_LABEL;
       helpInfo = HELP_INFO_SIMILARITY;
+      dialogTitle = ACTION_CREATE_SIMILARITY_INDEX;
       break;
+
     case 'rdf-rank':
       menuSelector = 'menu-setup';
       menuTitle = MENU_SETUP_LABEL;
@@ -210,6 +232,10 @@ const step = {
 
     const mainMenuClickElementPostSelector = submenuSelector ? ' div' : ' a';
     options.viewName = viewName;
+
+    if (!options.title && dialogTitle) {
+      options.title = translate(this.translationBundle, dialogTitle);
+    }
 
     viewName = translate(this.translationBundle, viewName);
     // View intro element
@@ -333,7 +359,16 @@ const step = {
       [INTRO_CLASS_HIERARCHY]: 'The following steps show how to use the <b>{{viewName}}</b> view to inspect the class hierarchy and gain an insight on what the dataset contains.',
       [INTRO_CREATE_TTYG_AGENT]: 'The following steps show how to use the <b>{{viewName}}</b> view to create an agent.',
       [INTRO_CREATE_SIMILARITY_INDEX]: 'The following steps show how to create a Similarity index for your dataset.',
-      [INTRO_CLASS_RELATIONSHIPS]: 'The following steps show how to use the <b>{{viewName}}</b> view to explore how classes are connected and understand the relationships between different types of data in your dataset.'
+      [INTRO_CLASS_RELATIONSHIPS]: 'The following steps show how to use the <b>{{viewName}}</b> view to explore how classes are connected and understand the relationships between different types of data in your dataset.',
+      [ACTION_CREATE_REPOSITORY]: 'Create repository',
+      [ACTION_ENABLE_AUTOCOMPLETE]: 'Enable autocomplete',
+      [ACTION_EXECUTE_SPARQL_QUERY]: 'Execute SPARQL query',
+      [ACTION_VISUAL_GRAPH]: 'Visual graph explore',
+      [ACTION_IMPORT_FILE]: 'Import file',
+      [ACTION_CREATE_TTYG_AGENT]: 'Create an agent',
+      [ACTION_CREATE_SIMILARITY_INDEX]: 'Create Similarity index',
+      [ACTION_CLASS_HIERARCHY]: 'Explore the class hierarchy',
+      [ACTION_CLASS_RELATIONSHIPS]: 'Explore the class relationships'
     },
     fr: {
       [RDF_RANK_TITLE]: 'Rang RDF',
@@ -376,7 +411,16 @@ const step = {
       [INTRO_CLASS_HIERARCHY]: 'Les étapes suivantes montrent comment utiliser la vue <b>{{viewName}}</b> pour inspecter la hiérarchie des classes et avoir un aperçu du contenu de l\'ensemble de données .',
       [INTRO_CREATE_TTYG_AGENT]: 'Les étapes suivantes montrent comment utiliser la vue <b>{{viewName}}</b> pour créer un agent.',
       [INTRO_CREATE_SIMILARITY_INDEX]: 'Les étapes suivantes montrent comment créer un index de similarité pour votre ensemble de données.',
-      [INTRO_CLASS_RELATIONSHIPS]: 'Les étapes suivantes montrent comment utiliser la vue <b>{{viewName}}</b> pour explorer comment les classes sont connectées et comprendre les relations entre différents types de données dans votre jeu de données.'
+      [INTRO_CLASS_RELATIONSHIPS]: 'Les étapes suivantes montrent comment utiliser la vue <b>{{viewName}}</b> pour explorer comment les classes sont connectées et comprendre les relations entre différents types de données dans votre jeu de données.',
+      [ACTION_CREATE_REPOSITORY]: 'Créer un dépôt',
+      [ACTION_ENABLE_AUTOCOMPLETE]: 'Activer la saisie semi-automatique',
+      [ACTION_EXECUTE_SPARQL_QUERY]: 'Exécuter une requête SPARQL',
+      [ACTION_VISUAL_GRAPH]: 'Explorer le graphique visuel',
+      [ACTION_IMPORT_FILE]: 'Importer un fichier',
+      [ACTION_CREATE_TTYG_AGENT]: 'Créer un agent',
+      [ACTION_CREATE_SIMILARITY_INDEX]: 'Créer un indice de similitude',
+      [ACTION_CLASS_HIERARCHY]: 'Explorer la hiérarchie des classes',
+      [ACTION_CLASS_RELATIONSHIPS]: 'Explorer les relations entre classes'
     }
   }
 };

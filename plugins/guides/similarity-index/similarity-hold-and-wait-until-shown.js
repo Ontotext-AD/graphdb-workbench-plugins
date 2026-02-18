@@ -1,4 +1,5 @@
 const WAIT_FOR_INDEX = 'guide.step_plugin.create-similarity-index.wait';
+const CREATE_SIMILARITY_INDEX_DEFAULT = 'guide.step-action.create-similarity-index';
 
 /**
  * @name similarity-hold-and-wait-until-shown
@@ -27,6 +28,7 @@ const step = {
       {
         guideBlockName: 'hold-and-wait-until-shown',
         options: {
+          title: options.title ?? translate(this.translationBundle, CREATE_SIMILARITY_INDEX_DEFAULT),
           content: translate(this.translationBundle, WAIT_FOR_INDEX),
           class: 'wait-for-index',
           ...options,
@@ -37,9 +39,11 @@ const step = {
   },
   translationBundle: {
     en: {
+      [CREATE_SIMILARITY_INDEX_DEFAULT]: 'Create Similarity index',
       [WAIT_FOR_INDEX]: 'Wait for index to be created'
     },
     fr: {
+      [CREATE_SIMILARITY_INDEX_DEFAULT]: 'Créer un indice de similitude',
       [WAIT_FOR_INDEX]: 'Attendre la création de l\'index'
     }
   }

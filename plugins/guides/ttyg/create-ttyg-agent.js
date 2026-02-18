@@ -1,3 +1,5 @@
+const TTYG_CREATE_TITLE = 'menu.ttyg.label';
+
 /**
  * @name create-ttyg-agent
  * @memberof module:Interactive Guide
@@ -36,9 +38,11 @@
  */
 const step = {
   guideBlockName: 'create-ttyg-agent',
-  getSteps: (options, services) => {
+  getSteps: function(options, services) {
+    const translate = services.translate;
     const GuideUtils = services.GuideUtils;
     options.mainAction = 'create-ttyg-agent';
+    options.title = options.title ?? translate(this.translationBundle, TTYG_CREATE_TITLE);
 
     return [
       {
@@ -84,6 +88,14 @@ const step = {
         }
       }
     ];
+  },
+  translationBundle: {
+    en: {
+      [TTYG_CREATE_TITLE]: 'Create an agent'
+    },
+    fr: {
+      [TTYG_CREATE_TITLE]: 'Créer un agent'
+    }
   }
 };
 
