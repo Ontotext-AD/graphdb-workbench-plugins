@@ -23,16 +23,18 @@ const step = {
   guideBlockName: 'class-relationships-named-graph-selection',
   getSteps: function(options, pluginService) {
     const GuideUtils = pluginService.GuideUtils;
+    const elementSelector = GuideUtils.getGuideElementSelector('graph-select-dropdown');
     const translate = pluginService.translate;
     return [
       {
         guideBlockName: 'read-only-element',
         options: {
           url: 'relationships',
-          elementSelector: GuideUtils.getGuideElementSelector('graph-select-dropdown'),
+          elementSelector,
           placement: 'left',
           class: 'class-relationships-named-graph-selection',
           content: translate(this.translationBundle, CONTENT),
+          scrollToHandler: () => GuideUtils.scrollIntoView(elementSelector, {block: 'center'}),
           title: options.title ?? translate(this.translationBundle, DEFAULT_TITLE),
           ...options
         }

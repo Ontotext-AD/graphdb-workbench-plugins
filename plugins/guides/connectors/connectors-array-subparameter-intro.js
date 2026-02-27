@@ -58,10 +58,13 @@ const step = {
      */
   getSteps: function(options, pluginService) {
     const translate = pluginService.translate;
+    const GuideUtils = pluginService.GuideUtils;
     const connectorNameSelector = getConnectorNameSelector(options, pluginService);
     const connectorContentSelector = getConnectorContentSelector(options, pluginService);
     const parameterSelector = getConnectorParameterSelector(options, pluginService);
     const subparameterName = getConnectorSubparameterSelector(options, pluginService);
+    const elementSelector = `${connectorNameSelector} ${connectorContentSelector} ${parameterSelector} ${subparameterName}`;
+
     return [{
       guideBlockName: 'read-only-element',
       options: {
@@ -70,7 +73,8 @@ const step = {
         class: 'connectors-connector-intro',
         content: translate(this.translationBundle, SUBPARAMETER_INTRO),
         ...options,
-        elementSelector: `${connectorNameSelector} ${connectorContentSelector} ${parameterSelector} ${subparameterName}`,
+        elementSelector,
+        scrollToHandler: () => GuideUtils.scrollIntoView(elementSelector, {block: 'center', behavior: 'smooth'}),
         url: 'connectors'
       }
     }];
