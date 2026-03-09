@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.js</title>
+  <title> guides/visual-graph/visual-graph-set-maximum-links.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.js</h1>
+                    <h1>guides/visual-graph/visual-graph-set-maximum-links.js</h1>
                 </header>
                 
 
@@ -89,55 +89,64 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE = 'visual.graph.label';
-const VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT = 'guide.step_plugin.visual_graph_show_autocomplete.content';
+            <pre class="prettyprint source linenums"><code>const VISUAL_GRAPH_EXPLORE_TITLE = 'guide.step-action.visual-graph';
+const VISUAL_GRAPH_SET_MAXIMUM_LINKS_CONTENT = 'guide.step-action.visual-graph-set-maximum-links-content';
 
 /**
- * @name visual-graph-search-rdf-resources-input-autocomplete-item
+ * @name visual-graph-set-maximum-links
  * @memberof module:Interactive Guide
  *
  * @description
- * The `visual-graph-search-rdf-resources-input-autocomplete-item` step triggers the autocomplete item for a discovered RDF resource in the Visual Graph search input.&lt;br>
- * &lt;img src="resources/guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.png" style="height:200px; border: solid; border-width:1px"/>
+ * The `visual-graph-set-maximum-links` guide step prompts the user to enter the maximum number of links to show
+ * in the visual graph settings.
+ *
+ * Set maximum links&lt;br>
+ * &lt;img src="resources/guides/visual-graph/visual-graph-set-maximum-links.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
  * This step can be configured using the common options defined in [Options](#.Options).
- * Additionally, the following specific option is available:
+ * Additionally, the following specific option is required:
  *
- * @property {string} [options.iri] - The IRI displayed in the autocomplete item.
+ * @property {number} [options.linkLimit] - The maximum number of links to show.
+ *
+ * @example
+ * ```json
+ * {
+ *   "guideBlockName": "visual-graph-set-maximum-links",
+ *   "options": {
+ *     "linkLimit": 20
+ *   }
+ * }
+ * ```
  */
 const step = {
-  guideBlockName: 'visual-graph-search-rdf-resources-input-autocomplete-item',
-  getSteps: function(options, services) {
-    const GuideUtils = services.GuideUtils;
-    const translate = services.translate;
+  guideBlockName: 'visual-graph-set-maximum-links',
+  getSteps: function(options, pluginServices) {
+    const translate = pluginServices.translate;
+    const GuideUtils = pluginServices.GuideUtils;
+    const elementSelector = GuideUtils.getGuideElementSelector('graph-settings-links-limit');
+    const linkLimit = options.linkLimit || '';
 
     return [
       {
-        // TODO: Refactor this to use the generic resource-search-autocomplete-item.js or remove completely in favor of that step
-        guideBlockName: 'clickable-element',
+        guideBlockName: 'input-element',
         options: {
-          // Title comes from options.title when provided, otherwise use translated default
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE)}),
-          content: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT, {iri: options.iri}),
-          url: 'graphs-visualizations',
-          elementSelector: GuideUtils.getGuideElementSelector(`autocomplete-${options.iri}`),
-          class: 'visual-graph-show-autocomplete',
-          onNextClick: (guide, step) => GuideUtils.waitFor(step.elementSelector, 3).then(() => $(step.elementSelector).trigger('click')),
-          canBePaused: false,
-          forceReload: true,
-          ...options
+          content: translate(this.translationBundle, VISUAL_GRAPH_SET_MAXIMUM_LINKS_CONTENT, {linkLimit}),
+          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE)}),
+          ...options,
+          elementSelector,
+          onNextValidate: () => Promise.resolve(GuideUtils.validateTextInput(elementSelector, linkLimit, false))
         }
       }
     ];
   },
   translationBundle: {
     en: {
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE]: 'Visual graph',
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT]: 'Click on the &lt;b>{{iri}}&lt;/b> IRI to show the visual graph.'
+      [VISUAL_GRAPH_EXPLORE_TITLE]: 'Visual graph explore',
+      [VISUAL_GRAPH_SET_MAXIMUM_LINKS_CONTENT]: 'Enter &lt;b>{{linkLimit}}&lt;/b> as the maximum number of links to show.'
     },
     fr: {
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE]: 'Graphique visuel',
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT]: 'Cliquez sur l\'IRI &lt;b>{{iri}}&lt;/b> pour afficher le graphique visuel.'
+      [VISUAL_GRAPH_EXPLORE_TITLE]: 'Explorer le graphique visuel',
+      [VISUAL_GRAPH_SET_MAXIMUM_LINKS_CONTENT]: 'Entrez &lt;b>{{linkLimit}}&lt;/b> comme nombre maximal de liens à afficher.'
     }
   }
 };
@@ -145,6 +154,7 @@ const step = {
 export function register(registry) {
   registry.add('guide.step', step);
 }
+
 </code></pre>
         </article>
     </section>

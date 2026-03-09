@@ -14,6 +14,7 @@ const VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_CONTENT = 'guide.step_plugin.visua
  * @property {string} [options.easyGraphInputText] - The text to be entered in the Easy graph text input.
  */
 const step = {
+  // TODO: Refactor this to use the generic resource-search-rdf.js or remove completely in favor of that step
   guideBlockName: 'visual-graph-search-rdf-resources-input',
   getSteps: function(options, services) {
     const GuideUtils = services.GuideUtils;
