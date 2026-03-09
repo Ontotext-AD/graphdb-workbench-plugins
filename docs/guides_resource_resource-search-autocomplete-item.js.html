@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.js</title>
+  <title> guides/resource/resource-search-autocomplete-item.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.js</h1>
+                    <h1>guides/resource/resource-search-autocomplete-item.js</h1>
                 </header>
                 
 
@@ -89,42 +89,48 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE = 'visual.graph.label';
-const VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT = 'guide.step_plugin.visual_graph_show_autocomplete.content';
+            <pre class="prettyprint source linenums"><code>const RESOURCE_SEARCH_AUTOCOMPLETE_ITEM_TITLE = 'guide.step-action.resource-search-autocomplete-item';
+const RESOURCE_SEARCH_AUTOCOMPLETE_ITEM_CONTENT = 'guide.step-action.resource-search-autocomplete-item-content';
 
 /**
- * @name visual-graph-search-rdf-resources-input-autocomplete-item
+ * @name resource-search-autocomplete-item
  * @memberof module:Interactive Guide
  *
  * @description
- * The `visual-graph-search-rdf-resources-input-autocomplete-item` step triggers the autocomplete item for a discovered RDF resource in the Visual Graph search input.&lt;br>
- * &lt;img src="resources/guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.png" style="height:200px; border: solid; border-width:1px"/>
+ * The `resource-search-autocomplete-item` step selects the autocomplete item for a discovered RDF resource in the search input.
+ * This is a reusable step that can be used everywhere an autocomplete dropdown with RDF resources is present.
+ *
+ * &lt;img src="resources/guides/resource/resource-search-autocomplete-item.png" style="height:200px; border: solid; border-width:1px"/>
  *
  * This step can be configured using the common options defined in [Options](#.Options).
- * Additionally, the following specific option is available:
+ * Additionally, the following specific option is required:
  *
  * @property {string} [options.iri] - The IRI displayed in the autocomplete item.
+ *
+ * @example
+ * ```json
+ * {
+ *   "guideBlockName": "resource-search-autocomplete-item",
+ *   "options": {
+ *     "iri": "http://example.org/resource"
+ *   }
+ * }
+ * ```
  */
 const step = {
-  guideBlockName: 'visual-graph-search-rdf-resources-input-autocomplete-item',
+  guideBlockName: 'resource-search-autocomplete-item',
   getSteps: function(options, services) {
     const GuideUtils = services.GuideUtils;
     const translate = services.translate;
 
     return [
       {
-        // TODO: Refactor this to use the generic resource-search-autocomplete-item.js or remove completely in favor of that step
         guideBlockName: 'clickable-element',
         options: {
-          // Title comes from options.title when provided, otherwise use translated default
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE)}),
-          content: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT, {iri: options.iri}),
-          url: 'graphs-visualizations',
+          ...(options.title ?? {title: translate(this.translationBundle, RESOURCE_SEARCH_AUTOCOMPLETE_ITEM_TITLE)}),
+          content: translate(this.translationBundle, RESOURCE_SEARCH_AUTOCOMPLETE_ITEM_CONTENT, {iri: options.iri}),
           elementSelector: GuideUtils.getGuideElementSelector(`autocomplete-${options.iri}`),
-          class: 'visual-graph-show-autocomplete',
           onNextClick: (guide, step) => GuideUtils.waitFor(step.elementSelector, 3).then(() => $(step.elementSelector).trigger('click')),
-          canBePaused: false,
-          forceReload: true,
           ...options
         }
       }
@@ -132,12 +138,12 @@ const step = {
   },
   translationBundle: {
     en: {
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE]: 'Visual graph',
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT]: 'Click on the &lt;b>{{iri}}&lt;/b> IRI to show the visual graph.'
+      [RESOURCE_SEARCH_AUTOCOMPLETE_ITEM_TITLE]: 'Resource search',
+      [RESOURCE_SEARCH_AUTOCOMPLETE_ITEM_CONTENT]: 'Click on &lt;b>{{iri}}&lt;/b>.'
     },
     fr: {
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE]: 'Graphique visuel',
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT]: 'Cliquez sur l\'IRI &lt;b>{{iri}}&lt;/b> pour afficher le graphique visuel.'
+      [RESOURCE_SEARCH_AUTOCOMPLETE_ITEM_TITLE]: 'Recherche de ressource',
+      [RESOURCE_SEARCH_AUTOCOMPLETE_ITEM_CONTENT]: 'Cliquez sur &lt;b>{{iri}}&lt;/b>.'
     }
   }
 };
@@ -145,6 +151,7 @@ const step = {
 export function register(registry) {
   registry.add('guide.step', step);
 }
+
 </code></pre>
         </article>
     </section>
