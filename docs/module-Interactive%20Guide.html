@@ -14573,6 +14573,313 @@ Additionally, the following specific options are available:</p>
             
                 <div class="member">
 
+<h4 class="name" id=".resource-search-autocomplete-item">
+    <a class="href-link" href="#.resource-search-autocomplete-item">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        resource-search-autocomplete-item
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>resource-search-autocomplete-item</code> step selects the autocomplete item for a discovered RDF resource in the search input.
+This is a reusable step that can be used everywhere an autocomplete dropdown with RDF resources is present.</p>
+<img src="resources/guides/resource/resource-search-autocomplete-item.png" style="height:200px; border: solid; border-width:1px"/>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific option is required:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The IRI displayed in the autocomplete item.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_resource_resource-search-autocomplete-item.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_resource_resource-search-autocomplete-item.js.html">guides/resource/resource-search-autocomplete-item.js</a>, <a href="guides_resource_resource-search-autocomplete-item.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```json
+{
+  "guideBlockName": "resource-search-autocomplete-item",
+  "options": {
+    "iri": "http://example.org/resource"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".resource-search-rdf">
+    <a class="href-link" href="#.resource-search-rdf">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        resource-search-rdf
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>resource-search-rdf</code> guide step prompts the user to enter node search term in the search field.
+This is a reusable step that can be used everywhere a rdf-search input is present</p>
+<p>Resource search input example:<br>
+<img src="resources/guides/resource/resource-search-rdf.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific option is required:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.searchTerm</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The search term to be entered by the user.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_resource_resource-search-rdf.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_resource_resource-search-rdf.js.html">guides/resource/resource-search-rdf.js</a>, <a href="guides_resource_resource-search-rdf.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```json
+{
+  "guideBlockName": "resource-search-rdf",
+  "options": {
+    "searchTerm": "http://example.org/resource"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".scroll-only-element">
     <a class="href-link" href="#.scroll-only-element">#</a>
     
@@ -16237,6 +16544,180 @@ the step will highlight the index with the specified name.</p>
       "en": "The query selects RDF statements whose &lt;i>subject&lt;/i> is the movie &lt;b>Pirates of the Caribbean At World's End&lt;/b> (identified by the IRI &lt;b>imdb:title/PiratesoftheCaribbeanAtWorldsEnd&lt;/b>). Note that we need to escape the / in the shortened IRI."
     }
   }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".sparql-editor-expand-results-over-owl">
+    <a class="href-link" href="#.sparql-editor-expand-results-over-owl">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        sparql-editor-expand-results-over-owl
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on the &quot;Expand results over owl:sameAs&quot; toggle in the SPARQL editor.<br></p>
+<p>Expand results over owl:sameAs toggle<br>
+<img src="resources/guides/sparql-editor/sparql-editor-expand-results-over-owl.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_sparql-editor_sparql-editor-expand-results-over-owl.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_sparql-editor_sparql-editor-expand-results-over-owl.js.html">guides/sparql-editor/sparql-editor-expand-results-over-owl.js</a>, <a href="guides_sparql-editor_sparql-editor-expand-results-over-owl.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "sparql-editor-expand-results-over-owl"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".sparql-editor-include-inferred-data">
+    <a class="href-link" href="#.sparql-editor-include-inferred-data">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        sparql-editor-include-inferred-data
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step focuses on the &quot;Include inferred data in results&quot; toggle in the SPARQL editor.<br></p>
+<p>Include inferred data toggle<br>
+<img src="resources/guides/sparql-editor/sparql-editor-include-inferred-data.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_sparql-editor_sparql-editor-include-inferred-data.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_sparql-editor_sparql-editor-include-inferred-data.js.html">guides/sparql-editor/sparql-editor-include-inferred-data.js</a>, <a href="guides_sparql-editor_sparql-editor-include-inferred-data.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "sparql-editor-include-inferred-data"
 }
 ```</code></pre>
     
@@ -20933,6 +21414,1950 @@ It highlights the checkbox element and provides instructions on how to proceed.<
             
                 <div class="member">
 
+<h4 class="name" id=".visual-graph-config-click-tab">
+    <a class="href-link" href="#.visual-graph-config-click-tab">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-config-click-tab
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to click on a specific tab in the Visual Graph configuration page.
+The step will be skipped if the tab is already active.<br></p>
+<p>Click on a config tab step<br>
+<img src="resources/guides/visual-graph/visual-graph-config-click-tab.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific option is required:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.tabName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The name of the tab to click. Must be one of <code>startingPoint</code>, <code>graphExpansion</code>, <code>nodeBasics</code>, <code>edgeBasics</code>, or <code>nodeExtra</code>.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-config-click-tab.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-config-click-tab.js.html">guides/visual-graph/visual-graph-config-click-tab.js</a>, <a href="guides_visual-graph_visual-graph-config-click-tab.js.html#line17">line 17</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-config-click-tab",
+  "options": {
+    "tabName": "startingPoint"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-config-create">
+    <a class="href-link" href="#.visual-graph-config-create">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-config-create
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This is a complex step that guides the user through the full process of creating a new visual graph configuration.
+It includes navigating to the visual graph page, creating and naming the configuration, optionally adding a description
+and hint, configuring tabs with starting points, SPARQL queries, or resource IRIs, and saving the configuration.</p>
+<p>The step sequence is dynamic and depends on the provided options. Some steps are always included, while others
+appear only when certain options are provided.</p>
+<p><strong>Always included steps:</strong></p>
+<p>Navigate to the visual graph page via the Explore main menu<br>
+<img src="resources/guides/main-menu/main-menu-explore.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Click the button to create a new configuration<br>
+<img src="resources/guides/visual-graph/visual-graph-config-create-click.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Enter a name for the configuration<br>
+<img src="resources/guides/visual-graph/visual-graph-config-name.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Introduction to the starting point configuration<br>
+<img src="resources/guides/visual-graph/visual-graph-config-starting-point-intro.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p><strong>Optional steps (based on options):</strong></p>
+<p>Enter a description for the configuration (when <code>options.configDescription</code> is provided)<br>
+<img src="resources/guides/visual-graph/visual-graph-config-description.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Enter a hint IRI for the configuration (when <code>options.configHint</code> is provided)<br>
+<img src="resources/guides/visual-graph/visual-graph-config-hint.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p><strong>Tab configuration steps (based on <code>options.tabConfig</code>):</strong></p>
+<p>If <code>options.tabConfig</code> is not provided or is empty, the step sequence ends after the starting point intro.
+Otherwise, for each entry in the <code>tabConfig</code> array, the following steps are added:</p>
+<p>Click on a configuration tab (skipped if the tab is already active)<br>
+<img src="resources/guides/visual-graph/visual-graph-config-click-tab.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Select a starting point type (when <code>tabConfig.startingPoint</code> is provided)<br>
+<img src="resources/guides/visual-graph/visual-graph-config-starting-point-search.png" style="height:200px; border: solid; border-width:1px"/><br>
+<img src="resources/guides/visual-graph/visual-graph-config-starting-point-fixed.png" style="height:200px; border: solid; border-width:1px"/><br>
+<img src="resources/guides/visual-graph/visual-graph-config-starting-point-query.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Search for a resource IRI (when <code>tabConfig.iri</code> and <code>tabConfig.searchTerm</code> are provided).
+<strong>Cannot be combined with <code>tabConfig.query</code></strong> — only one of <code>iri</code>/<code>searchTerm</code> or <code>query</code> should be set per tab config entry.<br>
+<img src="resources/guides/resource/resource-search-rdf.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Select the resource from autocomplete results<br>
+<img src="resources/guides/resource/resource-search-autocomplete-item.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Enter a SPARQL query (when <code>tabConfig.query</code> is provided).
+<strong>Cannot be combined with <code>tabConfig.iri</code>/<code>tabConfig.searchTerm</code></strong> — only one of <code>query</code> or <code>iri</code>/<code>searchTerm</code> should be set per tab config entry.<br>
+<img src="resources/guides/sparql-editor/sparql-editor.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Toggle include inferred data (when <code>tabConfig.includeInferredData</code> is provided)<br>
+<img src="resources/guides/sparql-editor/sparql-editor-include-inferred-data.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Toggle expand results over owl:sameAs (when <code>tabConfig.expandResultsOverOwl</code> is provided)<br>
+<img src="resources/guides/sparql-editor/sparql-editor-expand-results-over-owl.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>View sample queries (when <code>tabConfig.sampleQueryContent</code> is provided)<br>
+<img src="resources/guides/visual-graph/visual-graph-config-sample-query.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p><strong>Post-configuration steps (only when <code>options.tabConfig</code> is provided):</strong></p>
+<p>Share the configuration with other users (when <code>options.shareConfig</code> is <code>true</code>)<br>
+<img src="resources/guides/visual-graph/visual-graph-config-share.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Save the configuration<br>
+<img src="resources/guides/visual-graph/visual-graph-config-save.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Select the newly created configuration<br>
+<img src="resources/guides/visual-graph/visual-graph-config-select.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Open graph settings<br>
+<img src="resources/guides/visual-graph/visual-graph-settings-click.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Set the maximum number of links<br>
+<img src="resources/guides/visual-graph/visual-graph-set-maximum-links.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Save the graph settings<br>
+<img src="resources/guides/visual-graph/visual-graph-settings-save.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Expand a node in the visual graph (when <code>options.expandIri</code> is provided)<br>
+<img src="resources/guides/visual-graph/visual-graph-expand.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Zoom the visual graph<br>
+<img src="resources/guides/visual-graph/visual-graph-zoom.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>The step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.configDescription</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. The description for the configuration. When provided, the description step is included.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.configHint</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. The hint IRI for the configuration. When provided, the hint step is included.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.shareConfig</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. When <code>true</code>, the share configuration step is included.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.tabConfig</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array.&lt;Object></code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. An array of tab configuration objects. When not provided or empty, the step ends early without saving.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.tabConfig[].tabName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The name of the tab to click. Must be one of <code>startingPoint</code>, <code>graphExpansion</code>, <code>nodeBasics</code>, <code>edgeBasics</code>, or <code>nodeExtra</code>.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.tabConfig[].startingPoint</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. The starting point type to select.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.tabConfig[].iri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. The IRI of the resource to search for. Must be used together with <code>searchTerm</code>. Cannot be used together with <code>query</code>.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.tabConfig[].searchTerm</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. The search term used to find the resource. Must be used together with <code>iri</code>. Cannot be used together with <code>query</code>.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.tabConfig[].query</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. The SPARQL query to enter. Cannot be used together with <code>iri</code>/<code>searchTerm</code>.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.tabConfig[].includeInferredData</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. When provided, the include inferred data step is shown.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.tabConfig[].expandResultsOverOwl</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. When provided, the expand results over owl:sameAs step is shown.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.tabConfig[].sampleQueryContent</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. When provided, the sample query step is shown with this content.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.linkLimit</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The maximum number of links to set in the graph settings.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.expandIri</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. The IRI of the node to expand in the visual graph. When provided, the expand step is included.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.iriLabel</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>Optional. The label to display for the node to expand. When provided, the expand step is included.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-config-create.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-config-create.js.html">guides/visual-graph/visual-graph-config-create.js</a>, <a href="guides_visual-graph_visual-graph-config-create.js.html#line3">line 3</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-config-create",
+  "options": {
+    "configDescription": "A visual graph for exploring RDF data.",
+    "configHint": "http://example.org/resource",
+    "shareConfig": true,
+    "expandIri": "https://swapi.co/resource/Human/6/",
+    "iriLabel": "Leia Organa",
+    "linkLimit": 20,
+    "tabConfig": [
+      {
+           "tabName": "startingPoint",
+           "startingPoint": "fixed",
+           "searchTerm": "luke",
+           "iri": "https://swapi.co/resource/human/1"
+       },
+       {
+           "tabName": "graphExpansion",
+           "query": "PREFIX wev: &lt;http://weverify.eu/ontology/>\nPREFIX schema: &lt;http://schema.org/>\nconstruct {\n    ?node ?p ?o .\n    ?s ?p ?node .\n} where {\n    values ?p {\n        schema:hasPart\n        schema:appearance\n        schema:itemReviewed\n        schema:mentionedIn\n        schema:author\n        schema:publisher\n    }\n    { ?node ?p ?o . filter not exists {?o a wev:SupportingEvidence . } }\n    union\n    { ?s ?p ?node . }\n}",
+           "queryExtraContent": "The graph expansion query defines what happens when a node is expanded in the visual graph. Expanding a node loads additional resources connected to it and adds them to the graph as new nodes and edges.",
+           "sampleQueryContent": "The &lt;b>Sample queries&lt;/b>  includes example graph expansion queries. &lt;b>Unfiltered object properties&lt;/b> shows all object property connections of a node, while &lt;b>Filtered object properties&lt;/b> shows only selected ones.",
+           "includeInferredData": true,
+           "expandResultsOverOwl": true
+       },
+       {
+           "tabName": "nodeBasics",
+           "query": "PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#>\nPREFIX : &lt;http://data.europa.eu/949/>\nselect * {\n    ?node :opType/skos:prefLabel ?type\n    filter (lang(?type)=\"en\")\n    ?node :opName ?name; :uopid ?id\n    bind(concat(?name,\"\\n\",?type,\": \",?id) as ?label)\n}",
+           "queryExtraContent": "The &lt;b>Node basics&lt;/b> query retrieves basic properties of a node and maps them to visual attributes such as label, type, description, and rank used when rendering the node in the graph.",
+           "sampleQueryContent": "The Sample queries includes ready examples of Node basics queries. Direct type only uses only the node’s type to determine its color. Direct type, label and rank also retrieves a label to display as the node name and a rank value that controls the node size."
+       },
+       {
+           "tabName": "edgeBasics",
+           "query": "PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#>\nPREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#>\n\nSELECT ?label {\n    ?edge rdfs:label | skos:prefLabel ?label .\n}",
+           "queryExtraContent": "This Edge Basics defines the text shown on the edges in the visual graph. It retrieves a label for each relationship so that the edge displays a clear name instead of the full predicate IRI.",
+           "sampleQueryContent": "The Sample queries provides example queries for retrieving labels for edges. RDFS or SKOS label displays the label stored in rdfs:label or skos:prefLabel. RDFS or SKOS label in English displays the label only when it is available in English."
+       },
+       {
+           "tabName": "nodeExtra",
+           "query": "SELECT ?property ?value {\n    ?node ?property ?value .\nFILTER(isLiteral(?value))\n}",
+           "queryExtraContent": "This Node extra defines the text shown on the nodes in the visual graph. It retrieves a label for each relationship so that the edge displays a clear name instead of the full predicate IRI.",
+           "sampleQueryContent": "The Sample queries provides examples for retrieving node details. Datatype properties shows properties with literal values, while Image and datatype properties also includes an image URL."
+       }
+    ]
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-config-create-click">
+    <a class="href-link" href="#.visual-graph-config-create-click">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-config-create-click
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to click on the create graph config button in the Visual Graph explore page to create a graph config.<br></p>
+<p>Click on the create graph config button step<br>
+<img src="resources/guides/visual-graph/visual-graph-config-create-click.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-config-create-click.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-config-create-click.js.html">guides/visual-graph/visual-graph-config-create-click.js</a>, <a href="guides_visual-graph_visual-graph-config-create-click.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-config-create-click",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-config-description">
+    <a class="href-link" href="#.visual-graph-config-description">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-config-description
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph-config-description</code> guide step prompts the user to type a description for their visual graph configuration.</p>
+<p>Configure graph description<br>
+<img src="resources/guides/visual-graph/visual-graph-config-description.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific option is required:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.configDescription</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The description of the visual graph configuration to be entered by the user.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-config-description.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-config-description.js.html">guides/visual-graph/visual-graph-config-description.js</a>, <a href="guides_visual-graph_visual-graph-config-description.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```json
+{
+  "guideBlockName": "visual-graph-config-description",
+  "options": {
+    "configDescription": "my-config-description"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-config-hint">
+    <a class="href-link" href="#.visual-graph-config-hint">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-config-hint
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph-config-hint</code> guide step prompts the user to type a hint for their visual graph configuration.</p>
+<p>Configure graph hint<br>
+<img src="resources/guides/visual-graph/visual-graph-config-hint.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific option is required:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.configHint</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The hint of the visual graph configuration to be entered by the user.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-config-hint.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-config-hint.js.html">guides/visual-graph/visual-graph-config-hint.js</a>, <a href="guides_visual-graph_visual-graph-config-hint.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```json
+{
+  "guideBlockName": "visual-graph-config-hint",
+  "options": {
+    "configHint": "http://example.org/resource"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-config-name">
+    <a class="href-link" href="#.visual-graph-config-name">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-config-name
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph-config-name</code> guide step prompts the user to enter a name for their visual graph configuration.</p>
+<p>Configure graph name<br>
+<img src="resources/guides/visual-graph/visual-graph-config-name.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-config-name.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-config-name.js.html">guides/visual-graph/visual-graph-config-name.js</a>, <a href="guides_visual-graph_visual-graph-config-name.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```json
+{
+  "guideBlockName": "visual-graph-config-name"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-config-sample-query">
+    <a class="href-link" href="#.visual-graph-config-sample-query">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-config-sample-query
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step highlights the sample queries section for a specific tab in the Visual Graph configuration page.<br></p>
+<p>Sample queries step<br>
+<img src="resources/guides/visual-graph/visual-graph-config-sample-query.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific option is required:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.tabName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The name of the tab whose sample queries to highlight. Must be one of <code>startingPoint</code>, <code>graphExpansion</code>, <code>nodeBasics</code>, <code>edgeBasics</code>, or <code>nodeExtra</code>.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-config-sample-query.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-config-sample-query.js.html">guides/visual-graph/visual-graph-config-sample-query.js</a>, <a href="guides_visual-graph_visual-graph-config-sample-query.js.html#line12">line 12</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-config-sample-query",
+  "options": {
+    "tabName": "startingPoint"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-config-save">
+    <a class="href-link" href="#.visual-graph-config-save">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-config-save
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to click the save button to save the visual graph configuration.</p>
+<p>Save visual graph config step<br>
+<img src="resources/guides/visual-graph/visual-graph-config-save.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-config-save.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-config-save.js.html">guides/visual-graph/visual-graph-config-save.js</a>, <a href="guides_visual-graph_visual-graph-config-save.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-config-save",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-config-select">
+    <a class="href-link" href="#.visual-graph-config-select">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-config-select
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to select a visual graph configuration from the list of available configurations to open and explore it.<br></p>
+<p>Select visual graph config step<br>
+<img src="resources/guides/visual-graph/visual-graph-config-select.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-config-select.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-config-select.js.html">guides/visual-graph/visual-graph-config-select.js</a>, <a href="guides_visual-graph_visual-graph-config-select.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-config-select"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-config-share">
+    <a class="href-link" href="#.visual-graph-config-share">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-config-share
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to check the share visual graph configuration checkbox to make the config available to other users</p>
+<p>Share visual graph config step<br>
+<img src="resources/guides/visual-graph/visual-graph-config-share.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-config-share.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-config-share.js.html">guides/visual-graph/visual-graph-config-share.js</a>, <a href="guides_visual-graph_visual-graph-config-share.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-config-share",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-config-starting-point">
+    <a class="href-link" href="#.visual-graph-config-starting-point">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-config-starting-point
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to select a starting point option in the Visual Graph config page.
+The starting point type is determined by the <code>startingPoint</code> option, which can be one of:</p>
+<ul>
+<li><code>search</code> - Start with a search box<br>
+<img src="resources/guides/visual-graph/visual-graph-config-starting-point-search.png" style="height:200px; border: solid; border-width:1px"/><br></li>
+<li><code>fixed</code> - Start with a fixed node<br>
+<img src="resources/guides/visual-graph/visual-graph-config-starting-point-fixed.png" style="height:200px; border: solid; border-width:1px"/><br></li>
+<li><code>query</code> - Start with graph query results<br>
+<img src="resources/guides/visual-graph/visual-graph-config-starting-point-query.png" style="height:200px; border: solid; border-width:1px"/><br></li>
+</ul>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific option is required:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.startingPoint</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The type of starting point to select. Must be one of <code>search</code>, <code>fixed</code>, or <code>query</code>.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-config-starting-point.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-config-starting-point.js.html">guides/visual-graph/visual-graph-config-starting-point.js</a>, <a href="guides_visual-graph_visual-graph-config-starting-point.js.html#line21">line 21</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-config-starting-point",
+  "options": {
+    "startingPoint": "search"
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-config-starting-point-intro">
+    <a class="href-link" href="#.visual-graph-config-starting-point-intro">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-config-starting-point-intro
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph-config-starting-point-intro</code> step displays a dialog that introduces the starting point section
+of the Visual Graph configuration.<br>
+<img src="resources/guides/visual-graph/visual-graph-config-starting-point-intro.png" style="height:200px; border: solid; border-width:1px"/></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-config-starting-point-intro.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-config-starting-point-intro.js.html">guides/visual-graph/visual-graph-config-starting-point-intro.js</a>, <a href="guides_visual-graph_visual-graph-config-starting-point-intro.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-config-starting-point-intro"
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id=".visual-graph-expand">
     <a class="href-link" href="#.visual-graph-expand">#</a>
     
@@ -22200,6 +24625,421 @@ Additionally, the following specific option is available:</p>
 
 
 
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-set-maximum-links">
+    <a class="href-link" href="#.visual-graph-set-maximum-links">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-set-maximum-links
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The <code>visual-graph-set-maximum-links</code> guide step prompts the user to enter the maximum number of links to show
+in the visual graph settings.</p>
+<p>Set maximum links<br>
+<img src="resources/guides/visual-graph/visual-graph-set-maximum-links.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
+Additionally, the following specific option is required:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.linkLimit</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The maximum number of links to show.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-set-maximum-links.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-set-maximum-links.js.html">guides/visual-graph/visual-graph-set-maximum-links.js</a>, <a href="guides_visual-graph_visual-graph-set-maximum-links.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```json
+{
+  "guideBlockName": "visual-graph-set-maximum-links",
+  "options": {
+    "linkLimit": 20
+  }
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-settings-click">
+    <a class="href-link" href="#.visual-graph-settings-click">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-settings-click
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to click on the graph settings button to open the visual graph settings.<br></p>
+<p>Click on graph settings button step<br>
+<img src="resources/guides/visual-graph/visual-graph-settings-click.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-settings-click.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-settings-click.js.html">guides/visual-graph/visual-graph-settings-click.js</a>, <a href="guides_visual-graph_visual-graph-settings-click.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-settings-click",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-settings-save">
+    <a class="href-link" href="#.visual-graph-settings-save">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-settings-save
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to click the save button to save the graph settings.<br></p>
+<p>Save graph settings step<br>
+<img src="resources/guides/visual-graph/visual-graph-settings-save.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-settings-save.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-settings-save.js.html">guides/visual-graph/visual-graph-settings-save.js</a>, <a href="guides_visual-graph_visual-graph-settings-save.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-settings-save",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".visual-graph-zoom">
+    <a class="href-link" href="#.visual-graph-zoom">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        visual-graph-zoom
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step guides the user to zoom in and out of the visual graph using the mouse wheel or touchpad.<br></p>
+<p>Visual graph zoom step<br>
+<img src="resources/guides/visual-graph/visual-graph-zoom.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_visual-graph_visual-graph-zoom.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_visual-graph_visual-graph-zoom.js.html">guides/visual-graph/visual-graph-zoom.js</a>, <a href="guides_visual-graph_visual-graph-zoom.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+  "guideBlockName": "visual-graph-zoom",
+}
+```</code></pre>
+    
 
 
 </div>

@@ -22,6 +22,7 @@ const step = {
 
     return [
       {
+        // TODO: Refactor this to use the generic resource-search-autocomplete-item.js or remove completely in favor of that step
         guideBlockName: 'clickable-element',
         options: {
           // Title comes from options.title when provided, otherwise use translated default
