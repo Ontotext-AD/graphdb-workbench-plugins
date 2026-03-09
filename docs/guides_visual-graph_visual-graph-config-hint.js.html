@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.js</title>
+  <title> guides/visual-graph/visual-graph-config-hint.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.js</h1>
+                    <h1>guides/visual-graph/visual-graph-config-hint.js</h1>
                 </header>
                 
 
@@ -89,55 +89,64 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE = 'visual.graph.label';
-const VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT = 'guide.step_plugin.visual_graph_show_autocomplete.content';
+            <pre class="prettyprint source linenums"><code>const VISUAL_GRAPH_EXPLORE_TITLE = 'guide.step-action.visual-graph';
+const VISUAL_GRAPH_CONFIG_PROPERTIES_HINT = 'guide.step-action.visual-graph-config-hint';
 
 /**
- * @name visual-graph-search-rdf-resources-input-autocomplete-item
+ * @name visual-graph-config-hint
  * @memberof module:Interactive Guide
  *
  * @description
- * The `visual-graph-search-rdf-resources-input-autocomplete-item` step triggers the autocomplete item for a discovered RDF resource in the Visual Graph search input.&lt;br>
- * &lt;img src="resources/guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.png" style="height:200px; border: solid; border-width:1px"/>
+ * The `visual-graph-config-hint` guide step prompts the user to type a hint for their visual graph configuration.
+ *
+ * Configure graph hint&lt;br>
+ * &lt;img src="resources/guides/visual-graph/visual-graph-config-hint.png" style="height:200px; border: solid; border-width:1px"/>&lt;br>
  *
  * This step can be configured using the common options defined in [Options](#.Options).
- * Additionally, the following specific option is available:
+ * Additionally, the following specific option is required:
  *
- * @property {string} [options.iri] - The IRI displayed in the autocomplete item.
+ * @property {string} [options.configHint] - The hint of the visual graph configuration to be entered by the user.
+ *
+ * @example
+ * ```json
+ * {
+ *   "guideBlockName": "visual-graph-config-hint",
+ *   "options": {
+ *     "configHint": "http://example.org/resource"
+ *   }
+ * }
+ * ```
  */
 const step = {
-  guideBlockName: 'visual-graph-search-rdf-resources-input-autocomplete-item',
-  getSteps: function(options, services) {
-    const GuideUtils = services.GuideUtils;
-    const translate = services.translate;
+  guideBlockName: 'visual-graph-config-hint',
+  getSteps: function(options, pluginServices) {
+    const translate = pluginServices.translate;
+    const GuideUtils = pluginServices.GuideUtils;
+    const elementSelector = GuideUtils.getGuideElementSelector('graph-config-hint');
+    const configHint = options.configHint || '';
 
     return [
       {
-        // TODO: Refactor this to use the generic resource-search-autocomplete-item.js or remove completely in favor of that step
-        guideBlockName: 'clickable-element',
+        guideBlockName: 'input-element',
         options: {
-          // Title comes from options.title when provided, otherwise use translated default
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE)}),
-          content: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT, {iri: options.iri}),
-          url: 'graphs-visualizations',
-          elementSelector: GuideUtils.getGuideElementSelector(`autocomplete-${options.iri}`),
-          class: 'visual-graph-show-autocomplete',
-          onNextClick: (guide, step) => GuideUtils.waitFor(step.elementSelector, 3).then(() => $(step.elementSelector).trigger('click')),
-          canBePaused: false,
-          forceReload: true,
-          ...options
+          content: translate(this.translationBundle, VISUAL_GRAPH_CONFIG_PROPERTIES_HINT, {configHint}),
+          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE)}),
+          url: 'graphs-visualizations/config/save',
+          ...options,
+          elementSelector,
+          onNextValidate: () => Promise.resolve(GuideUtils.validateTextInput(elementSelector, configHint))
         }
       }
     ];
   },
   translationBundle: {
     en: {
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE]: 'Visual graph',
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT]: 'Click on the &lt;b>{{iri}}&lt;/b> IRI to show the visual graph.'
+      [VISUAL_GRAPH_EXPLORE_TITLE]: 'Visual graph explore',
+      [VISUAL_GRAPH_CONFIG_PROPERTIES_HINT]: 'Copy and use the following IRI as the starting point for the visual graph: &lt;b>{{configHint}}&lt;/b>'
     },
     fr: {
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE]: 'Graphique visuel',
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT]: 'Cliquez sur l\'IRI &lt;b>{{iri}}&lt;/b> pour afficher le graphique visuel.'
+      [VISUAL_GRAPH_EXPLORE_TITLE]: 'Explorer le graphique visuel',
+      [VISUAL_GRAPH_CONFIG_PROPERTIES_HINT]: 'Copiez et utilisez l\'IRI suivant comme point de départ pour le graphique visuel : &lt;b>{{configHint}}&lt;/b>'
     }
   }
 };
@@ -145,6 +154,7 @@ const step = {
 export function register(registry) {
   registry.add('guide.step', step);
 }
+
 </code></pre>
         </article>
     </section>

@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.js</title>
+  <title> guides/visual-graph/visual-graph-config-starting-point-intro.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.js</h1>
+                    <h1>guides/visual-graph/visual-graph-config-starting-point-intro.js</h1>
                 </header>
                 
 
@@ -89,42 +89,39 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE = 'visual.graph.label';
-const VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT = 'guide.step_plugin.visual_graph_show_autocomplete.content';
+            <pre class="prettyprint source linenums"><code>const DEFAULT_TITLE = 'guide.step-action.visual-graph';
+const CONTENT = 'guide.step_plugin.visual-graph-config-starting-point-intro.content';
 
 /**
- * @name visual-graph-search-rdf-resources-input-autocomplete-item
+ * @name visual-graph-config-starting-point-intro
  * @memberof module:Interactive Guide
  *
  * @description
- * The `visual-graph-search-rdf-resources-input-autocomplete-item` step triggers the autocomplete item for a discovered RDF resource in the Visual Graph search input.&lt;br>
- * &lt;img src="resources/guides/visual-graph/visual-graph-search-rdf-resources-input-autocomplete-item.png" style="height:200px; border: solid; border-width:1px"/>
+ * The `visual-graph-config-starting-point-intro` step displays a dialog that introduces the starting point section
+ * of the Visual Graph configuration.&lt;br>
+ * &lt;img src="resources/guides/visual-graph/visual-graph-config-starting-point-intro.png" style="height:200px; border: solid; border-width:1px"/>
  *
  * This step can be configured using the common options defined in [Options](#.Options).
- * Additionally, the following specific option is available:
  *
- * @property {string} [options.iri] - The IRI displayed in the autocomplete item.
+ * @example
+ * ```JSON
+ * {
+ *   "guideBlockName": "visual-graph-config-starting-point-intro"
+ * }
+ * ```
  */
 const step = {
-  guideBlockName: 'visual-graph-search-rdf-resources-input-autocomplete-item',
-  getSteps: function(options, services) {
-    const GuideUtils = services.GuideUtils;
-    const translate = services.translate;
-
+  guideBlockName: 'visual-graph-config-starting-point-intro',
+  getSteps: function(options, pluginService) {
+    const translate = pluginService.translate;
     return [
       {
-        // TODO: Refactor this to use the generic resource-search-autocomplete-item.js or remove completely in favor of that step
-        guideBlockName: 'clickable-element',
+        guideBlockName: 'info-message',
         options: {
-          // Title comes from options.title when provided, otherwise use translated default
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE)}),
-          content: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT, {iri: options.iri}),
-          url: 'graphs-visualizations',
-          elementSelector: GuideUtils.getGuideElementSelector(`autocomplete-${options.iri}`),
-          class: 'visual-graph-show-autocomplete',
-          onNextClick: (guide, step) => GuideUtils.waitFor(step.elementSelector, 3).then(() => $(step.elementSelector).trigger('click')),
-          canBePaused: false,
-          forceReload: true,
+          url: 'graphs-visualizations/config/save',
+          class: 'visual-graph-config-starting-point-intro',
+          content: translate(this.translationBundle, CONTENT),
+          title: options.title ?? translate(this.translationBundle, DEFAULT_TITLE),
           ...options
         }
       }
@@ -132,12 +129,12 @@ const step = {
   },
   translationBundle: {
     en: {
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE]: 'Visual graph',
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT]: 'Click on the &lt;b>{{iri}}&lt;/b> IRI to show the visual graph.'
+      [DEFAULT_TITLE]: 'Visual graph explore',
+      [CONTENT]: 'Starting point defines how the visual graph begins when it is opened. It determines the first resource or set of results that will appear in the graph and from which the visualization starts.'
     },
     fr: {
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE]: 'Graphique visuel',
-      [VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT]: 'Cliquez sur l\'IRI &lt;b>{{iri}}&lt;/b> pour afficher le graphique visuel.'
+      [DEFAULT_TITLE]: 'Explorer le graphique visuel',
+      [CONTENT]: 'Le point de départ définit comment le graphique visuel commence lorsqu\'il est ouvert. Il détermine la première ressource ou l\'ensemble de résultats qui apparaîtra dans le graphique et à partir duquel la visualisation démarre.'
     }
   }
 };
@@ -145,6 +142,7 @@ const step = {
 export function register(registry) {
   registry.add('guide.step', step);
 }
+
 </code></pre>
         </article>
     </section>
