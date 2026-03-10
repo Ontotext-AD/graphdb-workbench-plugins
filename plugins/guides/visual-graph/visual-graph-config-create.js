@@ -39,7 +39,7 @@ const VISUAL_GRAPH_EXPLORE_TITLE = 'guide.step-action.visual-graph';
  * If `options.tabConfig` is not provided or is empty, the step sequence ends after the starting point intro.
  * Otherwise, for each entry in the `tabConfig` array, the following steps are added:
  *
- * Click on a configuration tab<br>
+ * Click on a configuration tab (skipped if the tab is already active)<br>
  * <img src="resources/guides/visual-graph/visual-graph-config-click-tab.png" style="height:200px; border: solid; border-width:1px"/><br>
  *
  * Select a starting point type (when `tabConfig.startingPoint` is provided)<br>

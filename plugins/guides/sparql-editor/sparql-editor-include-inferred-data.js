@@ -40,11 +40,11 @@ const step = {
   translationBundle: {
     en: {
       [SPARQL_EDITOR_TITLE]: 'SPARQL Query & Update',
-      [INCLUDE_INFERRED_CONTENT]: '<b>Include inferred data in results</b> is enabled by default and includes inferred statements produced by reasoning in the query results. Clicking the toggle disables this behavior.'
+      [INCLUDE_INFERRED_CONTENT]: '<b>Include inferred data in results</b> includes inferred statements produced by reasoning in the query results. Clicking the toggle disables this behavior.'
     },
     fr: {
       [SPARQL_EDITOR_TITLE]: 'Requête et mise à jour SPARQL',
-      [INCLUDE_INFERRED_CONTENT]: '<b>Inclure les données inférées dans les résultats</b> est activé par défaut et inclut les déclarations inférées produites par le raisonnement dans les résultats de la requête. Cliquer sur le bouton désactive ce comportement.'
+      [INCLUDE_INFERRED_CONTENT]: '<b>Inclure les données inférées dans les résultats</b> inclut les déclarations inférées produites par le raisonnement dans les résultats de la requête. Cliquer sur le bouton désactive ce comportement.'
     }
   }
 };

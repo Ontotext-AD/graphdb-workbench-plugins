@@ -19,7 +19,8 @@ const TAB_CONFIG = {
  * @memberof module:Interactive Guide
  *
  * @description
- * This step guides the user to click on a specific tab in the Visual Graph configuration page.<br>
+ * This step guides the user to click on a specific tab in the Visual Graph configuration page.
+ * The step will be skipped if the tab is already active.<br>
  *
  * Click on a config tab step<br>
  * <img src="resources/guides/visual-graph/visual-graph-config-click-tab.png" style="height:200px; border: solid; border-width:1px"/><br>

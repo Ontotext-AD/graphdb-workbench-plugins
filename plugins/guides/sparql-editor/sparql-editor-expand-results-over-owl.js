@@ -40,11 +40,11 @@ const step = {
   translationBundle: {
     en: {
       [SPARQL_EDITOR_TITLE]: 'SPARQL Query & Update',
-      [EXPAND_RESULTS_CONTENT]: '<b>Expand results over owl sameAs</b> is enabled by default and includes equivalent resources connected with owl:sameAs in the query results. Clicking the toggle disables this behavior.'
+      [EXPAND_RESULTS_CONTENT]: '<b>Expand results over owl sameAs</b> includes equivalent resources connected with owl:sameAs in the query results. Clicking the toggle disables this behavior.'
     },
     fr: {
       [SPARQL_EDITOR_TITLE]: 'Requête et mise à jour SPARQL',
-      [EXPAND_RESULTS_CONTENT]: '<b>Étendre les résultats via owl sameAs</b> est activé par défaut et inclut les ressources équivalentes connectées avec owl:sameAs dans les résultats de la requête. Cliquer sur le bouton désactive ce comportement.'
+      [EXPAND_RESULTS_CONTENT]: '<b>Étendre les résultats via owl sameAs</b> inclut les ressources équivalentes connectées avec owl:sameAs dans les résultats de la requête. Cliquer sur le bouton désactive ce comportement.'
     }
   }
 };

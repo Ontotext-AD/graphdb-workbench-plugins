@@ -21431,7 +21431,8 @@ It highlights the checkbox element and provides instructions on how to proceed.<
 
 
 <div class="description">
-    <p>This step guides the user to click on a specific tab in the Visual Graph configuration page.<br></p>
+    <p>This step guides the user to click on a specific tab in the Visual Graph configuration page.
+The step will be skipped if the tab is already active.<br></p>
 <p>Click on a config tab step<br>
 <img src="resources/guides/visual-graph/visual-graph-config-click-tab.png" style="height:200px; border: solid; border-width:1px"/><br></p>
 <p>This step can be configured using the common options defined in <a href="#.Options">Options</a>.
@@ -21596,7 +21597,7 @@ appear only when certain options are provided.</p>
 <p><strong>Tab configuration steps (based on <code>options.tabConfig</code>):</strong></p>
 <p>If <code>options.tabConfig</code> is not provided or is empty, the step sequence ends after the starting point intro.
 Otherwise, for each entry in the <code>tabConfig</code> array, the following steps are added:</p>
-<p>Click on a configuration tab<br>
+<p>Click on a configuration tab (skipped if the tab is already active)<br>
 <img src="resources/guides/visual-graph/visual-graph-config-click-tab.png" style="height:200px; border: solid; border-width:1px"/><br></p>
 <p>Select a starting point type (when <code>tabConfig.startingPoint</code> is provided)<br>
 <img src="resources/guides/visual-graph/visual-graph-config-starting-point-search.png" style="height:200px; border: solid; border-width:1px"/><br>
@@ -22897,7 +22898,7 @@ Additionally, the following specific option is required:</p>
         <p class="tag-source">
             <a href="guides_visual-graph_visual-graph-config-sample-query.js.html" class="button">View Source</a>
             <span>
-                <a href="guides_visual-graph_visual-graph-config-sample-query.js.html">guides/visual-graph/visual-graph-config-sample-query.js</a>, <a href="guides_visual-graph_visual-graph-config-sample-query.js.html#line17">line 17</a>
+                <a href="guides_visual-graph_visual-graph-config-sample-query.js.html">guides/visual-graph/visual-graph-config-sample-query.js</a>, <a href="guides_visual-graph_visual-graph-config-sample-query.js.html#line12">line 12</a>
             </span>
         </p>
     

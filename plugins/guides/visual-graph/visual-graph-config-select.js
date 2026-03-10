@@ -41,6 +41,7 @@ const step = {
           ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE)}),
           url: 'graphs-visualizations',
           elementSelector,
+          maxWaitTime: 10,
           onNextClick: GuideUtils.clickOnElement(elementSelector),
           ...options
         }

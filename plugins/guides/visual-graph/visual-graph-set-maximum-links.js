@@ -43,7 +43,7 @@ const step = {
           ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE)}),
           ...options,
           elementSelector,
-          onNextValidate: () => Promise.resolve(GuideUtils.validateTextInput(elementSelector, linkLimit, false))
+          onNextValidate: () => Promise.resolve(GuideUtils.validateTextInput(elementSelector, linkLimit))
         }
       }
     ];
