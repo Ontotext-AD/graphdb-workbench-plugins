@@ -402,20 +402,22 @@ const step = {
       options: {...options}
     });
 
-    steps.push({
-      guideBlockName: 'visual-graph-settings-click',
-      options: {...options}
-    });
+    if (options.linkLimit) {
+      steps.push({
+        guideBlockName: 'visual-graph-settings-click',
+        options: {...options}
+      });
 
-    steps.push({
-      guideBlockName: 'visual-graph-set-maximum-links',
-      options: {...options}
-    });
+      steps.push({
+        guideBlockName: 'visual-graph-set-maximum-links',
+        options: {...options}
+      });
 
-    steps.push({
-      guideBlockName: 'visual-graph-settings-save',
-      options: {...options}
-    });
+      steps.push({
+        guideBlockName: 'visual-graph-settings-save',
+        options: {...options}
+      });
+    }
 
     if (options.expandIri) {
       steps.push({
