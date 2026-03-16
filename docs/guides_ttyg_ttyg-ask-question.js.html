@@ -89,11 +89,10 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import * as Utils from '../utils.js';
-
-const CHAT_DETAILS_SELECTOR = 'chat-details';
+            <pre class="prettyprint source linenums"><code>const CHAT_DETAILS_SELECTOR = 'chat-details';
 const TTYG_ASK_DEFAULT_TITLE = 'guide.step-action.ask-ttyg-agent';
 const INPUT_QUESTION = 'guide.step_plugin.ask-ttyg-agent.input-question';
+const WAIT_FOR_ANSWER = 'guide.step_plugin.ask-ttyg-agent.wait-for-answer';
 
 /**
  * @name ttyg-ask-question
@@ -158,18 +157,30 @@ const step = {
           }
         }
       },
-      Utils.getWaitForAnswerStep(GuideUtils, options)
+      {
+        guideBlockName: 'hold-and-wait-until-hidden',
+        options: {
+          title,
+          content: translate(this.translationBundle, WAIT_FOR_ANSWER),
+          class: 'wait-for-answer',
+          url: 'ttyg',
+          elementSelector: GuideUtils.getGuideElementSelector('chat-details'),
+          elementSelectorToWait: GuideUtils.getGuideElementSelector('question-loader'),
+          ...options
+        }
+      }
     ];
   },
   translationBundle: {
     en: {
       [TTYG_ASK_DEFAULT_TITLE]: 'Ask the agent',
-      [INPUT_QUESTION]: 'Type "&lt;b>{{question}}&lt;/b>" in the input and press enter'
+      [INPUT_QUESTION]: 'Type "&lt;b>{{question}}&lt;/b>" in the input and press enter',
+      [WAIT_FOR_ANSWER]: 'Wait for the answer to be returned and explore it. When ready proceed by clicking next.'
     },
-
     fr: {
       [TTYG_ASK_DEFAULT_TITLE]: 'Demander à l\'agent',
-      [INPUT_QUESTION]: 'Tapez "&lt;b>{{question}}&lt;/b>" dans le champ de saisie et appuyez sur la touche \'Entrée\''
+      [INPUT_QUESTION]: 'Tapez "&lt;b>{{question}}&lt;/b>" dans le champ de saisie et appuyez sur la touche \'Entrée\'',
+      [WAIT_FOR_ANSWER]: 'Attendez que la réponse vous soit renvoyée et explorez-la. Lorsque vous êtes prêt, cliquez sur suivant.'
     }
   }
 };
