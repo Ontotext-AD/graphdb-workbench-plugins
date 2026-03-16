@@ -89,10 +89,9 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import * as Utils from '../utils.js';
-
-const TTYG_ASK_DEFAULT_TITLE = 'guide.step-action.ask-ttyg-agent';
+            <pre class="prettyprint source linenums"><code>const TTYG_ASK_DEFAULT_TITLE = 'guide.step-action.ask-ttyg-agent';
 const EXPLAIN_ANSWER_MORE = 'guide.step_plugin.ask-ttyg-agent.explain-answer-more';
+const WAIT_FOR_ANSWER = 'guide.step_plugin.ask-ttyg-agent.wait-for-answer';
 
 /**
  * @name ttyg-ask-explain-answer-more
@@ -164,18 +163,30 @@ const step = {
           }
         }
       },
-      Utils.getWaitForAnswerStep(GuideUtils, options)
+      {
+        guideBlockName: 'hold-and-wait-until-hidden',
+        options: {
+          title,
+          content: translate(this.translationBundle, WAIT_FOR_ANSWER),
+          class: 'wait-for-answer',
+          url: 'ttyg',
+          elementSelector: GuideUtils.getGuideElementSelector('chat-details'),
+          elementSelectorToWait: GuideUtils.getGuideElementSelector('question-loader'),
+          ...options
+        }
+      }
     ];
   },
   translationBundle: {
     en: {
       [TTYG_ASK_DEFAULT_TITLE]: 'Ask the agent',
-      [EXPLAIN_ANSWER_MORE]: 'You can ask the agent how it derived the answer by clicking on the button'
+      [EXPLAIN_ANSWER_MORE]: 'You can ask the agent how it derived the answer by clicking on the button',
+      [WAIT_FOR_ANSWER]: 'Wait for the answer to be returned and explore it. When ready proceed by clicking next.'
     },
-
     fr: {
       [TTYG_ASK_DEFAULT_TITLE]: 'Demander à l\'agent',
-      [EXPLAIN_ANSWER_MORE]: 'Vous pouvez demander à l\'agent comment il a obtenu la réponse en cliquant sur le bouton'
+      [EXPLAIN_ANSWER_MORE]: 'Vous pouvez demander à l\'agent comment il a obtenu la réponse en cliquant sur le bouton',
+      [WAIT_FOR_ANSWER]: 'Attendez que la réponse vous soit renvoyée et explorez-la. Lorsque vous êtes prêt, cliquez sur suivant.'
     }
   }
 };
