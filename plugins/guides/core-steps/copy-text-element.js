@@ -1,6 +1,7 @@
 import * as Utils from '../utils.js';
 
 const COPY_TEXT = 'guide.step_plugin.core-steps.copy-text-element.copy-to-input';
+const COPY_TEXT_ELEMENT = 'guide.step_plugin.core-steps.copy-text-element.content';
 
 /**
  * @name copy-text-element
@@ -54,8 +55,7 @@ const step = {
         guideBlockName: 'input-element',
         options: {
           ...options,
-          content: 'guide.step_plugin.core-steps.copy-text-element.content',
-          textAsHtmlCodeElement: '<div class="shepherd-code">' + code.outerHTML + copy.outerHTML + '</div>',
+          content: translate(this.translationBundle, COPY_TEXT_ELEMENT, {textAsHtmlCodeElement: '<div class="shepherd-code">' + code.outerHTML + copy.outerHTML + '</div>'}),
           show: (guide) => () => {
             stepHTMLElement = guide.currentStep.el.querySelector(`.${copyToInputQueryButtonClass}`);
             stepHTMLElement.addEventListener('click', copyToInputListener);
@@ -71,10 +71,12 @@ const step = {
   },
   translationBundle: {
     en: {
-      [COPY_TEXT]: 'Copy to input'
+      [COPY_TEXT]: 'Copy to input',
+      [COPY_TEXT_ELEMENT]: 'Enter the following in the input: {{textAsHtmlCodeElement}}'
     },
     fr: {
-      [COPY_TEXT]: 'Copier dans la saisie'
+      [COPY_TEXT]: 'Copier dans la saisie',
+      [COPY_TEXT_ELEMENT]: 'Entrez le texte suivant dans la saisie : {{textAsHtmlCodeElement}}'
     }
   }
 };

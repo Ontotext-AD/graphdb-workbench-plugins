@@ -61,13 +61,12 @@ const step = {
       if (mouseEventTimer) {
         // Cancels expansion of the sidebar panel if user double-clicked.
         if (event.timeStamp - mouseClickTimeStamp < 400) {
-          services.$timeout.cancel(mouseEventTimer);
+          clearTimeout(mouseEventTimer);
           mouseEventTimer = null;
         }
       } else {
         mouseClickTimeStamp = event.timeStamp;
-        mouseEventTimer = services.$timeout(function() {
-          GuideUtils.graphVizShowNodeInfo(elementSelector);
+        mouseEventTimer = setTimeout(function() {
           mouseEventTimer = null;
           guide.next();
         }, 500);
@@ -89,11 +88,19 @@ const step = {
           show: (guide) => () => {
             // Add "click" listener to the element. Processing of click event is disabled for the visual graph when guide is started.
             // So we have to open side panel info manually when a selected node is clicked.
-            $(elementSelector).on('click.onNodeClicked', onClick(services, guide));
+            const element = document.querySelector(elementSelector);
+            if (element) {
+              element._onNodeClicked = onClick(services, guide);
+              element.addEventListener('click', element._onNodeClicked);
+            }
           },
           hide: () => () => {
             // Remove the "click" listener of element. It is important when step is hided.
-            $(elementSelector).off('click.onNodeClicked');
+            const element = document.querySelector(elementSelector);
+            if (element && element._onNodeClicked) {
+              element.removeEventListener('click', element._onNodeClicked);
+              delete element._onNodeClicked;
+            }
           },
           onNextClick: (guide, step) => {
             GuideUtils.graphVizShowNodeInfo(step.elementSelector);
@@ -117,7 +124,7 @@ const step = {
           onPreviousClick: () => new Promise(function(resolve) {
             GuideUtils.waitFor(closeButtonSelector, 3)
               .then(() => {
-                $(closeButtonSelector).trigger('click');
+                document.querySelector(closeButtonSelector).click();
                 resolve();
               }).catch(() => resolve());
           }),
@@ -181,7 +188,7 @@ const step = {
           GuideUtils.graphVizShowNodeInfo(elementSelector);
           return GuideUtils.deferredShow(500)();
         },
-        onNextClick: () => GuideUtils.waitFor(closeButtonSelector, 3).then(() => $(closeButtonSelector).trigger('click')),
+        onNextClick: () => GuideUtils.waitFor(closeButtonSelector, 3).then(() => document.querySelector(closeButtonSelector).click()),
         ...options
       }
     });
