@@ -272,20 +272,6 @@ export const enableAllVisualGraphNodes = () => () => {
   $('.node-wrapper').removeClass('disable-visual-graph-node');
 };
 
-export const getWaitForAnswerStep = (GuideUtils, options) => {
-  return {
-    guideBlockName: 'hold-and-wait-until-hidden',
-    options: {
-      content: 'guide.step_plugin.ask-ttyg-agent.wait-for-answer',
-      class: 'wait-for-answer',
-      url: 'ttyg',
-      elementSelector: GuideUtils.getGuideElementSelector('chat-details'),
-      elementSelectorToWait: GuideUtils.getGuideElementSelector('question-loader'),
-      ...options
-    }
-  };
-};
-
 export const getConnectorNameSelector = (options, services) => {
   return services.GuideUtils.getGuideElementSelector(`connector-name-${options.connectorName}`);
 };
