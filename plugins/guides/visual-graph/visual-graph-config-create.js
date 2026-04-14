@@ -313,17 +313,7 @@ const step = {
 
     if (options.linkLimit) {
       steps.push({
-        guideBlockName: 'visual-graph-settings-click',
-        options: {...options}
-      });
-
-      steps.push({
         guideBlockName: 'visual-graph-set-maximum-links',
-        options: {...options}
-      });
-
-      steps.push({
-        guideBlockName: 'visual-graph-settings-save',
         options: {...options}
       });
     }
@@ -333,7 +323,8 @@ const step = {
         guideBlockName: 'visual-graph-expand',
         options: {
           ...options,
-          iri: options.expandIri
+          iri: options.expandIri,
+          url: undefined
         }
       });
     }
