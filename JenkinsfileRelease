@@ -35,13 +35,13 @@ pipeline {
 
         booleanParam(
             name: 'NOTIFY_SLACK',
-            defaultValue: false,
+            defaultValue: true,
             description: 'Send Slack notification after successful build'
         )
 
         string(
             name: 'SLACK_CHANNEL',
-            defaultValue: '#workbench-plugins-test',
+            defaultValue: '#frontend-notifications',
             description: 'Slack channel for notification (only used if checkbox above is selected)'
         )
     }
