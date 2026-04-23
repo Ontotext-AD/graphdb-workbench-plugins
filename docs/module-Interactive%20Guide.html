@@ -4164,6 +4164,8 @@ element will automatically advance to the next step.</p>
 It includes steps to edit the agent name, model, extraction methods, temperature, top-p,</p>
 <p>Configure agent name<br>
 <img src="resources/guides/ttyg/configure-agent-type-agent-name.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>Configure context size<br>
+<img src="resources/guides/ttyg/set-context-window-size.png" style="height:200px; border: solid; border-width:1px"/><br></p>
 <p>Configure temperature<br>
 <img src="resources/guides/ttyg/configure-temperature.png" style="height:200px; border: solid; border-width:1px"/><br></p>
 <p>Configure top-p<br>
@@ -4451,7 +4453,38 @@ It includes steps to edit the agent name, model, extraction methods, temperature
 
     
 
-    <td class="description last"><p>Additional user instructions to set for the agent. If</p></td>
+    <td class="description last"><p>Additional user instructions to set for the agent.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>contextSize</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+
+    <td class="description last"><p>The context size to set for the agent. If provided, steps to configure the context size will be included.</p></td>
 </tr>
 
         
@@ -4528,6 +4561,7 @@ It includes steps to edit the agent name, model, extraction methods, temperature
    ],
    "temperature": 0.7,
    "topP": 0.9,
+   "contextSize": 1000,
    "iriDiscoverySearch": {
      "disable": false
    },
@@ -15198,6 +15232,149 @@ It includes steps to open the dropdown, select an agent, and handle missing repo
         <pre class="prettyprint"><code>```JSON
 {
  "guideBlockName": "select-ttyg-agent",
+}
+```</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".set-context-window-size">
+    <a class="href-link" href="#.set-context-window-size">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+    
+    <span class="code-name">
+        set-context-window-size
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This step sets the context window size for the TTYG agent.
+It guides the user to set the context size input to a specified value.</p>
+<p>Set context window size<br>
+<img src="resources/guides/ttyg/set-context-window-size.png" style="height:200px; border: solid; border-width:1px"/><br></p>
+<p>This step can be configured using the common options defined in <a href="#.Options">Options</a>. Additionally, it requires:</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>options.contextSize</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The target value for the context window size.</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="guides_ttyg_set-context-window-size.js.html" class="button">View Source</a>
+            <span>
+                <a href="guides_ttyg_set-context-window-size.js.html">guides/ttyg/set-context-window-size.js</a>, <a href="guides_ttyg_set-context-window-size.js.html#line4">line 4</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>```JSON
+{
+ "guideBlockName": "set-context-window-size",
+ "options": {
+   "contextSize": 4096
+ }
 }
 ```</code></pre>
     
