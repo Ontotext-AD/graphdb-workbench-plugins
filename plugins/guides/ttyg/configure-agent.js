@@ -9,6 +9,9 @@
  * Configure agent name<br>
  * <img src="resources/guides/ttyg/configure-agent-type-agent-name.png" style="height:200px; border: solid; border-width:1px"/><br>
  *
+ * Configure context size<br>
+ * <img src="resources/guides/ttyg/set-context-window-size.png" style="height:200px; border: solid; border-width:1px"/><br>
+ *
  * Configure temperature<br>
  * <img src="resources/guides/ttyg/configure-temperature.png" style="height:200px; border: solid; border-width:1px"/><br>
  *
@@ -31,7 +34,8 @@
  * @property {number} [topP] - The top-p value to set for the agent. If provided, steps to configure top-p will be included.
  * @property {Object} [iriDiscoverySearch] - Configuration for IRI discovery search. If provided, steps to configure it will be included.
  * @property {boolean} [iriDiscoverySearch.disable] - Whether to disable IRI discovery search.
- * @property {string} [userInstructions] - Additional user instructions to set for the agent. If
+ * @property {string} [userInstructions] - Additional user instructions to set for the agent.
+ * @property {number} [contextSize] - The context size to set for the agent. If provided, steps to configure the context size will be included.
  *
  * @example
  * ```JSON
@@ -53,6 +57,7 @@
  *    ],
  *    "temperature": 0.7,
  *    "topP": 0.9,
+ *    "contextSize": 1000,
  *    "iriDiscoverySearch": {
  *      "disable": false
  *    },
@@ -84,6 +89,7 @@ const step = {
     const hasModelName = options.model;
     const hasUserInstructions = options.userInstructions;
     const shouldConfigureExtractionMethods = !!options.methods?.length;
+    const shouldConfigureContextSize = options.contextSize !== undefined;
     const shouldConfigureTopP = options.topP !== undefined;
     const shouldConfigureTemperature = options.temperature !== undefined;
     const shouldConfigureIriDiscoverySearch = !!options.iriDiscoverySearch;
@@ -108,6 +114,13 @@ const step = {
     if (hasModelName) {
       steps.push({
         guideBlockName: 'configure-agent-type-model-name', options: {...options}
+      });
+    }
+
+    if (shouldConfigureContextSize) {
+      steps.push({
+        guideBlockName: 'set-context-window-size',
+        options: {...options}
       });
     }
 
