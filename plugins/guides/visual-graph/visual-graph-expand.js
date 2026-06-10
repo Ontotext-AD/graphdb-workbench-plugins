@@ -77,7 +77,11 @@ const step = {
           },
           beforeShowPromise: () => {
             $route.reload();
-            return GuideUtils.deferredShow(50)()
+            // in some cases reloading starts after the defer and alpha drop. In such cases the step is shown, the page is
+            // reloaded and shepherd detaches from the element. Wait until the element is hidden to ensure the reload has
+            // started and then wait for the d3 alpha to drop, so we ensure the correct order
+            return GuideUtils.waitUntilHidden(elementSelector)
+              .then(() => GuideUtils.deferredShow(50)())
               .then(() => {
                 return GuideUtils.awaitAlphaDropD3(elementSelector, $rootScope)();
               });
