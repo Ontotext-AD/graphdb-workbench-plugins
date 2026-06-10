@@ -31,9 +31,9 @@ const step = {
       options: {
         ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE)}),
         content: translate(this.translationBundle, VISUAL_GRAPH_ZOOM_CONTENT),
+        url: 'graphs-visualizations',
         ...options,
         elementSelector,
-        url: 'graphs-visualizations',
         allowScroll: true
       }
     }];
