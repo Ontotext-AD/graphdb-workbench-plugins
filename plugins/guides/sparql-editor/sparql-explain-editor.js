@@ -31,7 +31,6 @@ const step = {
   getSteps: function(options, services) {
     const translate = services.translate;
     const GuideUtils = services.GuideUtils;
-    const YasguiComponentDirectiveUtil = services.YasguiComponentDirectiveUtil;
     return [
       {
         guideBlockName: 'input-element',
@@ -40,7 +39,7 @@ const step = {
           url: 'sparql',
           elementSelector: GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR,
           class: 'sparql-explain-editor',
-          beforeShowPromise: () => YasguiComponentDirectiveUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
+          beforeShowPromise: () => services.YasguiComponentUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
             .then(() => GuideUtils.waitFor(GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR, 3))
             .then(() => GuideUtils.deferredShow(500)())
             .catch((error) => {
