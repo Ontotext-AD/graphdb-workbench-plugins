@@ -141,10 +141,10 @@ export const createDownloadClickHandler = (resourcePath, resourceFile, services)
   };
 };
 
-export const createCopyToEditorListener = (YasguiComponentDirectiveUtil, sparqlDirectiveSelector, query) => {
+export const createCopyToEditorListener = (getYasguiComponentUtil, sparqlDirectiveSelector, query) => {
   return (event) => {
     event.preventDefault();
-    YasguiComponentDirectiveUtil.setQuery(sparqlDirectiveSelector, query);
+    getYasguiComponentUtil().setQuery(sparqlDirectiveSelector, query);
   };
 };
 

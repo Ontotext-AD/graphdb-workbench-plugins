@@ -37,7 +37,6 @@ const step = {
   getSteps: function(options, services) {
     const translate = services.translate;
     const GuideUtils = services.GuideUtils;
-    const YasguiComponentDirectiveUtil = services.YasguiComponentDirectiveUtil;
 
     const code = document.createElement('code');
     const copy = document.createElement('button');
@@ -45,7 +44,7 @@ const step = {
     copy.className = `btn btn-sm btn-secondary ${copyToEditorButtonClass}`;
     copy.innerText = translate(this.translationBundle, COPY_TO_EDITOR);
     const query = options.query;
-    const copyToEditorListener = Utils.createCopyToEditorListener(YasguiComponentDirectiveUtil, Utils.SPARQL_DIRECTIVE_SELECTOR, query);
+    const copyToEditorListener = Utils.createCopyToEditorListener(() => services.YasguiComponentUtil, Utils.SPARQL_DIRECTIVE_SELECTOR, query);
     code.innerText = query;
     const queryAsHtmlCodeElement = '<div class="shepherd-code">' + code.outerHTML + copy.outerHTML + '</div>';
 
@@ -60,14 +59,14 @@ const step = {
           url: 'sparql',
           elementSelector: GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR,
           class: 'yasgui-query-editor',
-          beforeShowPromise: () => YasguiComponentDirectiveUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
+          beforeShowPromise: () => services.YasguiComponentUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
             .then(() => GuideUtils.waitFor(GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR, 3))
             .then(() => GuideUtils.deferredShow(500)())
             .catch((error) => {
               services.toastr.error(translate(this.translationBundle, UNEXPECTED_ERROR));
               throw error;
             }),
-          onNextValidate: () => YasguiComponentDirectiveUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
+          onNextValidate: () => services.YasguiComponentUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
             .then((yasgui) => yasgui.getQuery().then((query) => ({yasgui, queryFromEditor: query})))
             .then(({yasgui, _queryFromEditor}) => {
               yasgui.setQuery(query);

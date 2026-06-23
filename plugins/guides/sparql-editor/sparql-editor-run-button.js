@@ -27,7 +27,6 @@ const step = {
   getSteps: function(options, services) {
     const translate = services.translate;
     const GuideUtils = services.GuideUtils;
-    const YasguiComponentDirectiveUtil = services.YasguiComponentDirectiveUtil;
     return [
       {
         guideBlockName: 'clickable-element',
@@ -37,7 +36,7 @@ const step = {
           url: 'sparql',
           elementSelector: GuideUtils.CSS_SELECTORS.SPARQL_RUN_BUTTON_SELECTOR,
           class: 'yasgui-run-button',
-          onNextClick: (guide) => YasguiComponentDirectiveUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
+          onNextClick: (guide) => services.YasguiComponentUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
             .then((yasgui) => {
               yasgui.query();
               guide.next();
