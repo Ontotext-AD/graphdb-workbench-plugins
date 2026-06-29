@@ -36,7 +36,7 @@ const step = {
       guideBlockName: 'input-element',
       options: {
         content: translate(this.translationBundle, SET_MAX_TRIPLES_PER_CALL, {maxTriplesPerCall: options.maxTriplesPerCall}),
-        ...(options.title ?? {title: translate(this.translationBundle, FTS_METHOD_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, FTS_METHOD_DEFAULT_TITLE),
         class: 'toggle-fts-search',
         ...options,
         url: 'ttyg',

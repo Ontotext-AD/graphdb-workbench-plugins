@@ -44,7 +44,7 @@ const step = {
         class: 'configure-temperature',
         content: translate(this.translationBundle, CONFIGURE_TEMPERATURE_INFO, {temperature: options.temperature}),
         onNextValidate: () => Promise.resolve(GuideUtils.validateTextInput(inputSelector, options.temperature)),
-        ...(options.title ?? {title: translate(this.translationBundle, TTYG_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, TTYG_DEFAULT_TITLE),
         ...options
       }
     };

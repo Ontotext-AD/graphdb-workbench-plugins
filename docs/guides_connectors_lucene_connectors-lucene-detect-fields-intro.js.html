@@ -126,7 +126,7 @@ const step = {
       guideBlockName: 'connectors-parameter-intro',
       options: {
         content: translate(this.translationBundle, DETECT_FIELDS),
-        ...(options.title ?? {title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE),
         ...options,
         class: 'connectors-lucene-detect-fields-intro',
         connectorName: LUCENE_CONNECTOR_NAME,

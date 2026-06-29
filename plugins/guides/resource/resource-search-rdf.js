@@ -40,7 +40,7 @@ const step = {
         guideBlockName: 'input-element',
         options: {
           content: translate(this.translationBundle, RESOURCE_SEARCH_RDF_CONTENT, {searchTerm}),
-          ...(options.title ?? {title: translate(this.translationBundle, RESOURCE_SEARCH_RDF_TITLE)}),
+          title: translate(this.translationBundle, RESOURCE_SEARCH_RDF_TITLE),
           ...options,
           elementSelector,
           onNextValidate: () => Promise.resolve(GuideUtils.validateTextInput(elementSelector, searchTerm))

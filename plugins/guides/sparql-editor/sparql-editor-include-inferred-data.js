@@ -28,7 +28,7 @@ const step = {
       {
         guideBlockName: 'read-only-element',
         options: {
-          ...(options.title ?? {title: translate(this.translationBundle, SPARQL_EDITOR_TITLE)}),
+          title: translate(this.translationBundle, SPARQL_EDITOR_TITLE),
           content: translate(this.translationBundle, INCLUDE_INFERRED_CONTENT),
           url: 'sparql',
           elementSelector: '.yasqe_inferStatementsButton',

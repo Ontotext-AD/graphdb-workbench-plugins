@@ -31,7 +31,7 @@ const step = {
         guideBlockName: 'info-message',
         options: {
           content: translate(this.translationBundle, EDIT_TTYG_AGENT),
-          ...(options.title ?? {title: translate(this.translationBundle, TTYG_EDIT_AGENT_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, TTYG_EDIT_AGENT_DEFAULT_TITLE),
           skipPoint: true,
           skipButtonLabel: translate(this.translationBundle, SKIP_SECTION),
           ...options

@@ -46,7 +46,7 @@ const step = {
         guideBlockName: 'read-only-element',
         options: {
           content: translate(this.translationBundle, VISUAL_GRAPH_CONFIG_SAMPLE_QUERY_CONTENT),
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE)}),
+          title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE),
           url: 'graphs-visualizations/config/save',
           elementSelector: GuideUtils.getGuideElementSelector(`sample-queries-${tabIndex}`),
           ...options

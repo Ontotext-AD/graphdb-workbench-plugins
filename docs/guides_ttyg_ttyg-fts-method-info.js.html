@@ -123,7 +123,7 @@ const step = {
         options: {
           content: translate(this.translationBundle, FTS_SEARCH_CONTENT),
           // If mainAction is set the title will be set automatically
-          ...(options.title ?? {title: translate(this.translationBundle, FTS_METHOD_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, FTS_METHOD_DEFAULT_TITLE),
           class: 'info-fts-search',
           ...options,
           url: 'ttyg'

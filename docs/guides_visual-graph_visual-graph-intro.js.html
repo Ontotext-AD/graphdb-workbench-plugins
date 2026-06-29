@@ -129,7 +129,7 @@ const step = {
         guideBlockName: 'read-only-element',
         options: {
           content: translate(this.translationBundle, VISUAL_GRAPH_INTRO_CONTENT, {iriLabel: options.iriLabel}),
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_INTRO_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, VISUAL_GRAPH_INTRO_DEFAULT_TITLE),
           url: 'graphs-visualizations',
           elementSelector: '.graph-visualization',
           placement: 'left',

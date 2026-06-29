@@ -124,7 +124,7 @@ const step = {
         options: {
           content: translate(this.translationBundle, SELECT_INDEX),
           class: 'select-similarity-index',
-          ...(options.title ?? {title: translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE),
           ...options,
           elementSelector: GuideUtils.getGuideElementSelector('similarity-connector-select')
         }

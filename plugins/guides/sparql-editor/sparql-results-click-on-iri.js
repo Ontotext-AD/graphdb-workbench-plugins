@@ -30,21 +30,20 @@ const step = {
   guideBlockName: 'sparql-results-click-on-iri',
   getSteps: function(options, services) {
     const translate = services.translate;
-    const GuideUtils = services.GuideUtils;
     return [
       {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, CLICK_ON_IRI, {iriLabel: options.iriLabel}),
           placement: 'top',
-          ...(options.title ?? {title: translate(this.translationBundle, SPARQL_EDITOR_TITLE)}),
+          title: translate(this.translationBundle, SPARQL_EDITOR_TITLE),
           ...options,
-          scrollToHandler: GuideUtils.scrollToTop,
-          elementSelector: GuideUtils.getSparqlResultsSelectorForIri(options.iri),
+          scrollToHandler: services.GuideUtils.scrollToTop,
+          elementSelector: services.GuideUtils.getSparqlResultsSelectorForIri(options.iri),
           class: 'table-graph-instance',
-          url: '/sparql',
+          url: 'sparql',
           onNextClick: (guide, step) => {
-            GuideUtils.waitFor(step.elementSelector, 3)
+            services.GuideUtils.waitFor(step.elementSelector, 3)
               .then(() => document.querySelector(step.elementSelector).click());
           }
         }

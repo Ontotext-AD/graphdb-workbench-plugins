@@ -54,7 +54,7 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, VISUAL_GRAPH_CONFIG_CLICK_TAB_CONTENT, {tab}),
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE)}),
+          title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE),
           url: 'graphs-visualizations/config/save',
           elementSelector: GuideUtils.getGuideElementSelector(`graph-config-tab-${tabConfig.index}`),
           ...options,

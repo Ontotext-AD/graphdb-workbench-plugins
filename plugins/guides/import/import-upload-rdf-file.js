@@ -42,7 +42,7 @@ const step = {
         options: {
           content: translate(step.translationBundle, CONTENT, {resourceFile: options.resourceFile}),
           class: 'upload-rdf-file-button',
-          ...(options.title ? {} : {title: translate(step.translationBundle, DEFAULT_TITLE)}),
+          title: translate(step.translationBundle, DEFAULT_TITLE),
           ...options,
           url: 'import',
           elementSelector: GuideUtils.getGuideElementSelector('uploadRdfFileButton'),

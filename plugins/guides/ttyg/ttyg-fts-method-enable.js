@@ -33,7 +33,7 @@ const step = {
         guideBlockName: 'toggle-element',
         options: {
           content: translate(this.translationBundle, ENABLE_TOGGLE),
-          ...(options.title ?? {title: translate(this.translationBundle, FTS_METHOD_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, FTS_METHOD_DEFAULT_TITLE),
           class: 'toggle-fts-search',
           ...options,
           url: 'ttyg',

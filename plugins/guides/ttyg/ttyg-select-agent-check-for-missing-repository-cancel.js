@@ -50,7 +50,7 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, MISSING_REPOSITORY),
-          ...(options.title ?? {title: translate(this.translationBundle, TTYG_SELECT_AGENT_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, TTYG_SELECT_AGENT_DEFAULT_TITLE),
           ...options,
           elementSelector: GuideUtils.getElementSelector('.confirm-dialog .cancel-btn'),
           showOn: () => GuideUtils.isVisible('.confirm-dialog .cancel-btn'),

@@ -126,7 +126,7 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, DROPDOWN_CONTENT, {rulesetName: options.rulesetName}),
-          ...(options.title ?? {title: translate(this.translationBundle, REPOSITORIES_CREATE_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, REPOSITORIES_CREATE_DEFAULT_TITLE),
           class: 'gdb-repository-ruleset-select',
           ...options,
           url: 'repository/create/graphdb',

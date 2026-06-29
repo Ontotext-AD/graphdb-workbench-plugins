@@ -35,7 +35,7 @@ const step = {
       {
         guideBlockName: 'copy-text-element',
         options: {
-          ...(options.title ?? {title: translate(this.translationBundle, TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE),
           elementSelector: GuideUtils.getGuideElementSelector('sparql-query-input'),
           text: options.sparqlQuery,
           ...options,

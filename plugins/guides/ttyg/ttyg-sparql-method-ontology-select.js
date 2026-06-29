@@ -34,7 +34,7 @@ const step = {
           content: translate(this.translationBundle, ENABLE_ONTOLOGY_FROM_GRAPH),
           class: 'enable-ontology-from-graph',
           // If mainAction is set the title will be set automatically
-          ...(options.title ?? {title: translate(this.translationBundle, TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE),
           ...options,
           url: 'ttyg',
           elementSelector: GuideUtils.getGuideElementSelector('sparql-ontology-graph-option'),

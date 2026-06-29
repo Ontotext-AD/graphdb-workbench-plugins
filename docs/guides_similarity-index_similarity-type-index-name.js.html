@@ -121,7 +121,7 @@ const step = {
         guideBlockName: 'input-element',
         options: {
           content: translate(this.translationBundle, INPUT_INDEX_NAME),
-          ...(options.title ?? {title: translate(this.translationBundle, CREATE_SIMILARITY_INDEX_DEFAULT)}),
+          title: translate(this.translationBundle, CREATE_SIMILARITY_INDEX_DEFAULT),
           class: 'similarity-index-name-input',
           ...options,
           url: 'similarity/index/create',

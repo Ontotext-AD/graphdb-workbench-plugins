@@ -35,7 +35,7 @@ const step = {
       guideBlockName: 'connectors-parameter-intro',
       options: {
         content: translate(this.translationBundle, SKIP_INITIAL_INDEXING),
-        ...(options.title ?? {title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE),
         ...options,
         class: 'connectors-lucene-skip-initial-indexing-intro',
         connectorName: LUCENE_CONNECTOR_NAME,

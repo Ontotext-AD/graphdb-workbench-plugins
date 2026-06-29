@@ -30,7 +30,7 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, CREATE_INDEX),
-          ...(options.title ?? {title: translate(this.translationBundle, CREATE_SIMILARITY_INDEX_DEFAULT)}),
+          title: translate(this.translationBundle, CREATE_SIMILARITY_INDEX_DEFAULT),
           class: 'similarity-index',
           disableNextFlow: true,
           ...options,

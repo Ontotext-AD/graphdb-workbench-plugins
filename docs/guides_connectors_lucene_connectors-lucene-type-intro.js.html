@@ -122,7 +122,7 @@ const step = {
       guideBlockName: 'connectors-type-intro',
       options: {
         content: translate(this.translationBundle, LUCENE_TYPE_INTRO),
-        ...(options.title ?? {title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE),
         ...options,
         connectorName: LUCENE_CONNECTOR_NAME,
         class: 'connectors-lucene-type-intro'

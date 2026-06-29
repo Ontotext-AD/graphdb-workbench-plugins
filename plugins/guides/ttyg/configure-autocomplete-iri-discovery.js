@@ -47,7 +47,7 @@ const step = {
       options: {
         content,
         class: 'toggle-autocomplete-iri-discovery',
-        ...(options.title ?? {title: translate(this.translationBundle, TTYG_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, TTYG_DEFAULT_TITLE),
         ...options,
         url: 'ttyg',
         elementSelector: GuideUtils.getGuideElementSelector('autocomplete-iri-discovery'),

@@ -52,7 +52,7 @@ const step = {
     return [{
       guideBlockName: 'clickable-element',
       options: {
-        ...(options.title ?? {title: translate(this.translationBundle, CONNECTORS_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, CONNECTORS_DEFAULT_TITLE),
         placement: 'top',
         class: 'connectors-expand-connector',
         content: translate(this.translationBundle, EXPAND_CONNECTOR_CONTENT),

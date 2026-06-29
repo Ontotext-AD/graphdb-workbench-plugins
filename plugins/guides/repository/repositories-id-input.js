@@ -32,7 +32,7 @@ const step = {
         guideBlockName: 'input-element',
         options: {
           content: translate(this.translationBundle, REPOSITORY_ID_CONTENT, {repositoryId: options.repositoryId}),
-          ...(options.title ?? {title: translate(this.translationBundle, REPOSITORIES_CREATE_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, REPOSITORIES_CREATE_DEFAULT_TITLE),
           class: 'gdb-repository-id-input',
           ...options,
           url: 'repository/create/graphdb',

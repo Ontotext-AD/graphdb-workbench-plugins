@@ -125,7 +125,7 @@ const step = {
         options: {
           content: translate(this.translationBundle, DISABLE_TOGGLE),
           class: 'toggle-similarity-search',
-          ...(options.title ?? {title: translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE),
           ...options,
           disable: true,
           url: 'ttyg',

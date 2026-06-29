@@ -31,7 +31,7 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, EDIT_TTYG_AGENT),
-          ...(options.title ?? {title: translate(this.translationBundle, TTYG_EDIT_AGENT_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, TTYG_EDIT_AGENT_DEFAULT_TITLE),
           class: 'edit-agent-btn',
           disableNextFlow: true,
           ...options,

@@ -30,23 +30,22 @@ const step = {
   guideBlockName: 'sparql-explain-editor',
   getSteps: function(options, services) {
     const translate = services.translate;
-    const GuideUtils = services.GuideUtils;
     return [
       {
         guideBlockName: 'input-element',
         options: {
-          ...(options.title ?? {title: translate(this.translationBundle, SPARQL_EDITOR_TITLE)}),
+          title: translate(this.translationBundle, SPARQL_EDITOR_TITLE),
           url: 'sparql',
-          elementSelector: GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR,
+          elementSelector: services.GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR,
           class: 'sparql-explain-editor',
           beforeShowPromise: () => services.YasguiComponentUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
-            .then(() => GuideUtils.waitFor(GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR, 3))
-            .then(() => GuideUtils.deferredShow(500)())
+            .then(() => services.GuideUtils.waitFor(services.GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR, 3))
+            .then(() => services.GuideUtils.deferredShow(500)())
             .catch((error) => {
               services.toastr.error(translate(this.translationBundle, UNEXPECTED_ERROR));
               throw error;
             }),
-          scrollToHandler: GuideUtils.scrollToTop,
+          scrollToHandler: services.GuideUtils.scrollToTop,
           extraContent: options.extraContent,
           ...options
         }

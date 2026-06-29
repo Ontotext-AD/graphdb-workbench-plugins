@@ -45,7 +45,7 @@ const step = {
       {
         guideBlockName: 'read-only-element',
         options: {
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_LINK_FOCUS_TITLE)}),
+          title: translate(this.translationBundle, VISUAL_GRAPH_LINK_FOCUS_TITLE),
           content: translate(this.translationBundle, VISUAL_GRAPH_LINK_FOCUS_CONTENT, {
             fromIriLabel: options.fromIriLabel,
             iriLabel: options.iriLabel,

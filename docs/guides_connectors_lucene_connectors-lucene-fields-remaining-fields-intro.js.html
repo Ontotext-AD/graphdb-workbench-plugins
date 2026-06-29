@@ -125,7 +125,7 @@ const step = {
       guideBlockName: 'connectors-parameter-fields-remaining-fields-intro',
       options: {
         content: translate(step.translationBundle, REMAINING_FIELDS_INTRO),
-        ...(options.title ?? {title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE),
         ...options,
         class: 'connectors-lucene-fields-remaining-fields-intro',
         parameterName: 'fields',

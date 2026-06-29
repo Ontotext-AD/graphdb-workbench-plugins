@@ -33,7 +33,7 @@ const step = {
           placement: 'left',
           class: 'class-relationships-digram-predicates-intro',
           content: translate(this.translationBundle, CONTENT),
-          title: options.title ?? translate(this.translationBundle, DEFAULT_TITLE),
+          title: translate(this.translationBundle, DEFAULT_TITLE),
           ...options
         }
       }

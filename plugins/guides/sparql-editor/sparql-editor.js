@@ -36,7 +36,6 @@ const step = {
   guideBlockName: 'sparql-editor',
   getSteps: function(options, services) {
     const translate = services.translate;
-    const GuideUtils = services.GuideUtils;
 
     const code = document.createElement('code');
     const copy = document.createElement('button');
@@ -54,14 +53,14 @@ const step = {
       {
         guideBlockName: 'input-element',
         options: {
-          ...(options.title ?? {title: translate(this.translationBundle, SPARQL_EDITOR_TITLE)}),
+          title: translate(this.translationBundle, SPARQL_EDITOR_TITLE),
           content: translate(this.translationBundle, QUERY_EDITOR_CONTENT, {queryAsHtmlCodeElement}),
           url: 'sparql',
-          elementSelector: GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR,
+          elementSelector: services.GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR,
           class: 'yasgui-query-editor',
           beforeShowPromise: () => services.YasguiComponentUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
-            .then(() => GuideUtils.waitFor(GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR, 3))
-            .then(() => GuideUtils.deferredShow(500)())
+            .then(() => services.GuideUtils.waitFor(services.GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR, 3))
+            .then(() => services.GuideUtils.deferredShow(500)())
             .catch((error) => {
               services.toastr.error(translate(this.translationBundle, UNEXPECTED_ERROR));
               throw error;
@@ -72,7 +71,7 @@ const step = {
               yasgui.setQuery(query);
               return true;
             }),
-          scrollToHandler: GuideUtils.scrollToTop,
+          scrollToHandler: services.GuideUtils.scrollToTop,
           extraContent: options.queryExtraContent,
           show: (_guide) => () => {
             stepHTMLElement = _guide.currentStep.el.querySelector(`.${copyToEditorButtonClass}`);

@@ -145,7 +145,7 @@ const step = {
     return [{
       guideBlockName: 'clickable-element',
       options: {
-        ...(options.title ?? {title: translate(this.translationBundle, CONNECTORS_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, CONNECTORS_DEFAULT_TITLE),
         placement: 'top',
         class: 'open-view-sparql-query-dialog',
         content: translate(this.translationBundle, OPEN_VIEW_SPARQL_DIALOG),

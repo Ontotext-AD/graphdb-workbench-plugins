@@ -29,7 +29,7 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(step.translationBundle, CONTENT),
-          ...(options.title ? {} : {title: translate(step.translationBundle, DEFAULT_TITLE)}),
+          title: translate(step.translationBundle, DEFAULT_TITLE),
           placement: 'bottom',
           class: 'import-file-button',
           ...options,

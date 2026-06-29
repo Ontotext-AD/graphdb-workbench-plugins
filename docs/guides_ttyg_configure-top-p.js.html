@@ -135,7 +135,7 @@ const step = {
         class: 'configure-top-p',
         content: translate(this.translationBundle, CONFIGURE_TOP_P, {topP: options.topP}),
         onNextValidate: () => Promise.resolve(GuideUtils.validateTextInput(inputSelector, options.topP)),
-        ...(options.title ?? {title: translate(this.translationBundle, TTYG_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, TTYG_DEFAULT_TITLE),
         ...options
       }
     };

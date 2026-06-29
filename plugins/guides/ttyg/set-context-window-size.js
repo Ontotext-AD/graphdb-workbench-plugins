@@ -43,7 +43,7 @@ const step = {
         class: 'set-context-window-size',
         content: translate(this.translationBundle, SET_CONTEXT_WINDOW_SIZE, {contextSize: options.contextSize}),
         onNextValidate: () => Promise.resolve(GuideUtils.validateTextInput(inputSelector, options.contextSize)),
-        ...(options.title ?? {title: translate(this.translationBundle, TTYG_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, TTYG_DEFAULT_TITLE),
         ...options
       }
     };

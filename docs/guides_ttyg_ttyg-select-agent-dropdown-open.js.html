@@ -124,7 +124,7 @@ const step = {
         options: {
           content: translate(this.translationBundle, OPEN_AGENT_DROPDOWN),
           // If mainAction is set the title will be set automatically
-          ...(options.title ?? {title: translate(this.translationBundle, TTYG_SELECT_AGENT_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, TTYG_SELECT_AGENT_DEFAULT_TITLE),
           class: 'open-agent-dropdown',
           disableNextFlow: true,
           ...options,

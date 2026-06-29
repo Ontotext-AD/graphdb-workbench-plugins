@@ -32,7 +32,7 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, VISUAL_GRAPH_SETTINGS_SAVE_CONTENT),
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE)}),
+          title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE),
           elementSelector,
           onNextClick: GuideUtils.clickOnElement(elementSelector),
           ...options
