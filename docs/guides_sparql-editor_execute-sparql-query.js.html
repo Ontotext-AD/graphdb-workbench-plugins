@@ -148,11 +148,7 @@ const step = {
   guideBlockName: 'execute-sparql-query',
   getSteps: function(options, services) {
     const translate = services.translate;
-    const GuideUtils = services.GuideUtils;
-    const toastr = services.toastr;
-    const $translate = services.$translate;
-    const $interpolate = services.$interpolate;
-    const RoutingUtil = services.RoutingUtil;
+
     options.mainAction = 'execute-sparql-query';
     options.title = options.title ?? translate(this.translationBundle, SPARQL_EDITOR_TITLE);
 
@@ -182,8 +178,8 @@ const step = {
           query,
           queryExtraContent: queryDef.queryExtraContent,
           beforeShowPromise: () => services.YasguiComponentUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
-            .then(() => GuideUtils.waitFor(GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR, 3))
-            .then(() => GuideUtils.deferredShow(500)())
+            .then(() => services.GuideUtils.waitFor(services.GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR, 3))
+            .then(() => services.GuideUtils.deferredShow(500)())
             .catch((error) => {
               services.toastr.error(translate(this.translationBundle, UNEXPECTED_ERROR));
               throw error;
@@ -191,14 +187,14 @@ const step = {
           onNextValidate: () => services.YasguiComponentUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
             .then((yasgui) => yasgui.getQuery().then((query) => ({yasgui, queryFromEditor: query})))
             .then(({yasgui, queryFromEditor}) => {
-              const editorQuery = GuideUtils.removeWhiteSpaces(queryFromEditor);
-              const stepQuery = GuideUtils.removeWhiteSpaces(query);
+              const editorQuery = services.GuideUtils.removeWhiteSpaces(queryFromEditor);
+              const stepQuery = services.GuideUtils.removeWhiteSpaces(query);
               if (editorQuery !== stepQuery) {
                 if (editorQuery === 'select*where{?s?p?o.}limit100' || overwriteQuery) {
                   // The query is the default query OR we previously overwrote it => we can overwrite it
                   yasgui.setQuery(query);
                 } else {
-                  GuideUtils.noNextErrorToast(toastr, $translate, $interpolate,
+                  services.GuideUtils.noNextErrorToast(services.toastr, services.$translate, services.$interpolate,
                     QUERY_NOT_SAME_ERROR, options);
                   return false;
                 }
@@ -211,13 +207,13 @@ const step = {
               return services.YasguiComponentUtil.setQuery(Utils.SPARQL_DIRECTIVE_SELECTOR, defaultQuery);
             }
 
-            const haveToReload = 'sparql' !== RoutingUtil.getCurrentRoute();
+            const haveToReload = 'sparql' !== services.RoutingUtil.getCurrentRoute();
 
             if (haveToReload) {
-              RoutingUtil.navigate('/sparql');
+              services.RoutingUtil.navigate('/sparql');
             }
 
-            return GuideUtils.waitFor(GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR)
+            return services.GuideUtils.waitFor(services.GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR)
               .then(() => services.YasguiComponentUtil.executeSparqlQuery('#query-editor', query));
           },
           ...options
@@ -247,10 +243,10 @@ const step = {
         options: {
           extraContent: queryDef.resultExtraContent,
           initPreviousStep: (services, stepId) => {
-            if ('sparql' !== RoutingUtil.getCurrentRoute()) {
-              RoutingUtil.navigate('/sparql');
-              return GuideUtils.waitFor(GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR)
-                .then(() => GuideUtils.deferredShow(500)())
+            if ('sparql' !== services.RoutingUtil.getCurrentRoute()) {
+              services.RoutingUtil.navigate('/sparql');
+              return services.GuideUtils.waitFor(services.GuideUtils.CSS_SELECTORS.SPARQL_EDITOR_SELECTOR)
+                .then(() => services.GuideUtils.deferredShow(500)())
                 .then(() => services.YasguiComponentUtil.executeSparqlQuery('#query-editor', query));
             }
 

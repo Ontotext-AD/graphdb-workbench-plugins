@@ -131,7 +131,7 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, SELECT_REPO_CONTENT),
-          ...(options.title ?? {title: translate(this.translationBundle, REPOSITORIES_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, REPOSITORIES_DEFAULT_TITLE),
           url: 'repository',
           elementSelector: selectRepositoryButtonWrapperSelector,
           class: 'repositories-select-repository',

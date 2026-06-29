@@ -24,17 +24,16 @@ const CONTENT = 'guide.step_plugin.autocomplete-focus-on-indexing-status.content
 const step = {
   guideBlockName: 'autocomplete-focus-on-indexing-status',
   getSteps: function(options, services) {
-    const GuideUtils = services.GuideUtils;
     const translate = services.translate;
 
     return {
       guideBlockName: 'read-only-element',
       options: {
         content: translate(this.translationBundle, CONTENT),
-        ...(options.title ? {} : {title: translate(this.translationBundle, DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, DEFAULT_TITLE),
         ...options,
         url: 'autocomplete',
-        elementSelector: GuideUtils.getGuideElementSelector('autocompleteStatus'),
+        elementSelector: services.GuideUtils.getGuideElementSelector('autocompleteStatus'),
         class: 'autocomplete-status-info',
         canBePaused: false
       }

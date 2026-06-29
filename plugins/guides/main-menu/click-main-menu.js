@@ -91,7 +91,6 @@ const step = {
   guideBlockName: 'click-main-menu',
   getSteps: function(options, services) {
     const translate = services.translate;
-    const GuideUtils = services.GuideUtils;
     const steps = [];
 
     let menuSelector;
@@ -254,7 +253,7 @@ const step = {
     }
 
     const menuLabel = translate(this.translationBundle, menuTitle);
-    const elementSelector = GuideUtils.getGuideElementSelector(menuSelector);
+    const elementSelector = services.GuideUtils.getGuideElementSelector(menuSelector);
     // Main menu element
     steps.push({
       guideBlockName: 'clickable-element',
@@ -263,9 +262,9 @@ const step = {
         class: menuDialogClass,
         elementSelector,
         beforeShowPromise: () => {
-          if (!!submenuSelector && GuideUtils.isGuideElementVisible(submenuSelector)) {
+          if (!!submenuSelector && services.GuideUtils.isGuideElementVisible(submenuSelector)) {
             return new Promise((resolve) => {
-              GuideUtils.clickOnGuideElement(menuSelector, mainMenuClickElementPostSelector)();
+              services.GuideUtils.clickOnGuideElement(menuSelector, mainMenuClickElementPostSelector)();
               // Needed to wait the layout to complete, before painting, thus avoiding ResizeObserver loop error
               setTimeout(resolve, 500);
             });
@@ -273,8 +272,8 @@ const step = {
           return Promise.resolve();
         },
 
-        onNextClick: GuideUtils.clickOnGuideElement(menuSelector, mainMenuClickElementPostSelector),
-        scrollToHandler: () => GuideUtils.scrollIntoView(elementSelector, {block: 'center'}),
+        onNextClick: services.GuideUtils.clickOnGuideElement(menuSelector, mainMenuClickElementPostSelector),
+        scrollToHandler: () => services.GuideUtils.scrollIntoView(elementSelector, {block: 'center'}),
         initPreviousStep: (services, stepId) => {
           const previousStep = services.ShepherdService.getPreviousStepFromHistory(stepId);
           if (previousStep) {
@@ -287,9 +286,9 @@ const step = {
       }
     });
 
-    const submenuLabel = translate(this.translationBundle, submenuTitle);
     if (submenuSelector) {
-      const elementSubmenuSelector = GuideUtils.getGuideElementSelector(submenuSelector);
+      const submenuLabel = translate(this.translationBundle, submenuTitle);
+      const elementSubmenuSelector = services.GuideUtils.getGuideElementSelector(submenuSelector);
       steps.push({
         guideBlockName: 'clickable-element',
         options: {
@@ -298,8 +297,8 @@ const step = {
           elementSelector: elementSubmenuSelector,
           placement: 'right',
           canBePaused: false,
-          onNextClick: GuideUtils.clickOnGuideElement(submenuSelector, ' a'),
-          scrollToHandler: () => GuideUtils.scrollIntoView(elementSubmenuSelector, {block: 'center'}),
+          onNextClick: services.GuideUtils.clickOnGuideElement(submenuSelector, ' a'),
+          scrollToHandler: () => services.GuideUtils.scrollIntoView(elementSubmenuSelector, {block: 'center'}),
           initPreviousStep: (services, stepId) => {
             const previousStep = services.ShepherdService.getPreviousStepFromHistory(stepId);
             if (previousStep) {

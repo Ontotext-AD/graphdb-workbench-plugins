@@ -117,7 +117,7 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           // Title comes from options.title when provided, otherwise use translated default
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_DEFAULT_TITLE),
           content: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_AUTOCOMPLETE_ITEM_CONTENT, {iri: options.iri}),
           url: 'graphs-visualizations',
           elementSelector: GuideUtils.getGuideElementSelector(`autocomplete-${options.iri}`),

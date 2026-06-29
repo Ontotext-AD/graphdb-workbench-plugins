@@ -122,7 +122,7 @@ const step = {
         guideBlockName: 'info-message',
         options: {
           content: translate(this.translationBundle, SELECT_AGENT_INFO),
-          ...(options.title ?? {title: translate(this.translationBundle, TTYG_SELECT_AGENT_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, TTYG_SELECT_AGENT_DEFAULT_TITLE),
           class: 'select-ttyg-agent',
           skipPoint: true,
           skipButtonLabel: translate(this.translationBundle, SKIP_SECTION),

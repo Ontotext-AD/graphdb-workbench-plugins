@@ -35,7 +35,7 @@ const step = {
       guideBlockName: 'connectors-array-subparameter-intro',
       options: {
         content: translate(this.translationBundle, ANALYZED_INTRO_CONTENT),
-        ...(options.title ?? {title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE),
         ...options,
         class: 'connectors-lucene-fields-analyzed-intro',
         connectorName: LUCENE_CONNECTOR_NAME,

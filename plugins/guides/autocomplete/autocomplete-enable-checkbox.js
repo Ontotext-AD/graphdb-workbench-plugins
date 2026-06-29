@@ -22,9 +22,7 @@ const CONTENT = 'guide.step_plugin.autocomplete-enable-checkbox.content';
 const step = {
   guideBlockName: 'autocomplete-enable-checkbox',
   getSteps: function(options, services) {
-    const GuideUtils = services.GuideUtils;
     const translate = services.translate;
-    const autocompleteCheckboxSelector = GuideUtils.getGuideElementSelector('autocompleteCheckbox');
     let checkboxElement;
     let autocompleteCheckboxClickEventHandler;
     return [
@@ -32,21 +30,21 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, CONTENT),
-          ...(options.title ? {} : {title: translate(this.translationBundle, DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, DEFAULT_TITLE),
           class: 'enable-autocomplete-checkbox',
           ...options,
           url: 'autocomplete',
-          elementSelector: autocompleteCheckboxSelector,
+          elementSelector: services.GuideUtils.getGuideElementSelector('autocompleteCheckbox'),
           // Disable default behavior of service when element is clicked.
           advanceOn: undefined,
-          beforeShowPromise: () => GuideUtils.deferredShow(500)(),
+          beforeShowPromise: () => services.GuideUtils.deferredShow(500)(),
           show: (guide) => () => {
-            checkboxElement = document.querySelector(autocompleteCheckboxSelector);
+            checkboxElement = document.querySelector(services.GuideUtils.getGuideElementSelector('autocompleteCheckbox'));
             autocompleteCheckboxClickEventHandler = () => {
               // If autocomplete is enabled go to the next step.
-              GuideUtils.deferredShow(200)()
+              services.GuideUtils.deferredShow(200)()
                 .then(() => {
-                  if (GuideUtils.isGuideElementChecked('autocompleteCheckbox', ' input')) {
+                  if (services.GuideUtils.isGuideElementChecked('autocompleteCheckbox', ' input')) {
                     guide.next();
                   }
                 });
@@ -55,7 +53,7 @@ const step = {
             checkboxElement.addEventListener('mouseup', autocompleteCheckboxClickEventHandler);
           },
           onNextClick: (guide) => {
-            if (!GuideUtils.isGuideElementChecked('autocompleteCheckbox', ' input')) {
+            if (!services.GuideUtils.isGuideElementChecked('autocompleteCheckbox', ' input')) {
               checkboxElement.click();
             }
             guide.next();

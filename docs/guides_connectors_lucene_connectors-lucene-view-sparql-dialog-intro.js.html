@@ -121,7 +121,7 @@ const step = {
       guideBlockName: 'connectors-view-sparql-dialog-intro',
       options: {
         content: translate(this.translationBundle, VIEW_SPARQL_DIALOG),
-        ...(options.title ?? {title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE),
         ...options,
         class: 'connectors-lucene-view-sparql-dialog-intro'
       }

@@ -35,7 +35,7 @@ const step = {
       guideBlockName: 'connectors-open-view-sparql-query-dialog',
       options: {
         content: translate(this.translationBundle, OPEN_SPARQL),
-        ...(options.title ?? {title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE),
         ...options,
         class: 'connectors-lucene-open-view-sparql-query-dialog',
         connectorName: LUCENE_CONNECTOR_NAME,

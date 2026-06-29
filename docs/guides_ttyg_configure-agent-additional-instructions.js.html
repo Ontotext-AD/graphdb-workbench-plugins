@@ -127,7 +127,7 @@ const step = {
         guideBlockName: 'copy-text-element',
         options: {
           extraContent: translate(this.translationBundle, CONFIGURE_USER_INSTRUCTIONS),
-          ...(options.title ?? {title: translate(this.translationBundle, TTYG_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, TTYG_DEFAULT_TITLE),
           class: 'input-user-instructions',
           disablePreviousFlow: false,
           text: options.userInstructions,

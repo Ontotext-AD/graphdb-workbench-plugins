@@ -125,7 +125,7 @@ const step = {
           content: translate(this.translationBundle, CONFIGURE_AGENT_NAME),
           class: 'input-agent-name',
           disablePreviousFlow: false,
-          ...(options.title ?? {title: translate(this.translationBundle, TTYG_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, TTYG_DEFAULT_TITLE),
           ...options,
           url: 'ttyg',
           beforeShowPromise: () => GuideUtils.waitFor(GuideUtils.getGuideElementSelector('agent-form'), 5)

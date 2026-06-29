@@ -30,7 +30,7 @@ const step = {
         guideBlockName: 'info-message',
         options: {
           content: translate(this.translationBundle, SEARCH_METHOD_CONTENT),
-          ...(options.title ?? {title: translate(this.translationBundle, TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, TTYG_SPARQL_SEARCH_METHOD_DEFAULT_TITLE),
           class: 'info-sparql-search',
           ...options,
           url: 'ttyg'

@@ -37,7 +37,7 @@ const step = {
         guideBlockName: 'input-element',
         options: {
           content: translate(this.translationBundle, CONFIGURE_AGENT_MODEL, {model: options.model}),
-          ...(options.title ?? {title: translate(this.translationBundle, TTYG_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, TTYG_DEFAULT_TITLE),
           class: 'input-model',
           disablePreviousFlow: false,
           ...options,

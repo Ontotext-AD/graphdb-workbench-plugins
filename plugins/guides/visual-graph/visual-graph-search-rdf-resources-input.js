@@ -25,7 +25,7 @@ const step = {
         guideBlockName: 'input-element',
         options: {
           // Title comes from options.title when provided, otherwise use translated default
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_DEFAULT_TITLE),
           content: translate(this.translationBundle, VISUAL_GRAPH_SEARCH_RDF_RESOURCES_INPUT_CONTENT, {easyGraphInputText: options.easyGraphInputText}),
           forceReload: true,
           url: 'graphs-visualizations',

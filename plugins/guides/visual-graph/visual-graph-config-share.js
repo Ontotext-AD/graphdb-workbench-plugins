@@ -32,7 +32,7 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, VISUAL_GRAPH_CONFIG_SHARE_CONTENT),
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE)}),
+          title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE),
           url: 'graphs-visualizations/config/save',
           elementSelector,
           onNextValidate: () => Promise.resolve(GuideUtils.isChecked(elementSelector)),

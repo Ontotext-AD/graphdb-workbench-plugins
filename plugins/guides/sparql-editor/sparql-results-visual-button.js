@@ -24,18 +24,17 @@ const step = {
   guideBlockName: 'sparql-results-visual-button',
   getSteps: function(options, services) {
     const translate = services.translate;
-    const GuideUtils = services.GuideUtils;
     return [
       {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, SPARQL_RESULT_CONTENT),
-          ...(options.title ?? {title: translate(this.translationBundle, SPARQL_EDITOR_TITLE)}),
+          title: translate(this.translationBundle, SPARQL_EDITOR_TITLE),
           url: 'sparql',
-          elementSelector: GuideUtils.CSS_SELECTORS.SPARQL_VISUAL_BUTTON_SELECTOR,
+          elementSelector: services.GuideUtils.CSS_SELECTORS.SPARQL_VISUAL_BUTTON_SELECTOR,
           class: 'visual-sparql-results-button',
-          scrollToHandler: GuideUtils.scrollToTop,
-          onNextClick: () => GuideUtils.clickOnElement(GuideUtils.CSS_SELECTORS.SPARQL_VISUAL_BUTTON_SELECTOR)(),
+          scrollToHandler: services.GuideUtils.scrollToTop,
+          onNextClick: () => services.GuideUtils.clickOnElement(services.GuideUtils.CSS_SELECTORS.SPARQL_VISUAL_BUTTON_SELECTOR)(),
           ...options
         }
       }

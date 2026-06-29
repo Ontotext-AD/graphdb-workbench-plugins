@@ -24,19 +24,18 @@ const step = {
   guideBlockName: 'sparql-results-explain',
   getSteps: function(options, services) {
     const translate = services.translate;
-    const GuideUtils = services.GuideUtils;
     return [
       {
         guideBlockName: 'read-only-element',
         options: {
-          ...(options.title ?? {title: translate(this.translationBundle, SPARQL_EDITOR_TITLE)}),
+          title: translate(this.translationBundle, SPARQL_EDITOR_TITLE),
           content: translate(this.translationBundle, EXPLAIN_CONTENT),
           url: 'sparql',
           placement: 'top',
-          elementSelector: GuideUtils.CSS_SELECTORS.SPARQL_RESULTS_SELECTOR,
+          elementSelector: services.GuideUtils.CSS_SELECTORS.SPARQL_RESULTS_SELECTOR,
           class: 'yasgui-query-results',
           fileName: options.fileName,
-          scrollToHandler: GuideUtils.scrollToTop,
+          scrollToHandler: services.GuideUtils.scrollToTop,
           extraContent: options.resultExtraContent,
           canBePaused: false,
           ...options

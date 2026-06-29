@@ -32,7 +32,7 @@ const step = {
         options: {
           content: translate(this.translationBundle, SIMILARITY_CONTENT),
           class: 'info-similarity-search',
-          ...(options.title ?? {title: translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, SIMILARITY_SEARCH_METHOD_DEFAULT_TITLE),
           ...options,
           url: 'ttyg'
         }

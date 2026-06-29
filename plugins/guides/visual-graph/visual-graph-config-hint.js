@@ -39,7 +39,7 @@ const step = {
         guideBlockName: 'input-element',
         options: {
           content: translate(this.translationBundle, VISUAL_GRAPH_CONFIG_PROPERTIES_HINT, {configHint}),
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE)}),
+          title: translate(this.translationBundle, VISUAL_GRAPH_EXPLORE_TITLE),
           url: 'graphs-visualizations/config/save',
           ...options,
           elementSelector,

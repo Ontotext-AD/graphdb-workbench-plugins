@@ -26,22 +26,22 @@ const step = {
   guideBlockName: 'sparql-editor-run-button',
   getSteps: function(options, services) {
     const translate = services.translate;
-    const GuideUtils = services.GuideUtils;
+
     return [
       {
         guideBlockName: 'clickable-element',
         options: {
-          ...(options.title ?? {title: translate(this.translationBundle, SPARQL_EDITOR_TITLE)}),
+          title: translate(this.translationBundle, SPARQL_EDITOR_TITLE),
           content: translate(this.translationBundle, RUN_QUERY),
           url: 'sparql',
-          elementSelector: GuideUtils.CSS_SELECTORS.SPARQL_RUN_BUTTON_SELECTOR,
+          elementSelector: services.GuideUtils.CSS_SELECTORS.SPARQL_RUN_BUTTON_SELECTOR,
           class: 'yasgui-run-button',
           onNextClick: (guide) => services.YasguiComponentUtil.getOntotextYasguiElementAsync(Utils.SPARQL_DIRECTIVE_SELECTOR)
             .then((yasgui) => {
               yasgui.query();
               guide.next();
             }),
-          scrollToHandler: GuideUtils.scrollToTop,
+          scrollToHandler: services.GuideUtils.scrollToTop,
           ...options
         }
       }

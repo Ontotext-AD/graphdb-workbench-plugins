@@ -131,7 +131,7 @@ const step = {
       {
         guideBlockName: 'read-only-element',
         options: {
-          ...(options.title ?? {title: translate(this.translationBundle, VISUAL_GRAPH_NODE_FOCUS_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, VISUAL_GRAPH_NODE_FOCUS_DEFAULT_TITLE),
           content: translate(this.translationBundle, VISUAL_GRAPH_NODE_FOCUS_CONTENT, {iriLabel: options.iriLabel}),
           url: 'graphs-visualizations',
           canBePaused: false,

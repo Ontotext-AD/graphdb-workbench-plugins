@@ -121,7 +121,7 @@ const step = {
         guideBlockName: 'clickable-element',
         options: {
           content: translate(this.translationBundle, GRAPHDB_REPOSITORY_CONTENT),
-          ...(options.title ?? {title: translate(this.translationBundle, REPOSITORIES_CREATE_DEFAULT_TITLE)}),
+          title: translate(this.translationBundle, REPOSITORIES_CREATE_DEFAULT_TITLE),
           class: 'create-gdb-repository',
           ...options,
           url: 'repository/create',

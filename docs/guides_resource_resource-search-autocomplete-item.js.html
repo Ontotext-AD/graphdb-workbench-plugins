@@ -127,7 +127,7 @@ const step = {
       {
         guideBlockName: 'clickable-element',
         options: {
-          ...(options.title ?? {title: translate(this.translationBundle, RESOURCE_SEARCH_AUTOCOMPLETE_ITEM_TITLE)}),
+          title: translate(this.translationBundle, RESOURCE_SEARCH_AUTOCOMPLETE_ITEM_TITLE),
           content: translate(this.translationBundle, RESOURCE_SEARCH_AUTOCOMPLETE_ITEM_CONTENT, {iri: options.iri}),
           elementSelector: GuideUtils.getGuideElementSelector(`autocomplete-${options.iri}`),
           onNextClick: (guide, step) => GuideUtils.waitFor(step.elementSelector, 3).then(() => $(step.elementSelector).trigger('click')),

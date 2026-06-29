@@ -149,7 +149,7 @@ const step = {
 
     return [{
       guideBlockName: 'read-only-element', options: {
-        ...(options.title ?? {title: translate(step.translationBundle, CONNECTORS_DEFAULT_TITLE)}),
+        title: translate(step.translationBundle, CONNECTORS_DEFAULT_TITLE),
         placement: 'top',
         class: 'connectors-remaining-fieldsets-intro',
         content: translate(step.translationBundle, REMAINING_FIELDS_INTRO),

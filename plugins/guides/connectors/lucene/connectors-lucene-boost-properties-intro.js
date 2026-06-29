@@ -35,7 +35,7 @@ const step = {
       guideBlockName: 'connectors-parameter-intro',
       options: {
         content: translate(this.translationBundle, BOOST_PROPERTIES),
-        ...(options.title ?? {title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, LUCENE_DEFAULT_TITLE),
         ...options,
         class: 'connectors-lucene-boost-properties-intro',
         connectorName: LUCENE_CONNECTOR_NAME,

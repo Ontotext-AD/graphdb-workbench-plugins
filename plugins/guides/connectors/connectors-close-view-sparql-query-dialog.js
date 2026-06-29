@@ -29,7 +29,7 @@ const step = {
     return [{
       guideBlockName: 'clickable-element',
       options: {
-        ...(options.title ?? {title: translate(this.translationBundle, CONNECTORS_DEFAULT_TITLE)}),
+        title: translate(this.translationBundle, CONNECTORS_DEFAULT_TITLE),
         placement: 'top',
         class: 'connectors-close-view-sparql-query-dialog',
         content: translate(this.translationBundle, CLOSE_VIEW_SPARQL_DIALOG),

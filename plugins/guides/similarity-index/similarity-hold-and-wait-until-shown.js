@@ -28,7 +28,7 @@ const step = {
       {
         guideBlockName: 'hold-and-wait-until-shown',
         options: {
-          title: options.title ?? translate(this.translationBundle, CREATE_SIMILARITY_INDEX_DEFAULT),
+          title: translate(this.translationBundle, CREATE_SIMILARITY_INDEX_DEFAULT),
           content: translate(this.translationBundle, WAIT_FOR_INDEX),
           class: 'wait-for-index',
           ...options,

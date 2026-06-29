@@ -33,7 +33,7 @@ const step = {
           url: 'rdfrank',
           content: translate(this.translationBundle, COMPUTE_FILL),
           elementSelector: computeRDFRankButtonSelector,
-          ...(options.title ?? {title: translate(this.translationBundle, RDF_RANK_TITLE)}),
+          title: translate(this.translationBundle, RDF_RANK_TITLE),
           onNextClick: GuideUtils.clickOnElement( computeRDFRankButtonSelector),
           ...options
         }
