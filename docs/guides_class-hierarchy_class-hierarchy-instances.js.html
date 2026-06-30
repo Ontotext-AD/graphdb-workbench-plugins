@@ -213,11 +213,16 @@ const step = {
       });
     }
 
+    let urlBeforeFollowCountLink = null;
+
     if (options.followCountLink) {
       steps.push({
         guideBlockName: 'class-hierarchy-rdf-instances-side-panel-open-all-instances-in-sparql',
         options: {
           title,
+          show: () => () => {
+            urlBeforeFollowCountLink = window.location.href;
+          },
           ...options
         }
       });
@@ -239,7 +244,7 @@ const step = {
           extraContent,
           content: pluginService.translate(this.translationBundle, RESULTS_CONTENT),
           onNextClick: (guide) => {
-            window.history.back();
+            RoutingUtil.navigate(urlBeforeFollowCountLink);
             guide.next();
           },
           initPreviousStep: () => Promise.resolve(),
