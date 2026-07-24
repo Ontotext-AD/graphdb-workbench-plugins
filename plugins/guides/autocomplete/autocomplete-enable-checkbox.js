@@ -37,7 +37,7 @@ const step = {
           elementSelector: services.GuideUtils.getGuideElementSelector('autocompleteCheckbox'),
           // Disable default behavior of service when element is clicked.
           advanceOn: undefined,
-          beforeShowPromise: () => services.GuideUtils.getOrWaitFor(services.GuideUtils.getGuideElementSelector('autocompleteCheckbox')),
+          beforeShowPromise: () => services.GuideUtils.getOrWaitFor(services.GuideUtils.getGuideElementSelector('autocompleteCheckbox'), 5),
           show: (guide) => () => {
             checkboxElement = document.querySelector(services.GuideUtils.getGuideElementSelector('autocompleteCheckbox'));
             autocompleteCheckboxClickEventHandler = () => {
