@@ -98,6 +98,7 @@ const MENU_IMPORT_LABEL = 'common.import';
 const MENU_EXPLORE_LABEL = 'menu.explore.label';
 const MENU_SPARQL_LABEL = 'menu.sparql.label';
 const MENU_LAB_LABEL = 'menu.lab.label';
+const MENU_TTYG_LABEL = 'menu.ttyg.label';
 
 const SUBMENU_REPOSITORIES_LABEL = 'menu.repositories.label';
 const SUBMENU_AUTOCOMPLETE_LABEL = 'menu.autocomplete.label';
@@ -105,7 +106,6 @@ const SUBMENU_CONNECTORS_LABEL = 'menu.connectors.label';
 const SUBMENU_VISUAL_GRAPH_LABEL = 'visual.graph.label';
 const SUBMENU_CLASS_HIERARCHY_LABEL = 'menu.class.hierarchy.label';
 const SUBMENU_CLASS_RELATIONSHIPS_LABEL = 'menu.class.relationships.label';
-const SUBMENU_TTYG_LABEL = 'menu.ttyg.label';
 const SUBMENU_SIMILARITY_LABEL = 'menu.similarity.label';
 
 const VIEW_AUTOCOMPLETE_TITLE = 'view.autocomplete.title';
@@ -285,13 +285,10 @@ const step = {
       break;
 
     case 'ttyg':
-      menuSelector = 'menu-lab';
-      menuTitle = MENU_LAB_LABEL;
-      menuDialogClass = 'menu-lab';
-      submenuSelector = 'sub-menu-ttyg';
-      submenuTitle = SUBMENU_TTYG_LABEL;
-      submenuDialogClass = 'sub-menu-ttyg';
-      viewName = SUBMENU_TTYG_LABEL;
+      menuSelector = 'menu-ttyg';
+      menuTitle = MENU_TTYG_LABEL;
+      menuDialogClass = 'menu-ttyg';
+      viewName = MENU_TTYG_LABEL;
       helpInfo = HELP_INFO_TTYG;
       dialogTitle = ACTION_CREATE_TTYG_AGENT;
       break;
@@ -417,13 +414,13 @@ const step = {
       [MENU_EXPLORE_LABEL]: 'Explore',
       [MENU_SPARQL_LABEL]: 'SPARQL',
       [MENU_LAB_LABEL]: 'Lab',
+      [MENU_TTYG_LABEL]: 'Talk to Your Graph',
       [SUBMENU_REPOSITORIES_LABEL]: 'Repositories',
       [SUBMENU_AUTOCOMPLETE_LABEL]: 'Autocomplete',
       [SUBMENU_CONNECTORS_LABEL]: 'Connectors',
       [SUBMENU_VISUAL_GRAPH_LABEL]: 'Visual graph',
       [SUBMENU_CLASS_HIERARCHY_LABEL]: 'Class hierarchy',
       [SUBMENU_CLASS_RELATIONSHIPS_LABEL]: 'Class relationships',
-      [SUBMENU_TTYG_LABEL]: 'Talk to Your Graph',
       [SUBMENU_SIMILARITY_LABEL]: 'Similarity',
       [VIEW_AUTOCOMPLETE_TITLE]: 'Autocomplete index',
       [VIEW_CONNECTOR_MANAGEMENT_TITLE]: 'Connector management',
@@ -469,13 +466,13 @@ const step = {
       [MENU_EXPLORE_LABEL]: 'Explorez',
       [MENU_SPARQL_LABEL]: 'SPARQL',
       [MENU_LAB_LABEL]: 'Laboratoire',
+      [MENU_TTYG_LABEL]: 'Parlez à votre graphe',
       [SUBMENU_REPOSITORIES_LABEL]: 'Dépôts',
       [SUBMENU_AUTOCOMPLETE_LABEL]: 'Autocomplétion',
       [SUBMENU_CONNECTORS_LABEL]: 'Connecteurs',
       [SUBMENU_VISUAL_GRAPH_LABEL]: 'Graphique visuel',
       [SUBMENU_CLASS_HIERARCHY_LABEL]: 'Hiérarchie des classes',
       [SUBMENU_CLASS_RELATIONSHIPS_LABEL]: 'Relations entre les classes',
-      [SUBMENU_TTYG_LABEL]: 'Parlez à votre graphe',
       [SUBMENU_SIMILARITY_LABEL]: 'Similarité',
       [VIEW_AUTOCOMPLETE_TITLE]: 'Index Autocomplete',
       [VIEW_CONNECTOR_MANAGEMENT_TITLE]: 'Gestion des connecteurs',
