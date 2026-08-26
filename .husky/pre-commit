@@ -9,8 +9,13 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
   . "$NVM_DIR/nvm.sh"
 fi
 
+# Abort the commit iif anything returns non 0 exit code
+set -e
+
 # Run your checks
 npm run validate-manifest
 npm run document
+# Stage the generated docs
+git add -A docs
 npm run validate-guides-translations
 npx eslint . --max-warnings 1000
