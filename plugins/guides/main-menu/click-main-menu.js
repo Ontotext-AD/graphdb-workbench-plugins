@@ -226,7 +226,7 @@ const step = {
       break;
     }
 
-    const mainMenuClickElementPostSelector = submenuSelector ? ' div' : ' a';
+    const mainMenuClickElementPostSelector = submenuSelector ? ' .menu-element-root' : ' a';
     options.viewName = viewName;
 
     if (!options.title && dialogTitle) {
