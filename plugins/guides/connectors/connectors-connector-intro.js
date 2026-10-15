@@ -38,7 +38,6 @@ const step = {
      *   <ol>Possible values:
      *    <li>Elasticsearch</li>
      *    <li>OpenSearch</li>
-     *    <li>Solr</li>
      *    <li>Lucene</li>
      *    <li>Kafka</li>
      *    <li>ChatGPT-Retrieval</li>
