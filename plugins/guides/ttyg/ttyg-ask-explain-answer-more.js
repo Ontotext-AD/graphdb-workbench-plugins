@@ -35,7 +35,7 @@ const step = {
         options: {
           url: 'ttyg',
           beforeShowPromise: (guide, currentStep) => {
-            return GuideUtils.waitFor(elementSelector, 1)
+            return GuideUtils.waitFor(elementSelector)
               .then(() => {
                 // Using a timeout because the library executes logic to show the step in a then clause which causes current and next steps to show
                 setTimeout(() => guide.next());

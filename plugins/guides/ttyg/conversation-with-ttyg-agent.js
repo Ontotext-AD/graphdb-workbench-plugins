@@ -56,7 +56,7 @@ const step = {
           guideBlockName: 'info-message',
           options: {
             url: 'ttyg',
-            beforeShowPromise: (guide, currentStep) => GuideUtils.waitFor(createChatBtnSelector, 1)
+            beforeShowPromise: (guide, currentStep) => GuideUtils.waitFor(createChatBtnSelector)
               .then(() => {
                 // Using a timeout because the library executes logic to show the step in a then clause which causes current and next steps to show
                 setTimeout(() => guide.next());

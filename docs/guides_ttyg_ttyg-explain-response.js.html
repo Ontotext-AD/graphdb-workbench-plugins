@@ -124,7 +124,7 @@ const step = {
         guideBlockName: 'info-message',
         options: {
           url: 'ttyg',
-          beforeShowPromise: (guide, currentStep) => GuideUtils.waitFor(elementSelector, 1)
+          beforeShowPromise: (guide, currentStep) => GuideUtils.waitFor(elementSelector)
             .then(() => {
               // Using a timeout because the library executes logic to show the step in a then clause which causes current and next steps to show
               setTimeout(() => guide.next());
