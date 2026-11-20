@@ -59,7 +59,7 @@ const step = {
         },
         class: 'repository-select-button',
         advanceOn: undefined,
-        beforeShowPromise: () => services.GuideUtils.waitFor(Utils.getRepositoryElementSelector(services, options), 1)
+        beforeShowPromise: () => services.GuideUtils.waitFor(Utils.getRepositoryElementSelector(services, options))
           .then((element) => repositorySelectorElement = element)
           .catch((error) => {
             services.toastr.error(translate(this.translationBundle, UNEXPECTED_ERROR_MESSAGE));

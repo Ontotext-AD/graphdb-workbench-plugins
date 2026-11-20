@@ -94,7 +94,7 @@ const step = {
           skipButtonLabel: translate(this.translationBundle, SKIP_SECTION),
           beforeShowPromise: GuideUtils.deferredShow(800),
           onPreviousClick: () => new Promise(function(resolve) {
-            GuideUtils.waitFor(closeButtonSelector, 1)
+            GuideUtils.waitFor(closeButtonSelector)
               .then(() => document.querySelector(closeButtonSelector).click());
             resolve();
           }),
